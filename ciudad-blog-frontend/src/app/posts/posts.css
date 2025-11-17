@@ -1,0 +1,56 @@
+h2 {
+  color: var(--secundario);   /* usa tu paleta global */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;           /* ancho controlado */
+  margin: 0 auto;             /* centrado */
+  background: var(--acento2); /* fondo suave */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form label {
+  font-weight: bold;
+  color: var(--secundario);
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  background: linear-gradient(120deg, var(--extra), var(--acento3));
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.4s ease;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: var(--secundario);
+  transform: scale(1.07);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,30 @@
+<h1>Dashboard - Lista de Participantes</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Historial</th>
+    <th>Género</th>
+    <th>Proyecto ID</th>
+    <th>Género ID</th>
+  </tr>
+  <tr *ngFor="let participante of participantes">
+    <td>{{ participante.id }}</td>
+    <td>{{ participante.nombre }}</td>
+    <td>{{ participante.edad }}</td>
+    <td>{{ participante.historial }}</td>
+    <td>{{ participante.genero }}</td>
+    <td>{{ participante.proyectoId }}</td>
+    <td>{{ participante.generoId }}</td>
+  </tr>
+</table>
+
+<div class="contenedor-botones">
+  <button routerLink="/consultar">Consultar Participante</button>
+  <button routerLink="/actualizar">Actualizar Participante</button>
+  <button routerLink="/eliminar">Eliminar Participante</button>
+  <button routerLink="/login">Login</button>
+  <button routerLink="/">Volver al inicio</button>
+</div>

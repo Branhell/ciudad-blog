@@ -1,0 +1,28 @@
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #87CEEB;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f0f8ff;
+}
+
+.contenedor-botones {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
