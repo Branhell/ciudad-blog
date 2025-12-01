@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { PostService } from '../../services/post.service';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-post-list',
@@ -9,15 +10,42 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent {
-  posts: any[] = [];
+export class PostListComponent implements OnInit {
+  posts: Post[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private postService: PostService) {}
 
-  solicitarEliminacion(postId: number | undefined) {
-    if (postId !== undefined) {
-      this.http.put(`http://localhost:8080/posts/${postId}/solicitar-eliminacion`, {})
-        .subscribe(() => console.log('Eliminación solicitada'));
-    }
+  ngOnInit(): void {
+    this.cargarPosts();
+  }
+
+  cargarPosts(): void {
+    this.postService.getPosts().subscribe(data => {
+      this.posts = data;
+    });
+  }
+
+  darLike(postId?: number): void {
+    if (!postId) return; // evita error si id es undefined
+    this.postService.likePost(postId).subscribe(() => {
+      console.log('Like agregado');
+      this.cargarPosts(); // refresca la lista
+    });
+  }
+
+  agregarComentario(postId?: number): void {
+    if (!postId) return;
+    this.postService.addComment(postId).subscribe(() => {
+      console.log('Comentario agregado');
+      this.cargarPosts(); // refresca la lista
+    });
+  }
+
+  solicitarEliminacion(postId?: number): void {
+    if (!postId) return;
+    this.postService.solicitarEliminacion(postId).subscribe(() => {
+      console.log('Eliminación solicitada');
+      this.cargarPosts(); // refresca la lista
+    });
   }
 }

@@ -1,0 +1,28 @@
+.home-container {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  color: #555;
+}
+/* Asegura que toda la página pueda hacer scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;   /* 👈 habilita scroll vertical */
+}
+
+/* Opcional: para que el contenido se centre pero aún permita scroll */
+.contenido {
+  min-height: 100vh;  /* ocupa toda la altura */
+  box-sizing: border-box;
+}

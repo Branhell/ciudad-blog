@@ -1,2 +1,16 @@
 <h2>Consultar Participante</h2>
-<p>Aquí irá el formulario de consulta.</p>
+
+<label for="id">ID del participante:</label>
+<input type="number" [(ngModel)]="id" id="id">
+<button (click)="consultar()">Buscar</button>
+
+<div *ngIf="participante">
+  <h3>Datos del participante</h3>
+  <p><strong>ID:</strong> {{ participante.id }}</p>
+  <p><strong>Nombre:</strong> {{ participante.nombre }}</p>
+  <p><strong>Edad:</strong> {{ participante.edad }}</p>
+  <p><strong>Historial:</strong> {{ participante.historial }}</p>
+  <p><strong>Género:</strong> {{ participante.genero }}</p>
+  <p><strong>Proyecto ID:</strong> {{ participante.proyectoId }}</p>
+  <p><strong>Género ID:</strong> {{ participante.generoId }}</p>
+</div>

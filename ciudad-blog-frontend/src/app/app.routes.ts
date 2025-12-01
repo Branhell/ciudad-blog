@@ -6,10 +6,9 @@ import { RegistroComponent } from './registro/registro';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },    // login
-  { path: 'registro', component: RegistroComponent }, // registro ✅ coma aquí
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
   // CRUD (solo accesibles desde dashboard)
   { path: 'participantes', loadComponent: () => import('./participantes/participantes').then(m => m.ParticipantesComponent) },
@@ -17,10 +16,9 @@ export const routes: Routes = [
   { path: 'actualizar', loadComponent: () => import('./actualizar/actualizar').then(m => m.ActualizarComponent) },
   { path: 'eliminar', loadComponent: () => import('./eliminar/eliminar').then(m => m.EliminarComponent) },
 
-  { path: 'posts', loadComponent: () => import('./posts/posts').then(m => m.PostsComponent) },
-
+  // Blog / Posts
   // Rutas de menú (pantallas vacías por ahora)
-  // { path: 'expresate', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
+  { path: 'expresate', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
   // { path: 'servicios', loadComponent: () => import('./servicios/servicios').then(m => m.ServiciosComponent) },
   // { path: 'productos', loadComponent: () => import('./productos/productos').then(m => m.ProductosComponent) },
   // { path: 'noticias', loadComponent: () => import('./noticias/noticias').then(m => m.NoticiasComponent) },

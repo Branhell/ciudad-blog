@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { Participante } from '../models/participante.model';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-participantes',
@@ -10,12 +11,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./participantes.css']
 })
 export class ParticipantesComponent implements OnInit {
-  participantes: any[] = [];
+  participantes: Participante[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:8081/api/participantes')
-      .subscribe(data => this.participantes = data);
+    this.usuarioService.getParticipantes().subscribe({
+      next: data => this.participantes = data,
+      error: err => console.error('Error al cargar participantes', err)
+    });
   }
 }

@@ -1,6 +1,6 @@
 <h2>Construye tu espacio aquí</h2>
 
-<form (ngSubmit)="onRegister()">
+<form (ngSubmit)="onRegister()" class="form-login">
   <label for="nombre">Nombre:</label>
   <input id="nombre" type="text" [(ngModel)]="nombre" name="nombre" required>
 
@@ -10,7 +10,10 @@
   <label for="password">Contraseña:</label>
   <input id="password" type="password" [(ngModel)]="password" name="password" required>
 
-  <button type="submit">Registrarme</button>
+  <button type="submit" class="btn">Registrarme</button>
+  <button routerLink="/" class="btn">Volver al inicio</button>
 </form>
 
-<p>¿Ya tienes cuenta? <a routerLink="/login">Explora tu espacio</a></p>
+<p>
+  ¿Ya tienes cuenta? <a routerLink="/login" class="link-text">Explora tu espacio</a>
+</p>

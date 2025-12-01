@@ -1,2 +1,18 @@
 <h2>Actualizar Participante</h2>
-<p>Aquí irá el formulario de actualización.</p>
+
+<label for="id">ID del participante:</label>
+<input type="number" [(ngModel)]="id" id="id">
+<button (click)="buscar()">Cargar</button>
+
+<div *ngIf="participante">
+  <label>Nombre:</label>
+  <input [(ngModel)]="participante.nombre">
+
+  <label>Edad:</label>
+  <input type="number" [(ngModel)]="participante.edad">
+
+  <label>Historial:</label>
+  <input [(ngModel)]="participante.historial">
+
+  <button (click)="actualizar()">Actualizar</button>
+</div>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // 👈 necesario para ngModel
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [FormsModule],                      // 👈 habilita ngModel
+  imports: [FormsModule, RouterLink],   // 👈 agrega RouterLink
   templateUrl: './registro.html',
   styleUrls: ['./registro.css']
 })
@@ -13,8 +14,17 @@ export class RegistroComponent {
   email: string = '';
   password: string = '';
 
+  constructor(private router: Router) {}   // 👈 inyecta Router
+
   onRegister() {
     console.log('Registrando usuario:', this.nombre, this.email, this.password);
-    // Aquí luego conectas con tu backend (POST a localhost:8080/api/usuarios)
+
+    if (this.nombre && this.email && this.password) {
+      // Simulación de registro correcto
+      alert('Registro exitoso, ahora puedes ingresar');
+      this.router.navigate(['/login']);   // 👈 redirige al login
+    } else {
+      alert('Por favor completa todos los campos');
+    }
   }
 }

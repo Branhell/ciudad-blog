@@ -1,2 +1,7 @@
 <h2>Eliminar Participante</h2>
-<p>Aquí irá el formulario de eliminación.</p>
+
+<label for="id">ID del participante:</label>
+<input type="number" [(ngModel)]="id" id="id">
+<button (click)="eliminar()">Eliminar</button>
+
+<p *ngIf="mensaje">{{ mensaje }}</p>
