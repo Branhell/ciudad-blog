@@ -1,56 +1,54 @@
 <header>
-  <img src="logo.png" alt="Logo de Quantum" class="logo">
+  <img src="/logo.png" alt="Logo de Quantum" class="logo">
 </header>
 
-<div class="hero">
+<section class="hero">
   <h1>Bienvenido a Quantum</h1>
   <p>Un espacio diseñado para gestionar participantes y proyectos. Comienza ahora creando tu cuenta.</p>
-</div>
+</section>
 
 <div class="contenedor-botones">
-  <button routerLink="/login">Explora tu espacio</button>
-  <button routerLink="/registro">Construye tu espacio aquí</button>
+  <button routerLink="/login" class="btn">Explora tu espacio</button>
+  <button routerLink="/registro" class="btn">Construye tu espacio aquí</button>
 </div>
 
-<nav>
-  <a routerLink="/">Inicio</a>
-  <a routerLink="/expresate">Exprésate libremente</a>
-  <a routerLink="/servicios">Servicios</a>
-  <a routerLink="/productos">Productos</a>
-  <a routerLink="/noticias">Noticias</a>
-  <a routerLink="/eventos">Eventos</a>
-  <a routerLink="/blog">Blog</a>
-  <a routerLink="/inspira">Inspira</a>
-  <a routerLink="/empresas">Empresas</a>
-  <a routerLink="/magazine">QuantumMagazine</a>
-  <a routerLink="/contacto">Contacto</a>
+<nav class="main-nav">
+  <a routerLink="/" routerLinkActive="active">Inicio</a>
+  <a routerLink="/expresate" routerLinkActive="active">Exprésate libremente</a>
+  <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
+  <a routerLink="/productos" routerLinkActive="active">Productos</a>
+  <a routerLink="/noticias" routerLinkActive="active">Noticias</a>
+  <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
+  <a routerLink="/empresas" routerLinkActive="active">Empresas</a>
+  <a routerLink="/quantum-magazine" routerLinkActive="active">QuantumMagazine</a>
+  <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
 </nav>
 
 <!-- Aquí se cargan las páginas dinámicas -->
-<div class="contenido">
+<main class="contenido">
   <router-outlet></router-outlet>
-</div>
+</main>
 
 <footer>
   <div class="footer-links">
-    <a routerLink="/quienes-somos">Quiénes Somos</a>
-    <a routerLink="/trabaja-con-nosotros">Trabaja con Nosotros</a>
-    <a routerLink="/preguntas-frecuentes">Preguntas Frecuentes</a>
-    <a routerLink="/politica-privacidad">Política de Privacidad</a>
-    <a routerLink="/terminos-condiciones">Términos y Condiciones</a>
-    <a routerLink="/faqs">FAQ's</a>
-    <a routerLink="/ayuda-urgente">Ayuda Urgente</a>
+    <a routerLink="/quienes-somos" routerLinkActive="active">Quiénes Somos</a>
+    <a routerLink="/trabaja-con-nosotros" routerLinkActive="active">Trabaja con Nosotros</a>
+    <a routerLink="/preguntas-frecuentes" routerLinkActive="active">Preguntas Frecuentes</a>
+    <a routerLink="/politica-privacidad" routerLinkActive="active">Política de Privacidad</a>
+    <a routerLink="/terminos-condiciones" routerLinkActive="active">Términos y Condiciones</a>
+    <a routerLink="/faqs" routerLinkActive="active">FAQ's</a>
+    <a routerLink="/ayuda-urgente" routerLinkActive="active">Ayuda Urgente</a>
   </div>
   <p>&copy; 2025 Quantum Psycho. Todos los derechos reservados.</p>
 </footer>
 
-<div class="social-bar">
+<aside class="social-bar">
   <a href="#" class="social-icon facebook" target="_blank">Facebook</a>
   <a href="#" class="social-icon instagram" target="_blank">Instagram</a>
   <a href="#" class="social-icon twitter" target="_blank">Twitter</a>
   <a href="#" class="social-icon linkedin" target="_blank">LinkedIn</a>
   <a href="#" class="social-icon whatsapp" target="_blank">WhatsApp</a>
-</div>
+</aside>
 
 <div class="download-app">
   <a href="#" target="_blank">Descarga la APP</a>
