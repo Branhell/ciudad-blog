@@ -1,31 +1,40 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router'; // 👈 importa Router
+import { Router, RouterLink } from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
+import { CommonModule } from '@angular/common'; // 👈 importa esto
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule], // 👈 agrégalo aquí
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  mensaje: string = '';
 
-  constructor(private router: Router) {} // 👈 inyecta Router
+  constructor(private router: Router, private usuarioService: UsuarioService) {}
 
   onLogin() {
-    console.log('Usuario:', this.username);
-    console.log('Contraseña:', this.password);
+    this.usuarioService.login(this.username, this.password).subscribe({
+      next: (response) => {
+        this.mensaje = response.mensaje;
 
-    // Aquí luego conectamos con el backend usando HttpClient
-    // Por ahora simulamos login correcto:
-    if (this.username && this.password) {
-      // 👇 redirige al dashboard
-      this.router.navigate(['/dashboard']);
-    } else {
-      alert('Por favor ingresa usuario y contraseña');
-    }
+        if (response.mensaje === 'Login correcto') {
+          this.router.navigate(['/dashboard']);
+          localStorage.setItem('usuarioEmail', this.username);
+        }
+      },
+      error: (err) => {
+        if (err.status === 401) {
+          this.mensaje = 'Credenciales inválidas';
+        } else {
+          this.mensaje = 'Error en el servidor';
+        }
+      }
+    });
   }
 }

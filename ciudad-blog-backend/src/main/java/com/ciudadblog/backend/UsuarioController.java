@@ -1,32 +1,49 @@
 package com.ciudadblog.backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/usuarios")
-@CrossOrigin(origins = "*") // 👈 habilita CORS para que Angular pueda consumir sin problemas
+@CrossOrigin(origins = "*", allowCredentials = "false")
 public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    // GET /api/usuarios → lista todos los usuarios
     @GetMapping
     public List<Usuario> obtenerUsuarios() {
         return usuarioRepository.findAll();
     }
 
-    // POST /api/usuarios → crea un nuevo usuario
     @PostMapping
     public Usuario crearUsuario(@RequestBody Usuario nuevoUsuario) {
         return usuarioRepository.save(nuevoUsuario);
     }
 
-    // GET /api/usuarios/autores → lista autores (puedes filtrar si quieres solo ciertos roles)
     @GetMapping("/autores")
     public List<Usuario> obtenerAutores() {
         return usuarioRepository.findAll();
+    }
+
+    // 👇 Método login corregido para devolver JSON
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest request) {
+        System.out.println("Credenciales recibidas: " + request.getEmail() + " / " + request.getPassword());
+
+        Map<String, String> response = new HashMap<>();
+
+        if ("brayan@ejemplo.com".equals(request.getEmail()) && "1234".equals(request.getPassword())) {
+            response.put("mensaje", "Login correcto");
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("mensaje", "Credenciales inválidas");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        }
     }
 }

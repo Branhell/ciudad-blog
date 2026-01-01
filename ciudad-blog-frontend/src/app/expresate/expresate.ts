@@ -77,3 +77,9 @@ export class ExpresateComponent {           // ✅ nombre consistente con app.ro
     this.postService.solicitarEliminacion(id).subscribe(() => this.cargarPosts());
   }
 }
+
+
+
+
+
+

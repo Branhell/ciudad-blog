@@ -10,3 +10,11 @@
     <router-outlet></router-outlet>
   </main>
 </div>
+
+<h2>Posts</h2>
+
+<ul>
+  <li *ngFor="let post of posts">
+    {{ post.titulo }}
+  </li>
+</ul>

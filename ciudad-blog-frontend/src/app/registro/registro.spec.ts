@@ -1,18 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';   // 👈 si tu componente usa HttpClient
+import { RouterTestingModule } from '@angular/router/testing';           // 👈 si tu componente usa ActivatedRoute/Router
+import { RegistroComponent } from './registro';                 // 👈 asegúrate que el archivo se llame registro.component.ts
 
-import { Registro } from './registro';
-
-describe('Registro', () => {
-  let component: Registro;
-  let fixture: ComponentFixture<Registro>;
+describe('RegistroComponent', () => {
+  let component: RegistroComponent;
+  let fixture: ComponentFixture<RegistroComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Registro]
-    })
-    .compileComponents();
+      imports: [
+        RegistroComponent,        // ✅ standalone se importa aquí
+        HttpClientTestingModule,  // agrega si tu componente/servicio usa HttpClient
+        RouterTestingModule       // agrega si tu componente usa rutas
+      ]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(Registro);
+    fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
