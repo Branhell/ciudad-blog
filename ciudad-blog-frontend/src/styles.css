@@ -13,29 +13,33 @@ h1 {
   margin-top: 10px;
 }
 
-body {
-    background: linear-gradient(120deg, var(--acento2), var(--primario));
-    color: var(--secundario);
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;                 /* asegura 100% de alto del documento */
 }
 
+body {
+  position: relative;           /* ancla para elementos absolutos */
+  background: linear-gradient(120deg, var(--acento2), var(--primario));
+  color: var(--secundario);
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;            /* alto mínimo a pantalla completa */
+  overflow-x: hidden;           /* evita scroll lateral */
+  /* Quita width: 100vw para evitar pequeños desbordes por barra de scroll */
+}
+
+
+
 header {
-    width: 100%;
-    padding: 20px;
+    padding: 0;
     text-align: center;
     font-size: 1.8em;
     font-weight: bold;
     color: var(--acento1);
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 0px;
     gap: 15px;
 }
 
@@ -155,35 +159,50 @@ nav a:hover {
 /* Hero centrado */
 .hero {
     text-align: center;
-    margin: 100px auto 60px auto;
-    max-width: 800px;
+    margin: 100px 0 60px 0;  /* 👈 quita auto para que ocupe todo el ancho */
+    width: 100%;             /* 👈 ocupa todo el ancho disponible */
     line-height: 1.6;
+}
+
+
+
+header {
+  position: relative; /* el header será el contenedor de referencia */
 }
 
 /* Botones principales en barra superior */
 .contenedor-botones {
-    position: fixed;
-    top: 15px;
-    left: 20px;
-    display: flex;
-    gap: 15px;
-    z-index: 1000;
+  position: absolute; /* ahora se posiciona dentro del header */
+  top: 15px;
+  left: 20px; /* igual que antes */
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
 }
 
-.contenedor-botones button {
-    background: var(--extra);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.contenedor-botones .hero-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--secundario);
+  color: var(--secundario);
+  padding: 6px 12px;   /* 👈 menos alto y menos ancho */
+  font-size: 0.6em;    /* 👈 texto un poquito más pequeño */
+  font-weight: 600;    /* 👈 menos grueso que bold */
+  border-radius: 15px; /* 👈 curva más discreta */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.contenedor-botones button:hover {
-    background: var(--secundario);
-    transform: translateY(-2px);
+
+.contenedor-botones .hero-button:hover {
+  background: var(--secundario);
+  color: #fff;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 /* Footer fijo y elegante */
@@ -292,4 +311,91 @@ form button {
 a.btn {
   color: white;             /* fuerza el color del texto */
   text-decoration: none;    /* elimina subrayado */
+}
+
+.hero-section {
+  background-image: url('assets/logo.jpg');
+  background-size: cover;          /* llena toda la pantalla */
+  background-position: center center; /* centra la imagen */
+  background-repeat: no-repeat;
+  height: 100vh;                   /* ocupa todo el alto de la pantalla */
+  width: 100vw;                    /* ocupa todo el ancho */
+  position: relative;              /* referencia para hijos absolutos */
+  margin: 0;
+  padding: 0;
+}
+
+.hero-title {
+  position: absolute;
+  top: 20px;              /* más arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5em;
+  color: var(--secundario);
+}
+
+.hero-section canvas {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centro exacto */
+  pointer-events: none;             /* no bloquea clics */
+  width: 600px;                     /* tamaño ajustable */
+  height: 600px;
+}
+
+
+.hero-timeline {
+  position: absolute;
+  top: 120px;             /* más abajo, separado del título */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.3em;
+  color: var(--extra);
+}
+
+.hero-lema {
+  position: absolute;
+  bottom: -30px;          /* pegado abajo */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1em;
+  color: var(--secundario);
+  font-style: italic;
+}
+
+/* 👇 Ajustes para tablets/móviles medianos */
+@media (max-width: 768px) {
+  .hero-title {
+    top: 15px;
+    font-size: 1.8em;
+  }
+
+  .hero-timeline {
+    top: 80px;
+    font-size: 1.2em;
+  }
+
+  .hero-lema {
+    bottom: 20px;
+    font-size: 1em;
+  }
+}
+
+/* 👇 Ajustes para celulares pequeños */
+@media (max-width: 480px) {
+  .hero-title {
+    top: 10px;
+    font-size: 1.5em;
+  }
+
+  .hero-timeline {
+    top: 70px;
+    font-size: 1em;
+  }
+
+  .hero-lema {
+    bottom: 15px;
+    font-size: 0.9em;
+  }
 }

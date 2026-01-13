@@ -1,16 +1,28 @@
 <header>
-  <img src="/logo.png" alt="Logo de Quantum" class="logo">
+  <div class="hero-section">
+    <h1 class="hero-title">Bienvenidos a EcoBits</h1>
+    <p class="hero-timeline">Donde la psicología se encuentra con los bits</p>
+    <p class="hero-lema">Un solo eco le daría un giro a mi historia</p>
+
+    <!-- Canvas de animación -->
+    <canvas id="c"></canvas>
+  </div>
+
+  <!-- Susurros desde las esquinas -->
+  <div class="whisper top-left"></div>
+  <div class="whisper top-right"></div>
+  <div class="whisper bottom-left"></div>
+  <div class="whisper bottom-right"></div>
+
+  <div class="contenedor-botones">
+    <button routerLink="/login" class="hero-button">Explora tu espacio</button>
+    <button routerLink="/registro" class="hero-button">Construye tu espacio aquí</button>
+  </div>
+
 </header>
 
-<section class="hero">
-  <h1>Bienvenido a Quantum</h1>
-  <p>Un espacio diseñado para gestionar participantes y proyectos. Comienza ahora creando tu cuenta.</p>
-</section>
 
-<div class="contenedor-botones">
-  <button routerLink="/login" class="btn">Explora tu espacio</button>
-  <button routerLink="/registro" class="btn">Construye tu espacio aquí</button>
-</div>
+
 
 <nav class="main-nav">
   <a routerLink="/" routerLinkActive="active">Inicio</a>
@@ -42,13 +54,31 @@
 </footer>
 
 <aside class="social-bar">
-  <a href="#" class="social-icon facebook" target="_blank">Facebook</a>
-  <a href="#" class="social-icon instagram" target="_blank">Instagram</a>
-  <a href="#" class="social-icon twitter" target="_blank">Twitter</a>
-  <a href="#" class="social-icon linkedin" target="_blank">LinkedIn</a>
-  <a href="#" class="social-icon whatsapp" target="_blank">WhatsApp</a>
+  <a href="https://www.facebook.com" class="social-icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com" class="social-icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com" class="social-icon twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://www.linkedin.com" class="social-icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://wa.me/573001112233" class="social-icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </aside>
 
 <div class="download-app">
   <a href="#" target="_blank">Descarga la APP</a>
 </div>
+
+<!-- Animación GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<svg id="ola" viewBox="0 0 200 100" width="400" height="200">
+  <path d="M0,50 Q50,20 100,50 T200,50"
+        stroke="#3498db"
+        stroke-width="4"
+        fill="none" />
+</svg>
+<script>
+  gsap.to("#ola path", {
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut",
+    attr: { d: "M0,50 Q50,80 100,50 T200,50" }
+  });
+</script>

@@ -1,28 +1,178 @@
+/* Contenedor principal */
 .home-container {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
+  padding: 40px 20px;   /* Añadí padding para aire */
 }
 
+/* Títulos dentro del home */
 .home-container h2 {
   font-size: 2rem;
   margin-bottom: 15px;
+  color: #2c3e50;       /* Color más elegante */
 }
 
+/* Párrafos */
 .home-container p {
   font-size: 1.2rem;
   color: #555;
+  line-height: 1.6;     /* Mejor legibilidad */
 }
+
 /* Asegura que toda la página pueda hacer scroll */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: auto;   /* 👈 habilita scroll vertical */
+  overflow-y: auto;
+  font-family: "Segoe UI", Arial, sans-serif; /* Fuente más profesional */
+  background: #f9f9f9;  /* Fondo suave */
 }
 
 /* Opcional: para que el contenido se centre pero aún permita scroll */
 .contenido {
-  min-height: 100vh;  /* ocupa toda la altura */
+  min-height: 100vh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
 }
+
+/* Logo */
+.logo {
+  position: relative;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.logo-text {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #2c3e50;
+  position: relative;
+  z-index: 2;
+}
+
+/* Efecto de ondas/eco */
+.echo-waves {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: echo 2s infinite;
+}
+
+@keyframes echo {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Tagline */
+.tagline {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tagline-text {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #333;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.hero-text {
+  font-size: 1.2em;
+  font-style: italic;
+  color: #555;
+}
+
+/* Barra lateral fija */
+.social-bar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+
+/* Estilo base de cada botón */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Colores oficiales */
+.social-icon.facebook { background: #1877f2; }
+.social-icon.instagram { background: #e4405f; }
+.social-icon.twitter { background: #1da1f2; }
+.social-icon.linkedin { background: #0077b5; }
+.social-icon.whatsapp { background: #25d366; }
+
+/* Efecto hover */
+.social-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+
+/* Susurros tipo nubes desde las esquinas */
+.whisper {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(52,152,219,0.25) 0%, transparent 70%);
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: cloudDrift 10s infinite ease-in-out;
+}
+
+/* Posiciones iniciales */
+.top-left { top: -100px; left: -100px; animation-delay: 0s; }
+.top-right { top: -100px; right: -100px; animation-delay: 2s; }
+.bottom-left { bottom: -100px; left: -100px; animation-delay: 4s; }
+.bottom-right { bottom: -100px; right: -100px; animation-delay: 6s; }
+
+/* Movimiento diagonal hacia el centro */
+@keyframes cloudDrift {
+  0% {
+    transform: translate(0,0) scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(calc(50vw - 125px), calc(50vh - 125px)) scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(calc(50vw - 125px), calc(50vh - 125px)) scale(1.8);
+    opacity: 0;
+  }
+}
+
