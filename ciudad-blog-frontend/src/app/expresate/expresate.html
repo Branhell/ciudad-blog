@@ -1,0 +1,54 @@
+<div class="expresate-container">
+
+  <section class="form-publicacion">
+    <h2>📝 Crear nueva publicación</h2>
+
+    <form (ngSubmit)="publicar()">
+      <div class="campo">
+        <label for="titulo">Título:</label>
+        <input id="titulo" type="text" [(ngModel)]="publicacion.titulo" name="titulo">
+      </div>
+
+      <div class="campo">
+        <label for="contenido">Contenido:</label>
+        <textarea id="contenido" [(ngModel)]="publicacion.contenido" name="contenido"></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="autor">Autor (ID numérico):</label>
+        <input id="autor" type="number" [(ngModel)]="publicacion.autor.id" name="autorId">
+      </div>
+
+      <div class="campo">
+        <label>
+          <input type="checkbox" [(ngModel)]="publicacion.anonimo" name="anonimo">
+          Publicar como Anónimo
+        </label>
+      </div>
+
+      <button type="submit">📤 Publicar</button>
+    </form>
+
+    <p *ngIf="mensaje">{{ mensaje }}</p>
+  </section>
+
+  <hr>
+
+  <section class="listado-publicaciones">
+    <h2>📋 Publicaciones</h2>
+    <div *ngFor="let post of posts" class="post-card">
+      <h3>{{ post.titulo }}</h3>
+      <p>{{ post.contenido }}</p>
+      <p><strong>Autor:</strong> {{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</p>
+      <p><strong>Fecha:</strong> {{ post.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
+      <p>👍 {{ post.likes }} | 💬 {{ post.comentariosCount }}</p>
+
+      <div class="acciones">
+        <button (click)="darLike(post.id)">👍 Like</button>
+        <button (click)="agregarComentario(post.id)">💬 Comentar</button>
+        <button (click)="solicitarEliminacion(post.id)">🧨 Solicitar eliminación</button>
+      </div>
+    </div>
+  </section>
+
+</div>

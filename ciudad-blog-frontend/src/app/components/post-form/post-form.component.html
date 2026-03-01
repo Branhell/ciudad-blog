@@ -1,0 +1,43 @@
+<h2>📝 Crear nueva publicación</h2>
+
+<form (ngSubmit)="crearPost()" #postForm="ngForm">
+  <label>
+    Título:
+    <input type="text" name="titulo" [(ngModel)]="post.titulo" required />
+  </label>
+  <br />
+
+  <label>
+    Contenido:
+    <textarea name="contenido" [(ngModel)]="post.contenido" required></textarea>
+  </label>
+  <br />
+
+  <label for="autor">Autor:</label>
+  <select id="autor" [(ngModel)]="post.autorId" name="autor">
+    <option [ngValue]="null">-- Selecciona un autor --</option>
+    <option *ngFor="let autor of autores" [ngValue]="autor.id">
+      {{ autor.nombre }}
+    </option>
+  </select>
+
+  <label>
+    ID del Autor:
+    <input
+      type="number"
+      name="autorId"
+      [(ngModel)]="post.autorId"
+      required
+      min="1"
+      step="1"
+      onkeydown="return event.key !== 'e' && event.key !== 'E' && event.key !== '-' && event.key !== '+'"
+    />
+  </label>
+  <br />
+
+  <button type="submit" [disabled]="postForm.invalid">📤 Publicar</button>
+</form>
+
+<p *ngIf="exito" style="color: green; margin-top: 1rem">
+  ✅ Publicación creada correctamente
+</p>

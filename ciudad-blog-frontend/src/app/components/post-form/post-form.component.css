@@ -1,0 +1,40 @@
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 2px solid #1976d2;
+  border-radius: 8px;
+  background-color: #f3f9ff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:disabled {
+  background-color: #9bbbd4;
+  cursor: not-allowed;
+}

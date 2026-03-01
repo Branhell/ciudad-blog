@@ -1,0 +1,33 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.menu-lateral {
+  width: 220px;
+  background: var(--acento3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-lateral button {
+  background: var(--extra);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-lateral button:hover {
+  background: var(--secundario);
+}
+
+.contenido {
+  flex: 1;
+  padding: 30px;
+  background: var(--acento2);
+}

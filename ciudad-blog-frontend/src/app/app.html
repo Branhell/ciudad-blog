@@ -1,0 +1,84 @@
+<header>
+  <div class="hero-section">
+    <h1 class="hero-title">Bienvenidos a EcoBits</h1>
+    <p class="hero-timeline">Donde la psicología se encuentra con los bits</p>
+    <p class="hero-lema">Un solo eco le daría un giro a mi historia</p>
+
+    <!-- Canvas de animación -->
+    <canvas id="c"></canvas>
+  </div>
+
+  <!-- Susurros desde las esquinas -->
+  <div class="whisper top-left"></div>
+  <div class="whisper top-right"></div>
+  <div class="whisper bottom-left"></div>
+  <div class="whisper bottom-right"></div>
+
+  <div class="contenedor-botones">
+    <button routerLink="/login" class="hero-button">Explora tu espacio</button>
+    <button routerLink="/registro" class="hero-button">Construye tu espacio aquí</button>
+  </div>
+
+</header>
+
+
+
+
+<nav class="main-nav">
+  <a routerLink="/" routerLinkActive="active">Inicio</a>
+  <a routerLink="/expresate" routerLinkActive="active">Exprésate libremente</a>
+  <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
+  <a routerLink="/productos" routerLinkActive="active">Productos</a>
+  <a routerLink="/noticias" routerLinkActive="active">Noticias</a>
+  <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
+  <a routerLink="/empresas" routerLinkActive="active">Empresas</a>
+  <a routerLink="/quantum-magazine" routerLinkActive="active">QuantumMagazine</a>
+  <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+</nav>
+
+<main class="contenido">
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a routerLink="/quienes-somos" routerLinkActive="active">Quiénes Somos</a>
+    <a routerLink="/trabaja-con-nosotros" routerLinkActive="active">Trabaja con Nosotros</a>
+    <a routerLink="/preguntas-frecuentes" routerLinkActive="active">Preguntas Frecuentes</a>
+    <a routerLink="/politica-privacidad" routerLinkActive="active">Política de Privacidad</a>
+    <a routerLink="/terminos-condiciones" routerLinkActive="active">Términos y Condiciones</a>
+    <a routerLink="/faqs" routerLinkActive="active">FAQ's</a>
+    <a routerLink="/ayuda-urgente" routerLinkActive="active">Ayuda Urgente</a>
+  </div>
+  <p>&copy; 2025 Quantum Psycho. Todos los derechos reservados.</p>
+</footer>
+
+<aside class="social-bar">
+  <a href="https://www.facebook.com" class="social-icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com" class="social-icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com" class="social-icon twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://www.linkedin.com" class="social-icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://wa.me/573001112233" class="social-icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</aside>
+
+<div class="download-app">
+  <a href="#" target="_blank">Descarga la APP</a>
+</div>
+
+<!-- Animación GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<svg id="ola" viewBox="0 0 200 100" width="400" height="200">
+  <path d="M0,50 Q50,20 100,50 T200,50"
+        stroke="#3498db"
+        stroke-width="4"
+        fill="none" />
+</svg>
+<script>
+  gsap.to("#ola path", {
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut",
+    attr: { d: "M0,50 Q50,80 100,50 T200,50" }
+  });
+</script>
