@@ -33,3 +33,7 @@ jobs:
         run: |
           cd ciudad-blog-backend
           ./mvnw clean package -DskipTests
+
+      - name: Build Docker Containers
+        run: |
+          docker compose -f docker/docker-compose.yml build
