@@ -49,8 +49,16 @@ jobs:
           
       - name: Start containers
         run: |
-            docker compose -f docker/docker-compose.yml up -d
+          docker compose -f docker/docker-compose.yml up -d
 
       - name: List running containers
         run: |
-            docker ps
+          docker ps
+      
+      - name: Tag backend image
+        run: |
+          docker tag backend jubileos/ciudad-blog-backend:latest
+
+      - name: Push backend image
+        run: |
+          docker push jubileos/ciudad-blog-backend:latest      
