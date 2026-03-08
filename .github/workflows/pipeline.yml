@@ -61,7 +61,7 @@ jobs:
       
       - name: Tag backend image
         run: |
-          docker tag backend jubileos/ciudad-blog-backend:latest
+          docker tag docker-backend jubileos/ciudad-blog-backend:latest
 
       - name: Push backend image
         run: |
