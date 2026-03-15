@@ -16,10 +16,6 @@ export const routes: Routes = [
   },
 
   // CRUD (solo accesibles desde dashboard)
-  { path: 'participantes', loadComponent: () => import('./participantes/participantes').then(m => m.ParticipantesComponent) },
-  { path: 'consultar', loadComponent: () => import('./consultar/consultar').then(m => m.ConsultarComponent) },
-  { path: 'actualizar', loadComponent: () => import('./actualizar/actualizar').then(m => m.ActualizarComponent) },
-  { path: 'eliminar', loadComponent: () => import('./eliminar/eliminar').then(m => m.EliminarComponent) },
   { path: 'expresate', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
 
   // Rutas de menú (pantallas vacías por ahora)
