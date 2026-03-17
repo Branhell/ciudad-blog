@@ -1,0 +1,59 @@
+/* Hero */
+.hero-section {
+  text-align: center;
+  position: relative;
+  padding: 40px 20px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+.hero-timeline, .hero-lema {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Botones y logo en hero */
+.contenedor-botones {
+  display: flex;
+  justify-content: flex-end;
+  width: 98%;
+  margin-top: 20px;
+}
+.hero-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Logo EcoBits */
+.logo-ecobits {
+  position: absolute;
+  left: 1040px;
+  top: -30px;
+  width: 90px;
+}
+
+/* Susurros */
+.whisper {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(52,152,219,0.25) 0%, transparent 70%);
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: cloudDrift 10s infinite ease-in-out;
+}
+.top-left { top: -100px; left: -100px; animation-delay: 0s; }
+.top-right { top: -100px; right: -100px; animation-delay: 2s; }
+.bottom-left { bottom: -100px; left: -100px; animation-delay: 4s; }
+.bottom-right { bottom: -100px; right: -100px; animation-delay: 6s; }
+
+@keyframes cloudDrift {
+  0% { transform: translate(0,0) scale(0.8); opacity: 0.3; }
+  50% { transform: translate(calc(50vw - 125px), calc(50vh - 125px)) scale(1.2); opacity: 0.6; }
+  100% { transform: translate(calc(50vw - 125px), calc(50vh - 125px)) scale(1.8); opacity: 0; }
+}
