@@ -1,4 +1,6 @@
-/* Asegura scroll y fuente general */
+/* ==============================================
+   Fuente general y scroll
+   ============================================== */
 html, body {
   height: 100%;
   margin: 0;
@@ -8,16 +10,88 @@ html, body {
   background: #f9f9f9;
 }
 
-/* Contenedor principal donde se carga cada ruta */
-.contenido {
-  min-height: 100vh;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+app-root {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
-/* Footer */
+/* 🔹 Reset solo para navbar */
+.main-nav,
+.main-nav * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==============================================
+   Navbar principal (fija en la parte superior)
+   ============================================== */
+.main-nav {
+  position: fixed;           /* fija la cinta al top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;             /* altura de la cinta */
+  display: flex;
+  align-items: center;       /* centra verticalmente logo y botones */
+  justify-content: flex-start;
+  padding: 0 20px;           /* espacio lateral */
+  background: white;         /* fondo de la cinta */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;             /* encima de todo */
+  line-height: 1;            /* evita espacio extra por fuentes */
+}
+
+/* ==============================================
+   Logo
+   ============================================== */
+.logo-nav {
+  height: 80px;              /* tamaño del logo */
+  display: block;
+  vertical-align: top;       /* asegura que no genere espacio debajo */
+}
+
+/* ==============================================
+   Botones del menú
+   ============================================== */
+.main-nav a {
+  margin: 0 5px;             /* separación entre botones */
+  font-size: 15px;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+/* Empuja todo lo que esté a la derecha (login) */
+.nav-right {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/* Botón login */
+.login-button-nav {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+/* ==============================================
+   Contenedor principal (contenido debajo del navbar)
+   ============================================== */
+.contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 100px;        /* espacio igual a la altura del navbar */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ==============================================
+   Footer
+   ============================================== */
 .footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +107,9 @@ footer p {
   color: #555;
 }
 
-/* Barra social */
+/* ==============================================
+   Barra social
+   ============================================== */
 .social-bar {
   position: fixed;
   top: 50%;

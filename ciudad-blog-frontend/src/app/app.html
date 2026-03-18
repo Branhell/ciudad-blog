@@ -1,4 +1,8 @@
 <nav class="main-nav">
+
+  <!-- LOGO -->
+  <img src="assets/EcoBits_Logo.png" class="logo-nav">
+  
   <a routerLink="/" routerLinkActive="active">Inicio</a>
   <a routerLink="/expresate" routerLinkActive="active">Exprésate libremente</a>
   <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
@@ -7,9 +11,14 @@
   <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
   <a routerLink="/empresas" routerLinkActive="active">Empresas</a>
   <a routerLink="/quantum-magazine" routerLinkActive="active">QuantumMagazine</a>
-  <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
-</nav>
 
+  <!-- 👇 AQUÍ EXACTO -->
+  <div class="nav-right">
+    <a routerLink="/login" class="login-button-nav">
+      👤 Iniciar sesión / Registrarse
+    </a>
+  </div>
+</nav>
 <main class="contenido">
   <router-outlet></router-outlet>
 </main>
@@ -23,6 +32,7 @@
     <a routerLink="/terminos-condiciones" routerLinkActive="active">Términos y Condiciones</a>
     <a routerLink="/faqs" routerLinkActive="active">FAQ's</a>
     <a routerLink="/ayuda-urgente" routerLinkActive="active">Ayuda Urgente</a>
+	<a routerLink="/contacto" routerLinkActive="active">Contacto</a> 
   </div>
   <p>&copy; 2025 Quantum Psycho. Todos los derechos reservados.</p>
 </footer>

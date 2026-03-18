@@ -1,22 +1,47 @@
-<h2>Ingresa a tu Cuenta</h2>
+<div class="login-container">
 
-<form (ngSubmit)="onLogin()" class="form-login">
-  <label for="username">Usuario:</label>
-  <input id="username" type="text" [(ngModel)]="username" name="username" required>
+  <!-- Tarjeta login -->
+  <div class="login-card">
 
-  <label for="password">Contraseña:</label>
-  <input id="password" type="password" [(ngModel)]="password" name="password" required>
+    <!-- Logo -->
+    <img src="assets/EcoBits_Logo.png" class="login-logo">
 
-  <button type="submit" class="btn">Ingresar</button>
-  <button routerLink="/" class="btn">Volver al inicio</button>
-</form>
+    <!-- Volver -->
+    <p routerLink="/" class="back-home">← Volver al inicio</p>
 
-<!-- 👇 aquí mostramos el mensaje del backend -->
-<div *ngIf="mensaje" class="mensaje">
-  {{ mensaje }}
+    <h2>Iniciar sesión</h2>
+
+    <!-- Botones sociales (visual por ahora) -->
+    <div class="social-login">
+      <button class="social-btn google">Google</button>
+      <button class="social-btn github">GitHub</button>
+      <button class="social-btn linkedin">LinkedIn</button>
+    </div>
+
+    <div class="divider">o</div>
+
+    <!-- Formulario -->
+    <form (ngSubmit)="onLogin()" class="form-login">
+
+      <input type="email" [(ngModel)]="username" name="username" placeholder="Correo electrónico" required>
+
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required>
+
+      <p class="forgot">¿Olvidaste tu contraseña?</p>
+
+      <button type="submit" class="btn-login">Ingresar</button>
+    </form>
+
+    <!-- Mensaje backend -->
+    <div *ngIf="mensaje" class="mensaje">
+      {{ mensaje }}
+    </div>
+
+    <!-- Registro -->
+    <p class="register">
+      ¿No tienes cuenta?
+      <a routerLink="/registro">Regístrate</a>
+    </p>
+
+  </div>
 </div>
-
-<p>
-  ¿No tienes cuenta? Construye tu espacio
-  <a routerLink="/registro" class="link-text">aquí</a>
-</p>
