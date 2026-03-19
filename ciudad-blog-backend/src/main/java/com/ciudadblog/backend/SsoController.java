@@ -63,7 +63,8 @@ public class SsoController {
         return decoded.split("nonce=")[1].split("&")[0];
     }
 
-    private String extraerReturnUrl(String decoded) {
-        return decoded.split("return_sso_url=")[1].split("&")[0];
-    }
+    private String extraerReturnUrl(String decoded) throws Exception {
+    String url = decoded.split("return_sso_url=")[1].split("&")[0];
+		return java.net.URLDecoder.decode(url, "UTF-8");
+	}
 }
