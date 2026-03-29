@@ -12,13 +12,42 @@
   <a routerLink="/empresas" routerLinkActive="active">Empresas</a>
   <a routerLink="/quantum-magazine" routerLinkActive="active">QuantumMagazine</a>
 
-  <!-- 👇 AQUÍ EXACTO -->
-  <div class="nav-right">
+
+
+  <!-- LOGIN -->
+<div class="nav-right">
+
+  <!-- 👇 SI NO ESTÁ LOGUEADO -->
+  <ng-container *ngIf="!isLoggedIn">
+
     <a routerLink="/login" class="login-button-nav">
-      👤 Iniciar sesión / Registrarse
+      👤 Iniciar sesión
     </a>
-  </div>
+
+    <a routerLink="/registro" class="login-button-nav">
+      👤 Registro
+    </a>
+
+  </ng-container>
+
+  <!-- 👇 SI ESTÁ LOGUEADO -->
+  <ng-container *ngIf="isLoggedIn">
+
+	<span class="user-email">
+	  {{ userEmail }}
+	</span>
+
+    <button (click)="logout()" class="login-button-nav">
+      Cerrar sesión
+    </button>
+
+  </ng-container>
+
+</div>
+
+
 </nav>
+
 <main class="contenido">
   <router-outlet></router-outlet>
 </main>

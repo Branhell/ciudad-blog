@@ -1,18 +1,39 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, CommonModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
 
+
+  isLoggedIn: boolean = false;
+  userEmail: string = '';
+
+  ngOnInit() {
+    const user = localStorage.getItem('usuarioEmail');
+
+    if (user) {
+      this.isLoggedIn = true;
+      this.userEmail = user;
+    }
+  }
+
+logout() {
+  localStorage.removeItem('usuarioEmail');
+  this.isLoggedIn = false;
+
+  window.location.href = '/login';
+}
   ngAfterViewInit() {
+    // 👇 NO TOQUES tu animación (está bien)
     const c = document.getElementById('c') as HTMLCanvasElement;
-    if (!c) return; // seguridad
+    if (!c) return;
 
     const ctx = c.getContext('2d')!;
     let cw = c.width = c.offsetWidth;
@@ -59,55 +80,49 @@ export class AppComponent implements AfterViewInit {
       }
     }
 
+    const ondas: { radio: number }[] = [];
 
+    function loop() {
+      ctx.clearRect(0, 0, cw, ch);
+      tick++;
 
-const ondas: { radio: number }[] = [];
+      for (let j = 0; j < 12; j++) {
+        const baseAmp = 8 + j * 0.5;
+        const expandAmp = 60 + j * 3.0;
 
-function loop() {
-  ctx.clearRect(0, 0, cw, ch);
-  tick++;
+        drawConvergeAndExpand(0, j * 0.3, baseAmp, expandAmp);
+        drawConvergeAndExpand(cw, j * 0.45, baseAmp, expandAmp);
+      }
 
-  // ondas laterales
-  for (let j = 0; j < 12; j++) {
-    const baseAmp = 8 + j * 0.5;
-    const expandAmp = 60 + j * 3.0;
+      if (tick % 20 === 0) {
+        ondas.push({ radio: 0 });
+      }
 
-    drawConvergeAndExpand(0, j * 0.3, baseAmp, expandAmp);
-    drawConvergeAndExpand(cw, j * 0.45, baseAmp, expandAmp);
-  }
+      ondas.forEach((onda, index) => {
+        onda.radio += 2;
+        const alpha = Math.max(0, 1 - onda.radio / 400);
 
-  // 1. Crear nuevas ondas cada cierto tiempo
-  if (tick % 20 === 0) {
-    ondas.push({ radio: 0 });
-  }
+        ctx.beginPath();
+        ctx.arc(CX, CY, onda.radio, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(135,206,250,${alpha})`;
+        ctx.lineWidth = 2 * alpha;
+        ctx.stroke();
 
-  // 2. Actualizar y dibujar ondas existentes
-  ondas.forEach((onda, index) => {
-    onda.radio += 2;
-    const alpha = Math.max(0, 1 - onda.radio / 400);
+        if (alpha <= 0) ondas.splice(index, 1);
+      });
 
-    ctx.beginPath();
-    ctx.arc(CX, CY, onda.radio, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(135,206,250,${alpha})`;
-    ctx.lineWidth = 2 * alpha;
-    ctx.stroke();
+      const pulseAlpha = Math.sin(tick / 20) * 0.5 + 0.5;
+      ctx.beginPath();
+      ctx.arc(CX, CY, 10 + Math.sin(tick / 10) * 5, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(255,255,255,${pulseAlpha})`;
+      ctx.lineWidth = 3;
+      ctx.shadowBlur = 40;
+      ctx.shadowColor = `rgba(255,255,255,${pulseAlpha})`;
+      ctx.stroke();
 
-    if (alpha <= 0) ondas.splice(index, 1);
-  });
+      requestAnimationFrame(loop);
+    }
 
-  // pulso central
-  const pulseAlpha = Math.sin(tick / 20) * 0.5 + 0.5;
-  ctx.beginPath();
-  ctx.arc(CX, CY, 10 + Math.sin(tick / 10) * 5, 0, Math.PI * 2);
-  ctx.strokeStyle = `rgba(255,255,255,${pulseAlpha})`;
-  ctx.lineWidth = 3;
-  ctx.shadowBlur = 40;
-  ctx.shadowColor = `rgba(255,255,255,${pulseAlpha})`;
-  ctx.stroke();
-
-  requestAnimationFrame(loop);
-}
-
-loop();
+    loop();
   }
 }

@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-expresate',
   standalone: true,
-  template: '', // no necesitas HTML aquí
+  templateUrl: './expresate.html',
+  styleUrl: './expresate.css'
 })
-export class ExpresateComponent implements OnInit {
-  ngOnInit(): void {
-    // Redirige al foro Discourse
+export class ExpresateComponent {
+
+  irAlForo() {
     window.location.href = 'http://localhost';
   }
+
 }

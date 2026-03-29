@@ -21,16 +21,50 @@
     <div class="divider">o</div>
 
     <!-- Formulario -->
-    <form (ngSubmit)="onLogin()" class="form-login">
+	<form #loginForm="ngForm" (ngSubmit)="onLogin()" class="form-login" novalidate>
 
-      <input type="email" [(ngModel)]="username" name="username" placeholder="Correo electrónico" required>
+	  <!-- EMAIL -->
+	  <input 
+		type="email" 
+		[(ngModel)]="username" 
+		name="username" 
+		placeholder="Correo electrónico" 
+		required
+		email
+		#email="ngModel"
+	  >
 
-      <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required>
+	  <small *ngIf="email.invalid && (email.touched || email.dirty)" style="color:red;">
+		<span *ngIf="email.errors?.['required']">El correo es obligatorio</span>
+		<span *ngIf="email.errors?.['email']">Formato de correo inválido</span>
+	  </small>
 
-      <p class="forgot">¿Olvidaste tu contraseña?</p>
+	  <!-- PASSWORD -->
+	  <input 
+		type="password" 
+		[(ngModel)]="password" 
+		name="password" 
+		placeholder="Contraseña" 
+		required
+		#pass="ngModel"
+	  >
 
-      <button type="submit" class="btn-login">Ingresar</button>
-    </form>
+	  <small *ngIf="pass.invalid && (pass.touched || pass.dirty)" style="color:red;">
+		La contraseña es obligatoria
+	  </small>
+
+	  <p class="forgot">¿Olvidaste tu contraseña?</p>
+
+	  <!-- BOTÓN -->
+	  <button 
+		type="submit" 
+		class="btn-login"
+		[disabled]="loginForm.invalid"
+	  >
+		Ingresar
+	  </button>
+
+	</form>
 
     <!-- Mensaje backend -->
     <div *ngIf="mensaje" class="mensaje">

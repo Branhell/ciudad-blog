@@ -1,19 +1,84 @@
-<h2>Crea tu cuenta</h2>
+<div class="login-container">
 
-<form (ngSubmit)="onRegister()" class="form-login">
-  <label for="nombre">Nombre:</label>
-  <input id="nombre" type="text" [(ngModel)]="nombre" name="nombre" required>
+  <!-- Tarjeta -->
+  <div class="login-card">
 
-  <label for="email">Correo electrónico:</label>
-  <input id="email" type="email" [(ngModel)]="email" name="email" required>
+    <!-- Logo -->
+    <img src="assets/EcoBits_Logo.png" class="login-logo">
 
-  <label for="password">Contraseña:</label>
-  <input id="password" type="password" [(ngModel)]="password" name="password" required>
+    <!-- Volver -->
+    <p routerLink="/" class="back-home">← Volver al inicio</p>
 
-  <button type="submit" class="btn">Registrarme</button>
-  <button routerLink="/" class="btn">Volver al inicio</button>
+    <h2>Register</h2>
+
+    <!-- Botones sociales -->
+    <div class="social-login">
+      <button class="social-btn google">Google</button>
+      <button class="social-btn github">GitHub</button>
+      <button class="social-btn linkedin">LinkedIn</button>
+    </div>
+
+    <div class="divider">or</div>
+
+    <!-- Formulario -->
+<form #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-login" novalidate>
+
+  <!-- NOMBRE -->
+  <input type="text"
+         [(ngModel)]="nombre"
+         name="nombre"
+         placeholder="Nombre"
+         required
+         #nombreRef="ngModel">
+
+  <small *ngIf="nombreRef.invalid && (nombreRef.touched || nombreRef.dirty)" style="color:red;">
+    El nombre es obligatorio
+  </small>
+
+  <!-- EMAIL -->
+  <input type="email"
+         [(ngModel)]="email"
+         name="email"
+         placeholder="Email address"
+         required
+         email
+         #emailRef="ngModel">
+
+  <small *ngIf="emailRef.invalid && (emailRef.touched || emailRef.dirty)" style="color:red;">
+    <span *ngIf="emailRef.errors?.['required']">El correo es obligatorio</span>
+    <span *ngIf="emailRef.errors?.['email']">Formato de correo inválido</span>
+  </small>
+
+  <!-- PASSWORD -->
+  <input type="password"
+         [(ngModel)]="password"
+         name="password"
+         placeholder="Password"
+         required
+         #passRef="ngModel">
+
+  <small *ngIf="passRef.invalid && (passRef.touched || passRef.dirty)" style="color:red;">
+    La contraseña es obligatoria
+  </small>
+
+  <button type="submit"
+          class="btn-login"
+          [disabled]="registerForm.invalid">
+    Register
+  </button>
+
 </form>
+    <!-- Login link -->
+    <p class="register">
+      Already have an account?
+      <a routerLink="/login">Log in</a>
+    </p>
 
-<p>
-  ¿Ya tienes cuenta? <a routerLink="/login" class="link-text">Explora tu espacio</a>
-</p>
+    <!-- Texto legal -->
+    <p class="legal-text">
+      By continuing you agree with our Terms of Service and confirm that you have read our Privacy Policy.
+      We may send you product updates and special offers via email. You can opt out anytime (see Privacy Policy).
+    </p>
+
+  </div>
+</div>

@@ -1,54 +1,21 @@
 <div class="expresate-container">
 
-  <section class="form-publicacion">
-    <h2>📝 Crear nueva publicación</h2>
+  <div class="contenido">
 
-    <form (ngSubmit)="publicar()">
-      <div class="campo">
-        <label for="titulo">Título:</label>
-        <input id="titulo" type="text" [(ngModel)]="publicacion.titulo" name="titulo">
-      </div>
+    <img src="assets/EcoBits_Logo.png"
+         class="logo-foro"
+         (click)="irAlForo()">
 
-      <div class="campo">
-        <label for="contenido">Contenido:</label>
-        <textarea id="contenido" [(ngModel)]="publicacion.contenido" name="contenido"></textarea>
-      </div>
+    <h1>Exprésate libremente</h1>
 
-      <div class="campo">
-        <label for="autor">Autor (ID numérico):</label>
-        <input id="autor" type="number" [(ngModel)]="publicacion.autor.id" name="autorId">
-      </div>
+    <p class="frase">
+      Un solo eco puede darle un giro a tu historia
+    </p>
 
-      <div class="campo">
-        <label>
-          <input type="checkbox" [(ngModel)]="publicacion.anonimo" name="anonimo">
-          Publicar como Anónimo
-        </label>
-      </div>
+    <button (click)="irAlForo()">
+      🚀 Comencemos
+    </button>
 
-      <button type="submit">📤 Publicar</button>
-    </form>
-
-    <p *ngIf="mensaje">{{ mensaje }}</p>
-  </section>
-
-  <hr>
-
-  <section class="listado-publicaciones">
-    <h2>📋 Publicaciones</h2>
-    <div *ngFor="let post of posts" class="post-card">
-      <h3>{{ post.titulo }}</h3>
-      <p>{{ post.contenido }}</p>
-      <p><strong>Autor:</strong> {{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</p>
-      <p><strong>Fecha:</strong> {{ post.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
-      <p>👍 {{ post.likes }} | 💬 {{ post.comentariosCount }}</p>
-
-      <div class="acciones">
-        <button (click)="darLike(post.id)">👍 Like</button>
-        <button (click)="agregarComentario(post.id)">💬 Comentar</button>
-        <button (click)="solicitarEliminacion(post.id)">🧨 Solicitar eliminación</button>
-      </div>
-    </div>
-  </section>
+  </div>
 
 </div>
