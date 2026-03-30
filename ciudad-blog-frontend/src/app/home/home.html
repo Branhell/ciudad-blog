@@ -1,19 +1,38 @@
 <header>
-  
   <div class="hero-section">
-
     <h1 class="hero-title">Bienvenidos a EcoBits</h1>
     <p class="hero-timeline">Donde la psicología se encuentra con los bits</p>
     <p class="hero-lema">Un solo eco le daría un giro a mi historia</p>
-
-
     <canvas id="c"></canvas>
   </div>
-
-  <!-- EFECTOS -->
   <div class="whisper top-left"></div>
   <div class="whisper top-right"></div>
   <div class="whisper bottom-left"></div>
   <div class="whisper bottom-right"></div>
-
 </header>
+
+<section class="posts-section">
+  <h2 class="posts-titulo">Publicaciones recientes</h2>
+
+  <div *ngIf="loading" class="posts-loading">
+    Cargando publicaciones...
+  </div>
+
+  <div *ngIf="error" class="posts-error">
+    No se pudieron cargar las publicaciones.
+  </div>
+
+  <div *ngIf="!loading && !error" class="posts-grid">
+    <div class="post-card" *ngFor="let post of posts">
+      <span class="post-categoria">{{ post.categoria }}</span>
+      <h3 class="post-titulo">{{ post.titulo }}</h3>
+      <p class="post-contenido">{{ post.contenido | slice:0:120 }}...</p>
+      <div class="post-footer">
+        <span class="post-autor">
+          {{ post.anonimo ? 'Anónimo' : post.autor.nombre }}
+        </span>
+        <span class="post-likes">❤️ {{ post.likes }}</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,30 @@
-<p>noticias works!</p>
+<section class="noticias-section">
+  <div class="noticias-header">
+    <h1 class="noticias-titulo">Noticias</h1>
+    <p class="noticias-subtitulo">Últimas novedades sobre tecnología y bienestar mental</p>
+  </div>
+
+  <div *ngIf="loading" class="estado-mensaje">
+    Cargando noticias...
+  </div>
+
+  <div *ngIf="error" class="estado-error">
+    No se pudieron cargar las noticias.
+  </div>
+
+  <div *ngIf="!loading && !error && posts.length === 0" class="estado-mensaje">
+    No hay noticias disponibles por el momento.
+  </div>
+
+  <div *ngIf="!loading && !error" class="posts-grid">
+    <div class="post-card" *ngFor="let post of posts">
+      <span class="post-categoria">{{ post.categoria }}</span>
+      <h3 class="post-titulo">{{ post.titulo }}</h3>
+      <p class="post-contenido">{{ post.contenido | slice:0:150 }}...</p>
+      <div class="post-footer">
+        <span class="post-autor">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
+        <span class="post-likes">❤️ {{ post.likes }}</span>
+      </div>
+    </div>
+  </div>
+</section>

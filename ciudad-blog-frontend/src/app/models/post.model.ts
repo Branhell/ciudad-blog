@@ -5,7 +5,7 @@ export interface Usuario {
 }
 
 export interface Post {
-  id: number;                // obligatorio
+  id: number;
   titulo: string;
   contenido: string;
   fecha: string;
@@ -13,5 +13,7 @@ export interface Post {
   anonimo: boolean;
   likes: number;
   comentariosCount: number;
-  aprobado?: boolean;        // opcional, usado al crear
+  categoria: string;
+  aprobado?: boolean;
+  solicitudEliminacion?: boolean;
 }

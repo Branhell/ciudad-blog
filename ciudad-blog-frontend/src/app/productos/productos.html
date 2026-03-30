@@ -1,1 +1,30 @@
-<p>productos works!</p>
+<section class="productos-section">
+  <div class="productos-header">
+    <h1 class="productos-titulo">Productos</h1>
+    <p class="productos-subtitulo">Herramientas y recursos para tu bienestar digital</p>
+  </div>
+
+  <div *ngIf="loading" class="estado-mensaje">
+    Cargando productos...
+  </div>
+
+  <div *ngIf="error" class="estado-error">
+    No se pudieron cargar los productos.
+  </div>
+
+  <div *ngIf="!loading && !error && posts.length === 0" class="estado-mensaje">
+    No hay productos disponibles por el momento.
+  </div>
+
+  <div *ngIf="!loading && !error" class="posts-grid">
+    <div class="post-card" *ngFor="let post of posts">
+      <span class="post-categoria">{{ post.categoria }}</span>
+      <h3 class="post-titulo">{{ post.titulo }}</h3>
+      <p class="post-contenido">{{ post.contenido | slice:0:150 }}...</p>
+      <div class="post-footer">
+        <span class="post-autor">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
+        <span class="post-likes">❤️ {{ post.likes }}</span>
+      </div>
+    </div>
+  </div>
+</section>

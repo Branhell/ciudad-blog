@@ -1,20 +1,2 @@
-<div class="dashboard">
-  <aside class="menu-lateral">
-    <a routerLink="/participantes">Ver lista</a>
-    <a routerLink="/consultar">Consultar</a>
-    <a routerLink="/actualizar">Actualizar</a>
-    <a routerLink="/eliminar">Eliminar</a>
-  </aside>
-
-  <main class="contenido">
-    <router-outlet></router-outlet>
-  </main>
-</div>
-
-<h2>Posts</h2>
-
-<ul>
-  <li *ngFor="let post of posts">
-    {{ post.titulo }}
-  </li>
-</ul>
+<h2>Dashboard</h2>
+<router-outlet></router-outlet>

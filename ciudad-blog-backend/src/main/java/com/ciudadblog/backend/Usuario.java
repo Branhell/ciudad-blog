@@ -31,6 +31,7 @@ public class Usuario {
         this.fechaRegistro = LocalDateTime.now();
     }
 
+    // Getters y Setters
     public Long getId() {
         return id;
     }

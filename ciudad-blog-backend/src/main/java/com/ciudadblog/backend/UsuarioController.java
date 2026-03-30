@@ -15,8 +15,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowCredentials = "false")
 public class UsuarioController {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+	@Autowired
+		private UsuarioRepository usuarioRepository;
+
+	@Autowired
+		private JwtUtil jwtUtil;
 
     @GetMapping
     public List<Usuario> obtenerUsuarios() {
@@ -44,13 +47,16 @@ public class UsuarioController {
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
 
-            if (usuario.getPassword() != null && usuario.getPassword().equals(request.getPassword())) {
-                response.put("mensaje", "Login correcto");
-                response.put("email", usuario.getEmail());
-                response.put("nombre", usuario.getNombre());
-                response.put("id", String.valueOf(usuario.getId()));
-                return ResponseEntity.ok(response);
-            }
+		if (usuario.getPassword() != null && usuario.getPassword().equals(request.getPassword())) {
+			String token = jwtUtil.generateToken(usuario.getEmail());
+
+			response.put("mensaje", "Login correcto");
+			response.put("email", usuario.getEmail());
+			response.put("nombre", usuario.getNombre());
+			response.put("id", String.valueOf(usuario.getId()));
+			response.put("token", token); // <-- Añadido JWT
+			return ResponseEntity.ok(response);
+			}
         }
 
         response.put("mensaje", "Credenciales inválidas");
