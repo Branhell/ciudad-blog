@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './dashboard.html'
+  imports: [CommonModule, RouterLink],
+  templateUrl: './dashboard.html',
+  styleUrl: './dashboard.css'
 })
-export class DashboardComponent {}
+export class DashboardComponent implements OnInit {
+  rol: string | null = null;
+  nombre: string | null = null;
+  email: string | null = null;
+
+  ngOnInit() {
+    this.rol = localStorage.getItem('usuarioRol');
+    this.email = localStorage.getItem('usuarioEmail');
+  }
+}

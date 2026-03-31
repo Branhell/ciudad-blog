@@ -55,6 +55,7 @@ public class UsuarioController {
 			response.put("nombre", usuario.getNombre());
 			response.put("id", String.valueOf(usuario.getId()));
 			response.put("token", token); // <-- Añadido JWT
+			response.put("rol", usuario.getRol());
 			return ResponseEntity.ok(response);
 			}
         }

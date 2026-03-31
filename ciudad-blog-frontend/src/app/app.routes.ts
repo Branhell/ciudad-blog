@@ -3,17 +3,19 @@ import { HomeComponent } from './home/home';
 import { DashboardComponent } from './dashboard/dashboard';
 import { LoginComponent } from './login/login';
 import { RegistroComponent } from './registro/registro';
-import { authGuard } from './auth.guard'; // 👈 importa el guard
+import { authGuard, rolGuard } from './auth.guard'; // 👈 importa el guard
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [authGuard] // 👈 protege la ruta con el guard
-  },
+  
+  // 👈 protege la ruta con el guard
+  
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+  { path: 'dashboard/paciente', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PACIENTE'] } },
+  { path: 'dashboard/profesional', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PROFESIONAL'] } },
+  { path: 'dashboard/admin', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['ADMIN'] } },
 
   // CRUD (solo accesibles desde dashboard)
   { path: 'expresate', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           this.isLoggedIn = true;
 
           // 🔑 Usamos AuthService para actualizar estado global y navbar
-          this.authService.login(this.username, res.token);
+          this.authService.login(this.username, res.token, res.rol);
 
           // Redirigimos al dashboard
           this.router.navigate(['/dashboard']);

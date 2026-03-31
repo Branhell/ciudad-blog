@@ -1,2 +1,141 @@
-<h2>Dashboard</h2>
-<router-outlet></router-outlet>
+<div class="dashboard-container">
+
+  <!-- DASHBOARD PACIENTE -->
+  <div *ngIf="rol === 'PACIENTE'" class="dashboard-content">
+    <div class="dashboard-header paciente">
+      <h1>🧠 Mi Panel de Bienestar</h1>
+      <p>Bienvenido a tu espacio personal en EcoBits</p>
+      <span class="rol-badge paciente-badge">Paciente</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-icon">📊</span>
+        <h3>Mi Bienestar</h3>
+        <p>Revisa tu evolución y métricas personales</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">💬</span>
+        <h3>Foro General</h3>
+        <p>Participa en la comunidad EcoBits</p>
+        <a routerLink="/expresate" class="card-btn">Ir al foro</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛠️</span>
+        <h3>Mis Servicios</h3>
+        <p>Servicios contratados y disponibles</p>
+        <a routerLink="/servicios" class="card-btn">Ver servicios</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛒</span>
+        <h3>Productos</h3>
+        <p>Productos disponibles para ti</p>
+        <a routerLink="/productos" class="card-btn">Ver productos</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">📰</span>
+        <h3>Noticias</h3>
+        <p>Últimas novedades de EcoBits</p>
+        <a routerLink="/noticias" class="card-btn">Ver noticias</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Eventos</h3>
+        <p>Webinars y actividades próximas</p>
+        <a routerLink="/eventos" class="card-btn">Ver eventos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD PROFESIONAL -->
+  <div *ngIf="rol === 'PROFESIONAL'" class="dashboard-content">
+    <div class="dashboard-header profesional">
+      <h1>🩺 Panel Profesional</h1>
+      <p>Gestiona tus clientes y servicios</p>
+      <span class="rol-badge profesional-badge">Profesional</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-icon">👥</span>
+        <h3>Mis Clientes</h3>
+        <p>Lista de pacientes asignados</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛠️</span>
+        <h3>Mis Servicios</h3>
+        <p>Gestiona los servicios que ofreces</p>
+        <a routerLink="/servicios" class="card-btn">Ver servicios</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔒</span>
+        <h3>Foro Profesional</h3>
+        <p>Espacio privado para profesionales</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📈</span>
+        <h3>Estadísticas</h3>
+        <p>Métricas y evolución de tus clientes</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📝</span>
+        <h3>Publicaciones</h3>
+        <p>Gestiona tus artículos y posts</p>
+        <a routerLink="/noticias" class="card-btn">Ver publicaciones</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD ADMIN -->
+  <div *ngIf="rol === 'ADMIN'" class="dashboard-content">
+    <div class="dashboard-header admin">
+      <h1>⚙️ Panel Administrador</h1>
+      <p>Control total de la plataforma EcoBits</p>
+      <span class="rol-badge admin-badge">Administrador</span>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-icon">👤</span>
+        <h3>Usuarios</h3>
+        <p>Gestiona todos los usuarios</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📊</span>
+        <h3>Estadísticas</h3>
+        <p>Métricas globales de la plataforma</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛠️</span>
+        <h3>Servicios</h3>
+        <p>Administra los servicios activos</p>
+        <a routerLink="/servicios" class="card-btn">Ver servicios</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Eventos</h3>
+        <p>Gestiona eventos y webinars</p>
+        <a routerLink="/eventos" class="card-btn">Ver eventos</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">📰</span>
+        <h3>Noticias</h3>
+        <p>Administra el contenido del portal</p>
+        <a routerLink="/noticias" class="card-btn">Ver noticias</a>
+      </div>
+      <div class="card">
+        <span class="card-icon">💬</span>
+        <h3>Foro</h3>
+        <p>Modera el foro de la comunidad</p>
+        <a routerLink="/expresate" class="card-btn">Ir al foro</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIN ROL -->
+  <div *ngIf="!rol" class="dashboard-content">
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+      <p>No se pudo determinar tu rol. Por favor inicia sesión nuevamente.</p>
+      <a routerLink="/login" class="card-btn">Iniciar sesión</a>
+    </div>
+  </div>
+
+</div>
