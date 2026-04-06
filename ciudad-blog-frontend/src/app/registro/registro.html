@@ -1,84 +1,77 @@
 <div class="login-container">
-
-  <!-- Tarjeta -->
   <div class="login-card">
-
-    <!-- Logo -->
     <img src="assets/EcoBits_Logo.png" class="login-logo">
-
-    <!-- Volver -->
     <p routerLink="/" class="back-home">← Volver al inicio</p>
+    <h2>Registro</h2>
 
-    <h2>Register</h2>
-
-    <!-- Botones sociales -->
     <div class="social-login">
       <button class="social-btn google">Google</button>
       <button class="social-btn github">GitHub</button>
       <button class="social-btn linkedin">LinkedIn</button>
     </div>
+    <div class="divider">o</div>
 
-    <div class="divider">or</div>
+    <!-- Mensaje de éxito o error -->
+    <div *ngIf="mensaje" [class]="mensaje.includes('✅') ? 'msg-success' : 'msg-error'">
+      {{ mensaje }}
+    </div>
 
-    <!-- Formulario -->
-<form #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-login" novalidate>
+    <form #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-login" novalidate>
 
-  <!-- NOMBRE -->
-  <input type="text"
-         [(ngModel)]="nombre"
-         name="nombre"
-         placeholder="Nombre"
-         required
-         #nombreRef="ngModel">
+      <!-- NOMBRE -->
+      <input type="text"
+             [(ngModel)]="nombre"
+             name="nombre"
+             placeholder="Nombre completo"
+             required
+             #nombreRef="ngModel">
+      <small *ngIf="nombreRef.invalid && (nombreRef.touched || nombreRef.dirty)" style="color:red;">
+        El nombre es obligatorio
+      </small>
 
-  <small *ngIf="nombreRef.invalid && (nombreRef.touched || nombreRef.dirty)" style="color:red;">
-    El nombre es obligatorio
-  </small>
+      <!-- EMAIL -->
+      <input type="email"
+             [(ngModel)]="email"
+             name="email"
+             placeholder="Correo electrónico"
+             required
+             email
+             #emailRef="ngModel">
+      <small *ngIf="emailRef.invalid && (emailRef.touched || emailRef.dirty)" style="color:red;">
+        <span *ngIf="emailRef.errors?.['required']">El correo es obligatorio</span>
+        <span *ngIf="emailRef.errors?.['email']">Formato de correo inválido</span>
+      </small>
 
-  <!-- EMAIL -->
-  <input type="email"
-         [(ngModel)]="email"
-         name="email"
-         placeholder="Email address"
-         required
-         email
-         #emailRef="ngModel">
+      <!-- PASSWORD con ojito -->
+      <div class="password-wrapper">
+        <input [type]="mostrarPassword ? 'text' : 'password'"
+               [(ngModel)]="password"
+               name="password"
+               placeholder="Contraseña (mínimo 8 caracteres)"
+               required
+               #passRef="ngModel">
+        <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">
+          {{ mostrarPassword ? '🙈' : '👁️' }}
+        </span>
+      </div>
+      <small *ngIf="passRef.invalid && (passRef.touched || passRef.dirty)" style="color:red;">
+        La contraseña es obligatoria
+      </small>
 
-  <small *ngIf="emailRef.invalid && (emailRef.touched || emailRef.dirty)" style="color:red;">
-    <span *ngIf="emailRef.errors?.['required']">El correo es obligatorio</span>
-    <span *ngIf="emailRef.errors?.['email']">Formato de correo inválido</span>
-  </small>
+      <button type="submit"
+              class="btn-login"
+              [disabled]="registerForm.invalid || loading">
+        {{ loading ? 'Registrando...' : 'Crear cuenta' }}
+      </button>
+    </form>
 
-  <!-- PASSWORD -->
-  <input type="password"
-         [(ngModel)]="password"
-         name="password"
-         placeholder="Password"
-         required
-         #passRef="ngModel">
-
-  <small *ngIf="passRef.invalid && (passRef.touched || passRef.dirty)" style="color:red;">
-    La contraseña es obligatoria
-  </small>
-
-  <button type="submit"
-          class="btn-login"
-          [disabled]="registerForm.invalid">
-    Register
-  </button>
-
-</form>
-    <!-- Login link -->
     <p class="register">
-      Already have an account?
-      <a routerLink="/login">Log in</a>
+      ¿Ya tienes cuenta?
+      <a routerLink="/login">Inicia sesión</a>
     </p>
 
-    <!-- Texto legal -->
     <p class="legal-text">
-      By continuing you agree with our Terms of Service and confirm that you have read our Privacy Policy.
-      We may send you product updates and special offers via email. You can opt out anytime (see Privacy Policy).
+      Al continuar aceptas nuestros Términos de Servicio y confirmas que has leído nuestra Política de Privacidad.
     </p>
-
   </div>
 </div>

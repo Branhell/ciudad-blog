@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   mensaje: string = '';
   isLoggedIn: boolean = false;
+  mostrarPassword: boolean = false;
 
   constructor(
     private router: Router,

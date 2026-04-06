@@ -40,14 +40,20 @@
 	  </small>
 
 	  <!-- PASSWORD -->
-	  <input 
-		type="password" 
-		[(ngModel)]="password" 
-		name="password" 
-		placeholder="Contraseña" 
-		required
-		#pass="ngModel"
-	  >
+<!-- PASSWORD con ojito -->
+<div class="password-wrapper">
+  <input
+        [type]="mostrarPassword ? 'text' : 'password'"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Contraseña"
+        required
+        #pass="ngModel"
+  >
+  <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">
+    {{ mostrarPassword ? '🙈' : '👁️' }}
+  </span>
+</div>
 
 	  <small *ngIf="pass.invalid && (pass.touched || pass.dirty)" style="color:red;">
 		La contraseña es obligatoria

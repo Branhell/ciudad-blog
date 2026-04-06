@@ -110,3 +110,48 @@
   color: #3b82f6;
   cursor: pointer;
 }
+
+/* Ojito contraseña */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* Mensajes */
+.mensaje {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Fix input tamaño */
+.form-login input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  box-sizing: border-box;
+}
