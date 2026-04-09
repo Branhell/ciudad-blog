@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-terminos-condiciones',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './terminos-condiciones.html',
   styleUrl: './terminos-condiciones.css'
 })
-export class TerminosCondiciones {
-
-}
+export class TerminosCondiciones {}

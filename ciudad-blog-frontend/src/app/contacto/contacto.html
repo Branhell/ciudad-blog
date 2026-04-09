@@ -1,1 +1,65 @@
-<p>contacto works!</p>
+<div class="page-container">
+  <div class="page-header">
+    <h1>Contacto</h1>
+    <p class="page-subtitle">Estamos aquí para ayudarte</p>
+  </div>
+
+  <form class="contact-form" #contactForm="ngForm" (ngSubmit)="enviar(contactForm)">
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input 
+        type="text" 
+        name="nombre" 
+        ngModel 
+        required 
+        #nombre="ngModel"
+      >
+      <small *ngIf="nombre.invalid && nombre.touched">
+        El nombre es obligatorio
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Correo</label>
+      <input 
+        type="email" 
+        name="email" 
+        ngModel 
+        required 
+        email
+        #email="ngModel"
+      >
+      <small *ngIf="email.invalid && email.touched">
+        Ingresa un correo válido
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Mensaje</label>
+      <textarea 
+        name="mensaje" 
+        ngModel 
+        required 
+        rows="5"
+        #mensajeRef="ngModel"
+      ></textarea>
+      <small *ngIf="mensajeRef.invalid && mensajeRef.touched">
+        El mensaje es obligatorio
+      </small>
+    </div>
+
+    <button 
+      type="submit" 
+      [disabled]="contactForm.invalid"
+      class="btn-submit"
+    >
+      Enviar mensaje
+    </button>
+	
+	<div *ngIf="mensaje" [class]="exito ? 'msg-success' : 'msg-error'">
+		{{ mensaje }}
+	</div>
+
+  </form>
+</div>

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-trabaja-con-nosotros',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './trabaja-con-nosotros.html',
   styleUrl: './trabaja-con-nosotros.css'
 })
-export class TrabajaConNosotros {
-
-}
+export class TrabajaConNosotros {}
