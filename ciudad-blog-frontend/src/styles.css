@@ -64,6 +64,16 @@
   /* --- Transiciones estandarizadas --- */
   --eco-transicion:      all 0.3s ease;
   --eco-transicion-fast: all 0.2s ease;
+  
+    /* ===== ALIAS DE COMPATIBILIDAD ===== */
+  /* Para que componentes existentes funcionen con la paleta EcoBits */
+  --primary: var(--eco-primario);
+  --secondary: var(--eco-secundario);
+  --accent: var(--eco-acento);
+  --success: var(--eco-exito);
+  --danger: #e74c3c;
+  --dark: var(--eco-verde-oscuro);
+  --light: var(--eco-fondo-suave);
 }
 
 /* ==============================================
@@ -287,4 +297,10 @@ form button {
   .hero-title    { font-size: 1.4em; top: 10px; }
   .hero-timeline { font-size: 1em;   top: 80px; }
   .hero-lema     { font-size: 0.9em; }
+}
+/* ==============================================
+   CLASE PARA GRADIENTES ECOBITS
+   ============================================== */
+.ecobits-gradient {
+  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
 }

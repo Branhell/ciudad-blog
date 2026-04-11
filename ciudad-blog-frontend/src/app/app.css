@@ -19,8 +19,8 @@ app-root {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  background: var(--eco-fondo-blanco);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   border-bottom: 2px solid var(--eco-primario);
   z-index: 1000;
   box-sizing: border-box;
@@ -42,6 +42,7 @@ app-root {
   flex-wrap: nowrap;
   gap: 2px;
   flex: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links a {
@@ -59,6 +60,7 @@ app-root {
 .nav-links a:hover {
   background: rgba(0, 212, 255, 0.1);
   color: var(--eco-primario);
+  transform: translateY(-1px);
 }
 
 /* Link activo — subrayado con color EcoBits */
@@ -125,25 +127,28 @@ app-root {
 }
 
 /* Botón hamburguesa */
+/* Botón hamburguesa */
+/* Botón hamburguesa */
 .hamburger {
   display: none;
   background: none;
   border: 2px solid var(--eco-primario);
   border-radius: var(--eco-radio-sm);
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
-  color: var(--eco-texto-oscuro);
-  padding: 4px 10px;
+  color: var(--eco-primario);
+  padding: 6px 12px;
   margin-left: auto;
   flex-shrink: 0;
-  transition: var(--eco-transicion-fast);
+  transition: all 0.2s ease;
   line-height: 1;
 }
 
 .hamburger:hover {
-  background: rgba(0, 212, 255, 0.1);
+  background: var(--eco-primario);
+  color: white;
+  transform: scale(1.02);
 }
-
 /* ==============================================
    CONTENEDOR PRINCIPAL
    ============================================== */
