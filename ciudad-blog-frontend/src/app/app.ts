@@ -41,6 +41,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // animaciones GSAP aquí si las necesitas
+    // Inicializar AOS para animaciones al scroll
+    if (typeof window !== 'undefined') {
+      import('aos').then(AOS => {
+        AOS.default.init({
+          duration: 800,
+          once: true,
+          offset: 100,
+          easing: 'ease-out'
+        });
+      });
+    }
   }
 }

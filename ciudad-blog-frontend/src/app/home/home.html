@@ -4,31 +4,26 @@
 <header class="hero">
   <div class="hero-inner">
 
-    <!-- Badge animado -->
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
       Plataforma de bienestar integral
     </div>
 
-    <!-- Título principal -->
     <h1 class="hero-titulo">
       Donde la psicología<br>
       <span class="hero-titulo-acento">se encuentra con los bits</span>
     </h1>
 
-    <!-- Subtítulo / lema -->
     <p class="hero-subtitulo">
       Un solo eco le daría un giro a mi historia.<br>
       Conectamos personas, comunidades y bienestar en un solo lugar.
     </p>
 
-    <!-- Botones CTA -->
     <div class="hero-acciones">
       <a routerLink="/registro" class="hero-btn-primario">Comenzar ahora</a>
       <a routerLink="/quienes-somos" class="hero-btn-secundario">Conoce EcoBits</a>
     </div>
 
-    <!-- Stats rápidas -->
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-num">2,400+</span>
@@ -48,41 +43,44 @@
 
   </div>
 
-  <!-- Orbs decorativos (CSS puro) -->
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
 </header>
 
 <!-- =============================================
-     SECCIÓN DE POSTS RECIENTES
+     POSTS - VERSIÓN SIMPLE QUE SÍ FUNCIONA
      ============================================= -->
-<section class="posts-section">
-  <div class="posts-header">
-    <h2 class="posts-titulo">Publicaciones recientes</h2>
-    <span class="posts-titulo-linea"></span>
+<section style="max-width:1100px; margin:64px auto; padding:0 20px;">
+  <div style="display:flex; align-items:center; gap:16px; margin-bottom:36px;">
+    <h2 style="font-size:1.6rem; color:#2c3e50; margin:0;">Publicaciones recientes</h2>
+    <div style="flex:1; height:2px; background:linear-gradient(90deg, #00d4ff, transparent);"></div>
   </div>
 
-  <div *ngIf="loading" class="posts-loading">
-    <div class="loading-spinner"></div>
+  <div *ngIf="loading" style="text-align:center; padding:40px;">
+    <div style="width:36px; height:36px; border:3px solid #eee; border-top-color:#00d4ff; border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 16px;"></div>
     Cargando publicaciones...
   </div>
 
-  <div *ngIf="error" class="posts-error">
-    ⚠️ No se pudieron cargar las publicaciones.
+  <div *ngIf="error" style="text-align:center; color:#e74c3c; padding:40px;">
+    Error al cargar publicaciones
   </div>
 
-  <div *ngIf="!loading && !error" class="posts-grid">
-    <div class="post-card" *ngFor="let post of posts">
-      <span class="post-categoria">{{ post.categoria }}</span>
-      <h3 class="post-titulo">{{ post.titulo }}</h3>
-      <p class="post-contenido">{{ post.contenido | slice:0:120 }}...</p>
-      <div class="post-footer">
-        <span class="post-autor">
-          {{ post.anonimo ? 'Anónimo' : post.autor.nombre }}
-        </span>
-        <span class="post-likes">❤️ {{ post.likes }}</span>
+  <div *ngIf="!loading && !error" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:24px;">
+    <div *ngFor="let post of posts; let i = index" style="background:white; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-top:3px solid #00d4ff;">
+      <span style="display:inline-block; background:#dcfce7; color:#7ed321; font-size:0.7rem; font-weight:700; padding:4px 10px; border-radius:20px; margin-bottom:12px;">{{ post.categoria }}</span>
+      <h3 style="font-size:1.1rem; font-weight:700; color:#2c3e50; margin:0 0 10px;">{{ post.titulo }}</h3>
+      <p style="font-size:0.9rem; color:#555; line-height:1.5; margin:0 0 16px;">{{ post.contenido | slice:0:120 }}...</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:#888; border-top:1px solid #eee; padding-top:12px;">
+        <span style="font-weight:600; color:#555;">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
+        <span style="color:#7ed321; font-weight:600;">❤️ {{ post.likes }}</span>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>

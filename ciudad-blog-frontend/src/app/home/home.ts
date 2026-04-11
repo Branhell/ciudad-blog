@@ -20,13 +20,15 @@ export class HomeComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   ngOnInit() {
+	console.log('HomeComponent iniciado');
     this.postService.getPosts().subscribe({
       next: (data) => {
+		console.log('Posts recibidos:', data);
         this.posts = data.slice(0, 6);
         this.loading = false;
       },
       error: (err) => {
-        console.error(err);
+        console.error('Error al cargar posts:', err);
         this.error = true;
         this.loading = false;
       }
