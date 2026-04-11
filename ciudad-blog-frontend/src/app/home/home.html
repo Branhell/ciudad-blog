@@ -1,38 +1,75 @@
-<header>
-  <div class="hero-section">
-    <h1 class="hero-title">Bienvenidos a EcoBits</h1>
-    <p class="hero-timeline">Donde la psicología se encuentra con los bits</p>
-    <p class="hero-lema">Un solo eco le daría un giro a mi historia</p>
-    <canvas id="c"></canvas>
-  </div>
-  <div class="whisper top-left"></div>
-  <div class="whisper top-right"></div>
-  <div class="whisper bottom-left"></div>
-  <div class="whisper bottom-right"></div>
-</header>
+<nav class="main-nav">
 
-<section class="posts-section">
-  <h2 class="posts-titulo">Publicaciones recientes</h2>
+  <!-- LOGO -->
+  <img src="assets/EcoBits_Logo.png" class="logo-nav" alt="EcoBits">
 
-  <div *ngIf="loading" class="posts-loading">
-    Cargando publicaciones...
-  </div>
+  <!-- BOTÓN HAMBURGUESA -->
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Menú">☰</button>
 
-  <div *ngIf="error" class="posts-error">
-    No se pudieron cargar las publicaciones.
-  </div>
+  <!-- LINKS DEL MENÚ -->
+  <div class="nav-links" [class.open]="menuAbierto">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="cerrarMenu()">Inicio</a>
+    <a routerLink="/expresate" routerLinkActive="active" (click)="cerrarMenu()">Exprésate</a>
+    <a routerLink="/servicios" routerLinkActive="active" (click)="cerrarMenu()">Servicios</a>
+    <a routerLink="/productos" routerLinkActive="active" (click)="cerrarMenu()">Productos</a>
+    <a routerLink="/noticias" routerLinkActive="active" (click)="cerrarMenu()">Noticias</a>
+    <a routerLink="/eventos" routerLinkActive="active" (click)="cerrarMenu()">Eventos</a>
+    <a routerLink="/empresas" routerLinkActive="active" (click)="cerrarMenu()">Empresas</a>
+    <a routerLink="/quantum-magazine" routerLinkActive="active" (click)="cerrarMenu()">QuantumMagazine</a>
 
-  <div *ngIf="!loading && !error" class="posts-grid">
-    <div class="post-card" *ngFor="let post of posts">
-      <span class="post-categoria">{{ post.categoria }}</span>
-      <h3 class="post-titulo">{{ post.titulo }}</h3>
-      <p class="post-contenido">{{ post.contenido | slice:0:120 }}...</p>
-      <div class="post-footer">
-        <span class="post-autor">
-          {{ post.anonimo ? 'Anónimo' : post.autor.nombre }}
-        </span>
-        <span class="post-likes">❤️ {{ post.likes }}</span>
-      </div>
+    <!-- LOGIN dentro del menú en móvil -->
+    <div class="nav-right-mobile">
+      <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/login" class="login-button-nav" (click)="cerrarMenu()">👤 Iniciar sesión</a>
+        <a routerLink="/registro" class="login-button-nav" (click)="cerrarMenu()">👤 Registro</a>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <span class="user-email">{{ userEmail }}</span>
+        <button (click)="logout()" class="login-button-nav">Cerrar sesión</button>
+      </ng-container>
     </div>
   </div>
-</section>
+
+  <!-- LOGIN en escritorio -->
+  <div class="nav-right">
+    <ng-container *ngIf="!isLoggedIn">
+      <a routerLink="/login" class="login-button-nav">👤 Iniciar sesión</a>
+      <a routerLink="/registro" class="login-button-nav">👤 Registro</a>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn">
+      <span class="user-email">{{ userEmail }}</span>
+      <button (click)="logout()" class="login-button-nav">Cerrar sesión</button>
+    </ng-container>
+  </div>
+
+</nav>
+
+<main class="contenido">
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a routerLink="/quienes-somos">Quiénes Somos</a>
+    <a routerLink="/trabaja-con-nosotros">Trabaja con Nosotros</a>
+    <a routerLink="/preguntas-frecuentes">Preguntas Frecuentes</a>
+    <a routerLink="/politica-privacidad">Política de Privacidad</a>
+    <a routerLink="/terminos-condiciones">Términos y Condiciones</a>
+    <a routerLink="/faqs">FAQ's</a>
+    <a routerLink="/ayuda-urgente">Ayuda Urgente</a>
+    <a routerLink="/contacto">Contacto</a>
+  </div>
+  <p>&copy; 2026 EcoBits. Todos los derechos reservados.</p>
+</footer>
+
+<aside class="social-bar">
+  <a href="https://www.facebook.com" class="social-icon facebook" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com" class="social-icon instagram" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com" class="social-icon twitter" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://www.linkedin.com" class="social-icon linkedin" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://wa.me/573001112233" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</aside>
+
+<div class="download-app">
+  <a href="#" target="_blank">📱 Descarga la APP</a>
+</div>

@@ -1,118 +1,271 @@
+/* ==============================================
+   DASHBOARD — Contenedor general
+   ============================================== */
 .dashboard-container {
   max-width: 1100px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
+/* ==============================================
+   HEADER DE CADA ROL
+   ============================================== */
 .dashboard-header {
-  text-align: center;
-  padding: 40px 20px;
-  border-radius: 16px;
-  margin-bottom: 40px;
-  color: white;
+  border-radius: var(--eco-radio-lg);
+  margin-bottom: 36px;
+  overflow: hidden;
+  box-shadow: var(--eco-sombra-media);
 }
 
-.dashboard-header.paciente {
-  background: linear-gradient(135deg, #3498db, #2980b9);
+/* Layout interno del header */
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 36px 40px;
 }
 
-.dashboard-header.profesional {
-  background: linear-gradient(135deg, #9b59b6, #8e44ad);
-}
-
-.dashboard-header.admin {
-  background: linear-gradient(135deg, #1a3a5c, #2e6da4);
-}
-
-.dashboard-header h1 {
-  font-size: 2rem;
+/* Avatar con inicial */
+.header-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  color: var(--eco-texto-blanco);
+  flex-shrink: 0;
 }
 
-.dashboard-header p {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-bottom: 16px;
+/* Info de texto del header */
+.header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
+.header-info h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--eco-texto-blanco);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header-info p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.header-email {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+/* Badge de rol */
 .rol-badge {
   display: inline-block;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: var(--eco-radio-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  width: fit-content;
+}
+
+/* ==============================================
+   COLORES POR ROL — Headers
+   ============================================== */
+
+/* Paciente — verde EcoBits */
+.dashboard-header.paciente {
+  background: linear-gradient(135deg, var(--eco-verde-oscuro) 0%, var(--eco-verde-medio) 100%);
+  border-bottom: 3px solid var(--eco-primario);
 }
 
 .paciente-badge {
-  background: rgba(255,255,255,0.25);
-  color: white;
+  background: rgba(0, 212, 255, 0.25);
+  color: var(--eco-primario);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+}
+
+/* Profesional — cian hacia verde */
+.dashboard-header.profesional {
+  background: linear-gradient(135deg, #003d4d 0%, #005f5f 50%, var(--eco-verde-medio) 100%);
+  border-bottom: 3px solid var(--eco-secundario);
 }
 
 .profesional-badge {
-  background: rgba(255,255,255,0.25);
-  color: white;
+  background: rgba(126, 211, 33, 0.25);
+  color: var(--eco-secundario);
+  border: 1px solid rgba(126, 211, 33, 0.4);
+}
+
+/* Admin — oscuro EcoBits */
+.dashboard-header.admin {
+  background: linear-gradient(135deg, #0a0f0a 0%, var(--eco-verde-oscuro) 60%, #001a1a 100%);
+  border-bottom: 3px solid var(--eco-acento);
 }
 
 .admin-badge {
-  background: rgba(255,255,255,0.25);
-  color: white;
+  background: rgba(0, 255, 136, 0.2);
+  color: var(--eco-acento);
+  border: 1px solid rgba(0, 255, 136, 0.35);
 }
 
+/* Sin rol */
+.dashboard-header.sin-rol {
+  background: linear-gradient(135deg, #374151, #4b5563);
+  border-bottom: 3px solid #9ca3af;
+}
+
+/* ==============================================
+   GRID DE TARJETAS
+   ============================================== */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
 }
 
+/* Tarjeta base */
 .card {
-  background: #ffffff;
-  border-radius: 12px;
+  background: var(--eco-fondo-blanco);
+  border-radius: var(--eco-radio-md);
   padding: 28px 24px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--eco-sombra-suave);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
   text-align: center;
+  border-top: 3px solid transparent;
+  border-left: 1px solid var(--eco-borde);
+  border-right: 1px solid var(--eco-borde);
+  border-bottom: 1px solid var(--eco-borde);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  transform: translateY(-5px);
+  box-shadow: var(--eco-sombra-media);
 }
 
+/* Variantes de color de borde superior */
+.card-verde  { border-top-color: var(--eco-secundario); }
+.card-cian   { border-top-color: var(--eco-primario); }
+.card-admin  { border-top-color: var(--eco-acento); }
+
+.card-verde:hover  { border-top-color: var(--eco-primario); }
+.card-cian:hover   { border-top-color: var(--eco-secundario); }
+.card-admin:hover  { border-top-color: var(--eco-secundario); }
+
+/* Ícono */
 .card-icon {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
+/* Título tarjeta */
 .card h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 8px;
+  color: var(--eco-texto-oscuro);
+  margin: 0 0 8px;
 }
 
+/* Descripción tarjeta */
 .card p {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 16px;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  color: var(--eco-texto-suave);
+  margin: 0 0 18px;
+  line-height: 1.55;
 }
 
+/* ==============================================
+   BOTONES DE TARJETA
+   ============================================== */
 .card-btn {
   display: inline-block;
-  padding: 8px 20px;
-  background: #3498db;
-  color: white;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 8px 22px;
+  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
+  color: var(--eco-verde-oscuro);
+  border-radius: var(--eco-radio-pill);
+  font-size: 0.83rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: var(--eco-transicion-fast);
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.25);
 }
 
 .card-btn:hover {
-  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: var(--eco-sombra-cian);
+  opacity: 0.92;
+}
+
+/* Botón admin — tono diferente */
+.card-btn-admin {
+  background: linear-gradient(135deg, var(--eco-verde-medio), var(--eco-acento));
+  color: var(--eco-texto-blanco);
+  box-shadow: 0 2px 8px rgba(0, 255, 136, 0.2);
+}
+
+.card-btn-admin:hover {
+  box-shadow: 0 4px 14px rgba(0, 255, 136, 0.35);
+}
+
+/* ==============================================
+   RESPONSIVO
+   ============================================== */
+@media (max-width: 900px) {
+  .dashboard-container {
+    margin: 24px auto;
+    padding: 0 14px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+    gap: 16px;
+  }
+
+  .header-info {
+    align-items: center;
+  }
+
+  .header-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+  }
+
+  .header-info h1 {
+    font-size: 1.3rem;
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+  }
 }

@@ -1,12 +1,76 @@
+/* ==============================================
+   ECOBITS — PALETA DE COLORES GLOBAL
+   Fuente única de verdad para toda la app.
+   No modificar colores directamente en componentes,
+   usar siempre estas variables.
+   ============================================== */
 :root {
-  --primario: #00d4ff;
-  --secundario: #7ed321;
-  --acento1: #0d1f0f;
-  --acento2: #f0fdf4;
-  --acento3: #dcfce7;
-  --extra: #00ff88;
-  --oscuro: #0a0f0a;
-  --texto-claro: #e8f5e9;
+  /* --- Colores principales EcoBits --- */
+  --eco-primario:        #00d4ff;   /* Cian EcoBits */
+  --eco-secundario:      #7ed321;   /* Verde lima EcoBits */
+  --eco-acento:          #00ff88;   /* Verde neón suave */
+  --eco-verde-oscuro:    #0d1f0f;   /* Verde muy oscuro (fondos oscuros) */
+  --eco-verde-medio:     #1a3a2a;   /* Verde medio (gradientes) */
+
+  /* --- Colores de texto --- */
+  --eco-texto-oscuro:    #2c3e50;   /* Texto principal */
+  --eco-texto-medio:     #555555;   /* Texto secundario */
+  --eco-texto-suave:     #888888;   /* Texto terciario / placeholders */
+  --eco-texto-claro:     #e8f5e9;   /* Texto sobre fondos oscuros */
+  --eco-texto-blanco:    #ffffff;
+
+  /* --- Fondos --- */
+  --eco-fondo-pagina:    #f0fdf4;   /* Fondo general de la app */
+  --eco-fondo-blanco:    #ffffff;
+  --eco-fondo-suave:     #f9f9f9;
+  --eco-fondo-tarjeta:   #ffffff;
+  --eco-fondo-oscuro:    #0f172a;   /* Login y secciones oscuras */
+  --eco-fondo-oscuro2:   #1e293b;   /* Tarjeta login */
+
+  /* --- Verdes suaves (badges, pills, acentos) --- */
+  --eco-verde-light:     #dcfce7;
+  --eco-verde-xlight:    #f0fdf4;
+
+  /* --- Bordes y separadores --- */
+  --eco-borde:           #f0f0f0;
+  --eco-borde-medio:     #cccccc;
+
+  /* --- Estados semánticos --- */
+  --eco-error:           #e74c3c;
+  --eco-error-fondo:     #fee2e2;
+  --eco-error-texto:     #991b1b;
+  --eco-exito:           #166534;
+  --eco-exito-fondo:     #dcfce7;
+
+  /* --- Redes sociales (no cambiar) --- */
+  --color-facebook:      #1877f2;
+  --color-instagram:     #e4405f;
+  --color-twitter:       #1da1f2;
+  --color-linkedin:      #0077b5;
+  --color-whatsapp:      #25d366;
+
+  /* --- Sombras estandarizadas --- */
+  --eco-sombra-suave:    0 4px 16px rgba(0, 0, 0, 0.08);
+  --eco-sombra-media:    0 8px 24px rgba(0, 0, 0, 0.14);
+  --eco-sombra-fuerte:   0 10px 40px rgba(0, 0, 0, 0.25);
+  --eco-sombra-cian:     0 4px 12px rgba(0, 212, 255, 0.4);
+
+  /* --- Radios de borde estandarizados --- */
+  --eco-radio-sm:        6px;
+  --eco-radio-md:        12px;
+  --eco-radio-lg:        16px;
+  --eco-radio-pill:      25px;
+
+  /* --- Transiciones estandarizadas --- */
+  --eco-transicion:      all 0.3s ease;
+  --eco-transicion-fast: all 0.2s ease;
+}
+
+/* ==============================================
+   BASE — Reset y configuración global
+   ============================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 html, body {
@@ -14,45 +78,59 @@ html, body {
   padding: 0;
   height: 100%;
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
-  background: #f0fdf4;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background: var(--eco-fondo-pagina);
+  color: var(--eco-texto-oscuro);
 }
 
+/* ==============================================
+   TIPOGRAFÍA BASE
+   ============================================== */
 h1 {
   font-size: 2.5em;
-  color: var(--secundario);
+  color: var(--eco-secundario);
   margin-top: 10px;
 }
 
+h2, h3, h4 {
+  color: var(--eco-texto-oscuro);
+}
+
+/* ==============================================
+   BOTÓN GLOBAL (clase .btn)
+   ============================================== */
 .btn {
   display: inline-block;
-  background: linear-gradient(120deg, var(--extra), var(--acento3));
-  color: white;
+  background: linear-gradient(120deg, var(--eco-acento), var(--eco-verde-light));
+  color: var(--eco-texto-blanco);
   border: none;
   padding: 12px 25px;
-  border-radius: 25px;
+  border-radius: var(--eco-radio-pill);
   font-weight: bold;
   font-size: 1em;
   cursor: pointer;
   margin: 10px auto;
-  transition: all 0.4s ease;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  transition: var(--eco-transicion);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
 }
 
 .btn:hover {
-  background-color: var(--secundario);
+  background-color: var(--eco-secundario);
   transform: scale(1.07);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 a.btn {
-  color: white;
+  color: var(--eco-texto-blanco);
   text-decoration: none;
 }
 
+/* ==============================================
+   LINKS DE TEXTO (clase .link-text)
+   ============================================== */
 .link-text {
-  color: var(--secundario);
+  color: var(--eco-secundario);
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
@@ -60,10 +138,13 @@ a.btn {
 }
 
 .link-text:hover {
-  color: var(--extra);
+  color: var(--eco-acento);
   text-decoration: underline;
 }
 
+/* ==============================================
+   FORMULARIOS GLOBALES
+   ============================================== */
 form {
   display: flex;
   flex-direction: column;
@@ -74,16 +155,23 @@ form {
 
 form label {
   font-weight: bold;
-  color: var(--secundario);
+  color: var(--eco-secundario);
 }
 
 form input,
 form textarea {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid var(--eco-borde-medio);
+  border-radius: var(--eco-radio-sm);
   font-size: 1em;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--eco-primario);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
 }
 
 form textarea {
@@ -95,6 +183,9 @@ form button {
   align-self: center;
 }
 
+/* ==============================================
+   HERO SECTION (home)
+   ============================================== */
 .hero-section {
   background-image: url('assets/logo.jpg');
   background-size: cover;
@@ -113,7 +204,7 @@ form button {
   left: 50%;
   transform: translateX(-50%);
   font-size: 2.5em;
-  color: #2c3e50;
+  color: var(--eco-texto-oscuro);
   white-space: nowrap;
 }
 
@@ -123,7 +214,7 @@ form button {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.3em;
-  color: var(--extra);
+  color: var(--eco-acento);
   white-space: nowrap;
 }
 
@@ -133,11 +224,42 @@ form button {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.1em;
-  color: #2c3e50;
+  color: var(--eco-texto-oscuro);
   font-style: italic;
   white-space: nowrap;
 }
 
+/* ==============================================
+   UTILIDADES GLOBALES
+   ============================================== */
+.text-center  { text-align: center; }
+.text-muted   { color: var(--eco-texto-suave); }
+.text-success { color: var(--eco-exito); }
+.text-error   { color: var(--eco-error); }
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--eco-radio-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-verde {
+  background: var(--eco-verde-light);
+  color: var(--eco-secundario);
+}
+
+.badge-cian {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--eco-primario);
+}
+
+/* ==============================================
+   RESPONSIVO — Hero
+   ============================================== */
 @media (max-width: 900px) {
   .hero-title {
     font-size: 1.8em;
@@ -162,15 +284,7 @@ form button {
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.4em;
-    top: 10px;
-  }
-  .hero-timeline {
-    font-size: 1em;
-    top: 80px;
-  }
-  .hero-lema {
-    font-size: 0.9em;
-  }
+  .hero-title    { font-size: 1.4em; top: 10px; }
+  .hero-timeline { font-size: 1em;   top: 80px; }
+  .hero-lema     { font-size: 0.9em; }
 }

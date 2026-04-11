@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
 import { PostService } from '../services/post.service';
 import { Post } from '../models/post.model';
@@ -7,7 +8,7 @@ import { Post } from '../models/post.model';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })

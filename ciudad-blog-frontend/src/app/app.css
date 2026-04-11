@@ -1,15 +1,6 @@
 /* ==============================================
-   Fuente general y scroll
+   app-root
    ============================================== */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f9f9f9;
-}
-
 app-root {
   display: block;
   margin: 0;
@@ -17,7 +8,7 @@ app-root {
 }
 
 /* ==============================================
-   Navbar principal
+   NAVBAR PRINCIPAL
    ============================================== */
 .main-nav {
   position: fixed;
@@ -27,21 +18,24 @@ app-root {
   min-height: 70px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 0 24px;
+  background: var(--eco-fondo-blanco);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 2px solid var(--eco-primario);
   z-index: 1000;
   box-sizing: border-box;
-  gap: 6px;
+  gap: 8px;
   overflow: visible;
 }
 
+/* Logo */
 .logo-nav {
-  height: 60px;
+  height: 56px;
   display: block;
   flex-shrink: 0;
 }
 
+/* Links del menú */
 .nav-links {
   display: flex;
   align-items: center;
@@ -52,19 +46,39 @@ app-root {
 
 .nav-links a {
   font-size: 13px;
-  padding: 5px 8px;
+  font-weight: 500;
+  padding: 6px 10px;
   text-decoration: none;
-  color: #2c3e50;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+  color: var(--eco-texto-oscuro);
+  border-radius: var(--eco-radio-sm);
+  transition: var(--eco-transicion-fast);
   white-space: nowrap;
+  position: relative;
 }
 
 .nav-links a:hover {
   background: rgba(0, 212, 255, 0.1);
-  color: #00d4ff;
+  color: var(--eco-primario);
 }
 
+/* Link activo — subrayado con color EcoBits */
+.nav-links a.active {
+  color: var(--eco-primario);
+  font-weight: 600;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--eco-primario), var(--eco-secundario));
+  border-radius: 2px;
+}
+
+/* Sección derecha — escritorio */
 .nav-right {
   display: flex;
   align-items: center;
@@ -76,50 +90,62 @@ app-root {
   display: none;
 }
 
+/* Botones login/registro */
 .login-button-nav {
-  padding: 7px 14px;
-  background: linear-gradient(135deg, #00d4ff, #7ed321);
-  color: white;
-  border-radius: 20px;
+  padding: 7px 16px;
+  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
+  color: var(--eco-texto-blanco);
+  border-radius: var(--eco-radio-pill);
   text-decoration: none;
   font-weight: 600;
   font-size: 13px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--eco-transicion);
   white-space: nowrap;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
 }
 
 .login-button-nav:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+  box-shadow: var(--eco-sombra-cian);
+  opacity: 0.92;
 }
 
+/* Email usuario logueado */
 .user-email {
-  color: #2c3e50;
+  color: var(--eco-texto-oscuro);
   font-weight: 500;
-  padding: 5px 10px;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.05);
+  padding: 5px 12px;
+  border-radius: var(--eco-radio-sm);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   font-size: 13px;
   white-space: nowrap;
 }
 
+/* Botón hamburguesa */
 .hamburger {
   display: none;
   background: none;
-  border: 2px solid #00d4ff;
-  border-radius: 8px;
-  font-size: 24px;
+  border: 2px solid var(--eco-primario);
+  border-radius: var(--eco-radio-sm);
+  font-size: 22px;
   cursor: pointer;
-  color: #2c3e50;
+  color: var(--eco-texto-oscuro);
   padding: 4px 10px;
   margin-left: auto;
   flex-shrink: 0;
+  transition: var(--eco-transicion-fast);
+  line-height: 1;
+}
+
+.hamburger:hover {
+  background: rgba(0, 212, 255, 0.1);
 }
 
 /* ==============================================
-   Contenedor principal
+   CONTENEDOR PRINCIPAL
    ============================================== */
 .contenido {
   display: flex;
@@ -131,25 +157,45 @@ app-root {
 }
 
 /* ==============================================
-   Footer
+   FOOTER
    ============================================== */
+footer {
+  background: var(--eco-verde-oscuro);
+  padding: 32px 24px 20px;
+  margin-top: 40px;
+}
+
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
+
 .footer-links a {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--eco-texto-claro);
+  font-size: 13px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--eco-primario);
+}
+
 footer p {
   text-align: center;
-  color: #555;
+  color: var(--eco-texto-claro);
+  opacity: 0.5;
+  font-size: 12px;
+  margin: 0;
 }
 
 /* ==============================================
-   Barra social
+   BARRA SOCIAL
    ============================================== */
 .social-bar {
   position: fixed;
@@ -159,42 +205,77 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   z-index: 1000;
 }
+
 .social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 20px;
-  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  color: var(--eco-texto-blanco);
+  border-radius: 0 8px 8px 0;
+  font-size: 17px;
+  transition: var(--eco-transicion-fast);
+  transform: translateX(-4px);
 }
-.social-icon.facebook  { background: #1877f2; }
-.social-icon.instagram { background: #e4405f; }
-.social-icon.twitter   { background: #1da1f2; }
-.social-icon.linkedin  { background: #0077b5; }
-.social-icon.whatsapp  { background: #25d366; }
-.social-icon:hover { transform: scale(1.1); filter: brightness(1.2); }
+
+.social-icon:hover {
+  transform: translateX(0);
+  filter: brightness(1.15);
+}
+
+.social-icon.facebook  { background: var(--color-facebook); }
+.social-icon.instagram { background: var(--color-instagram); }
+.social-icon.twitter   { background: var(--color-twitter); }
+.social-icon.linkedin  { background: var(--color-linkedin); }
+.social-icon.whatsapp  { background: var(--color-whatsapp); }
 
 /* ==============================================
-   Responsivo — Tablet (max 1024px)
+   DOWNLOAD APP
+   ============================================== */
+.download-app {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.download-app a {
+  display: inline-block;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
+  color: var(--eco-texto-blanco);
+  border-radius: var(--eco-radio-pill);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--eco-sombra-media);
+  transition: var(--eco-transicion-fast);
+}
+
+.download-app a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--eco-sombra-cian);
+}
+
+/* ==============================================
+   RESPONSIVO — Tablet (max 1024px)
    ============================================== */
 @media (max-width: 1024px) {
   .nav-links a {
     font-size: 12px;
-    padding: 4px 6px;
+    padding: 5px 7px;
   }
   .logo-nav {
-    height: 50px;
+    height: 48px;
   }
 }
 
 /* ==============================================
-   Responsivo — Móvil (max 768px)
+   RESPONSIVO — Móvil (max 900px)
    ============================================== */
 @media (max-width: 900px) {
   .hamburger {
@@ -210,9 +291,10 @@ footer p {
     left: 0;
     width: 100%;
     flex-direction: column;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    padding: 10px 0;
+    background: var(--eco-fondo-blanco);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border-top: 2px solid var(--eco-primario);
+    padding: 8px 0;
     z-index: 999;
   }
 
@@ -223,8 +305,13 @@ footer p {
   .nav-links a {
     width: 100%;
     padding: 12px 20px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--eco-borde);
     font-size: 14px;
+    border-radius: 0;
+  }
+
+  .nav-links a.active::after {
+    display: none;
   }
 
   .nav-right {
@@ -235,9 +322,9 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 12px 20px;
+    padding: 14px 20px;
     width: 100%;
-    border-top: 2px solid #f0f0f0;
+    border-top: 2px solid var(--eco-borde);
   }
 
   .contenido {
