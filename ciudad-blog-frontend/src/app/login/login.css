@@ -1,40 +1,57 @@
-/* Fondo */
+/* ==============================================
+   LOGIN — EcoBits
+   ============================================== */
+
+/* Fondo con gradiente EcoBits */
 .login-container {
-  min-height: calc(100vh - 100px); /* 100px = altura de navbar */
+  min-height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0f172a;
-  margin-top: 100px; /* empuja todo debajo del navbar */
+  background: linear-gradient(135deg, var(--eco-verde-oscuro) 0%, var(--eco-verde-medio) 50%, #0a2a1a 100%);
+  margin-top: 70px;
+  padding: 40px 20px;
 }
 
 /* Tarjeta */
 .login-card {
-  background: #1e293b;
+  background: rgba(255, 255, 255, 0.98);
   padding: 40px;
-  border-radius: 15px;
-  width: 350px;
+  border-radius: var(--eco-radio-lg);
+  width: 100%;
+  max-width: 380px;
   text-align: center;
-  color: white;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  box-shadow: var(--eco-sombra-fuerte);
+  border-top: 4px solid var(--eco-primario);
 }
 
 /* Logo */
 .login-logo {
   width: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 /* Volver */
 .back-home {
   font-size: 12px;
   cursor: pointer;
-  color: #94a3b8;
-  margin-bottom: 10px;
+  color: var(--eco-texto-medio);
+  margin-bottom: 16px;
+  display: inline-block;
+  transition: all 0.2s ease;
 }
 
 .back-home:hover {
-  color: white;
+  color: var(--eco-primario);
+  transform: translateX(-4px);
+}
+
+/* Título */
+.login-card h2 {
+  color: var(--eco-texto-oscuro);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 /* Botones sociales */
@@ -42,73 +59,129 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 15px 0;
+  margin: 20px 0;
 }
 
 .social-btn {
   padding: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--eco-radio-sm);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.google { background: #fff; color: #000; }
+.social-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.95);
+}
+
+.google { background: #fff; color: #333; border: 1px solid #ddd; }
 .github { background: #333; color: #fff; }
-.linkedin { background: #0a66c2; color: #fff; }
+.linkedin { background: #0077b5; color: #fff; }
 
 /* Divider */
 .divider {
-  margin: 15px 0;
-  color: #94a3b8;
+  margin: 20px 0;
+  color: var(--eco-texto-suave);
+  position: relative;
+  font-size: 12px;
 }
 
-/* Inputs */
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--eco-borde);
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* Formulario */
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .form-login input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: none;
+  padding: 12px 14px;
+  border: 1px solid var(--eco-borde-medio);
+  border-radius: var(--eco-radio-sm);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
-/* Forgot */
+.form-login input:focus {
+  outline: none;
+  border-color: var(--eco-primario);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+}
+
+/* Forgot password */
 .forgot {
   font-size: 12px;
   text-align: right;
   cursor: pointer;
-  color: #94a3b8;
+  color: var(--eco-texto-medio);
+  margin: 8px 0;
+  transition: color 0.2s ease;
 }
 
 .forgot:hover {
-  color: white;
+  color: var(--eco-primario);
 }
 
-/* Botón login */
+/* Botón login principal */
 .btn-login {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #3b82f6;
+  padding: 12px;
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
   border: none;
-  border-radius: 8px;
-  color: white;
+  border-radius: var(--eco-radio-pill);
+  color: var(--eco-verde-oscuro);
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
 
-.btn-login:hover {
-  background: #2563eb;
+.btn-login:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-login:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Registro */
 .register {
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--eco-texto-medio);
 }
 
 .register a {
-  color: #3b82f6;
+  color: var(--eco-primario);
   cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.register a:hover {
+  color: var(--eco-secundario);
+  text-decoration: underline;
 }
 
 /* Ojito contraseña */
@@ -119,39 +192,58 @@
 
 .password-wrapper input {
   width: 100%;
-  padding: 10px 40px 10px 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: none;
+  padding: 12px 40px 12px 14px;
+  border: 1px solid var(--eco-borde-medio);
+  border-radius: var(--eco-radio-sm);
   box-sizing: border-box;
 }
 
 .toggle-password {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   user-select: none;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
 }
 
-/* Mensajes */
+.toggle-password:hover {
+  opacity: 1;
+}
+
+/* Mensajes de error/backend */
 .mensaje {
   background: #fee2e2;
   color: #991b1b;
   padding: 10px;
-  border-radius: 8px;
-  margin-top: 10px;
-  font-size: 14px;
+  border-radius: var(--eco-radio-sm);
+  margin-top: 16px;
+  font-size: 13px;
 }
 
-/* Fix input tamaño */
-.form-login input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: none;
-  box-sizing: border-box;
+/* Validación de campos */
+small[style="color:red;"] {
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 20px;
+  }
+  
+  .login-card h2 {
+    font-size: 1.4rem;
+  }
+  
+  .social-login {
+    gap: 8px;
+  }
 }

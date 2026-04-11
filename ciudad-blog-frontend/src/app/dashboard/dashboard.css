@@ -39,6 +39,12 @@
   font-weight: 700;
   color: var(--eco-texto-blanco);
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.header-avatar:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Info de texto del header */
@@ -82,13 +88,26 @@
 }
 
 /* ==============================================
-   COLORES POR ROL — Headers
+   COLORES POR ROL — Headers (mejorados)
    ============================================== */
 
 /* Paciente — verde EcoBits */
 .dashboard-header.paciente {
-  background: linear-gradient(135deg, var(--eco-verde-oscuro) 0%, var(--eco-verde-medio) 100%);
-  border-bottom: 3px solid var(--eco-primario);
+  background: linear-gradient(135deg, #0d2a1a 0%, #1a4a2a 50%, #2d6a4f 100%);
+  border-bottom: 4px solid var(--eco-primario);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-header.paciente::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .paciente-badge {
@@ -99,8 +118,21 @@
 
 /* Profesional — cian hacia verde */
 .dashboard-header.profesional {
-  background: linear-gradient(135deg, #003d4d 0%, #005f5f 50%, var(--eco-verde-medio) 100%);
-  border-bottom: 3px solid var(--eco-secundario);
+  background: linear-gradient(135deg, #002a33 0%, #004d4d 50%, #1a6b4a 100%);
+  border-bottom: 4px solid var(--eco-secundario);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-header.profesional::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(126,211,33,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .profesional-badge {
@@ -111,8 +143,21 @@
 
 /* Admin — oscuro EcoBits */
 .dashboard-header.admin {
-  background: linear-gradient(135deg, #0a0f0a 0%, var(--eco-verde-oscuro) 60%, #001a1a 100%);
-  border-bottom: 3px solid var(--eco-acento);
+  background: linear-gradient(135deg, #0a120a 0%, #0d2a1a 50%, #003d3d 100%);
+  border-bottom: 4px solid var(--eco-acento);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-header.admin::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,255,136,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .admin-badge {
@@ -124,7 +169,7 @@
 /* Sin rol */
 .dashboard-header.sin-rol {
   background: linear-gradient(135deg, #374151, #4b5563);
-  border-bottom: 3px solid #9ca3af;
+  border-bottom: 4px solid #9ca3af;
 }
 
 /* ==============================================
@@ -133,26 +178,27 @@
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
-/* Tarjeta base */
+/* Tarjeta base mejorada */
 .card {
   background: var(--eco-fondo-blanco);
-  border-radius: var(--eco-radio-md);
+  border-radius: var(--eco-radio-lg);
   padding: 28px 24px;
   box-shadow: var(--eco-sombra-suave);
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   text-align: center;
-  border-top: 3px solid transparent;
+  border-top: 4px solid transparent;
   border-left: 1px solid var(--eco-borde);
   border-right: 1px solid var(--eco-borde);
   border-bottom: 1px solid var(--eco-borde);
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--eco-sombra-media);
+  transform: translateY(-8px);
+  box-shadow: var(--eco-sombra-cian);
 }
 
 /* Variantes de color de borde superior */
@@ -160,30 +206,35 @@
 .card-cian   { border-top-color: var(--eco-primario); }
 .card-admin  { border-top-color: var(--eco-acento); }
 
-.card-verde:hover  { border-top-color: var(--eco-primario); }
-.card-cian:hover   { border-top-color: var(--eco-secundario); }
-.card-admin:hover  { border-top-color: var(--eco-secundario); }
+.card-verde:hover  { border-top-color: var(--eco-primario); background: linear-gradient(180deg, white, #f0fff4); }
+.card-cian:hover   { border-top-color: var(--eco-secundario); background: linear-gradient(180deg, white, #e0f7ff); }
+.card-admin:hover  { border-top-color: var(--eco-secundario); background: linear-gradient(180deg, white, #e6ffe6); }
 
 /* Ícono */
 .card-icon {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .card-icon {
+  transform: scale(1.1);
 }
 
 /* Título tarjeta */
 .card h3 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--eco-texto-oscuro);
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
 /* Descripción tarjeta */
 .card p {
   font-size: 0.88rem;
-  color: var(--eco-texto-suave);
-  margin: 0 0 18px;
+  color: var(--eco-texto-medio);
+  margin: 0 0 20px;
   line-height: 1.55;
 }
 
@@ -192,21 +243,21 @@
    ============================================== */
 .card-btn {
   display: inline-block;
-  padding: 8px 22px;
+  padding: 8px 24px;
   background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
   color: var(--eco-verde-oscuro);
   border-radius: var(--eco-radio-pill);
-  font-size: 0.83rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
-  transition: var(--eco-transicion-fast);
+  transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 212, 255, 0.25);
 }
 
 .card-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--eco-sombra-cian);
-  opacity: 0.92;
+  opacity: 0.95;
 }
 
 /* Botón admin — tono diferente */
@@ -217,7 +268,8 @@
 }
 
 .card-btn-admin:hover {
-  box-shadow: 0 4px 14px rgba(0, 255, 136, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 255, 136, 0.4);
+  transform: translateY(-3px);
 }
 
 /* ==============================================
@@ -246,7 +298,7 @@
 
   .cards-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
 
   .card {
@@ -266,6 +318,6 @@
   }
 
   .card-icon {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
