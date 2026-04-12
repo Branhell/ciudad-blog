@@ -344,3 +344,38 @@
     white-space: normal;
   }
 }
+
+/* ==============================================
+   LOGO GRANDE ANIMADO EN HERO
+   ============================================== */
+.hero-logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 28px;
+  animation: logoFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.4));
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-logo:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.7));
+  transform: scale(1.02);
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsivo: logo más pequeño en móvil */
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+}

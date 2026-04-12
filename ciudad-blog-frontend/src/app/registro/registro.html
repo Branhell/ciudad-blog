@@ -1,7 +1,19 @@
+<!-- Video de fondo que ocupa TODA la pantalla -->
+<video class="video-background" autoplay loop muted playsinline>
+  <source src="assets/background.mp4" type="video/mp4">
+  Tu navegador no soporta videos HTML5.
+</video>
+
+<!-- Contenedor del registro (encima del video) -->
 <div class="login-container">
   <div class="login-card">
-    <img src="assets/EcoBits_Logo.png" class="login-logo">
-    <p routerLink="/" class="back-home">← Volver al inicio</p>
+    
+    <!-- Volver al inicio - Mejorado -->
+    <a routerLink="/" class="back-home">
+      <span class="back-icon">←</span>
+      <span class="back-text">Volver al inicio</span>
+    </a>
+
     <h2>Registro</h2>
 
     <div class="social-login">
@@ -11,63 +23,37 @@
     </div>
     <div class="divider">o</div>
 
-    <!-- Mensaje de éxito o error -->
     <div *ngIf="mensaje" [class]="mensaje.includes('✅') ? 'msg-success' : 'msg-error'">
       {{ mensaje }}
     </div>
 
     <form #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-login" novalidate>
-
-      <!-- NOMBRE -->
-      <input type="text"
-             [(ngModel)]="nombre"
-             name="nombre"
-             placeholder="Nombre completo"
-             required
-             #nombreRef="ngModel">
+      <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre completo" required #nombreRef="ngModel">
       <small *ngIf="nombreRef.invalid && (nombreRef.touched || nombreRef.dirty)" style="color:red;">
         El nombre es obligatorio
       </small>
 
-      <!-- EMAIL -->
-      <input type="email"
-             [(ngModel)]="email"
-             name="email"
-             placeholder="Correo electrónico"
-             required
-             email
-             #emailRef="ngModel">
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Correo electrónico" required email #emailRef="ngModel">
       <small *ngIf="emailRef.invalid && (emailRef.touched || emailRef.dirty)" style="color:red;">
         <span *ngIf="emailRef.errors?.['required']">El correo es obligatorio</span>
         <span *ngIf="emailRef.errors?.['email']">Formato de correo inválido</span>
       </small>
 
-      <!-- PASSWORD con ojito -->
       <div class="password-wrapper">
-        <input [type]="mostrarPassword ? 'text' : 'password'"
-               [(ngModel)]="password"
-               name="password"
-               placeholder="Contraseña (mínimo 8 caracteres)"
-               required
-               #passRef="ngModel">
-        <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">
-          {{ mostrarPassword ? '🙈' : '👁️' }}
-        </span>
+        <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" placeholder="Contraseña (mínimo 8 caracteres)" required #passRef="ngModel">
+        <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">{{ mostrarPassword ? '🙈' : '👁️' }}</span>
       </div>
       <small *ngIf="passRef.invalid && (passRef.touched || passRef.dirty)" style="color:red;">
         La contraseña es obligatoria
       </small>
 
-      <button type="submit"
-              class="btn-login"
-              [disabled]="registerForm.invalid || loading">
+      <button type="submit" class="btn-login" [disabled]="registerForm.invalid || loading">
         {{ loading ? 'Registrando...' : 'Crear cuenta' }}
       </button>
     </form>
 
     <p class="register">
-      ¿Ya tienes cuenta?
-      <a routerLink="/login">Inicia sesión</a>
+      ¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a>
     </p>
 
     <p class="legal-text">

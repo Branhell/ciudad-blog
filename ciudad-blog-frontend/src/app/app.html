@@ -48,20 +48,48 @@
   <router-outlet></router-outlet>
 </main>
 
+<!-- FOOTER MEJORADO -->
 <footer>
-  <div class="footer-links">
-    <a routerLink="/quienes-somos">Quiénes Somos</a>
-    <a routerLink="/trabaja-con-nosotros">Trabaja con Nosotros</a>
-    <a routerLink="/preguntas-frecuentes">Preguntas Frecuentes</a>
-    <a routerLink="/politica-privacidad">Política de Privacidad</a>
-    <a routerLink="/terminos-condiciones">Términos y Condiciones</a>
-    <a routerLink="/faqs">FAQ's</a>
-    <a routerLink="/ayuda-urgente">Ayuda Urgente</a>
-    <a routerLink="/contacto">Contacto</a>
+  <div class="footer-columns">
+    <!-- Columna 1: Logo y lema -->
+    <div class="footer-col">
+      <img src="assets/EcoBits_Logo.png" alt="EcoBits Logo" class="footer-logo">
+      <p>Donde la psicología se encuentra con los bits. Conectamos personas, comunidades y bienestar en un solo lugar.</p>
+    </div>
+
+    <!-- Columna 2: Enlaces legales -->
+    <div class="footer-col">
+      <h4>EcoBits</h4>
+      <div class="footer-links">
+        <a routerLink="/quienes-somos">Quiénes Somos</a>
+        <a routerLink="/trabaja-con-nosotros">Trabaja con Nosotros</a>
+        <a routerLink="/preguntas-frecuentes">Preguntas Frecuentes</a>
+        <a routerLink="/politica-privacidad">Política de Privacidad</a>
+        <a routerLink="/terminos-condiciones">Términos y Condiciones</a>
+        <a routerLink="/faqs">FAQ's</a>
+        <a routerLink="/ayuda-urgente">Ayuda Urgente</a>
+        <a routerLink="/contacto">Contacto</a>
+      </div>
+    </div>
+
+    <!-- Columna 3: Redes Sociales -->
+    <div class="footer-col">
+      <h4>Conéctate con Nosotros</h4>
+      <div class="footer-social">
+        <a href="https://www.facebook.com" class="social-icon-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://www.instagram.com" class="social-icon-instagram" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://twitter.com" class="social-icon-twitter" target="_blank"><i class="fab fa-x-twitter"></i> Twitter</a>
+        <a href="https://www.linkedin.com" class="social-icon-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="https://wa.me/573001112233" class="social-icon-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
   </div>
-  <p>&copy; 2026 EcoBits. Todos los derechos reservados.</p>
+
+  <!-- Copyright -->
+  <p class="footer-copyright">&copy; 2026 EcoBits. Todos los derechos reservados.</p>
 </footer>
 
+<!-- BARRA SOCIAL FLOTANTE (opcional, puedes eliminarla si quieres) -->
 <aside class="social-bar">
   <a href="https://www.facebook.com" class="social-icon facebook" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
   <a href="https://www.instagram.com" class="social-icon instagram" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>

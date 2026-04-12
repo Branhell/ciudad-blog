@@ -321,3 +321,73 @@
     font-size: 2rem;
   }
 }
+/* ==============================================
+   MEJORAS VISUALES ADICIONALES - DASHBOARD
+   ============================================== */
+
+/* Efecto de brillo en tarjetas al cargar */
+@keyframes card-load {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: card-load 0.4s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 0.05s);
+}
+
+/* Avatar con efecto de pulso suave */
+@keyframes avatar-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 212, 255, 0);
+  }
+}
+
+.header-avatar {
+  animation: avatar-pulse 2s ease-in-out infinite;
+}
+
+/* Badge de rol con efecto brillo */
+.rol-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.rol-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: rotate(25deg);
+  transition: left 0.5s ease;
+}
+
+.rol-badge:hover::after {
+  left: 60%;
+}
+
+/* Efecto hover en tarjetas más suave */
+.card {
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+/* Iconos con rotación suave en hover */
+.card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+}

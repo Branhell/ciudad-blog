@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "aos": "^2.3.4"
+    "aos": "^2.3.4",
+    "lottie-web": "^5.13.0"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7"

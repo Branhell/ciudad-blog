@@ -1,87 +1,46 @@
+<!-- Video de fondo que ocupa TODA la pantalla -->
+<video class="video-background" autoplay loop muted playsinline>
+  <source src="assets/background.mp4" type="video/mp4">
+  Tu navegador no soporta videos HTML5.
+</video>
+
+<!-- Contenedor del login (encima del video) -->
 <div class="login-container">
-
-  <!-- Tarjeta login -->
   <div class="login-card">
-
-    <!-- Logo -->
-    <img src="assets/EcoBits_Logo.png" class="login-logo">
-
-    <!-- Volver -->
-    <p routerLink="/" class="back-home">← Volver al inicio</p>
+    
+    <!-- Volver al inicio - Mejorado -->
+    <a routerLink="/" class="back-home">
+      <span class="back-icon">←</span>
+      <span class="back-text">Volver al inicio</span>
+    </a>
 
     <h2>Iniciar sesión</h2>
 
-    <!-- Botones sociales (visual por ahora) -->
     <div class="social-login">
       <button class="social-btn google">Google</button>
       <button class="social-btn github">GitHub</button>
       <button class="social-btn linkedin">LinkedIn</button>
     </div>
-
     <div class="divider">o</div>
 
-    <!-- Formulario -->
-	<form #loginForm="ngForm" (ngSubmit)="onLogin()" class="form-login" novalidate>
+    <form #loginForm="ngForm" (ngSubmit)="onLogin()" class="form-login" novalidate>
+      <input type="email" [(ngModel)]="username" name="username" placeholder="Correo electrónico" required email #email="ngModel">
+      <small *ngIf="email.invalid && (email.touched || email.dirty)" style="color:red;">
+        <span *ngIf="email.errors?.['required']">El correo es obligatorio</span>
+        <span *ngIf="email.errors?.['email']">Formato de correo inválido</span>
+      </small>
 
-	  <!-- EMAIL -->
-	  <input 
-		type="email" 
-		[(ngModel)]="username" 
-		name="username" 
-		placeholder="Correo electrónico" 
-		required
-		email
-		#email="ngModel"
-	  >
+      <div class="password-wrapper">
+        <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" placeholder="Contraseña" required #pass="ngModel">
+        <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">{{ mostrarPassword ? '🙈' : '👁️' }}</span>
+      </div>
+      <small *ngIf="pass.invalid && (pass.touched || pass.dirty)" style="color:red;">La contraseña es obligatoria</small>
 
-	  <small *ngIf="email.invalid && (email.touched || email.dirty)" style="color:red;">
-		<span *ngIf="email.errors?.['required']">El correo es obligatorio</span>
-		<span *ngIf="email.errors?.['email']">Formato de correo inválido</span>
-	  </small>
+      <p class="forgot">¿Olvidaste tu contraseña?</p>
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Ingresar</button>
+    </form>
 
-	  <!-- PASSWORD -->
-<!-- PASSWORD con ojito -->
-<div class="password-wrapper">
-  <input
-        [type]="mostrarPassword ? 'text' : 'password'"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Contraseña"
-        required
-        #pass="ngModel"
-  >
-  <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">
-    {{ mostrarPassword ? '🙈' : '👁️' }}
-  </span>
-</div>
-
-	  <small *ngIf="pass.invalid && (pass.touched || pass.dirty)" style="color:red;">
-		La contraseña es obligatoria
-	  </small>
-
-	  <p class="forgot">¿Olvidaste tu contraseña?</p>
-
-	  <!-- BOTÓN -->
-	  <button 
-		type="submit" 
-		class="btn-login"
-		[disabled]="loginForm.invalid"
-	  >
-		Ingresar
-	  </button>
-
-	</form>
-
-    <!-- Mensaje backend -->
-    <div *ngIf="mensaje" class="mensaje">
-      {{ mensaje }}
-    </div>
-
-    <!-- Registro -->
-    <p class="register">
-      ¿No tienes cuenta?
-      <a routerLink="/registro">Regístrate</a>
-    </p>
-
+    <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
+    <p class="register">¿No tienes cuenta? <a routerLink="/registro">Regístrate</a></p>
   </div>
 </div>
