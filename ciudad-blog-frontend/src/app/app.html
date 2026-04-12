@@ -17,6 +17,8 @@
     <a routerLink="/empresas" routerLinkActive="active" (click)="cerrarMenu()">Empresas</a>
     <a routerLink="/quantum-magazine" routerLinkActive="active" (click)="cerrarMenu()">QuantumMagazine</a>
 
+<button (click)="testNotification()" class="login-button-nav">🔔 Probar Notificación</button>
+
     <!-- LOGIN dentro del menú en móvil -->
     <div class="nav-right-mobile">
       <ng-container *ngIf="!isLoggedIn">

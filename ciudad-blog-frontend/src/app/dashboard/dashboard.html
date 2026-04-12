@@ -21,6 +21,13 @@
       <div class="card card-verde">
         <span class="card-icon">📊</span>
         <h3>Mi Bienestar</h3>
+        <app-chart 
+          type="line" 
+          [labels]="chartLabels" 
+          [data]="chartData" 
+          label="Evolución de bienestar"
+          color="#7ed321">
+        </app-chart>
         <p>Revisa tu evolución y métricas personales</p>
       </div>
       <div class="card card-cian">
@@ -93,6 +100,13 @@
       <div class="card card-verde">
         <span class="card-icon">📈</span>
         <h3>Estadísticas</h3>
+        <app-chart 
+          type="line" 
+          [labels]="chartLabels" 
+          [data]="chartData" 
+          label="Actividad mensual"
+          color="#00d4ff">
+        </app-chart>
         <p>Métricas y evolución de tus clientes</p>
       </div>
       <div class="card card-cian">
@@ -130,6 +144,13 @@
       <div class="card card-admin">
         <span class="card-icon">📊</span>
         <h3>Estadísticas</h3>
+        <app-chart 
+          type="bar" 
+          [labels]="chartLabels" 
+          [data]="chartData" 
+          label="Usuarios activos"
+          color="#00ff88">
+        </app-chart>
         <p>Métricas globales de la plataforma</p>
       </div>
       <div class="card card-admin">

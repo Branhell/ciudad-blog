@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   userEmail: string | null = null;
   menuAbierto: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe(status => {
@@ -40,6 +44,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     window.location.href = '/';
   }
 
+  // Método para probar notificaciones
+  testNotification() {
+    this.notificationService.testNotification();
+  }
+
   ngAfterViewInit() {
     // Inicializar AOS para animaciones al scroll
     if (typeof window !== 'undefined') {
@@ -52,5 +61,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
       });
     }
+
+    // Inicializar notificaciones (solo permiso)
+    this.notificationService.requestPermission();
   }
 }
