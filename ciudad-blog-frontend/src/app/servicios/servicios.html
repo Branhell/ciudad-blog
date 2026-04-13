@@ -1,29 +1,70 @@
+<!-- Carrusel manual de servicios -->
+<div class="carrusel-container">
+  <div class="carrusel-slides" [style.transform]="'translateX(-' + slideActual * 100 + '%)'">
+    <div class="carrusel-slide" *ngFor="let servicio of servicios; let i = index">
+      <img [src]="servicio.imagen" [alt]="servicio.titulo" class="carrusel-imagen">
+      <div class="carrusel-overlay">
+        <div class="carrusel-contenido">
+          <span class="carrusel-categoria">{{ servicio.categoria }}</span>
+          <h3 class="carrusel-titulo">{{ servicio.titulo }}</h3>
+          <p class="carrusel-descripcion">{{ servicio.descripcion | slice:0:120 }}...</p>
+          <div class="carrusel-meta">
+            <span>💰 {{ servicio.precio }}</span>
+            <span>⏱️ {{ servicio.duracion }}</span>
+          </div>
+          <a [routerLink]="['/servicio', servicio.id]" class="carrusel-btn">Ver más →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botones del carrusel -->
+  <button class="carrusel-btn-prev" (click)="slideAnterior()">❮</button>
+  <button class="carrusel-btn-next" (click)="slideSiguiente()">❯</button>
+  
+  <!-- Indicadores -->
+  <div class="carrusel-indicadores">
+    <span *ngFor="let servicio of servicios; let i = index" 
+          class="indicador" 
+          [class.active]="i === slideActual"
+          (click)="irASlide(i)"></span>
+  </div>
+</div>
+
+<!-- Sección de servicios - tarjetas horizontales -->
 <section class="servicios-section">
   <div class="servicios-header">
-    <h1 class="servicios-titulo">Servicios</h1>
-    <p class="servicios-subtitulo">Conoce todo lo que EcoBits tiene para ofrecerte</p>
+    <h1 class="servicios-titulo">Nuestros Servicios</h1>
+    <p class="servicios-subtitulo">Diseñados para tu bienestar en el mundo digital</p>
   </div>
 
   <div *ngIf="loading" class="estado-mensaje">
+    <div class="loading-spinner"></div>
     Cargando servicios...
   </div>
 
   <div *ngIf="error" class="estado-error">
-    No se pudieron cargar los servicios.
+    ⚠️ No se pudieron cargar los servicios.
   </div>
 
-  <div *ngIf="!loading && !error && posts.length === 0" class="estado-mensaje">
+  <div *ngIf="!loading && !error && servicios.length === 0" class="estado-mensaje">
     No hay servicios disponibles por el momento.
   </div>
 
-  <div *ngIf="!loading && !error" class="posts-grid">
-    <div class="post-card" *ngFor="let post of posts">
-      <span class="post-categoria">{{ post.categoria }}</span>
-      <h3 class="post-titulo">{{ post.titulo }}</h3>
-      <p class="post-contenido">{{ post.contenido | slice:0:150 }}...</p>
-      <div class="post-footer">
-        <span class="post-autor">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
-        <span class="post-likes">❤️ {{ post.likes }}</span>
+  <div *ngIf="!loading && !error" class="servicios-grid-horizontal">
+    <div class="servicio-card-horizontal" *ngFor="let servicio of servicios; let i = index">
+      <div class="servicio-icon-horizontal">
+        <span class="icon-emoji-horizontal">{{ getIconForService(servicio.categoria) }}</span>
+      </div>
+      <div class="servicio-info-horizontal">
+        <span class="servicio-badge">{{ servicio.categoria }}</span>
+        <h3 class="servicio-titulo-horizontal">{{ servicio.titulo }}</h3>
+        <p class="servicio-descripcion-horizontal">{{ servicio.descripcion | slice:0:100 }}...</p>
+        <div class="servicio-meta-horizontal">
+          <span class="servicio-precio">💰 {{ servicio.precio }}</span>
+          <span class="servicio-duracion">⏱️ {{ servicio.duracion }}</span>
+        </div>
+        <a [routerLink]="['/servicio', servicio.id]" class="servicio-btn-horizontal">Ver más →</a>
       </div>
     </div>
   </div>
