@@ -1,4 +1,4 @@
-<!-- Carrusel manual de servicios -->
+<!-- Carrusel grande -->
 <div class="carrusel-container">
   <div class="carrusel-slides" [style.transform]="'translateX(-' + slideActual * 100 + '%)'">
     <div class="carrusel-slide" *ngFor="let servicio of servicios; let i = index">
@@ -8,64 +8,165 @@
           <span class="carrusel-categoria">{{ servicio.categoria }}</span>
           <h3 class="carrusel-titulo">{{ servicio.titulo }}</h3>
           <p class="carrusel-descripcion">{{ servicio.descripcion | slice:0:120 }}...</p>
-          <div class="carrusel-meta">
-            <span>💰 {{ servicio.precio }}</span>
-            <span>⏱️ {{ servicio.duracion }}</span>
-          </div>
           <a [routerLink]="['/servicio', servicio.id]" class="carrusel-btn">Ver más →</a>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Botones del carrusel -->
+
   <button class="carrusel-btn-prev" (click)="slideAnterior()">❮</button>
   <button class="carrusel-btn-next" (click)="slideSiguiente()">❯</button>
-  
-  <!-- Indicadores -->
+
   <div class="carrusel-indicadores">
-    <span *ngFor="let servicio of servicios; let i = index" 
-          class="indicador" 
+    <span *ngFor="let servicio of servicios; let i = index"
+          class="indicador"
           [class.active]="i === slideActual"
           (click)="irASlide(i)"></span>
   </div>
 </div>
 
-<!-- Sección de servicios - tarjetas horizontales -->
-<section class="servicios-section">
-  <div class="servicios-header">
-    <h1 class="servicios-titulo">Nuestros Servicios</h1>
-    <p class="servicios-subtitulo">Diseñados para tu bienestar en el mundo digital</p>
-  </div>
+	<!-- Botones desplegables profesionales -->
+	<div class="acordeon-horizontal">
+	  
+	  <!-- Botón 1: TERAPIAS -->
+	  <div class="acordeon-item-horizontal" 
+		   (mouseenter)="abrirAcordeon('terapias')" 
+		   (mouseleave)="cerrarAcordeon('terapias')">
+		<button class="acordeon-btn-horizontal" (click)="toggleAcordeon('terapias')">
+		  <span>Terapias</span>
+		  <span class="acordeon-icon">{{ acordeonAbierto === 'terapias' ? '−' : '+' }}</span>
+		</button>
+		<div class="acordeon-contenido-horizontal" [class.abierto]="acordeonAbierto === 'terapias'">
+		  <div class="acordeon-grid">
+			<span>Terapia de pareja</span>
+			<span>Terapia infantil</span>
+			<span>Terapia cognitivo-conductual</span>
+			<span>Terapia individual</span>
+			<span>Terapia familiar</span>
+			<span>Terapia para ansiedad</span>
+			<span>Terapia para depresión</span>
+			<span>Terapia para estrés</span>
+			<span>Terapia para TDAH en adultos</span>
+			<span>Terapia para infidelidad</span>
+			<span>Terapia para celos</span>
+			<span class="mas-link">+ Más terapias</span>
+		  </div>
+		</div>
+	  </div>
 
-  <div *ngIf="loading" class="estado-mensaje">
-    <div class="loading-spinner"></div>
-    Cargando servicios...
-  </div>
+	  <!-- Botón 2: SERVICIOS -->
+	  <div class="acordeon-item-horizontal" 
+		   (mouseenter)="abrirAcordeon('servicios')" 
+		   (mouseleave)="cerrarAcordeon('servicios')">
+		<button class="acordeon-btn-horizontal" (click)="toggleAcordeon('servicios')">
+		  <span>Servicios</span>
+		  <span class="acordeon-icon">{{ acordeonAbierto === 'servicios' ? '−' : '+' }}</span>
+		</button>
+		<div class="acordeon-contenido-horizontal" [class.abierto]="acordeonAbierto === 'servicios'">
+		  <div class="acordeon-grid">
+			<span>Psicoterapias</span>
+			<span>Psiquiatría</span>
+			<span>Psicoanálisis</span>
+			<span>Tanatología</span>
+			<span>Neuropsicología</span>
+			<span>Sexología clínica</span>
+			<span>Psicólogo para empresas</span>
+		  </div>
+		</div>
+	  </div>
 
-  <div *ngIf="error" class="estado-error">
-    ⚠️ No se pudieron cargar los servicios.
-  </div>
+	  <!-- Botón 3: ESPECIALIDADES -->
+	  <div class="acordeon-item-horizontal" 
+		   (mouseenter)="abrirAcordeon('especialidades')" 
+		   (mouseleave)="cerrarAcordeon('especialidades')">
+		<button class="acordeon-btn-horizontal" (click)="toggleAcordeon('especialidades')">
+		  <span>Especialidades</span>
+		  <span class="acordeon-icon">{{ acordeonAbierto === 'especialidades' ? '−' : '+' }}</span>
+		</button>
+		<div class="acordeon-contenido-horizontal" [class.abierto]="acordeonAbierto === 'especialidades'">
+		  <div class="acordeon-grid">
+			<span>Abuso sexual</span>
+			<span>Anorexia</span>
+			<span>Ansiedad</span>
+			<span>Ataques de pánico</span>
+			<span>Bipolaridad</span>
+			<span>Bulimia</span>
+			<span>Bullying</span>
+			<span>Celos y celotipia</span>
+			<span>Codependencia emocional</span>
+			<span>Depresión</span>
+			<span>Estrés postraumático</span>
+			<span>Fobias</span>
+			<span>Infidelidad</span>
+			<span>Insomnio</span>
+			<span class="mas-link">+ Más especialidades</span>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
-  <div *ngIf="!loading && !error && servicios.length === 0" class="estado-mensaje">
-    No hay servicios disponibles por el momento.
-  </div>
-
-  <div *ngIf="!loading && !error" class="servicios-grid-horizontal">
-    <div class="servicio-card-horizontal" *ngFor="let servicio of servicios; let i = index">
-      <div class="servicio-icon-horizontal">
-        <span class="icon-emoji-horizontal">{{ getIconForService(servicio.categoria) }}</span>
-      </div>
-      <div class="servicio-info-horizontal">
-        <span class="servicio-badge">{{ servicio.categoria }}</span>
-        <h3 class="servicio-titulo-horizontal">{{ servicio.titulo }}</h3>
-        <p class="servicio-descripcion-horizontal">{{ servicio.descripcion | slice:0:100 }}...</p>
-        <div class="servicio-meta-horizontal">
-          <span class="servicio-precio">💰 {{ servicio.precio }}</span>
-          <span class="servicio-duracion">⏱️ {{ servicio.duracion }}</span>
-        </div>
-        <a [routerLink]="['/servicio', servicio.id]" class="servicio-btn-horizontal">Ver más →</a>
-      </div>
+<!-- Sección: Sobre los Servicios de EcoBits -->
+<div class="sobre-servicios">
+  <div class="sobre-servicios-contenido">
+    <h2 class="sobre-titulo">Un puente entre la sabiduría ancestral y la ciencia moderna</h2>
+    <p class="sobre-descripcion">
+      En EcoBits, entendemos la salud mental como un ecosistema completo. No se trata solo de la mente, sino de la conexión profunda entre tu <strong>cuerpo, tu energía, tu historia cultural y tu entorno digital</strong>.
+    </p>
+<div class="caracteristicas-grid">
+  <!-- Tarjeta 1: Bases Científicas -->
+  <div class="caracteristica-imagen" style="background-image: url('https://picsum.photos/id/177/400/300');">
+    <div class="caracteristica-overlay">
+      <div class="caracteristica-icono">🧬</div>
+      <h3>Bases Científicas</h3>
+      <p>Terapias respaldadas por neurociencia, psicología cognitivo-conductual y las últimas investigaciones en bienestar digital.</p>
     </div>
   </div>
-</section>
+
+  <!-- Tarjeta 2: Sabiduría Ancestral -->
+  <div class="caracteristica-imagen" style="background-image: url('https://picsum.photos/id/104/400/300');">
+    <div class="caracteristica-overlay">
+      <div class="caracteristica-icono">🌿</div>
+      <h3>Sabiduría Ancestral</h3>
+      <p>Integramos prácticas tradicionales de sanación, meditación, uso de sonidos y rituales de culturas indígenas, orientales y africanas.</p>
+    </div>
+  </div>
+
+  <!-- Tarjeta 3: Energía y Frecuencias -->
+  <div class="caracteristica-imagen" style="background-image: url('https://picsum.photos/id/116/400/300');">
+    <div class="caracteristica-overlay">
+      <div class="caracteristica-icono">⚡</div>
+      <h3>Energía y Frecuencias</h3>
+      <p>Trabajamos con conceptos de bioenergía, vibraciones y frecuencias sonoras que armonizan el sistema nervioso y restauran el equilibrio interno.</p>
+    </div>
+  </div>
+
+  <!-- Tarjeta 4: Sonidos Ancestrales -->
+  <div class="caracteristica-imagen" style="background-image: url('https://picsum.photos/id/96/400/300');">
+    <div class="caracteristica-overlay">
+      <div class="caracteristica-icono">🎵</div>
+      <h3>Sonidos Ancestrales</h3>
+      <p>Uso de cuencos tibetanos, tambores chamánicos, mantras y frecuencias binaurales para inducir estados profundos de relajación y sanación.</p>
+    </div>
+  </div>
+</div>
+
+    <div class="cita-destacada">
+      <p>“No separamos la tecnología de la naturaleza, ni la psicología del espíritu. En EcoBits, cada servicio es un viaje de autoconocimiento que honra todas las partes de quien eres.”</p>
+      <span>— Filosofía EcoBits</span>
+    </div>
+
+    <div class="enfoque-cultural">
+      <h3>Un enfoque global y culturalmente integrador</h3>
+      <p>
+        Nuestros servicios están diseñados para ser <strong>culturalmente sensibles</strong>, adaptándose a las creencias, tradiciones y valores de personas de todo el mundo. Respetamos y aprendemos de las cosmovisiones indígenas, orientales, africanas y occidentales, reconociendo que no hay una sola forma de sanar.
+      </p>
+      <p>
+        Ya sea que busques un enfoque clínico basado en evidencia, una conexión espiritual con tus raíces, o una combinación de ambos, en EcoBits encontrarás un espacio seguro, respetuoso y transformador.
+      </p>
+    </div>
+
+    <div class="llamada-final">
+      <p>Explora nuestras <strong>Terapias</strong>, <strong>Servicios</strong> y <strong>Especialidades</strong> y comienza tu viaje hacia el bienestar integral.</p>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -16,10 +16,21 @@ export class Servicios implements OnInit {
 
   slideActual: number = 0;
   intervalo: any;
+  acordeonAbierto: string | null = null;
+
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
     this.cargarServicios();
     this.iniciarCarrusel();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    const clickedInside = this.el.nativeElement.querySelector('.acordeon-horizontal')?.contains(event.target);
+    if (!clickedInside) {
+      this.acordeonAbierto = null;
+    }
   }
 
   cargarServicios() {
@@ -96,6 +107,24 @@ export class Servicios implements OnInit {
 
   irASlide(index: number) {
     this.slideActual = index;
+  }
+
+  toggleAcordeon(nombre: string) {
+    if (this.acordeonAbierto === nombre) {
+      this.acordeonAbierto = null;
+    } else {
+      this.acordeonAbierto = nombre;
+    }
+  }
+
+  abrirAcordeon(nombre: string) {
+    this.acordeonAbierto = nombre;
+  }
+
+  cerrarAcordeon(nombre: string) {
+    if (this.acordeonAbierto === nombre) {
+      this.acordeonAbierto = null;
+    }
   }
 
   getIconForService(categoria: string): string {
