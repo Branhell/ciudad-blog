@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'dashboard/admin', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['ADMIN'] } },
 
   // CRUD (solo accesibles desde dashboard)
-  { path: 'expresate', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
+  { path: 'foro', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
 
   // Rutas de menú (pantallas vacías por ahora)
   { path: 'servicios', loadComponent: () => import('./servicios/servicios').then(m => m.Servicios) },

@@ -1,79 +1,87 @@
 /* ==============================================
-   ECOBITS — PALETA DE COLORES GLOBAL
-   Fuente única de verdad para toda la app.
-   No modificar colores directamente en componentes,
-   usar siempre estas variables.
+   IMPORTAR FUENTES
+   ============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* ==============================================
+   ECOBITS — PALETA DE COLORES PROFESIONAL
+   Psicología + Tecnología
    ============================================== */
 :root {
-  /* --- Colores principales EcoBits --- */
-  --eco-primario:        #00d4ff;   /* Cian EcoBits */
-  --eco-secundario:      #7ed321;   /* Verde lima EcoBits */
-  --eco-acento:          #00ff88;   /* Verde neón suave */
-  --eco-verde-oscuro:    #0d1f0f;   /* Verde muy oscuro (fondos oscuros) */
-  --eco-verde-medio:     #1a3a2a;   /* Verde medio (gradientes) */
+  /* --- Colores principales (Psicología + Tecnología) --- */
+  --eco-primary:        #3B82F6;   /* Azul serenidad - confianza, calma */
+  --eco-secondary:      #10B981;   /* Verde crecimiento - bienestar, naturaleza */
+  --eco-accent:         #06B6D4;   /* Cian claridad - tecnología, mente */
+  --eco-soft-blue:      #EFF6FF;   /* Azul muy suave - fondos */
+  --eco-soft-green:     #ECFDF5;   /* Verde muy suave - bienestar */
 
   /* --- Colores de texto --- */
-  --eco-texto-oscuro:    #2c3e50;   /* Texto principal */
-  --eco-texto-medio:     #555555;   /* Texto secundario */
-  --eco-texto-suave:     #888888;   /* Texto terciario / placeholders */
-  --eco-texto-claro:     #e8f5e9;   /* Texto sobre fondos oscuros */
-  --eco-texto-blanco:    #ffffff;
+  --eco-text-primary:   #1E293B;   /* Gris profundo - texto principal */
+  --eco-text-secondary: #64748B;   /* Gris suave - texto secundario */
+  --eco-text-light:     #94A3B8;   /* Gris claro - placeholders */
+  --eco-text-white:     #FFFFFF;   /* Blanco - sobre fondos oscuros */
 
   /* --- Fondos --- */
-  --eco-fondo-pagina:    #f0fdf4;   /* Fondo general de la app */
-  --eco-fondo-blanco:    #ffffff;
-  --eco-fondo-suave:     #f9f9f9;
-  --eco-fondo-tarjeta:   #ffffff;
-  --eco-fondo-oscuro:    #0f172a;   /* Login y secciones oscuras */
-  --eco-fondo-oscuro2:   #1e293b;   /* Tarjeta login */
-
-  /* --- Verdes suaves (badges, pills, acentos) --- */
-  --eco-verde-light:     #dcfce7;
-  --eco-verde-xlight:    #f0fdf4;
-
-  /* --- Bordes y separadores --- */
-  --eco-borde:           #f0f0f0;
-  --eco-borde-medio:     #cccccc;
+  --eco-bg-page:        #F8FAFC;   /* Fondo general de la app */
+  --eco-bg-white:       #FFFFFF;   /* Blanco puro */
+  --eco-bg-soft:        #F1F5F9;   /* Fondo suave para secciones */
+  --eco-bg-dark:        #0F172A;   /* Fondo oscuro para login/secciones */
 
   /* --- Estados semánticos --- */
-  --eco-error:           #e74c3c;
-  --eco-error-fondo:     #fee2e2;
-  --eco-error-texto:     #991b1b;
-  --eco-exito:           #166534;
-  --eco-exito-fondo:     #dcfce7;
+  --eco-success:        #10B981;   /* Verde éxito */
+  --eco-warning:        #F59E0B;   /* Amarillo advertencia */
+  --eco-error:          #EF4444;   /* Rojo error */
+  --eco-info:           #3B82F6;   /* Azul información */
 
-  /* --- Redes sociales (no cambiar) --- */
-  --color-facebook:      #1877f2;
-  --color-instagram:     #e4405f;
-  --color-twitter:       #1da1f2;
-  --color-linkedin:      #0077b5;
-  --color-whatsapp:      #25d366;
+  /* --- Redes sociales --- */
+  --color-facebook:     #1877F2;
+  --color-instagram:    #E4405F;
+  --color-twitter:      #1DA1F2;
+  --color-linkedin:     #0077B5;
+  --color-whatsapp:     #25D366;
 
-  /* --- Sombras estandarizadas --- */
-  --eco-sombra-suave:    0 4px 16px rgba(0, 0, 0, 0.08);
-  --eco-sombra-media:    0 8px 24px rgba(0, 0, 0, 0.14);
-  --eco-sombra-fuerte:   0 10px 40px rgba(0, 0, 0, 0.25);
-  --eco-sombra-cian:     0 4px 12px rgba(0, 212, 255, 0.4);
+  /* --- Sombras profesionales --- */
+  --eco-shadow-sm:      0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --eco-shadow-md:      0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --eco-shadow-lg:      0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --eco-shadow-xl:      0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --eco-shadow-glow:    0 0 15px rgba(59, 130, 246, 0.3);
 
-  /* --- Radios de borde estandarizados --- */
-  --eco-radio-sm:        6px;
-  --eco-radio-md:        12px;
-  --eco-radio-lg:        16px;
-  --eco-radio-pill:      25px;
+  /* --- Radios de borde --- */
+  --eco-radius-sm:      8px;
+  --eco-radius-md:      12px;
+  --eco-radius-lg:      16px;
+  --eco-radius-xl:      24px;
+  --eco-radius-full:    9999px;
 
-  /* --- Transiciones estandarizadas --- */
-  --eco-transicion:      all 0.3s ease;
-  --eco-transicion-fast: all 0.2s ease;
-  
-    /* ===== ALIAS DE COMPATIBILIDAD ===== */
-  /* Para que componentes existentes funcionen con la paleta EcoBits */
-  --primary: var(--eco-primario);
-  --secondary: var(--eco-secundario);
-  --accent: var(--eco-acento);
-  --success: var(--eco-exito);
-  --danger: #e74c3c;
-  --dark: var(--eco-verde-oscuro);
-  --light: var(--eco-fondo-suave);
+  /* --- Transiciones --- */
+  --eco-transition:     all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --eco-transition-fast: all 0.15s ease;
+
+  /* --- Alias de compatibilidad (para componentes existentes) --- */
+  --eco-primario:       var(--eco-primary);
+  --eco-secundario:     var(--eco-secondary);
+  --eco-acento:         var(--eco-accent);
+  --eco-texto-oscuro:   var(--eco-text-primary);
+  --eco-texto-medio:    var(--eco-text-secondary);
+  --eco-texto-suave:    var(--eco-text-light);
+  --eco-texto-blanco:   var(--eco-text-white);
+  --eco-fondo-pagina:   var(--eco-bg-page);
+  --eco-fondo-blanco:   var(--eco-bg-white);
+  --eco-fondo-suave:    var(--eco-bg-soft);
+  --eco-fondo-oscuro:   var(--eco-bg-dark);
+  --eco-exito:          var(--eco-success);
+  --eco-error:          var(--eco-error);
+  --eco-sombra-suave:   var(--eco-shadow-md);
+  --eco-sombra-media:   var(--eco-shadow-lg);
+  --eco-sombra-cian:    var(--eco-shadow-glow);
+  --eco-radio-sm:       var(--eco-radius-sm);
+  --eco-radio-md:       var(--eco-radius-md);
+  --eco-radio-lg:       var(--eco-radius-lg);
+  --eco-radio-pill:     var(--eco-radius-full);
+  --eco-transicion:     var(--eco-transition);
+  --eco-transicion-fast: var(--eco-transition-fast);
 }
 
 /* ==============================================
@@ -81,79 +89,78 @@
    ============================================== */
 *, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
   overflow-x: hidden;
-  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-  background: var(--eco-fondo-pagina);
-  color: var(--eco-texto-oscuro);
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--eco-bg-page);
+  color: var(--eco-text-primary);
+  line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 /* ==============================================
-   TIPOGRAFÍA BASE
+   TIPOGRAFÍA MEJORADA
    ============================================== */
-h1 {
-  font-size: 2.5em;
-  color: var(--eco-secundario);
-  margin-top: 10px;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--eco-text-primary);
 }
 
-h2, h3, h4 {
-  color: var(--eco-texto-oscuro);
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
 
 /* ==============================================
-   BOTÓN GLOBAL (clase .btn)
+   BOTONES GLOBALES
    ============================================== */
 .btn {
-  display: inline-block;
-  background: linear-gradient(120deg, var(--eco-acento), var(--eco-verde-light));
-  color: var(--eco-texto-blanco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--eco-radius-full);
+  transition: var(--eco-transition);
+  cursor: pointer;
   border: none;
-  padding: 12px 25px;
-  border-radius: var(--eco-radio-pill);
-  font-weight: bold;
-  font-size: 1em;
-  cursor: pointer;
-  margin: 10px auto;
-  transition: var(--eco-transicion);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
 }
 
-.btn:hover {
-  background-color: var(--eco-secundario);
-  transform: scale(1.07);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+.btn-primary {
+  background: var(--eco-primary);
+  color: white;
+  box-shadow: var(--eco-shadow-sm);
 }
 
-a.btn {
-  color: var(--eco-texto-blanco);
-  text-decoration: none;
+.btn-primary:hover {
+  background: #2563EB;
+  transform: translateY(-2px);
+  box-shadow: var(--eco-shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--eco-primary);
+  border: 1px solid var(--eco-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--eco-primary);
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* ==============================================
-   LINKS DE TEXTO (clase .link-text)
-   ============================================== */
-.link-text {
-  color: var(--eco-secundario);
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.link-text:hover {
-  color: var(--eco-acento);
-  text-decoration: underline;
-}
-
-/* ==============================================
-   FORMULARIOS GLOBALES
+   FORMULARIOS
    ============================================== */
 form {
   display: flex;
@@ -164,24 +171,26 @@ form {
 }
 
 form label {
-  font-weight: bold;
-  color: var(--eco-secundario);
+  font-weight: 600;
+  color: var(--eco-text-secondary);
+  font-size: 0.875rem;
 }
 
 form input,
 form textarea {
-  padding: 10px;
-  border: 1px solid var(--eco-borde-medio);
-  border-radius: var(--eco-radio-sm);
-  font-size: 1em;
-  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  padding: 12px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--eco-radius-md);
+  font-size: 0.875rem;
+  transition: var(--eco-transition-fast);
+  font-family: inherit;
 }
 
 form input:focus,
 form textarea:focus {
   outline: none;
-  border-color: var(--eco-primario);
-  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+  border-color: var(--eco-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 form textarea {
@@ -189,118 +198,65 @@ form textarea {
   resize: vertical;
 }
 
-form button {
-  align-self: center;
-}
-
 /* ==============================================
-   HERO SECTION (home)
+   UTILIDADES
    ============================================== */
-.hero-section {
-  background-image: url('assets/logo.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
+.text-center    { text-align: center; }
+.text-muted     { color: var(--eco-text-light); }
+.text-success   { color: var(--eco-success); }
+.text-error     { color: var(--eco-error); }
+.text-primary   { color: var(--eco-primary); }
 
-.hero-title {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.5em;
-  color: var(--eco-texto-oscuro);
-  white-space: nowrap;
-}
-
-.hero-timeline {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.3em;
-  color: var(--eco-acento);
-  white-space: nowrap;
-}
-
-.hero-lema {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.1em;
-  color: var(--eco-texto-oscuro);
-  font-style: italic;
-  white-space: nowrap;
-}
-
-/* ==============================================
-   UTILIDADES GLOBALES
-   ============================================== */
-.text-center  { text-align: center; }
-.text-muted   { color: var(--eco-texto-suave); }
-.text-success { color: var(--eco-exito); }
-.text-error   { color: var(--eco-error); }
-
+/* Badges */
 .badge {
   display: inline-block;
   padding: 4px 10px;
-  border-radius: var(--eco-radio-pill);
-  font-size: 0.75rem;
+  border-radius: var(--eco-radius-full);
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.badge-verde {
-  background: var(--eco-verde-light);
-  color: var(--eco-secundario);
+.badge-success {
+  background: var(--eco-soft-green);
+  color: var(--eco-success);
 }
 
-.badge-cian {
-  background: rgba(0, 212, 255, 0.15);
-  color: var(--eco-primario);
+.badge-primary {
+  background: var(--eco-soft-blue);
+  color: var(--eco-primary);
+}
+
+/* Gradiente EcoBits */
+.ecobits-gradient {
+  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
+}
+
+/* Contenedor responsivo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* ==============================================
-   RESPONSIVO — Hero
+   RESPONSIVO
    ============================================== */
-@media (max-width: 900px) {
-  .hero-title {
-    font-size: 1.8em;
-    white-space: normal;
-    text-align: center;
-    width: 90%;
-    top: 15px;
-  }
-  .hero-timeline {
-    font-size: 1.1em;
-    white-space: normal;
-    text-align: center;
-    width: 90%;
-    top: 100px;
-  }
-  .hero-lema {
-    font-size: 1em;
-    white-space: normal;
-    text-align: center;
-    width: 90%;
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .container {
+    padding: 0 16px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title    { font-size: 1.4em; top: 10px; }
-  .hero-timeline { font-size: 1em;   top: 80px; }
-  .hero-lema     { font-size: 0.9em; }
-}
-/* ==============================================
-   CLASE PARA GRADIENTES ECOBITS
-   ============================================== */
-.ecobits-gradient {
-  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
+  h1 { font-size: 1.75rem; }
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
 }

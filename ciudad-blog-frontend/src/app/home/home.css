@@ -1,5 +1,5 @@
 /* ==============================================
-   HERO — EcoBits Home (Tus estilos originales)
+   HERO — EcoBits Home
    ============================================== */
 .hero {
   position: relative;
@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, var(--eco-verde-oscuro) 0%, var(--eco-verde-medio) 50%, #0a2a1a 100%);
+  background: linear-gradient(145deg, #1E3A5F 0%, #0F2B4D 100%);
   overflow: hidden;
   padding: 80px 24px 60px;
 }
@@ -22,7 +22,7 @@
 .hero-orb-1 {
   width: 400px;
   height: 400px;
-  background: rgba(0, 212, 255, 0.12);
+  background: rgba(59, 130, 246, 0.08);
   top: -80px;
   right: -80px;
   animation: orb-float 8s ease-in-out infinite alternate;
@@ -31,7 +31,7 @@
 .hero-orb-2 {
   width: 300px;
   height: 300px;
-  background: rgba(126, 211, 33, 0.1);
+  background: rgba(16, 185, 129, 0.06);
   bottom: -60px;
   left: -60px;
   animation: orb-float 10s ease-in-out infinite alternate-reverse;
@@ -40,7 +40,7 @@
 .hero-orb-3 {
   width: 200px;
   height: 200px;
-  background: rgba(0, 255, 136, 0.08);
+  background: rgba(6, 182, 212, 0.05);
   top: 40%;
   left: 60%;
   animation: orb-float 12s ease-in-out infinite alternate;
@@ -62,10 +62,10 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 212, 255, 0.12);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  color: var(--eco-primario);
-  border-radius: 25px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--eco-primary);
+  border-radius: 100px;
   padding: 6px 16px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -76,7 +76,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--eco-primario);
+  background: var(--eco-primary);
   animation: dot-pulse 2s ease-in-out infinite;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .hero-titulo-acento {
-  background: linear-gradient(90deg, var(--eco-primario), var(--eco-secundario));
+  background: linear-gradient(90deg, var(--eco-primary), var(--eco-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,7 +102,7 @@
 
 .hero-subtitulo {
   font-size: clamp(0.95rem, 2vw, 1.1rem);
-  color: rgba(232, 245, 233, 0.75);
+  color: #CBD5E1;
   line-height: 1.7;
   margin: 0 0 36px;
   max-width: 520px;
@@ -121,36 +121,35 @@
 .hero-btn-primario {
   display: inline-block;
   padding: 13px 30px;
-  background: linear-gradient(135deg, var(--eco-primario), var(--eco-secundario));
-  color: #0d1f0f;
-  border-radius: 25px;
+  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
+  color: white;
+  border-radius: 100px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .hero-btn-primario:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 28px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
 .hero-btn-secundario {
   display: inline-block;
   padding: 12px 28px;
   background: transparent;
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  border-radius: 25px;
+  color: var(--eco-primary);
+  border: 1.5px solid var(--eco-primary);
+  border-radius: 100px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .hero-btn-secundario:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--eco-primario);
-  color: var(--eco-primario);
+  background: var(--eco-primary);
+  color: white;
   transform: translateY(-2px);
 }
 
@@ -159,9 +158,9 @@
   justify-content: center;
   align-items: center;
   padding: 20px 28px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
   backdrop-filter: blur(10px);
   flex-wrap: wrap;
 }
@@ -176,23 +175,47 @@
 .hero-stat-num {
   font-size: 1.7rem;
   font-weight: 700;
-  color: white;
+  color: #1E293B;
 }
 
 .hero-stat-label {
   font-size: 0.78rem;
-  color: rgba(232, 245, 233, 0.6);
+  color: #64748B;
   margin-top: 4px;
 }
 
 .hero-stat-sep {
   width: 1px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.15);
+  background: #E2E8F0;
+}
+
+/* Logo */
+.hero-logo {
+  position: relative;
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 280px;
+  height: auto;
+  animation: logoFloat 3s ease-in-out infinite;
+  filter: grayscale(0.9) brightness(1.2) contrast(1.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-logo:hover {
+  transform: scale(1.02);
+  filter: grayscale(0) brightness(1) contrast(1);
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 /* ==============================================
-   POSTS - Versión que SÍ funciona
+   POSTS
    ============================================== */
 .posts-section {
   max-width: 1100px;
@@ -209,7 +232,7 @@
 
 .posts-titulo {
   font-size: 1.6rem;
-  color: var(--eco-texto-oscuro);
+  color: #1E293B;
   font-weight: 700;
   margin: 0;
   white-space: nowrap;
@@ -218,7 +241,7 @@
 .posts-titulo-linea {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, var(--eco-primario), transparent);
+  background: linear-gradient(90deg, var(--eco-primary), transparent);
   border-radius: 2px;
 }
 
@@ -230,43 +253,41 @@
 
 .post-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-top: 3px solid #00d4ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-top: 3px solid var(--eco-primary);
   transition: all 0.25s ease;
 }
 
 .post-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-top-color: #7ed321;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.1);
+  border-top-color: var(--eco-secondary);
 }
 
 .post-categoria {
   display: inline-block;
-  background: #dcfce7;
-  color: #7ed321;
+  background: #ECFDF5;
+  color: var(--eco-secondary);
   font-size: 0.7rem;
   font-weight: 700;
   padding: 4px 10px;
-  border-radius: 20px;
+  border-radius: 100px;
   margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .post-titulo {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #1E293B;
   margin: 0 0 10px;
-  line-height: 1.4;
 }
 
 .post-contenido {
   font-size: 0.9rem;
-  color: #555;
+  color: #64748B;
   line-height: 1.5;
   margin: 0 0 16px;
 }
@@ -276,48 +297,457 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  color: #888;
-  border-top: 1px solid #eee;
+  color: #94A3B8;
+  border-top: 1px solid #E2E8F0;
   padding-top: 12px;
 }
 
 .post-autor {
   font-weight: 600;
-  color: #555;
+  color: #475569;
 }
 
 .post-likes {
-  color: #7ed321;
+  color: var(--eco-secondary);
   font-weight: 600;
 }
 
-.posts-loading {
-  text-align: center;
-  color: #888;
-  padding: 60px 0;
+/* ==============================================
+   SECCIÓN: MÁS TIEMPO DE CALIDAD
+   ============================================== */
+.calidad-seccion {
+  max-width: 1100px;
+  margin: 60px auto 40px auto;
+  padding: 0 20px;
 }
 
-.loading-spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid #eee;
-  border-top-color: #00d4ff;
+.calidad-titulo {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 40px;
+}
+
+.calidad-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.calidad-item {
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+  opacity: 0;
+}
+
+.calidad-icono {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 15px;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 3px solid rgba(59, 130, 246, 0.2);
+  background: white;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.calidad-icono img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.posts-error {
+.calidad-icono:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+  border-color: var(--eco-primary);
+}
+
+.calidad-icono:hover img {
+  transform: scale(1.1);
+}
+
+.calidad-item p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+  margin-top: 8px;
+}
+
+/* ==============================================
+   TÉCNICAS PSICOLÓGICAS
+   ============================================== */
+.tecnicas-seccion {
+  width: 100%;
+  background: transparent;
+  padding: 60px 0;
+  margin: 60px 0;
+}
+
+.tecnicas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tecnicas-titulo {
   text-align: center;
-  color: #e74c3c;
-  padding: 40px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 12px;
 }
 
-/* Responsivo */
+.tecnicas-subtitulo {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #5B6B8C;
+  margin-bottom: 48px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  letter-spacing: -0.2px;
+}
+
+.tecnicas-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.tecnica-card {
+  flex: 1;
+  min-width: 180px;
+  max-width: 220px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  overflow: visible;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  height: 260px;
+}
+
+.tecnica-card-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: visible;
+  border-radius: 24px;
+}
+
+.tecnica-card:hover .tecnica-card-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+  backdrop-filter: blur(2px);
+}
+
+.tecnica-card-contenido {
+  text-align: center;
+  padding: 20px;
+}
+
+.tecnica-nombre {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ==============================================
+   TOOLTIP FLOTANTE
+   ============================================== */
+.tecnica-hover-info {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #0F172A;
+  color: #E2E8F0;
+  border-radius: 12px;
+  padding: 14px;
+  width: 240px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+  border-left: 3px solid #3B82F6;
+  margin-bottom: 12px;
+}
+
+.tecnica-hover-info::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: #0F172A transparent transparent transparent;
+}
+
+.tecnica-card:hover .tecnica-hover-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.tecnica-hover-info strong {
+  color: #60A5FA;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.tecnica-hover-info p {
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: #E2E8F0;
+}
+
+/* ==============================================
+   TRATAMIENTOS
+   ============================================== */
+.tratamientos-seccion {
+  width: 100%;
+  background: linear-gradient(135deg, #E0F2FE 0%, #F0FDF4 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tratamientos-seccion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 40%, rgba(59,130,246,0.05) 2px, transparent 2px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.tratamientos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.tratamientos-titulo {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.tratamientos-subtitulo {
+  text-align: center;
+  font-size: 1rem;
+  color: #64748B;
+  margin-bottom: 56px;
+}
+
+.mosaico-destacado {
+  background-image: url('https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 32px;
+  margin-bottom: 48px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.mosaico-destacado:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.mosaico-destacado-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.4));
+  padding: 70px 50px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.mosaico-destacado:hover .mosaico-destacado-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.5));
+  backdrop-filter: blur(3px);
+}
+
+.mosaico-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #3B82F6, #06B6D4);
+  padding: 6px 18px;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.mosaico-destacado-contenido h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.mosaico-destacado-contenido p {
+  font-size: 1.1rem;
+  color: #E2E8F0;
+  margin-bottom: 28px;
+}
+
+.mosaico-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mosaico-destacado:hover .mosaico-btn {
+  background: #3B82F6;
+  border-color: #3B82F6;
+  transform: translateX(5px);
+}
+
+.mosaico-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.mosaico-card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.mosaico-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.mosaico-card-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.3));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mosaico-card:hover .mosaico-card-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.5));
+  backdrop-filter: blur(3px);
+}
+
+.mosaico-card-contenido {
+  text-align: center;
+  padding: 20px;
+}
+
+.mosaico-card-icono {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 12px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+
+.mosaico-card-contenido h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  margin: 0;
+}
+
+.mosaico-card-1 { grid-column: span 1; grid-row: span 1; }
+.mosaico-card-2 { grid-column: span 1; grid-row: span 2; }
+.mosaico-card-3 { grid-column: span 2; grid-row: span 1; }
+.mosaico-card-4 { grid-column: span 1; grid-row: span 1; }
+.mosaico-card-5 { grid-column: span 1; grid-row: span 1; }
+.mosaico-card-6 { grid-column: span 1; grid-row: span 1; }
+
+.btn-ver-todo {
+  display: block;
+  margin: 0 auto;
+  padding: 14px 40px;
+  background: transparent;
+  border: 2px solid #3B82F6;
+  border-radius: 50px;
+  color: #3B82F6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-todo:hover {
+  background: #3B82F6;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59,130,246,0.3);
+}
+
+/* ==============================================
+   ANIMACIONES Y RESPONSIVO
+   ============================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     min-height: 75vh;
@@ -332,6 +762,44 @@
   .posts-grid {
     grid-template-columns: 1fr;
   }
+  .calidad-icono {
+    width: 100px;
+    height: 100px;
+  }
+  .mosaico-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  .mosaico-card-2, .mosaico-card-3 {
+    grid-column: span 1;
+  }
+  .mosaico-destacado-contenido h3 {
+    font-size: 1.5rem;
+  }
+  .mosaico-destacado-overlay {
+    padding: 40px 20px;
+  }
+  .hero-logo {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tecnica-card {
+    min-width: 160px;
+    height: 220px;
+  }
+  .tecnica-nombre {
+    font-size: 1rem;
+  }
+  .tecnica-hover-info {
+    width: 200px;
+    padding: 12px;
+    font-size: 0.65rem;
+  }
+  .hero-logo {
+    width: 200px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -343,39 +811,15 @@
     font-size: 1.3rem;
     white-space: normal;
   }
-}
-
-/* ==============================================
-   LOGO GRANDE ANIMADO EN HERO
-   ============================================== */
-.hero-logo {
-  width: 140px;
-  height: auto;
-  margin-bottom: 28px;
-  animation: logoFloat 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.4));
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.hero-logo:hover {
-  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.7));
-  transform: scale(1.02);
-}
-
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0);
+  .calidad-icono {
+    width: 80px;
+    height: 80px;
   }
-  50% {
-    transform: translateY(-8px);
+  .mosaico-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 160px;
   }
-}
-
-/* Responsivo: logo más pequeño en móvil */
-@media (max-width: 768px) {
   .hero-logo {
-    width: 100px;
-    margin-bottom: 20px;
+    width: 160px;
   }
 }

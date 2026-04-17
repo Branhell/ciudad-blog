@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PostService } from '../services/post.service';
 import { Post } from '../models/post.model';
@@ -17,7 +17,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   loading = true;
   error = false;
 
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.postService.getPosts().subscribe({
@@ -33,6 +36,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
+  // Función para redirigir a la página de servicios
+  irServicios() {
+    this.router.navigate(['/servicios']);
+  }
+
   ngAfterViewInit() {
     // Animaciones GSAP
     gsap.from('.hero-badge', {
@@ -41,7 +49,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       opacity: 0,
       ease: 'back.out(1)'
     });
-    
+
     gsap.from('.hero-titulo', {
       duration: 0.8,
       y: 30,
@@ -49,7 +57,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       delay: 0.2,
       ease: 'power3.out'
     });
-    
+
     gsap.from('.hero-subtitulo', {
       duration: 0.8,
       y: 20,
@@ -57,7 +65,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       delay: 0.4,
       ease: 'power3.out'
     });
-    
+
     gsap.from('.hero-acciones', {
       duration: 0.8,
       y: 20,
@@ -65,7 +73,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       delay: 0.6,
       ease: 'power3.out'
     });
-    
+
     gsap.from('.hero-stats', {
       duration: 0.8,
       y: 20,
