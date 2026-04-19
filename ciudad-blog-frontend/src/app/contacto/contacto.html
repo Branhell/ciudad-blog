@@ -1,65 +1,118 @@
-<div class="page-container">
-  <div class="page-header">
-    <h1>Contacto</h1>
-    <p class="page-subtitle">Estamos aquí para ayudarte</p>
+<div class="contacto-container">
+  <!-- Fondo con olas animadas -->
+  <div class="waves-bg"></div>
+
+  <!-- Hero -->
+  <div class="hero-contacto">
+    <div class="hero-icon">💌✨</div>
+    <h1>Conectemos</h1>
+    <p>Tu voz es importante para nosotros. Cuéntanos lo que necesitas.</p>
   </div>
 
-  <form class="contact-form" #contactForm="ngForm" (ngSubmit)="enviar(contactForm)">
-
-    <div class="form-group">
-      <label>Nombre</label>
-      <input 
-        type="text" 
-        name="nombre" 
-        ngModel 
-        required 
-        #nombre="ngModel"
-      >
-      <small *ngIf="nombre.invalid && nombre.touched">
-        El nombre es obligatorio
-      </small>
+  <!-- Grid principal -->
+  <div class="contacto-grid">
+    <!-- Formulario -->
+    <div class="formulario-card">
+      <h2>📝 Escríbenos</h2>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="formData.nombre" placeholder="Tu nombre completo">
+      </div>
+      <div class="form-group">
+        <input type="email" [(ngModel)]="formData.email" placeholder="Tu correo electrónico">
+      </div>
+      <div class="form-group">
+        <input type="tel" [(ngModel)]="formData.telefono" placeholder="Teléfono (opcional)">
+      </div>
+      <div class="form-group">
+        <select [(ngModel)]="formData.asunto">
+          <option value="">Selecciona un asunto</option>
+          <option>Soporte técnico</option>
+          <option>Alianza empresarial</option>
+          <option>Ser profesional aliado</option>
+          <option>Prensa y medios</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea [(ngModel)]="formData.mensaje" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+      </div>
+      <button class="btn-enviar" (click)="enviarMensaje()">Enviar mensaje →</button>
+      
+      <!-- Mensajes de estado -->
+      <div class="mensaje-exito" *ngIf="enviado">
+        ✨ ¡Mensaje enviado! Te responderemos pronto. ✨
+      </div>
+      <div class="mensaje-error" *ngIf="errorEnvio">
+        ⚠️ Por favor, completa los campos obligatorios.
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Correo</label>
-      <input 
-        type="email" 
-        name="email" 
-        ngModel 
-        required 
-        email
-        #email="ngModel"
-      >
-      <small *ngIf="email.invalid && email.touched">
-        Ingresa un correo válido
-      </small>
+    <!-- Información de contacto -->
+    <div class="info-card">
+      <h2>📍 Otros canales</h2>
+      
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <h3>Email</h3>
+          <p>hola@ecobits.com</p>
+          <p>soporte@ecobits.com</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h3>Teléfono</h3>
+          <p>+57 601 123 4567</p>
+          <p>Lun - Vie: 8am - 6pm</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">💬</div>
+        <div>
+          <h3>WhatsApp</h3>
+          <p>+57 312 345 6789</p>
+          <p>Respuesta en minutos</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h3>Oficina principal</h3>
+          <p>Bogotá, Colombia</p>
+          <p>Calle 123 # 45-67</p>
+        </div>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="redes-section">
+        <h3>Síguenos</h3>
+        <div class="redes-icons">
+          <a href="#" class="red-social">📘</a>
+          <a href="#" class="red-social">🐦</a>
+          <a href="#" class="red-social">📸</a>
+          <a href="#" class="red-social">💼</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label>Mensaje</label>
-      <textarea 
-        name="mensaje" 
-        ngModel 
-        required 
-        rows="5"
-        #mensajeRef="ngModel"
-      ></textarea>
-      <small *ngIf="mensajeRef.invalid && mensajeRef.touched">
-        El mensaje es obligatorio
-      </small>
+  <!-- Mapa simbólico -->
+  <div class="mapa-section">
+    <div class="mapa-card">
+      <div class="mapa-icono">🌎❤️</div>
+      <p>Estamos donde nos necesites. EcoBits tiene presencia digital en todo el mundo.</p>
+      <div class="mapa-simbolico">
+        <span>🌍</span> <span>🌎</span> <span>🌏</span>
+      </div>
     </div>
+  </div>
 
-    <button 
-      type="submit" 
-      [disabled]="contactForm.invalid"
-      class="btn-submit"
-    >
-      Enviar mensaje
-    </button>
-	
-	<div *ngIf="mensaje" [class]="exito ? 'msg-success' : 'msg-error'">
-		{{ mensaje }}
-	</div>
-
-  </form>
+  <!-- Footer -->
+  <div class="footer-contacto">
+    <p>💚 EcoBits - Tu bienestar, nuestra prioridad 💚</p>
+  </div>
 </div>

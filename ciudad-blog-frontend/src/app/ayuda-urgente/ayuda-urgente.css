@@ -1,68 +1,275 @@
-.page-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px 60px 20px;
+.urgente-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2, #fce7f3);
+  margin-top: 70px;
+  padding: 60px 20px;
 }
 
-/* ALERTA PRINCIPAL */
-.alert-box {
-  background: linear-gradient(135deg, #ff4d4d, #b30000);
-  color: white;
-  padding: 40px 20px;
-  border-radius: 16px;
+.hero-urgente {
   text-align: center;
-  margin-bottom: 40px;
-  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+  margin-bottom: 50px;
 }
 
-.alert-box h1 {
+.hero-icono {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: latido 1.5s ease-in-out infinite;
+}
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.hero-urgente h1 {
+  font-size: 2.5rem;
+  color: #991b1b;
+  margin-bottom: 15px;
+}
+
+.hero-urgente p {
+  font-size: 1.1rem;
+  color: #7f1d1d;
+  margin-bottom: 25px;
+}
+
+.badge-emergencia {
+  display: inline-block;
+  background: #dc2626;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.contactos-section {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.contactos-section h2 {
+  text-align: center;
+  color: #991b1b;
+  margin-bottom: 30px;
+}
+
+.contactos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contacto-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-left: 5px solid #dc2626;
+}
+
+.contacto-numero {
+  background: #dc2626;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  border-radius: 15px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.contacto-info {
+  flex: 1;
+}
+
+.contacto-info h3 {
+  color: #991b1b;
+  margin-bottom: 5px;
+}
+
+.contacto-info p {
+  color: #4b5563;
+  font-size: 0.85rem;
+}
+
+.disponible {
+  font-size: 0.7rem;
+  color: #10b981;
+}
+
+.btn-llamar {
+  background: #dc2626;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.btn-llamar:hover {
+  transform: scale(1.05);
+  background: #b91c1c;
+}
+
+.respiracion-section {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 60px;
+}
+
+.respiracion-section h2 {
+  color: #991b1b;
+  margin-bottom: 10px;
+}
+
+.respiracion-card {
+  background: white;
+  border-radius: 30px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.respiracion-circulo {
+  width: 100px;
+  height: 100px;
+  background: #fca5a5;
+  border-radius: 50%;
+  margin: 0 auto 25px;
+  transition: all 0.3s;
+}
+
+.respiracion-circulo.activo {
+  background: #ef4444;
+  animation: respirar 4s ease-in-out infinite;
+}
+
+@keyframes respirar {
+  0%, 100% { transform: scale(1); background: #ef4444; }
+  50% { transform: scale(1.2); background: #dc2626; }
+}
+
+.btn-respiracion {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-respiracion:hover {
+  transform: scale(1.02);
+}
+
+.recursos-section {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.recursos-section h2 {
+  text-align: center;
+  color: #991b1b;
+  margin-bottom: 30px;
+}
+
+.recursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.recurso-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+.recurso-icono {
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
-.alert-box p {
-  font-size: 1.1rem;
+.recurso-card h3 {
+  color: #991b1b;
+  margin-bottom: 10px;
 }
 
-/* CONTENIDO */
-.section {
+.recurso-card p {
+  color: #4b5563;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.btn-recurso {
+  background: #8b5cf6;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.consejos-section {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.consejos-section h2 {
+  text-align: center;
+  color: #991b1b;
   margin-bottom: 30px;
 }
 
-.section h2 {
-  color: #b30000;
-  margin-bottom: 10px;
-  border-left: 4px solid #ff4d4d;
-  padding-left: 10px;
+.consejos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
-.section p {
-  color: #444;
-  line-height: 1.7;
+.consejo {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: 500;
+  color: #7f1d1d;
+  border-left: 3px solid #dc2626;
 }
 
-/* LISTAS */
-.help-list {
-  list-style: none;
-  padding: 0;
+.footer-urgente {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(220,38,38,0.2);
 }
 
-.help-list li {
-  padding: 10px 0 10px 20px;
-  position: relative;
-  border-bottom: 1px solid #eee;
+.footer-urgente p {
+  color: #991b1b;
+  margin-bottom: 15px;
 }
 
-.help-list li::before {
-  content: "⚠";
-  position: absolute;
-  left: 0;
+.btn-home {
+  display: inline-block;
+  background: #991b1b;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
 }
 
-/* BLOQUE FINAL */
-.highlight {
-  background: #fff5f5;
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid #ffcccc;
+@media (max-width: 768px) {
+  .hero-urgente h1 { font-size: 1.8rem; }
+  .contacto-card { flex-direction: column; text-align: center; }
+  .contacto-numero { width: 100%; }
+  .btn-llamar { width: 100%; }
+  .consejos-grid { grid-template-columns: 1fr; }
 }

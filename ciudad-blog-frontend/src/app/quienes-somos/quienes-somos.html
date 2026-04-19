@@ -1,54 +1,53 @@
-<div class="page-container">
-  <div class="page-header">
-    <h1>¿Quiénes Somos?</h1>
-    <p class="page-subtitle">Tecnología con propósito humano</p>
+<div class="quienes-container">
+  <!-- Hero -->
+  <div class="hero-section">
+    <h1>✨ Quiénes Somos ✨</h1>
+    <p>Construyendo el futuro del bienestar digital</p>
   </div>
 
-  <div class="page-content">
-    <section class="section">
-      <h2>Nuestra Misión</h2>
-      <p>EcoBits nació con una misión clara: entender y mejorar el impacto de la tecnología en la salud mental. Somos una plataforma innovadora que explora cómo las tecnologías avanzadas afectan la mente humana y la sociedad, desarrollando estrategias que promuevan el bienestar psicológico y la adaptación tecnológica.</p>
-    </section>
+  <!-- Misión y Visión -->
+  <div class="mv-section">
+    <div class="card-mv">
+      <div class="icon">🎯</div>
+      <h2>Misión</h2>
+      <p>Investigar cómo las tecnologías avanzadas afectan la mente humana, desarrollando estrategias que promuevan el bienestar psicológico y la adaptación tecnológica.</p>
+    </div>
+    <div class="card-mv">
+      <div class="icon">🌟</div>
+      <h2>Visión</h2>
+      <p>Ser la plataforma líder en bienestar digital y psicología tecnológica en Latinoamérica para 2028.</p>
+    </div>
+  </div>
 
-    <section class="section">
-      <h2>Nuestra Visión</h2>
-      <p>Ser la plataforma líder en bienestar digital en América Latina, integrando inteligencia artificial, realidad virtual, neuropsicología y computación cuántica para transformar la manera en que las personas conviven con la tecnología.</p>
-    </section>
-
-    <section class="section">
-      <h2>Lo que nos diferencia</h2>
-      <div class="cards-grid">
-        <div class="info-card">
-          <span class="card-icon">🧠</span>
-          <h3>Neuropsicología Digital</h3>
-          <p>Analizamos cómo la tecnología afecta la percepción, el aprendizaje y las emociones humanas.</p>
-        </div>
-        <div class="info-card">
-          <span class="card-icon">🌱</span>
-          <h3>Enfoque Humano</h3>
-          <p>Cada herramienta que desarrollamos tiene como centro el bienestar real de las personas.</p>
-        </div>
-        <div class="info-card">
-          <span class="card-icon">🤝</span>
-          <h3>Red de Profesionales</h3>
-          <p>Contamos con psicólogos, neurocientíficos, tecnólogos y coaches aliados a nuestra causa.</p>
-        </div>
-        <div class="info-card">
-          <span class="card-icon">🏆</span>
-          <h3>QuantumPoint</h3>
-          <p>Sistema de recompensas que motiva a los usuarios a mantener hábitos digitales saludables.</p>
-        </div>
+  <!-- Valores -->
+  <div class="valores-section">
+    <h2>Nuestros Valores</h2>
+    <div class="valores-grid">
+      <div class="valor-card" *ngFor="let v of valores">
+        <div class="valor-icon">{{ v.icono }}</div>
+        <h3>{{ v.titulo }}</h3>
+        <p>{{ v.descripcion }}</p>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section class="section">
-      <h2>Nuestro Equipo</h2>
-      <p>Somos un equipo multidisciplinario apasionado por la intersección entre tecnología y salud mental. Trabajamos de la mano con profesionales de psicología, neurociencia, ingeniería de software y diseño para crear experiencias que realmente impacten vidas.</p>
-    </section>
+  <!-- Equipo -->
+  <div class="equipo-section">
+    <h2>Equipo Fundador</h2>
+    <div class="equipo-grid">
+      <div class="equipo-card" *ngFor="let m of equipo">
+        <div class="equipo-icon">{{ m.icono }}</div>
+        <h3>{{ m.nombre }}</h3>
+        <p class="rol">{{ m.rol }}</p>
+        <p class="descripcion">{{ m.descripcion }}</p>
+      </div>
+    </div>
+  </div>
 
-    <section class="section highlight">
-      <h2>Nuestro Compromiso</h2>
-      <p>En EcoBits creemos que la tecnología debe ser una herramienta de liberación, no de dependencia. Nos comprometemos a desarrollar soluciones éticas, accesibles y basadas en evidencia científica para mejorar la calidad de vida de millones de personas en el mundo digitalizado.</p>
-    </section>
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>¿Quieres ser parte de EcoBits?</h2>
+    <p>Únete como profesional, aliado estratégico o inversionista</p>
+    <a routerLink="/contacto" class="btn-cta">Contáctanos →</a>
   </div>
 </div>

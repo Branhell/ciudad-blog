@@ -1,0 +1,41 @@
+<section class="hero-eventos">
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="assets/noticias-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Eventos EcoBits</h1>
+      <p>Conecta, aprende y crece con nuestra comunidad</p>
+      <div class="hero-stats">
+        <span>🎤 Charlas exclusivas</span>
+        <span>🤝 Networking</span>
+        <span>📅 Próximamente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eventos-section">
+  <div class="section-header">
+    <h2>Próximos Eventos</h2>
+    <p>Descubre las actividades que preparamos para ti</p>
+  </div>
+
+  <div class="eventos-grid">
+    <div class="evento-card" *ngFor="let evento of eventos">
+      <div class="evento-imagen">{{ evento.icono }}</div>
+      <div class="evento-contenido">
+        <span class="evento-fecha">📅 {{ evento.fecha }}</span>
+        <h3 class="evento-titulo">{{ evento.titulo }}</h3>
+        <p class="evento-descripcion">{{ evento.descripcion }}</p>
+        <a routerLink="/registro" class="btn-registro">📝 Registrarse →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h3>¿Eres profesional o empresa?</h3>
+  <p>Organiza tus propios eventos y llega a miles de personas interesadas en bienestar y tecnología</p>
+  <a routerLink="/registro" class="btn-cta">Crear cuenta profesional →</a>
+</section>

@@ -1,0 +1,23 @@
+<div class="inspira-container">
+  <div class="inspira-header">
+    <h1>✨ Inspira ✨</h1>
+    <p>Encuentra luz en cada palabra</p>
+  </div>
+
+  <!-- Frase del día -->
+  <div class="frase-dia">
+    <div class="frase-icono">{{ fraseDelDia.icono }}</div>
+    <div class="frase-texto">"{{ fraseDelDia.texto }}"</div>
+    <div class="frase-autor">— {{ fraseDelDia.autor }} —</div>
+  </div>
+
+  <!-- Grid de inspiración -->
+  <div class="grid-inspira">
+    <div class="card-inspira" *ngFor="let card of cards">
+      <div class="card-icono">{{ card.icono }}</div>
+      <h3 class="card-titulo">{{ card.titulo }}</h3>
+      <p class="card-texto">{{ card.texto }}</p>
+      <span class="card-tag">{{ card.tag }}</span>
+    </div>
+  </div>
+</div>

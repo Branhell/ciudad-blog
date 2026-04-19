@@ -1,30 +1,60 @@
-<section class="eventos-section">
-  <div class="eventos-header">
-    <h1 class="eventos-titulo">Eventos</h1>
-    <p class="eventos-subtitulo">Webinars, talleres y actividades de la comunidad EcoBits</p>
+<!-- Hero Parallax -->
+<div class="hero-parallax">
+  <div class="hero-content">
+    <h1>✨ Eventos EcoBits ✨</h1>
+    <p>Donde la tecnología y el bienestar se encuentran</p>
+    <div>
+      <span class="hero-badge">🎤 Conferencias</span>
+      <span class="hero-badge">🤝 Networking</span>
+      <span class="hero-badge">🧠 Workshops</span>
+    </div>
+  </div>
+</div>
+
+<!-- Pestañas de categorías -->
+<div class="tabs-section">
+  <div class="tabs-container">
+    <button class="tab-btn" [class.active]="categoriaActiva === 'todos'" (click)="filtrarEventos('todos')">📅 Todos</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'salud'" (click)="filtrarEventos('salud')">🧠 Salud Mental</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'tecnologia'" (click)="filtrarEventos('tecnologia')">💻 Tecnología</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'negocios'" (click)="filtrarEventos('negocios')">🤝 Negocios</button>
+  </div>
+</div>
+
+<!-- Línea de tiempo -->
+<div class="timeline-section">
+  <div class="timeline-header">
+    <h2>📅 Próximos Eventos</h2>
+    <p>Descubre las actividades que preparamos para ti</p>
   </div>
 
-  <div *ngIf="loading" class="estado-mensaje">
-    Cargando eventos...
-  </div>
-
-  <div *ngIf="error" class="estado-error">
-    No se pudieron cargar los eventos.
-  </div>
-
-  <div *ngIf="!loading && !error && posts.length === 0" class="estado-mensaje">
-    No hay eventos disponibles por el momento.
-  </div>
-
-  <div *ngIf="!loading && !error" class="posts-grid">
-    <div class="post-card" *ngFor="let post of posts">
-      <span class="post-categoria">{{ post.categoria }}</span>
-      <h3 class="post-titulo">{{ post.titulo }}</h3>
-      <p class="post-contenido">{{ post.contenido | slice:0:150 }}...</p>
-      <div class="post-footer">
-        <span class="post-autor">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
-        <span class="post-likes">❤️ {{ post.likes }}</span>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let evento of eventosTimeline">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div>
+          <span class="timeline-date">📅 {{ evento.fecha }}</span>
+          <span class="timeline-category" [style.background]="evento.categoria === 'salud' ? '#10b981' : evento.categoria === 'tecnologia' ? '#3b82f6' : '#8b5cf6'">
+            {{ evento.icono }} {{ evento.categoria === 'salud' ? 'Salud' : evento.categoria === 'tecnologia' ? 'Tecnología' : 'Negocios' }}
+          </span>
+        </div>
+        <h3 class="timeline-title">{{ evento.titulo }}</h3>
+        <p class="timeline-desc">{{ evento.descripcion }}</p>
+        <a routerLink="/registro" class="btn-registro" style="display: inline-block; margin-top: 15px; background: #3b82f6; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none;">📝 Registrarse →</a>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- Newsletter -->
+<div class="newsletter-section">
+  <div class="newsletter-container">
+    <h3>📧 No te pierdas ningún evento</h3>
+    <p>Suscríbete a nuestro newsletter y recibe información exclusiva sobre próximos eventos</p>
+    <div class="newsletter-form">
+      <input type="email" class="newsletter-input" [(ngModel)]="emailSuscripcion" placeholder="Tu correo electrónico">
+      <button class="newsletter-btn" (click)="suscribirNewsletter()">Suscribirme →</button>
+    </div>
+    <div class="mensaje-suscripcion" *ngIf="mensajeSuscripcion">{{ mensajeSuscripcion }}</div>
+  </div>
+</div>

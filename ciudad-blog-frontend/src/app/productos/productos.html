@@ -1,29 +1,90 @@
-<section class="productos-section">
-  <div class="productos-header">
-    <h1 class="productos-titulo">Productos</h1>
-    <p class="productos-subtitulo">Herramientas y recursos para tu bienestar digital</p>
+<!-- Sección Hero de Productos -->
+<section class="productos-hero">
+  <div class="productos-hero-content">
+    <h1>Productos EcoBits</h1>
+    <p>Herramientas integradas para tu bienestar: mente, cuerpo y espíritu</p>
   </div>
+</section>
 
-  <div *ngIf="loading" class="estado-mensaje">
-    Cargando productos...
+<!-- Capa 1: Ciencia (Verde) -->
+<section class="productos-capa ciencia">
+  <div class="capa-header">
+    <div class="capa-icono">🟢</div>
+    <h2>Base Científica</h2>
+    <p>Psicología, neurociencia y hábitos respaldados por la ciencia</p>
   </div>
-
-  <div *ngIf="error" class="estado-error">
-    No se pudieron cargar los productos.
+  
+  <div class="productos-grid">
+    <div class="producto-card" *ngFor="let producto of getProductosByCapa('ciencia')">
+      <div class="producto-imagen">
+        <img [src]="producto.imagen" [alt]="producto.titulo">
+      </div>
+      <div class="producto-icono">{{ producto.capa === 'ciencia' ? '🧠' : (producto.capa === 'filosofia' ? '📖' : '🎵') }}</div>
+      <h3>{{ producto.titulo }}</h3>
+      <div class="producto-rating">
+        <span class="stars">{{ getStars(producto.rating) }}</span>
+        <span class="rating-num">({{ producto.rating }})</span>
+      </div>
+      <p>{{ producto.descripcion }}</p>
+      <div class="producto-footer">
+        <span class="producto-precio">{{ producto.precio }}</span>
+        <a [href]="producto.enlace" target="_blank" class="producto-btn">Ver más →</a>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div *ngIf="!loading && !error && posts.length === 0" class="estado-mensaje">
-    No hay productos disponibles por el momento.
+<!-- Capa 2: Filosofía (Amarillo) -->
+<section class="productos-capa filosofia">
+  <div class="capa-header">
+    <div class="capa-icono">🟡</div>
+    <h2>Significado y Filosofía</h2>
+    <p>Yin Yang, equilibrio, empatía y propósito</p>
   </div>
+  
+  <div class="productos-grid">
+    <div class="producto-card" *ngFor="let producto of getProductosByCapa('filosofia')">
+      <div class="producto-imagen">
+        <img [src]="producto.imagen" [alt]="producto.titulo">
+      </div>
+      <div class="producto-icono">{{ producto.capa === 'ciencia' ? '🧠' : (producto.capa === 'filosofia' ? '📖' : '🎵') }}</div>
+      <h3>{{ producto.titulo }}</h3>
+      <div class="producto-rating">
+        <span class="stars">{{ getStars(producto.rating) }}</span>
+        <span class="rating-num">({{ producto.rating }})</span>
+      </div>
+      <p>{{ producto.descripcion }}</p>
+      <div class="producto-footer">
+        <span class="producto-precio">{{ producto.precio }}</span>
+        <a [href]="producto.enlace" target="_blank" class="producto-btn">Ver más →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div *ngIf="!loading && !error" class="posts-grid">
-    <div class="post-card" *ngFor="let post of posts">
-      <span class="post-categoria">{{ post.categoria }}</span>
-      <h3 class="post-titulo">{{ post.titulo }}</h3>
-      <p class="post-contenido">{{ post.contenido | slice:0:150 }}...</p>
-      <div class="post-footer">
-        <span class="post-autor">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
-        <span class="post-likes">❤️ {{ post.likes }}</span>
+<!-- Capa 3: Sensorial (Azul) -->
+<section class="productos-capa sensorial">
+  <div class="capa-header">
+    <div class="capa-icono">🔵</div>
+    <h2>Experiencia Sensorial</h2>
+    <p>Sonidos, aromas y vibraciones para regular el sistema nervioso</p>
+  </div>
+  
+  <div class="productos-grid">
+    <div class="producto-card" *ngFor="let producto of getProductosByCapa('sensorial')">
+      <div class="producto-imagen">
+        <img [src]="producto.imagen" [alt]="producto.titulo">
+      </div>
+      <div class="producto-icono">{{ producto.capa === 'ciencia' ? '🧠' : (producto.capa === 'filosofia' ? '📖' : '🎵') }}</div>
+      <h3>{{ producto.titulo }}</h3>
+      <div class="producto-rating">
+        <span class="stars">{{ getStars(producto.rating) }}</span>
+        <span class="rating-num">({{ producto.rating }})</span>
+      </div>
+      <p>{{ producto.descripcion }}</p>
+      <div class="producto-footer">
+        <span class="producto-precio">{{ producto.precio }}</span>
+        <a [href]="producto.enlace" target="_blank" class="producto-btn">Ver más →</a>
       </div>
     </div>
   </div>

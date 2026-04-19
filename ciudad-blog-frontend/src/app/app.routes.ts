@@ -20,13 +20,13 @@ export const routes: Routes = [
   // CRUD (solo accesibles desde dashboard)
   { path: 'foro', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
 
-  // Rutas de menú (pantallas vacías por ahora)
+  // Rutas de menú
   { path: 'servicios', loadComponent: () => import('./servicios/servicios').then(m => m.Servicios) },
   { path: 'productos', loadComponent: () => import('./productos/productos').then(m => m.Productos) },
-  { path: 'noticias', loadComponent: () => import('./noticias/noticias').then(m => m.Noticias) },
-  { path: 'eventos', loadComponent: () => import('./eventos/eventos').then(m => m.Eventos) },
+  { path: 'noticias', loadComponent: () => import('./noticias/noticias').then(m => m.NoticiasComponent) },
+  { path: 'eventos', loadComponent: () => import('./eventos/eventos').then(m => m.EventosComponent) },
   { path: 'inspira', loadComponent: () => import('./inspira/inspira').then(m => m.Inspira) },
-  { path: 'empresas', loadComponent: () => import('./empresas/empresas').then(m => m.Empresas) },
+  { path: 'empresas', loadComponent: () => import('./empresas/empresas').then(m => m.EmpresasComponent) },
   { path: 'quantum-magazine', loadComponent: () => import('./quantum-magazine/quantum-magazine').then(m => m.QuantumMagazine) },
   { path: 'contacto', loadComponent: () => import('./contacto/contacto').then(m => m.Contacto) },
   { path: 'quienes-somos', loadComponent: () => import('./quienes-somos/quienes-somos').then(m => m.QuienesSomos) },

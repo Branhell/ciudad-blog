@@ -1,47 +1,67 @@
-<div class="page-container">
-
-  <div class="alert-box">
-    <h1>¿Necesitas ayuda urgente?</h1>
-    <p>
-      Si estás pasando por un momento difícil, no estás solo. 
-      Buscar ayuda es un paso valiente.
-    </p>
+<div class="urgente-container">
+  <!-- Hero de contención -->
+  <div class="hero-urgente">
+    <div class="hero-icono">🛡️💚</div>
+    <h1>No estás solo/a</h1>
+    <p>Si estás pasando por un momento difícil, aquí encontrarás ayuda inmediata.</p>
+    <div class="badge-emergencia">⚠️ En caso de emergencia grave, llama al 123 ⚠️</div>
   </div>
 
-  <div class="content">
+  <!-- Contactos directos -->
+  <div class="contactos-section">
+    <h2>📞 Líneas de atención 24/7</h2>
+    <div class="contactos-grid">
+      <div class="contacto-card" *ngFor="let c of contactosEmergencia">
+        <div class="contacto-numero">{{ c.numero }}</div>
+        <div class="contacto-info">
+          <h3>{{ c.nombre }}</h3>
+          <p>{{ c.descripcion }}</p>
+          <span class="disponible">🟢 {{ c.disponible }}</span>
+        </div>
+        <a href="tel:{{ c.numero }}" class="btn-llamar">Llamar →</a>
+      </div>
+    </div>
+  </div>
 
-    <section class="section">
-      <h2>Contacta a un profesional</h2>
-      <p>
-        Te recomendamos comunicarte con un psicólogo o profesional de salud mental lo antes posible.
-      </p>
-    </section>
+  <!-- Herramienta de respiración -->
+  <div class="respiracion-section">
+    <h2>🧘 Ejercicio de respiración</h2>
+    <p>Una herramienta rápida para reducir la ansiedad</p>
+    <div class="respiracion-card">
+      <div class="respiracion-circulo" [class.activo]="respiracionActiva"></div>
+      <button class="btn-respiracion" (click)="iniciarRespiracion()">
+        {{ respiracionTexto }}
+      </button>
+    </div>
+  </div>
 
-    <section class="section">
-      <h2>Líneas de ayuda</h2>
-      <ul class="help-list">
-        <li><strong>Línea 106 (Colombia)</strong> – Atención en crisis emocional</li>
-        <li><strong>Línea 192</strong> – Emergencias generales</li>
-        <li><strong>Línea 155</strong> – Atención a violencia</li>
-      </ul>
-    </section>
+  <!-- Recursos adicionales -->
+  <div class="recursos-section">
+    <h2>📱 Recursos digitales</h2>
+    <div class="recursos-grid">
+      <div class="recurso-card" *ngFor="let r of recursos">
+        <div class="recurso-icono">{{ r.titulo.split(' ')[0] }}</div>
+        <h3>{{ r.titulo }}</h3>
+        <p>{{ r.descripcion }}</p>
+        <a [href]="r.enlace" class="btn-recurso">Abrir →</a>
+      </div>
+    </div>
+  </div>
 
-    <section class="section">
-      <h2>Consejos inmediatos</h2>
-      <ul class="help-list">
-        <li>Respira profundamente y lentamente</li>
-        <li>Habla con alguien de confianza</li>
-        <li>Evita estar completamente solo</li>
-        <li>Aléjate de situaciones de riesgo</li>
-      </ul>
-    </section>
+  <!-- Consejos para crisis -->
+  <div class="consejos-section">
+    <h2>💚 Consejos para momentos difíciles</h2>
+    <div class="consejos-grid">
+      <div class="consejo">1. Respira profundo 3 veces</div>
+      <div class="consejo">2. Busca un lugar seguro</div>
+      <div class="consejo">3. Habla con alguien de confianza</div>
+      <div class="consejo">4. Recuerda: esto pasará</div>
+    </div>
+  </div>
 
-    <section class="section highlight">
-      <h2>Recuerda</h2>
-      <p>
-        Tu vida es importante. Este momento puede pasar, y hay personas que quieren ayudarte.
-      </p>
-    </section>
-
+  <!-- Footer -->
+  <div class="footer-urgente">
+    <p>💚 EcoBits - Tu bienestar es lo primero 💚</p>
+    <a routerLink="/" class="btn-home">Volver al inicio →</a>
   </div>
 </div>

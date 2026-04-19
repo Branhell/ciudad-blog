@@ -1,95 +1,148 @@
-.page-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px 60px 20px;
-}
-
-.page-header {
-  text-align: center;
-  margin-bottom: 50px;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #0d1f0f, #1a3a2a);
-  border-radius: 16px;
-  color: white;
-}
-
-.page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #00d4ff;
-}
-
-.page-subtitle {
-  font-size: 1rem;
-  color: #7ed321;
-  font-style: italic;
-}
-
-.section {
-  margin-bottom: 40px;
-}
-
-.section h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #1a3a2a;
-  margin-bottom: 15px;
-  border-left: 4px solid #00d4ff;
-  padding-left: 15px;
-}
-
-.section p {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.8;
-  margin-bottom: 10px;
-}
-
-.policy-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.policy-list li {
-  padding: 8px 0 8px 20px;
-  border-bottom: 1px solid #f0f0f0;
-  color: #555;
-  font-size: 0.95rem;
+.shield-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  margin-top: 70px;
+  padding: 60px 20px;
   position: relative;
 }
 
-.policy-list li::before {
-  content: "✓";
-  position: absolute;
+.trust-bg {
+  position: fixed;
+  top: 0;
   left: 0;
-  color: #00d4ff;
-  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(0,100,255,0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.highlight {
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-  border-radius: 12px;
+.hero-shield {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.shield-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: floatShield 3s ease-in-out infinite;
+}
+
+@keyframes floatShield {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-shield h1 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 15px;
+}
+
+.hero-shield p {
+  font-size: 1.2rem;
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trust-badges span {
+  background: white;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  color: #1e293b;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.grid-privacidad {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.card-privacidad {
+  background: white;
+  border-radius: 24px;
   padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e2e8f0;
 }
 
-.highlight h2 {
-  border-left-color: #7ed321;
+.card-privacidad:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
 }
 
-.highlight a {
-  color: #00d4ff;
-  font-weight: 600;
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+}
+
+.card-privacidad h2 {
+  font-size: 1.3rem;
+  color: #0f172a;
+  margin: 0;
+}
+
+.card-privacidad p {
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.trust-footer {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.trust-footer p {
+  color: #475569;
+  margin-bottom: 15px;
+}
+
+.trust-footer strong {
+  color: #0f172a;
+}
+
+.btn-home {
+  display: inline-block;
+  margin-top: 20px;
+  background: #0f172a;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
   text-decoration: none;
+  transition: background 0.3s;
 }
 
-.highlight a:hover {
-  text-decoration: underline;
+.btn-home:hover {
+  background: #1e293b;
 }
 
 @media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 1.8rem;
-  }
+  .hero-shield h1 { font-size: 1.8rem; }
+  .grid-privacidad { grid-template-columns: 1fr; }
+  .card-privacidad { padding: 20px; }
 }

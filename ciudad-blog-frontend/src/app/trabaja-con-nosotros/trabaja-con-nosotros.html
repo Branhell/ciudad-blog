@@ -1,32 +1,58 @@
-<div class="page-container">
-  <div class="page-header">
-    <h1>Preguntas Frecuentes</h1>
-    <p class="page-subtitle">Todo lo que necesitas saber sobre EcoBits</p>
+<div class="cyber-container">
+  <!-- Fondo glitch -->
+  <div class="glitch-bg"></div>
+  
+  <div class="content" *ngIf="!mensajeExito">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="glitch-text" data-text="⚡ RECLUTAMIENTO ⚡">⚡ RECLUTAMIENTO ⚡</h1>
+      <p>No buscamos empleados. Buscamos agentes del cambio.</p>
+    </div>
+
+    <!-- Progreso -->
+    <div class="progress">
+      <div class="step" [class.active]="paso >= 1">🔓 IDENTIDAD</div>
+      <div class="step" [class.active]="paso >= 2">🎯 PODER</div>
+      <div class="step" [class.active]="paso >= 3">🧠 DESAFÍO</div>
+    </div>
+
+    <!-- Paso 1: Identidad -->
+    <div class="card" *ngIf="paso === 1">
+      <h2>🔐 Desbloquea tu perfil</h2>
+      <input type="text" [(ngModel)]="nombre" placeholder="Nombre real">
+      <input type="email" [(ngModel)]="email" placeholder="Email">
+      <button [disabled]="!nombre || !email" (click)="avanzar()">Iniciar evaluación →</button>
+    </div>
+
+    <!-- Paso 2: Rol -->
+    <div class="card" *ngIf="paso === 2">
+      <h2>🎭 Elige tu arma</h2>
+      <div class="roles-grid">
+        <div class="role" *ngFor="let rol of roles" [class.selected]="rolSeleccionado === rol.id" (click)="rolSeleccionado = rol.id">
+          <div class="role-icon">{{ rol.titulo.split(' ')[0] }}</div>
+          <h3>{{ rol.titulo }}</h3>
+          <p>{{ rol.descripcion }}</p>
+        </div>
+      </div>
+      <button [disabled]="!rolSeleccionado" (click)="avanzar()">Aceptar misión →</button>
+    </div>
+
+    <!-- Paso 3: Pregunta psicotécnica -->
+    <div class="card" *ngIf="paso === 3">
+      <h2>{{ preguntaActual.texto }}</h2>
+      <div class="options">
+        <div class="option" *ngFor="let opt of preguntaActual.opciones" [class.selected]="respuestaSeleccionada === opt" (click)="respuestaSeleccionada = opt">
+          {{ opt }}
+        </div>
+      </div>
+      <button [disabled]="!respuestaSeleccionada" (click)="avanzar()">Enviar al quantum →</button>
+    </div>
   </div>
 
-  <div class="page-content">
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <h3>¿Qué es EcoBits?</h3>
-        <p>EcoBits es una plataforma innovadora que explora cómo las tecnologías avanzadas afectan la mente humana. Integramos psicología, inteligencia artificial, realidad virtual y neurociencia para mejorar el bienestar digital de personas y empresas.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>¿Quién puede usar EcoBits?</h3>
-        <p>EcoBits está diseñado para tres tipos de usuarios: pacientes o personas que buscan mejorar su bienestar digital, profesionales de la salud mental y tecnología, y empresas que quieren implementar programas de bienestar laboral.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>¿Es gratuito registrarse?</h3>
-        <p>Sí, el registro en EcoBits es completamente gratuito. Ofrecemos un plan básico sin costo y planes premium con funcionalidades avanzadas para usuarios y empresas que requieren más herramientas.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>¿Qué es QuantumPoint?</h3>
-        <p>QuantumPoint es nuestro sistema de recompensas y gamificación. Acumulas puntos al completar evaluaciones de bienestar, participar en el foro, asistir a eventos y usar la plataforma activamente. Puedes canjearlos por sesiones con profesionales y descuentos exclusivos.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>¿Mis datos están seguros?</h3>
-        <p>Sí. EcoBits utiliza cifrado de datos, autenticación con JWT y almacenamiento seguro en la nube. Nunca compartimos información personal sin tu consentimiento explí
+  <!-- Éxito -->
+  <div class="success" *ngIf="mensajeExito">
+    <div class="glitch-success">✨ HAS SIDO RECLUTADO ✨</div>
+    <p>Pronto recibirás un correo cuántico con tu misión.</p>
+    <div class="loader"></div>
+  </div>
+</div>

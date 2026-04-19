@@ -1,1 +1,40 @@
-<p>preguntas-frecuentes works!</p>
+<div class="oracle-container">
+  <!-- Partículas flotantes -->
+  <div class="particles"></div>
+  
+  <!-- Hero místico -->
+  <div class="hero-oracle">
+    <div class="oracle-glow"></div>
+    <h1 class="oracle-title">🔮 EL ORÁCULO DE ECOBITS 🔮</h1>
+    <p>Todas las respuestas que buscas, en un solo lugar</p>
+    <div class="hero-badges">
+      <span>🌍 Para todos</span>
+      <span>🧠 Sin límites</span>
+      <span>✨ Sabiduría digital</span>
+    </div>
+  </div>
+
+  <!-- Grid de preguntas mágicas -->
+  <div class="faq-grid">
+    <div class="faq-card" *ngFor="let p of preguntas" [class.open]="p.abierta">
+      <div class="faq-question" (click)="togglePregunta(p.id)">
+        <div class="question-icon">{{ p.abierta ? '🔓' : '🔒' }}</div>
+        <h3>{{ p.pregunta }}</h3>
+        <div class="question-arrow">{{ p.abierta ? '▲' : '▼' }}</div>
+      </div>
+      <div class="faq-answer" *ngIf="p.abierta">
+        <div class="answer-content">
+          <div class="answer-icon">✨</div>
+          <p>{{ p.respuesta }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA final -->
+  <div class="cta-oracle">
+    <h2>¿No encuentras lo que buscas?</h2>
+    <p>Pregúntale directamente al universo (o a nuestro soporte)</p>
+    <a routerLink="/contacto" class="btn-oracle">Contactar al oráculo →</a>
+  </div>
+</div>

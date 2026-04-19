@@ -1,27 +1,37 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './contacto.html',
-  styleUrl: './contacto.css'
+  styleUrls: ['./contacto.css']
 })
 export class Contacto {
-  mensaje: string = '';
-  exito: boolean = false;
+  formData = {
+    nombre: '',
+    email: '',
+    telefono: '',
+    asunto: '',
+    mensaje: ''
+  };
 
-  enviar(form: any) {
-    if (form.valid) {
-      this.mensaje = '✅ Mensaje enviado correctamente. Te responderemos pronto.';
-      this.exito = true;
-      form.reset();
+  enviado = false;
+  errorEnvio = false;
+
+  enviarMensaje() {
+    if (this.formData.nombre && this.formData.email && this.formData.mensaje) {
+      this.enviado = true;
       setTimeout(() => {
-        this.mensaje = '';
-        this.exito = false;
-      }, 5000);
+        this.enviado = false;
+        this.formData = { nombre: '', email: '', telefono: '', asunto: '', mensaje: '' };
+      }, 3000);
+    } else {
+      this.errorEnvio = true;
+      setTimeout(() => this.errorEnvio = false, 3000);
     }
   }
 }
