@@ -16,7 +16,7 @@
 .productos-titulo {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #1E293B;
+  color: #1A1A1A;
   margin-bottom: 12px;
   position: relative;
   display: inline-block;
@@ -30,13 +30,13 @@
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #3B82F6, #10B981);
+  background: linear-gradient(90deg, #FFB703, #1A1A1A);
   border-radius: 3px;
 }
 
 .productos-subtitulo {
   font-size: 1rem;
-  color: #64748B;
+  color: #FFB703;
   margin-top: 24px;
 }
 
@@ -54,7 +54,7 @@
   padding: 24px;
   transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  border: 1px solid #E2E8F0;
+  border: 1px solid #1A1A1A;
   position: relative;
   overflow: hidden;
 }
@@ -66,7 +66,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #3B82F6, #10B981);
+  background: linear-gradient(90deg, #FFB703, #1A1A1A);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -95,34 +95,34 @@
 
 /* Capa Ciencia - Verde */
 .post-categoria[data-categoria="Ciencia"] {
-  background: #ECFDF5;
-  color: #10B981;
+  background: #FFB703;
+  color: #1A1A1A;
 }
 
 /* Capa Filosofía - Amarillo */
 .post-categoria[data-categoria="Filosofia"] {
-  background: #FFFBEB;
-  color: #F59E0B;
+  background: #1A1A1A;
+  color: #FFB703;
 }
 
 /* Capa Sensorial - Azul */
 .post-categoria[data-categoria="Sensorial"] {
-  background: #EFF6FF;
-  color: #3B82F6;
+  background: #1A1A1A;
+  color: #FFB703;
 }
 
 /* Producto destacado */
 .post-titulo {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1E293B;
+  color: #1A1A1A;
   margin: 0 0 12px;
   line-height: 1.4;
 }
 
 .post-contenido {
   font-size: 0.9rem;
-  color: #64748B;
+  color: #FFB703;
   line-height: 1.6;
   margin: 0 0 20px;
 }
@@ -133,7 +133,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid #1A1A1A;
   padding-top: 16px;
   margin-top: 8px;
 }
@@ -165,23 +165,23 @@
 
 /* Capa Ciencia - Precio en verde */
 .post-card[data-capa="ciencia"] .post-likes {
-  color: #10B981;
+  color: #1A1A1A;
 }
 
 /* Capa Filosofía - Precio en amarillo */
 .post-card[data-capa="filosofia"] .post-likes {
-  color: #F59E0B;
+  color: #FFB703;
 }
 
 /* Capa Sensorial - Precio en azul */
 .post-card[data-capa="sensorial"] .post-likes {
-  color: #3B82F6;
+  color: #FFB703;
 }
 
 /* Estados */
 .estado-mensaje {
   text-align: center;
-  color: #64748B;
+  color: #FFB703;
   font-size: 1rem;
   padding: 60px;
 }
@@ -255,15 +255,15 @@
 }
 
 .productos-capa.ciencia {
-  background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+  background: linear-gradient(135deg, #FFB703, #D1FAE5);
 }
 
 .productos-capa.filosofia {
-  background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+  background: linear-gradient(135deg, #1A1A1A, #FEF3C7);
 }
 
 .productos-capa.sensorial {
-  background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+  background: linear-gradient(135deg, #1A1A1A, #DBEAFE);
 }
 
 .capa-header {
@@ -288,7 +288,7 @@
 
 .capa-header p {
   font-size: 1rem;
-  color: #64748B;
+  color: #FFB703;
   max-width: 500px;
   margin: 0 auto;
 }
@@ -310,7 +310,7 @@
   text-align: center;
   transition: all 0.3s ease;
   box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-  border: 1px solid #E2E8F0;
+  border: 1px solid #1A1A1A;
 }
 
 .producto-card:hover {
@@ -326,13 +326,13 @@
 .producto-card h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1E293B;
+  color: #1A1A1A;
   margin-bottom: 12px;
 }
 
 .producto-card p {
   font-size: 0.85rem;
-  color: #64748B;
+  color: #FFB703;
   line-height: 1.5;
   margin-bottom: 20px;
 }
@@ -341,20 +341,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid #1A1A1A;
   padding-top: 16px;
 }
 
 .producto-precio {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #10B981;
+  color: #1A1A1A;
 }
 
 .producto-btn {
   background: transparent;
-  border: 1px solid #3B82F6;
-  color: #3B82F6;
+  border: 1px solid #FFB703;
+  color: #FFB703;
   padding: 6px 16px;
   border-radius: 30px;
   font-size: 0.75rem;
@@ -364,7 +364,7 @@
 }
 
 .producto-btn:hover {
-  background: #3B82F6;
+  background: #FFB703;
   color: white;
   transform: translateX(3px);
 }
@@ -418,12 +418,12 @@
 }
 
 .stars {
-  color: #F59E0B;
+  color: #FFB703;
   font-size: 0.85rem;
   letter-spacing: 2px;
 }
 
 .rating-num {
   font-size: 0.7rem;
-  color: #64748B;
+  color: #FFB703;
 }

@@ -1,6 +1,6 @@
 .oracle-container {
   min-height: 100vh;
-  background: radial-gradient(circle at 10% 20%, #0f0c29, #302b63, #24243e);
+  background: radial-gradient(circle at 10% 20%, #1A1A1A, #1A1A1A, #1A1A1A);
   margin-top: 70px;
   padding: 60px 20px;
   position: relative;
@@ -52,7 +52,7 @@
 
 .oracle-title {
   font-size: 3rem;
-  background: linear-gradient(135deg, #00ffff, #ff00ff, #ffcc00);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A, #FFB703);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
@@ -132,7 +132,7 @@
 }
 
 .question-arrow {
-  color: #00ffff;
+  color: #FFB703;
   font-size: 0.8rem;
   transition: transform 0.3s;
 }
@@ -165,7 +165,7 @@
 }
 
 .faq-answer p {
-  color: #cbd5e1;
+  color: #FFB703;
   line-height: 1.6;
   margin: 0;
 }
@@ -192,7 +192,7 @@
 
 .btn-oracle {
   display: inline-block;
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   padding: 12px 30px;
   border-radius: 40px;
   color: white;

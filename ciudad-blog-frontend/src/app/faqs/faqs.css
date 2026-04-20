@@ -1,6 +1,6 @@
 .faqs-cosmic {
   min-height: 100vh;
-  background: radial-gradient(ellipse at 20% 30%, #0a0a2a, #050510);
+  background: radial-gradient(ellipse at 20% 30%, #1A1A1A, #1A1A1A);
   margin-top: 70px;
   padding: 60px 20px;
   position: relative;
@@ -86,7 +86,7 @@
 
 .hero-cosmic h1 {
   font-size: 3rem;
-  background: linear-gradient(135deg, #a855f7, #ec4899, #06b6d4);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A, #FFB703);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
@@ -95,7 +95,7 @@
 
 .hero-cosmic p {
   font-size: 1.2rem;
-  color: #c084fc;
+  color: #FFB703;
   margin-bottom: 30px;
 }
 
@@ -104,7 +104,7 @@
   backdrop-filter: blur(10px);
   padding: 10px 25px;
   border-radius: 50px;
-  color: #d8b4fe;
+  color: #FFB703;
   border: 1px solid rgba(168,85,247,0.5);
 }
 
@@ -134,7 +134,7 @@
 .capsule.expanded {
   border-radius: 30px;
   background: rgba(30,15,60,0.8);
-  border-color: #a855f7;
+  border-color: #FFB703;
 }
 
 .capsule-question {
@@ -157,13 +157,13 @@
 
 .capsule-question h3 {
   flex: 1;
-  color: #e9d5ff;
+  color: #FFB703;
   margin: 0;
   font-size: 1rem;
 }
 
 .capsule-trigger {
-  color: #a855f7;
+  color: #FFB703;
   font-size: 0.8rem;
   transition: transform 0.3s;
 }
@@ -186,14 +186,14 @@
 
 .answer-wave {
   text-align: center;
-  color: #c084fc;
+  color: #FFB703;
   font-size: 0.8rem;
   letter-spacing: 4px;
   margin: 10px 0;
 }
 
 .capsule-answer p {
-  color: #d8b4fe;
+  color: #FFB703;
   line-height: 1.6;
   margin: 15px 0;
   text-align: center;
@@ -219,13 +219,13 @@
 }
 
 .footer-card p {
-  color: #c084fc;
+  color: #FFB703;
   margin-bottom: 20px;
 }
 
 .btn-cosmic {
   display: inline-block;
-  background: linear-gradient(135deg, #a855f7, #ec4899);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   padding: 12px 30px;
   border-radius: 50px;
   color: white;

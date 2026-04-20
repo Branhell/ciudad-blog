@@ -1,6 +1,6 @@
 .contacto-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #e0f2fe, #fae8ff, #fce7f3);
+  background: linear-gradient(135deg, #1A1A1A, #1A1A1A, #1A1A1A);
   margin-top: 70px;
   padding: 60px 20px;
   position: relative;
@@ -34,7 +34,7 @@
 
 .hero-contacto h1 {
   font-size: 2.5rem;
-  background: linear-gradient(135deg, #6d28d9, #db2777);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
@@ -42,7 +42,7 @@
 
 .hero-contacto p {
   font-size: 1.1rem;
-  color: #4c1d95;
+  color: #FFB703;
 }
 
 .contacto-grid {
@@ -61,7 +61,7 @@
 }
 
 .formulario-card h2, .info-card h2 {
-  color: #6d28d9;
+  color: #FFB703;
   margin-bottom: 25px;
   font-size: 1.5rem;
 }
@@ -73,7 +73,7 @@
 .form-group input, .form-group select, .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #e9d5ff;
+  border: 1px solid #1A1A1A;
   border-radius: 15px;
   font-size: 1rem;
   transition: all 0.3s;
@@ -81,13 +81,13 @@
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
   outline: none;
-  border-color: #8b5cf6;
+  border-color: #FFB703;
   box-shadow: 0 0 8px rgba(139,92,246,0.3);
 }
 
 .btn-enviar {
   width: 100%;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   color: white;
   border: none;
   padding: 14px;
@@ -105,8 +105,8 @@
 .mensaje-exito {
   margin-top: 15px;
   padding: 10px;
-  background: #d1fae5;
-  color: #065f46;
+  background: #FFB703;
+  color: #1A1A1A;
   border-radius: 15px;
   text-align: center;
 }
@@ -114,7 +114,7 @@
 .mensaje-error {
   margin-top: 15px;
   padding: 10px;
-  background: #fee2e2;
+  background: #FFB703;
   color: #991b1b;
   border-radius: 15px;
   text-align: center;
@@ -133,7 +133,7 @@
 }
 
 .info-item h3 {
-  color: #4c1d95;
+  color: #FFB703;
   margin-bottom: 5px;
   font-size: 1rem;
 }
@@ -150,7 +150,7 @@
 }
 
 .redes-section h3 {
-  color: #4c1d95;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
@@ -190,7 +190,7 @@
 }
 
 .mapa-card p {
-  color: #4c1d95;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
@@ -204,7 +204,7 @@
 .footer-contacto {
   text-align: center;
   padding: 30px;
-  color: #6d28d9;
+  color: #FFB703;
 }
 
 @media (max-width: 768px) {

@@ -39,7 +39,7 @@
 
 .carrusel-categoria {
   display: inline-block;
-  background: #00b4d8;
+  background: #FFB703;
   padding: 4px 14px;
   border-radius: 20px;
   font-size: 0.7rem;
@@ -64,7 +64,7 @@
   display: inline-block;
   padding: 8px 24px;
   background: white;
-  color: #00b4d8;
+  color: #FFB703;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
@@ -105,7 +105,7 @@
 }
 
 .indicador.active {
-  background: #00b4d8;
+  background: #FFB703;
   width: 24px;
   border-radius: 10px;
 }
@@ -131,17 +131,17 @@
   gap: 8px;
   padding: 10px 24px;
   background: transparent;
-  border: 1.5px solid #00b4d8;
+  border: 1.5px solid #FFB703;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #00b4d8;
+  color: #FFB703;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .acordeon-btn-horizontal:hover {
-  background: #00b4d8;
+  background: #FFB703;
   color: white;
   transform: translateY(-2px);
 }
@@ -180,18 +180,18 @@
 .acordeon-grid span {
   padding: 6px 0;
   font-size: 0.8rem;
-  color: #4a5568;
+  color: #1A1A1A;
   cursor: pointer;
   transition: color 0.2s;
-  border-bottom: 1px dashed #e2e8f0;
+  border-bottom: 1px dashed #1A1A1A;
 }
 
 .acordeon-grid span:hover {
-  color: #00b4d8;
+  color: #FFB703;
 }
 
 .mas-link {
-  color: #7ed321 !important;
+  color: #FFB703 !important;
   font-weight: 600;
   grid-column: span 2;
   text-align: center;
@@ -199,7 +199,7 @@
 }
 
 .mas-link:hover {
-  color: #00b4d8 !important;
+  color: #FFB703 !important;
 }
 
 /* Contenedor para contenido adicional */
@@ -276,7 +276,7 @@
 .sobre-descripcion {
   font-size: 1rem;
   line-height: 1.7;
-  color: #4a5568;
+  color: #1A1A1A;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -326,7 +326,7 @@
   border-radius: 28px;
   text-align: center;
   margin-bottom: 48px;
-  border-left: 4px solid #7ed321;
+  border-left: 4px solid #FFB703;
 }
 
 .cita-destacada p {
@@ -339,7 +339,7 @@
 
 .cita-destacada span {
   font-size: 0.8rem;
-  color: #7ed321;
+  color: #FFB703;
   font-weight: 500;
 }
 
@@ -358,7 +358,7 @@
 .enfoque-cultural p {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #4a5568;
+  color: #1A1A1A;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -376,7 +376,7 @@
 }
 
 .llamada-final strong {
-  color: #00b4d8;
+  color: #FFB703;
 }
 
 /* Responsivo */
@@ -444,7 +444,7 @@
 
 .caracteristica-overlay p {
   font-size: 0.85rem;
-  color: #4a5568;
+  color: #1A1A1A;
   line-height: 1.5;
 }
 

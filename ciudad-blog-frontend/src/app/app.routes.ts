@@ -25,7 +25,6 @@ export const routes: Routes = [
   { path: 'productos', loadComponent: () => import('./productos/productos').then(m => m.Productos) },
   { path: 'noticias', loadComponent: () => import('./noticias/noticias').then(m => m.NoticiasComponent) },
   { path: 'eventos', loadComponent: () => import('./eventos/eventos').then(m => m.EventosComponent) },
-  { path: 'inspira', loadComponent: () => import('./inspira/inspira').then(m => m.Inspira) },
   { path: 'empresas', loadComponent: () => import('./empresas/empresas').then(m => m.EmpresasComponent) },
   { path: 'quantum-magazine', loadComponent: () => import('./quantum-magazine/quantum-magazine').then(m => m.QuantumMagazine) },
   { path: 'contacto', loadComponent: () => import('./contacto/contacto').then(m => m.Contacto) },

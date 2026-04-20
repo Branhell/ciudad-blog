@@ -1,6 +1,6 @@
 .urgente-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #fef2f2, #fee2e2, #fce7f3);
+  background: linear-gradient(135deg, #1A1A1A, #1A1A1A, #1A1A1A);
   margin-top: 70px;
   padding: 60px 20px;
 }
@@ -23,19 +23,19 @@
 
 .hero-urgente h1 {
   font-size: 2.5rem;
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
 .hero-urgente p {
   font-size: 1.1rem;
-  color: #7f1d1d;
+  color: #1A1A1A;
   margin-bottom: 25px;
 }
 
 .badge-emergencia {
   display: inline-block;
-  background: #dc2626;
+  background: #FFB703;
   color: white;
   padding: 10px 25px;
   border-radius: 50px;
@@ -50,7 +50,7 @@
 
 .contactos-section h2 {
   text-align: center;
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 30px;
 }
 
@@ -69,11 +69,11 @@
   gap: 20px;
   flex-wrap: wrap;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  border-left: 5px solid #dc2626;
+  border-left: 5px solid #FFB703;
 }
 
 .contacto-numero {
-  background: #dc2626;
+  background: #FFB703;
   color: white;
   font-weight: bold;
   font-size: 1.3rem;
@@ -88,22 +88,22 @@
 }
 
 .contacto-info h3 {
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 5px;
 }
 
 .contacto-info p {
-  color: #4b5563;
+  color: #1A1A1A;
   font-size: 0.85rem;
 }
 
 .disponible {
   font-size: 0.7rem;
-  color: #10b981;
+  color: #FFB703;
 }
 
 .btn-llamar {
-  background: #dc2626;
+  background: #FFB703;
   color: white;
   padding: 10px 20px;
   border-radius: 30px;
@@ -124,7 +124,7 @@
 }
 
 .respiracion-section h2 {
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 10px;
 }
 
@@ -152,11 +152,11 @@
 
 @keyframes respirar {
   0%, 100% { transform: scale(1); background: #ef4444; }
-  50% { transform: scale(1.2); background: #dc2626; }
+  50% { transform: scale(1.2); background: #FFB703; }
 }
 
 .btn-respiracion {
-  background: #dc2626;
+  background: #FFB703;
   color: white;
   border: none;
   padding: 12px 30px;
@@ -177,7 +177,7 @@
 
 .recursos-section h2 {
   text-align: center;
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 30px;
 }
 
@@ -200,12 +200,12 @@
 }
 
 .recurso-card h3 {
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 10px;
 }
 
 .recurso-card p {
-  color: #4b5563;
+  color: #1A1A1A;
   font-size: 0.85rem;
   margin-bottom: 15px;
 }
@@ -226,7 +226,7 @@
 
 .consejos-section h2 {
   text-align: center;
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 30px;
 }
 
@@ -242,8 +242,8 @@
   border-radius: 15px;
   text-align: center;
   font-weight: 500;
-  color: #7f1d1d;
-  border-left: 3px solid #dc2626;
+  color: #1A1A1A;
+  border-left: 3px solid #FFB703;
 }
 
 .footer-urgente {
@@ -253,13 +253,13 @@
 }
 
 .footer-urgente p {
-  color: #991b1b;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
 .btn-home {
   display: inline-block;
-  background: #991b1b;
+  background: #FFB703;
   color: white;
   padding: 10px 25px;
   border-radius: 30px;

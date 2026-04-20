@@ -1,0 +1,7 @@
+:root {
+  --eco-primary: #FF3366;
+  --eco-secondary: #00F0FF;
+  --eco-accent: #FFD700;
+  --eco-dark: #0A0A0A;
+  --eco-light: #F8F9FA;
+}

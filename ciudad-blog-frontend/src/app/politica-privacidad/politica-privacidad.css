@@ -1,6 +1,6 @@
 .shield-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  background: linear-gradient(135deg, #1A1A1A, #1A1A1A);
   margin-top: 70px;
   padding: 60px 20px;
   position: relative;
@@ -35,13 +35,13 @@
 
 .hero-shield h1 {
   font-size: 2.5rem;
-  color: #0f172a;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
 .hero-shield p {
   font-size: 1.2rem;
-  color: #475569;
+  color: #1A1A1A;
   margin-bottom: 30px;
 }
 
@@ -57,9 +57,9 @@
   padding: 8px 20px;
   border-radius: 40px;
   font-size: 0.85rem;
-  color: #1e293b;
+  color: #FFB703;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #1A1A1A;
 }
 
 .grid-privacidad {
@@ -76,7 +76,7 @@
   padding: 30px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #1A1A1A;
 }
 
 .card-privacidad:hover {
@@ -97,12 +97,12 @@
 
 .card-privacidad h2 {
   font-size: 1.3rem;
-  color: #0f172a;
+  color: #FFB703;
   margin: 0;
 }
 
 .card-privacidad p {
-  color: #475569;
+  color: #1A1A1A;
   line-height: 1.6;
   margin: 0;
 }
@@ -118,18 +118,18 @@
 }
 
 .trust-footer p {
-  color: #475569;
+  color: #1A1A1A;
   margin-bottom: 15px;
 }
 
 .trust-footer strong {
-  color: #0f172a;
+  color: #FFB703;
 }
 
 .btn-home {
   display: inline-block;
   margin-top: 20px;
-  background: #0f172a;
+  background: #FFB703;
   color: white;
   padding: 10px 25px;
   border-radius: 30px;
@@ -138,7 +138,7 @@
 }
 
 .btn-home:hover {
-  background: #1e293b;
+  background: #FFB703;
 }
 
 @media (max-width: 768px) {

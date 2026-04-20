@@ -1,6 +1,6 @@
 .quienes-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: linear-gradient(135deg, #1A1A1A, #1A1A1A);
   margin-top: 70px;
   padding: 60px 20px;
 }
@@ -12,7 +12,7 @@
 
 .hero-section h1 {
   font-size: 3rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
@@ -20,7 +20,7 @@
 
 .hero-section p {
   font-size: 1.2rem;
-  color: #94a3b8;
+  color: #FFB703;
 }
 
 .mv-section {
@@ -51,7 +51,7 @@
 }
 
 .card-mv p {
-  color: #94a3b8;
+  color: #FFB703;
   line-height: 1.6;
 }
 
@@ -86,12 +86,12 @@
 }
 
 .valor-card h3 {
-  color: #3b82f6;
+  color: #FFB703;
   margin-bottom: 10px;
 }
 
 .valor-card p {
-  color: #94a3b8;
+  color: #FFB703;
 }
 
 .equipo-section {
@@ -136,19 +136,19 @@
 }
 
 .equipo-card .rol {
-  color: #3b82f6;
+  color: #FFB703;
   font-size: 0.85rem;
   margin-bottom: 10px;
 }
 
 .equipo-card .descripcion {
-  color: #94a3b8;
+  color: #FFB703;
   font-size: 0.9rem;
 }
 
 .cta-section {
   text-align: center;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   border-radius: 30px;
   padding: 50px;
   max-width: 800px;
@@ -168,7 +168,7 @@
 .btn-cta {
   display: inline-block;
   background: white;
-  color: #3b82f6;
+  color: #FFB703;
   padding: 12px 30px;
   border-radius: 30px;
   text-decoration: none;

@@ -13,7 +13,7 @@
     </div>
 
     <h1 class="hero-titulo"> 
-      <span class="hero-titulo-acento">Un solo eco le daría un giro a mi historia.</span>
+     <span class="hero-titulo-acento">Un solo eco le daría un giro a mi <br><span style="display: block; text-align: center;">historia.</span></span>
     </h1>
 
     <div class="hero-acciones">
@@ -40,9 +40,23 @@
 
   </div>
 
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
+<div class="hero-orb hero-orb-1">
+  <div class="orb-carrusel" id="carrusel1">
+    <img *ngFor="let img of imagenesOrb1" [src]="img" class="orb-img">
+  </div>
+</div>
+
+<div class="hero-orb hero-orb-2">
+  <div class="orb-carrusel" id="carrusel2">
+    <img *ngFor="let img of imagenesOrb2" [src]="img" class="orb-img">
+  </div>
+</div>
+
+<div class="hero-orb hero-orb-3">
+  <div class="orb-carrusel" id="carrusel3">
+    <img *ngFor="let img of imagenesOrb3" [src]="img" class="orb-img">
+  </div>
+</div>
 </header>
 
 

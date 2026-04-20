@@ -1,7 +1,7 @@
 /* Fondo cuántico animado */
 .quantum-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a, #1a0033, #0a0a2a);
+  background: linear-gradient(135deg, #1A1A1A, #1A1A1A, #1A1A1A);
   position: relative;
   overflow-x: hidden;
   margin-top: 70px;
@@ -58,7 +58,7 @@
 
 .quantum-title h1 {
   font-size: 5rem;
-  background: linear-gradient(135deg, #00ffff, #ff00ff, #00ff00);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A, #FFB703);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rainbowText 4s ease infinite;
@@ -106,7 +106,7 @@
 
 .featured-img {
   height: 300px;
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +123,7 @@
   padding: 5px 15px;
   border-radius: 20px;
   font-size: 0.8rem;
-  color: #00ffff;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
@@ -183,7 +183,7 @@
 
 .card-icon {
   height: 150px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,7 +200,7 @@
   padding: 3px 10px;
   border-radius: 15px;
   font-size: 0.7rem;
-  color: #00ffff;
+  color: #FFB703;
   margin-bottom: 10px;
 }
 
@@ -230,7 +230,7 @@
 .newsletter-input {
   padding: 15px 25px;
   background: rgba(0,0,0,0.5);
-  border: 1px solid #00ffff;
+  border: 1px solid #FFB703;
   border-radius: 50px;
   color: white;
   width: 300px;
@@ -239,7 +239,7 @@
 
 .newsletter-btn {
   padding: 15px 30px;
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   border: none;
   border-radius: 50px;
   color: white;

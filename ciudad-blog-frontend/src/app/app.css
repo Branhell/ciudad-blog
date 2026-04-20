@@ -21,7 +21,7 @@ app-root {
   padding: 0 24px;
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border-bottom: 2px solid var(--eco-primary);
+  border-bottom: 2px solid #1B3B4F;
   z-index: 1000;
   box-sizing: border-box;
   gap: 8px;

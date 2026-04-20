@@ -72,7 +72,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #FFFFFF, #3B82F6, #06B6D4);
+  background: linear-gradient(135deg, #FFB703, #FFB703, #1A1A1A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,7 +90,7 @@
 .foro-btn-primario {
   display: inline-block;
   padding: 14px 32px;
-  background: linear-gradient(135deg, #3B82F6, #06B6D4);
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
   color: white;
   border: none;
   border-radius: 50px;
@@ -132,13 +132,13 @@
   display: block;
   font-size: 2rem;
   font-weight: 800;
-  color: #3B82F6;
+  color: #FFB703;
   margin-bottom: 8px;
 }
 
 .stat-label {
   font-size: 0.85rem;
-  color: #64748B;
+  color: #1A1A1A;
 }
 
 /* Responsivo - siempre horizontal */
@@ -214,24 +214,24 @@
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #64748B;
+  color: #1A1A1A;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .tab-btn:hover {
-  background: #F1F5F9;
-  color: #3B82F6;
+  background: #1A1A1A;
+  color: #FFB703;
 }
 
 .tab-btn.active {
-  background: #3B82F6;
+  background: #FFB703;
   color: white;
   box-shadow: 0 4px 12px rgba(59,130,246,0.3);
 }
 
 .tabs-content {
-  background: linear-gradient(135deg, #FDF8F0 0%, #F9F3E8 100%);
+  background: linear-gradient(135deg, #1A1A1A 0%, #1A1A1A 100%);
   border-radius: 28px;
   padding: 48px 40px;
   text-align: center;
@@ -310,7 +310,7 @@
 .tab-content h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #1E293B;
+  color: #1A1A1A;
   margin-bottom: 16px;
   font-family: 'Poppins', sans-serif;
 }
@@ -338,7 +338,7 @@
   transform: translateX(-50%);
   width: 50px;
   height: 2px;
-  background: linear-gradient(90deg, #3B82F6, #06B6D4);
+  background: linear-gradient(90deg, #FFB703, #1A1A1A);
   border-radius: 2px;
 }
 
@@ -367,7 +367,7 @@
 /* Testimonios - Carrusel 3D */
 .foro-testimonios-3d {
   padding: 80px 20px;
-  background: linear-gradient(145deg, #F8FAFC 0%, #F1F5F9 100%);
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
   overflow: hidden;
 }
 
@@ -402,7 +402,7 @@
   margin: 0 auto 20px auto;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #3B82F6;
+  border: 3px solid #FFB703;
   box-shadow: 0 8px 20px rgba(59,130,246,0.2);
 }
 
@@ -430,7 +430,7 @@
 .testimonio-3d-nombre {
   font-size: 1rem;
   font-weight: 700;
-  color: #1E293B;
+  color: #1A1A1A;
   margin-bottom: 4px;
 }
 
@@ -448,7 +448,7 @@ swiper-container::part(bullet) {
 }
 
 swiper-container::part(bullet-active) {
-  background: #3B82F6;
+  background: #FFB703;
   width: 24px;
   border-radius: 10px;
 }
@@ -477,14 +477,14 @@ swiper-container::part(bullet-active) {
   transition: all 0.3s ease;
   border: 1px solid #E2E8F0;
   font-weight: 500;
-  color: #1E293B;
+  color: #1A1A1A;
 }
 
 .categoria-item:hover {
-  background: #3B82F6;
+  background: #FFB703;
   color: white;
   transform: translateY(-3px);
-  border-color: #3B82F6;
+  border-color: #FFB703;
 }
 
 .categoria-item span:first-child {
@@ -524,8 +524,8 @@ swiper-container::part(bullet-active) {
   display: inline-block;
   padding: 12px 28px;
   background: transparent;
-  border: 2px solid #3B82F6;
-  color: #3B82F6;
+  border: 2px solid #FFB703;
+  color: #FFB703;
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -534,7 +534,7 @@ swiper-container::part(bullet-active) {
 }
 
 .foro-btn-secundario:hover {
-  background: #3B82F6;
+  background: #FFB703;
   color: white;
   transform: translateY(-3px);
 }
@@ -554,13 +554,13 @@ swiper-container::part(bullet-active) {
 .foro-cta-content h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: #1E293B;
+  color: #1A1A1A;
   margin-bottom: 16px;
 }
 
 .foro-cta-content p {
   font-size: 1rem;
-  color: #64748B;
+  color: #1A1A1A;
   margin-bottom: 32px;
 }
 
@@ -579,7 +579,7 @@ swiper-container::part(bullet-active) {
   width: 40px;
   height: 40px;
   border: 3px solid #E2E8F0;
-  border-top-color: #3B82F6;
+  border-top-color: #FFB703;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   margin: 0 auto 16px;
@@ -610,7 +610,7 @@ swiper-container::part(bullet-active) {
 
 .tema-item:hover {
   background: white;
-  border-color: #3B82F6;
+  border-color: #FFB703;
   transform: translateX(5px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -622,7 +622,7 @@ swiper-container::part(bullet-active) {
 .tema-titulo {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #1E293B;
+  color: #1A1A1A;
   display: block;
   margin-bottom: 8px;
 }
@@ -631,12 +631,12 @@ swiper-container::part(bullet-active) {
   display: flex;
   gap: 16px;
   font-size: 0.7rem;
-  color: #64748B;
+  color: #1A1A1A;
 }
 
 .tema-flecha {
   font-size: 1.2rem;
-  color: #3B82F6;
+  color: #FFB703;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -653,7 +653,7 @@ swiper-container::part(bullet-active) {
 .temas-vacio {
   text-align: center;
   padding: 40px;
-  color: #64748B;
+  color: #1A1A1A;
 }
 
 /* Animaciones */

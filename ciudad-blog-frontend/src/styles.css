@@ -10,8 +10,8 @@
    ============================================== */
 :root {
   /* --- Colores principales (Psicología + Tecnología) --- */
-  --eco-primary:        #3B82F6;   /* Azul serenidad - confianza, calma */
-  --eco-secondary:      #10B981;   /* Verde crecimiento - bienestar, naturaleza */
+  --eco-primary:        #FFB703;   /* Azul serenidad - confianza, calma */
+  --eco-secondary:      #1A1A1A;   /* Verde crecimiento - bienestar, naturaleza */
   --eco-accent:         #06B6D4;   /* Cian claridad - tecnología, mente */
   --eco-soft-blue:      #EFF6FF;   /* Azul muy suave - fondos */
   --eco-soft-green:     #ECFDF5;   /* Verde muy suave - bienestar */
