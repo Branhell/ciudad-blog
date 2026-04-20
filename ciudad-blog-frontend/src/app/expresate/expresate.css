@@ -3,15 +3,18 @@
    ============================================== */
 
 /* Hero */
+/* Asegura que el hero comience debajo del navbar fijo */
 .foro-hero {
+  margin-top: 0;
+  padding-top: 70px; /* Altura del navbar */
   position: relative;
-  height: 70vh;
-  min-height: 500px;
+  width: 100%;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   overflow: hidden;
-  margin-top: 70px;
 }
 
 /* Imagen de fondo - conexiones neuronales / blockchain */
@@ -107,56 +110,117 @@
 }
 
 /* Estadísticas - HORIZONTAL siempre */
+/* ==============================================
+   ESTADÍSTICAS DEL FORO - DISEÑO GLASS
+   ============================================== */
+/* ==============================================
+   ESTADÍSTICAS DEL FORO - SIN FONDO
+   ============================================== */
+/* ==============================================
+   ESTADÍSTICAS DEL FORO - DISEÑO COMPACTO
+   ============================================== */
+
+/* ==============================================
+   ESTADÍSTICAS DEL FORO - ESTILO MODERNO
+   ============================================== */
+
 .foro-estadisticas {
-  padding: 60px 20px;
-  background: white;
+  padding: 40px 20px;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
+}
+
+.foro-container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .stats-grid {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 20px;
   flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .stat-item {
-  text-align: center;
   flex: 1;
-  min-width: 120px;
+  min-width: 140px;
+  text-align: center;
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px 15px;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,183,3,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.stat-item:hover::before {
+  left: 100%;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  border-color: #FFB703;
+  background: rgba(30, 30, 40, 0.8);
+  box-shadow: 0 8px 25px rgba(255, 183, 3, 0.15);
 }
 
 .stat-num {
   display: block;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  color: #FFB703;
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
+  letter-spacing: 1px;
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  color: #1A1A1A;
+  font-size: 0.7rem;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 500;
+  color: #B0B0B0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-/* Responsivo - siempre horizontal */
+.stat-item:hover .stat-label {
+  color: #FFB703;
+  letter-spacing: 2px;
+}
+
 @media (max-width: 768px) {
   .stats-grid {
-    gap: 20px;
+    gap: 12px;
   }
   .stat-item {
-    min-width: 100px;
+    min-width: 120px;
+    padding: 15px 10px;
   }
   .stat-num {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .stat-label {
-    font-size: 0.7rem;
-  }
-  .categorias-grid {
-    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.6rem;
+    letter-spacing: 1px;
   }
 }
 
@@ -187,90 +251,130 @@
     grid-template-columns: 1fr;
   }
 }
+/* ==============================================
+   BENEFICIOS TABS - DISEÑO MODERNO
+   ============================================== */
 
-/* Beneficios - Pestañas (Tabs) */
 .foro-beneficios-tabs {
   padding: 80px 20px;
-  background: white;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
+}
+
+.beneficios-titulo {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFB703;
+  margin-bottom: 50px;
+  position: relative;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #FFB703 0%, #1A1A1A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.beneficios-titulo::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #FFB703, #FFD966);
+  border-radius: 3px;
 }
 
 .beneficios-tabs {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .tabs-buttons {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 15px;
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
 .tab-btn {
-  padding: 12px 24px;
-  background: transparent;
-  border: none;
-  border-radius: 50px;
+  padding: 12px 28px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 183, 3, 0.4);
+  border-radius: 60px;
   font-size: 0.9rem;
-  font-weight: 600;
-  color: #1A1A1A;
+  font-weight: 700;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  color: #E0E0E0;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 183, 3, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.tab-btn:hover::before {
+  left: 100%;
 }
 
 .tab-btn:hover {
-  background: #1A1A1A;
+  background: rgba(255, 183, 3, 0.15);
+  border-color: #FFB703;
   color: #FFB703;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 183, 3, 0.2);
 }
 
 .tab-btn.active {
-  background: #FFB703;
-  color: white;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  border-color: transparent;
+  color: #1A1A1A;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(255, 183, 3, 0.4);
 }
 
+/* ==============================================
+   TABS CON IMAGEN DE FONDO COMPLETO
+   ============================================== */
+
 .tabs-content {
-  background: linear-gradient(135deg, #1A1A1A 0%, #1A1A1A 100%);
-  border-radius: 28px;
-  padding: 48px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  min-height: 500px;
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 0;
+  border: 1px solid rgba(255, 183, 3, 0.2);
+  transition: all 0.3s ease;
+  min-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.tabs-content::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,200,150,0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.tabs-content::after {
-  content: '';
-  position: absolute;
-  bottom: -50px;
-  left: -50px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(150,200,180,0.1) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  overflow: hidden;
 }
 
 .tab-content {
   display: none;
   width: 100%;
+  height: 100%;
+  min-height: 450px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .tab-content.active {
@@ -278,34 +382,115 @@
   animation: fadeInScale 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
+.tab-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.tab-overlay .tab-icono {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.tab-overlay h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFB703;
+  margin-bottom: 15px;
+}
+
+.tab-overlay p {
+  font-size: 1rem;
+  color: #F0F0F0;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .tab-content, .tabs-content {
+    min-height: 380px;
+  }
+  .tab-overlay h3 {
+    font-size: 1.5rem;
+  }
+  .tab-overlay p {
+    font-size: 0.85rem;
+  }
+  .tab-overlay .tab-icono {
+    font-size: 3rem;
+  }
+}
+
+
+
 .tab-imagen {
   width: 100%;
-  max-width: 280px;
-  margin: 0 auto 24px auto;
+  max-width: 260px;
+  height: 160px;
+  margin: 0 auto 20px;
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.5s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .tab-imagen img {
   width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  filter: brightness(0.95) saturate(1.05);
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .tab-content:hover .tab-imagen img {
   transform: scale(1.05);
-  filter: brightness(1) saturate(1.1);
 }
 
 .tab-icono {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  font-size: 3.5rem;
+  margin-bottom: 15px;
   display: inline-block;
-  animation: softPulse 3s ease-in-out infinite;
+  animation: floatIcon 3s ease-in-out infinite;
 }
+
+
+
+.tab-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
 
 .tab-content h3 {
   font-size: 1.5rem;
@@ -324,11 +509,52 @@
   font-family: 'Georgia', 'Times New Roman', serif;
 }
 
+.tab-content p {
+  font-size: 1rem;
+  color: #CCCCCC;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
 .tab-content h3 {
   position: relative;
   display: inline-block;
   padding-bottom: 12px;
 }
+
+
+@media (max-width: 768px) {
+  .beneficios-titulo {
+    font-size: 1.6rem;
+  }
+  .tab-btn {
+    padding: 8px 18px;
+    font-size: 0.75rem;
+  }
+  .tabs-content {
+    padding: 25px;
+    min-height: 380px;
+  }
+  .tab-imagen {
+    max-width: 200px;
+    height: 130px;
+  }
+  .tab-content h3 {
+    font-size: 1.3rem;
+  }
+  .tab-content p {
+    font-size: 0.85rem;
+  }
+  .tab-icono {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+
+
+
 
 .tab-content h3::after {
   content: '';
@@ -725,4 +951,51 @@ swiper-container::part(bullet-active) {
   .stat-label {
     font-size: 0.6rem;
   }
+}
+/* ==============================================
+   FONDO UNIFICADO PARA TODA LA PÁGINA
+   ============================================== */
+
+/* Contenedor principal del componente expresate */
+:host {
+  display: block;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
+  min-height: 100vh;
+}
+
+/* Elimina los fondos individuales de todas las secciones */
+.foro-hero,
+.foro-estadisticas,
+.foro-beneficios-tabs,
+.foro-testimonios-3d,
+.foro-categorias,
+.foro-reglas,
+.foro-cta,
+.foro-ultimos-temas {
+  background: transparent !important;
+}
+
+/* ==============================================
+   TABS CON IMAGEN DE FONDO
+   ============================================== */
+
+.tab-imagen-fondo {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .tab-imagen-fondo {
+    min-height: 350px;
+  }
+
 }

@@ -6,9 +6,7 @@
       <img src="assets/NeuroZenith.png" class="foro-logo" alt="Logo Foro EcoBits" (click)="irAlForo()">
       <h1>Comunidad EcoBits</h1>
       <p>Un espacio seguro para compartir, aprender y sanar juntos</p>
-      <button class="foro-btn-primario" (click)="irAlForo()">
-        Unirme a la conversación
-      </button>
+      <button class="foro-btn-primario" (click)="irAlForo()">Unirme a la conversación</button>
     </div>
   </div>
 </section>
@@ -17,152 +15,106 @@
 <section class="foro-estadisticas">
   <div class="foro-container">
     <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-num">2,400+</span>
-        <span class="stat-label">Miembros activos</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">180+</span>
-        <span class="stat-label">Conversaciones diarias</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">98%</span>
-        <span class="stat-label">Satisfacción</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">24/7</span>
-        <span class="stat-label">Apoyo comunitario</span>
-      </div>
+      <div class="stat-item"><span class="stat-num">2,400+</span><span class="stat-label">Miembros activos</span></div>
+      <div class="stat-item"><span class="stat-num">180+</span><span class="stat-label">Conversaciones diarias</span></div>
+      <div class="stat-item"><span class="stat-num">98%</span><span class="stat-label">Satisfacción</span></div>
+      <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Apoyo comunitario</span></div>
     </div>
   </div>
 </section>
 
-<!-- Beneficios - Pestañas (Tabs) -->
+<!-- Sección de beneficios con tabs -->
 <section class="foro-beneficios-tabs">
   <div class="foro-container">
-    <h2 class="foro-titulo">¿Por qué unirte a nuestra comunidad?</h2>
-    
+    <h2 class="beneficios-titulo">✨ ¿Por qué unirte a nuestra comunidad? ✨</h2>
     <div class="beneficios-tabs">
       <div class="tabs-buttons">
-        <button class="tab-btn active" data-tab="tab1" (click)="setActiveTab('tab1')">🛡️ Entorno Seguro</button>
-        <button class="tab-btn" data-tab="tab2" (click)="setActiveTab('tab2')">🧠 Recursos Exclusivos</button>
-        <button class="tab-btn" data-tab="tab3" (click)="setActiveTab('tab3')">👥 Grupos de Apoyo</button>
-        <button class="tab-btn" data-tab="tab4" (click)="setActiveTab('tab4')">🎧 Eventos en Vivo</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab1'" (click)="setActiveTab('tab1')">🛡️ Entorno Seguro</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab2'" (click)="setActiveTab('tab2')">🧠 Recursos Exclusivos</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab3'" (click)="setActiveTab('tab3')">👥 Grupos de Apoyo</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab4'" (click)="setActiveTab('tab4')">🎧 Eventos en Vivo</button>
       </div>
-      
-      <div class="tabs-content">
-        
-        <!-- Tab 1 - Entorno Seguro -->
-        <div class="tab-content" [class.active]="activeTab === 'tab1'" id="tab1">
-          <div class="tab-imagen">
-            <img src="https://images.pexels.com/photos/8454519/pexels-photo-8454519.jpeg" alt="Entorno seguro">
-          </div>
-          <div class="tab-icono">🛡️</div>
-          <h3>Entorno Seguro</h3>
-          <p>Espacio moderado por profesionales. Respeto y confidencialidad garantizados. Todos los miembros deben seguir nuestras reglas de convivencia para mantener un ambiente de confianza.</p>
-        </div>
+	<div class="tabs-content">
+	  <!-- Tab 1 - Entorno Seguro -->
+	  <div class="tab-content" [class.active]="activeTab === 'tab1'" style="background-image: url('/assets/entorno_seguro.jpg');">
+		<div class="tab-overlay">
+		  <div class="tab-icono">🛡️</div>
+		  <h3>Entorno Seguro</h3>
+		  <p>Espacio libre de juicios, con moderación activa y respeto garantizado para todos los miembros.</p>
+		</div>
+	  </div>
 
-        <!-- Tab 2 - Recursos Exclusivos -->
-        <div class="tab-content" [class.active]="activeTab === 'tab2'" id="tab2">
-          <div class="tab-imagen">
-            <img src="https://images.pexels.com/photos/8618089/pexels-photo-8618089.jpeg" alt="Recursos exclusivos">
-          </div>
-          <div class="tab-icono">🧠</div>
-          <h3>Recursos Exclusivos</h3>
-          <p>Artículos, guías y herramientas creadas por psicólogos especialistas. Accede a contenido premium sobre bienestar digital, manejo de ansiedad y más.</p>
-        </div>
+	  <!-- Tab 2 - Recursos Exclusivos -->
+	  <div class="tab-content" [class.active]="activeTab === 'tab2'" style="background-image: url('/assets/recursos_exclusivos.jpg');">
+		<div class="tab-overlay">
+		  <div class="tab-icono">🧠</div>
+		  <h3>Recursos Exclusivos</h3>
+		  <p>Accede a guías, talleres y material psicológico de calidad, diseñado por expertos en salud mental.</p>
+		</div>
+	  </div>
 
-        <!-- Tab 3 - Grupos de Apoyo -->
-        <div class="tab-content" [class.active]="activeTab === 'tab3'" id="tab3">
-          <div class="tab-imagen">
-            <img src="https://images.pexels.com/photos/6646864/pexels-photo-6646864.jpeg" alt="Grupos de apoyo">
-          </div>
-          <div class="tab-icono">👥</div>
-          <h3>Grupos de Apoyo</h3>
-          <p>Conecta con personas que entienden tus desafíos en espacios privados. Comparte experiencias y recibe apoyo en grupos moderados por profesionales.</p>
-        </div>
+	  <!-- Tab 3 - Grupos de Apoyo -->
+	  <div class="tab-content" [class.active]="activeTab === 'tab3'" style="background-image: url('/assets/grupos_de_apoyo.jpg');">
+		<div class="tab-overlay">
+		  <div class="tab-icono">👥</div>
+		  <h3>Grupos de Apoyo</h3>
+		  <p>Conecta con personas que entienden tus desafíos. Comparte experiencias y recibe apoyo en grupos moderados por profesionales.</p>
+		</div>
+	  </div>
 
-        <!-- Tab 4 - Eventos en Vivo -->
-        <div class="tab-content" [class.active]="activeTab === 'tab4'" id="tab4">
-          <div class="tab-imagen">
-            <img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" alt="Eventos en vivo">
-          </div>
-          <div class="tab-icono">🎧</div>
-          <h3>Eventos en Vivo</h3>
-          <p>Webinars, meditaciones guiadas y charlas con expertos cada semana. Participa en sesiones en vivo y accede a grabaciones cuando quieras.</p>
-        </div>
-
-      </div>
-    </div>
+	  <!-- Tab 4 - Eventos en Vivo -->
+	  <div class="tab-content" [class.active]="activeTab === 'tab4'" style="background-image: url('/assets/eventos_en_vivo.jpg');">
+		<div class="tab-overlay">
+		  <div class="tab-icono">🎧</div>
+		  <h3>Eventos en Vivo</h3>
+		  <p>Webinars, charlas y meditaciones guiadas por expertos. Participa en vivo y resuelve tus dudas.</p>
+		</div>
+	  </div>
+	</div>
   </div>
-</section>
 
 <!-- Testimonios - Carrusel 3D -->
 <section class="foro-testimonios-3d">
   <div class="foro-container">
     <h2 class="foro-titulo">Lo que dicen nuestros miembros</h2>
     <p class="foro-subtitulo">Experiencias reales de nuestra comunidad</p>
-    
-    <swiper-container
-      [modules]="['Autoplay', 'Pagination', 'EffectCoverflow']"
-      [autoplay]="{ delay: 4000, disableOnInteraction: false }"
-      [loop]="true"
-      [pagination]="{ clickable: true }"
-      [speed]="800"
-      [effect]="'coverflow'"
-      [coverflowEffect]="{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }"
-      [slidesPerView]="'auto'"
-      [centeredSlides]="true"
-      class="testimonios-3d-swiper">
-      
+    <swiper-container [modules]="['Autoplay', 'Pagination', 'EffectCoverflow']" [autoplay]="{ delay: 4000, disableOnInteraction: false }" [loop]="true" [pagination]="{ clickable: true }" [speed]="800" [effect]="'coverflow'" [coverflowEffect]="{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }" [slidesPerView]="'auto'" [centeredSlides]="true" class="testimonios-3d-swiper">
       <swiper-slide>
         <div class="testimonio-3d-card">
-          <div class="testimonio-3d-foto">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="María G.">
-          </div>
+          <div class="testimonio-3d-foto"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="María G."></div>
           <div class="testimonio-3d-estrellas">★★★★★</div>
           <p class="testimonio-3d-texto">"Encontré un espacio donde puedo hablar sin miedo. La comunidad me ha ayudado a salir adelante."</p>
           <h4 class="testimonio-3d-nombre">María G.</h4>
           <span class="testimonio-3d-rol">Miembro desde 2024</span>
         </div>
       </swiper-slide>
-
       <swiper-slide>
         <div class="testimonio-3d-card">
-          <div class="testimonio-3d-foto">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos R.">
-          </div>
+          <div class="testimonio-3d-foto"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos R."></div>
           <div class="testimonio-3d-estrellas">★★★★★</div>
           <p class="testimonio-3d-texto">"Los recursos y el apoyo de otros miembros han sido clave en mi proceso de bienestar digital."</p>
           <h4 class="testimonio-3d-nombre">Carlos R.</h4>
           <span class="testimonio-3d-rol">Miembro desde 2024</span>
         </div>
       </swiper-slide>
-
       <swiper-slide>
         <div class="testimonio-3d-card">
-          <div class="testimonio-3d-foto">
-            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana S.">
-          </div>
+          <div class="testimonio-3d-foto"><img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana S."></div>
           <div class="testimonio-3d-estrellas">★★★★★</div>
           <p class="testimonio-3d-texto">"Nunca me sentí sola. Aquí encontré herramientas y personas que realmente me entendieron."</p>
           <h4 class="testimonio-3d-nombre">Ana S.</h4>
           <span class="testimonio-3d-rol">Miembro desde 2024</span>
         </div>
       </swiper-slide>
-
       <swiper-slide>
         <div class="testimonio-3d-card">
-          <div class="testimonio-3d-foto">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David M.">
-          </div>
+          <div class="testimonio-3d-foto"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David M."></div>
           <div class="testimonio-3d-estrellas">★★★★★</div>
           <p class="testimonio-3d-texto">"Los profesionales que participan en el foro son increíbles. Recibí ayuda cuando más lo necesitaba."</p>
           <h4 class="testimonio-3d-nombre">David M.</h4>
           <span class="testimonio-3d-rol">Miembro desde 2024</span>
         </div>
       </swiper-slide>
-
     </swiper-container>
   </div>
 </section>
@@ -172,32 +124,12 @@
   <div class="foro-container">
     <h2 class="foro-titulo">Temas que encontrarás</h2>
     <div class="categorias-grid">
-      
-      <div class="categoria-item" (click)="irAlForo()">
-        <span>🧠</span>
-        <span>Ansiedad y Estrés</span>
-      </div>
-      <div class="categoria-item" (click)="irAlForo()">
-        <span>📱</span>
-        <span>Adicción Digital</span>
-      </div>
-      <div class="categoria-item" (click)="irAlForo()">
-        <span>💑</span>
-        <span>Relaciones de Pareja</span>
-      </div>
-      <div class="categoria-item" (click)="irAlForo()">
-        <span>😔</span>
-        <span>Depresión</span>
-      </div>
-      <div class="categoria-item" (click)="irAlForo()">
-        <span>🧘</span>
-        <span>Mindfulness</span>
-      </div>
-      <div class="categoria-item" (click)="irAlForo()">
-        <span>🏢</span>
-        <span>Bienestar Laboral</span>
-      </div>
-
+      <div class="categoria-item" (click)="irAlForo()"><span>🧠</span><span>Ansiedad y Estrés</span></div>
+      <div class="categoria-item" (click)="irAlForo()"><span>📱</span><span>Adicción Digital</span></div>
+      <div class="categoria-item" (click)="irAlForo()"><span>💑</span><span>Relaciones de Pareja</span></div>
+      <div class="categoria-item" (click)="irAlForo()"><span>😔</span><span>Depresión</span></div>
+      <div class="categoria-item" (click)="irAlForo()"><span>🧘</span><span>Mindfulness</span></div>
+      <div class="categoria-item" (click)="irAlForo()"><span>🏢</span><span>Bienestar Laboral</span></div>
     </div>
   </div>
 </section>
@@ -219,9 +151,7 @@
   <div class="foro-cta-content">
     <h2>¡Únete hoy!</h2>
     <p>No estás solo. Miles de personas ya están transformando su bienestar con nosotros.</p>
-    <button class="foro-btn-primario" (click)="irAlForo()">
-      Comenzar ahora →
-    </button>
+    <button class="foro-btn-primario" (click)="irAlForo()">Comenzar ahora →</button>
   </div>
 </section>
 
@@ -229,33 +159,17 @@
 <section class="foro-ultimos-temas">
   <div class="foro-container">
     <h2 class="foro-titulo">Conversaciones recientes</h2>
-    
-    <div *ngIf="loading" class="temas-loading">
-      <div class="loading-spinner"></div>
-      Cargando temas...
-    </div>
-
-    <div *ngIf="!loading && ultimosTemas.length === 0" class="temas-vacio">
-      No hay temas disponibles por el momento.
-    </div>
-
+    <div *ngIf="loading" class="temas-loading"><div class="loading-spinner"></div>Cargando temas...</div>
+    <div *ngIf="!loading && ultimosTemas.length === 0" class="temas-vacio">No hay temas disponibles por el momento.</div>
     <div *ngIf="!loading && ultimosTemas.length > 0" class="temas-lista">
       <div class="tema-item" *ngFor="let tema of ultimosTemas" (click)="irAlTema(tema.id)">
         <div class="tema-info">
           <span class="tema-titulo">{{ tema.title }}</span>
-          <div class="tema-meta">
-            <span>💬 {{ tema.posts_count || 0 }} respuestas</span>
-            <span>👁️ {{ tema.views || 0 }} vistas</span>
-          </div>
+          <div class="tema-meta"><span>💬 {{ tema.posts_count || 0 }} respuestas</span><span>👁️ {{ tema.views || 0 }} vistas</span></div>
         </div>
         <div class="tema-flecha">→</div>
       </div>
     </div>
-
-    <div class="temas-ver-todos">
-      <button class="foro-btn-secundario" (click)="irAlForo()">
-        Ver todos los temas →
-      </button>
-    </div>
+    <div class="temas-ver-todos"><button class="foro-btn-secundario" (click)="irAlForo()">Ver todos los temas →</button></div>
   </div>
 </section>
