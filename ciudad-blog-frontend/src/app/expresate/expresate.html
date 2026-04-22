@@ -1,13 +1,11 @@
 <!-- Sección Hero -->
-<section class="foro-hero">
-  <div class="foro-hero-bg"></div>
-  <div class="foro-hero-overlay">
-    <div class="foro-hero-content">
-      <img src="assets/NeuroZenith.png" class="foro-logo" alt="Logo Foro EcoBits" (click)="irAlForo()">
-      <h1>Comunidad EcoBits</h1>
-      <p>Un espacio seguro para compartir, aprender y sanar juntos</p>
-      <button class="foro-btn-primario" (click)="irAlForo()">Unirme a la conversación</button>
-    </div>
+<section class="foro-categorias">
+  <div id="planetaContainer"></div>
+  <div class="banner-contenido">
+    <img src="assets/NeuroZenith.png" class="banner-logo" alt="Logo Foro EcoBits" (click)="irAlForo()">
+    <h2>Comunidad NeuroZenith</h2>
+    <p>Un espacio seguro para compartir, aprender y sanar juntos</p>
+    <button class="banner-btn" (click)="irAlForo()">Unirme a la conversación</button>
   </div>
 </section>
 
@@ -22,56 +20,6 @@
     </div>
   </div>
 </section>
-
-<!-- Sección de beneficios con tabs -->
-<section class="foro-beneficios-tabs">
-  <div class="foro-container">
-    <h2 class="beneficios-titulo">✨ ¿Por qué unirte a nuestra comunidad? ✨</h2>
-    <div class="beneficios-tabs">
-      <div class="tabs-buttons">
-        <button class="tab-btn" [class.active]="activeTab === 'tab1'" (click)="setActiveTab('tab1')">🛡️ Entorno Seguro</button>
-        <button class="tab-btn" [class.active]="activeTab === 'tab2'" (click)="setActiveTab('tab2')">🧠 Recursos Exclusivos</button>
-        <button class="tab-btn" [class.active]="activeTab === 'tab3'" (click)="setActiveTab('tab3')">👥 Grupos de Apoyo</button>
-        <button class="tab-btn" [class.active]="activeTab === 'tab4'" (click)="setActiveTab('tab4')">🎧 Eventos en Vivo</button>
-      </div>
-	<div class="tabs-content">
-	  <!-- Tab 1 - Entorno Seguro -->
-	  <div class="tab-content" [class.active]="activeTab === 'tab1'" style="background-image: url('/assets/entorno_seguro.jpg');">
-		<div class="tab-overlay">
-		  <div class="tab-icono">🛡️</div>
-		  <h3>Entorno Seguro</h3>
-		  <p>Espacio libre de juicios, con moderación activa y respeto garantizado para todos los miembros.</p>
-		</div>
-	  </div>
-
-	  <!-- Tab 2 - Recursos Exclusivos -->
-	  <div class="tab-content" [class.active]="activeTab === 'tab2'" style="background-image: url('/assets/recursos_exclusivos.jpg');">
-		<div class="tab-overlay">
-		  <div class="tab-icono">🧠</div>
-		  <h3>Recursos Exclusivos</h3>
-		  <p>Accede a guías, talleres y material psicológico de calidad, diseñado por expertos en salud mental.</p>
-		</div>
-	  </div>
-
-	  <!-- Tab 3 - Grupos de Apoyo -->
-	  <div class="tab-content" [class.active]="activeTab === 'tab3'" style="background-image: url('/assets/grupos_de_apoyo.jpg');">
-		<div class="tab-overlay">
-		  <div class="tab-icono">👥</div>
-		  <h3>Grupos de Apoyo</h3>
-		  <p>Conecta con personas que entienden tus desafíos. Comparte experiencias y recibe apoyo en grupos moderados por profesionales.</p>
-		</div>
-	  </div>
-
-	  <!-- Tab 4 - Eventos en Vivo -->
-	  <div class="tab-content" [class.active]="activeTab === 'tab4'" style="background-image: url('/assets/eventos_en_vivo.jpg');">
-		<div class="tab-overlay">
-		  <div class="tab-icono">🎧</div>
-		  <h3>Eventos en Vivo</h3>
-		  <p>Webinars, charlas y meditaciones guiadas por expertos. Participa en vivo y resuelve tus dudas.</p>
-		</div>
-	  </div>
-	</div>
-  </div>
 
 <!-- Testimonios - Carrusel 3D -->
 <section class="foro-testimonios-3d">
@@ -119,17 +67,43 @@
   </div>
 </section>
 
-<!-- Categorías destacadas -->
-<section class="foro-categorias">
+<!-- Sección de beneficios con tabs -->
+<section class="foro-beneficios-tabs">
   <div class="foro-container">
-    <h2 class="foro-titulo">Temas que encontrarás</h2>
-    <div class="categorias-grid">
-      <div class="categoria-item" (click)="irAlForo()"><span>🧠</span><span>Ansiedad y Estrés</span></div>
-      <div class="categoria-item" (click)="irAlForo()"><span>📱</span><span>Adicción Digital</span></div>
-      <div class="categoria-item" (click)="irAlForo()"><span>💑</span><span>Relaciones de Pareja</span></div>
-      <div class="categoria-item" (click)="irAlForo()"><span>😔</span><span>Depresión</span></div>
-      <div class="categoria-item" (click)="irAlForo()"><span>🧘</span><span>Mindfulness</span></div>
-      <div class="categoria-item" (click)="irAlForo()"><span>🏢</span><span>Bienestar Laboral</span></div>
+    <h2 class="beneficios-titulo">✨ ¿Por qué unirte a nuestra comunidad? ✨</h2>
+    <div class="beneficios-tabs">
+      <div class="tabs-buttons">
+        <button class="tab-btn" [class.active]="activeTab === 'tab1'" (click)="setActiveTab('tab1')">🛡️ Entorno Seguro</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab2'" (click)="setActiveTab('tab2')">🧠 Recursos Exclusivos</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab3'" (click)="setActiveTab('tab3')">👥 Grupos de Apoyo</button>
+        <button class="tab-btn" [class.active]="activeTab === 'tab4'" (click)="setActiveTab('tab4')">🎧 Eventos en Vivo</button>
+      </div>
+      <div class="tabs-content">
+        <div class="tab-content" [class.active]="activeTab === 'tab1'" style="background-image: url('/assets/entorno_seguro.jpg');">
+          <div class="tab-overlay">
+            <h3>Entorno Seguro</h3>
+            <p>Espacio libre de juicios, con moderación activa y respeto garantizado para todos los miembros.</p>
+          </div>
+        </div>
+        <div class="tab-content" [class.active]="activeTab === 'tab2'" style="background-image: url('/assets/recursos_exclusivos.jpg');">
+          <div class="tab-overlay">
+            <h3>Recursos Exclusivos</h3>
+            <p>Accede a guías, talleres y material psicológico de calidad, diseñado por expertos en salud mental.</p>
+          </div>
+        </div>
+        <div class="tab-content" [class.active]="activeTab === 'tab3'" style="background-image: url('/assets/grupos_de_apoyo.jpg');">
+          <div class="tab-overlay">
+            <h3>Grupos de Apoyo</h3>
+            <p>Conecta con personas que entienden tus desafíos. Comparte experiencias y recibe apoyo en grupos moderados por profesionales.</p>
+          </div>
+        </div>
+        <div class="tab-content" [class.active]="activeTab === 'tab4'" style="background-image: url('/assets/eventos_en_vivo.jpg');">
+          <div class="tab-overlay">
+            <h3>Eventos en Vivo</h3>
+            <p>Webinars, charlas y meditaciones guiadas por expertos. Participa en vivo y resuelve tus dudas.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

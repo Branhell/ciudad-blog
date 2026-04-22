@@ -3,10 +3,9 @@
    ============================================== */
 
 /* Hero */
-/* Asegura que el hero comience debajo del navbar fijo */
 .foro-hero {
   margin-top: 0;
-  padding-top: 70px; /* Altura del navbar */
+  padding-top: 70px;
   position: relative;
   width: 100%;
   min-height: 60vh;
@@ -17,7 +16,6 @@
   overflow: hidden;
 }
 
-/* Imagen de fondo - conexiones neuronales / blockchain */
 .foro-hero-bg {
   position: absolute;
   top: 0;
@@ -30,7 +28,6 @@
   z-index: 0;
 }
 
-/* Capa oscura para que el texto se vea bien */
 .foro-hero-bg::before {
   content: '';
   position: absolute;
@@ -50,7 +47,6 @@
   padding: 20px;
 }
 
-/* Logo más grande */
 .foro-logo {
   width: 140px;
   height: auto;
@@ -79,7 +75,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: none;
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -87,7 +82,6 @@
   font-size: 1.2rem;
   margin-bottom: 32px;
   opacity: 0.95;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .foro-btn-primario {
@@ -109,21 +103,7 @@
   box-shadow: 0 8px 25px rgba(59,130,246,0.4);
 }
 
-/* Estadísticas - HORIZONTAL siempre */
-/* ==============================================
-   ESTADÍSTICAS DEL FORO - DISEÑO GLASS
-   ============================================== */
-/* ==============================================
-   ESTADÍSTICAS DEL FORO - SIN FONDO
-   ============================================== */
-/* ==============================================
-   ESTADÍSTICAS DEL FORO - DISEÑO COMPACTO
-   ============================================== */
-
-/* ==============================================
-   ESTADÍSTICAS DEL FORO - ESTILO MODERNO
-   ============================================== */
-
+/* Estadísticas */
 .foro-estadisticas {
   padding: 40px 20px;
   background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
@@ -187,410 +167,111 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
-  letter-spacing: 1px;
 }
 
 .stat-label {
   font-size: 0.7rem;
-  font-family: 'Poppins', 'Inter', sans-serif;
   font-weight: 500;
   color: #B0B0B0;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  position: relative;
-  display: inline-block;
-  transition: all 0.3s ease;
 }
 
 .stat-item:hover .stat-label {
   color: #FFB703;
-  letter-spacing: 2px;
 }
 
-@media (max-width: 768px) {
-  .stats-grid {
-    gap: 12px;
-  }
-  .stat-item {
-    min-width: 120px;
-    padding: 15px 10px;
-  }
-  .stat-num {
-    font-size: 1.4rem;
-  }
-  .stat-label {
-    font-size: 0.6rem;
-    letter-spacing: 1px;
-  }
-}
-
-/* Centrar títulos principales */
-.foro-titulo {
-  font-size: 1.5rem;	
-  text-align: center !important;
-}
-
-.foro-subtitulo {
-  text-align: center !important;
-}
-
-@media (max-width: 480px) {
-  .stats-grid {
-    gap: 15px;
-  }
-  .stat-item {
-    min-width: 80px;
-  }
-  .stat-num {
-    font-size: 1.2rem;
-  }
-  .stat-label {
-    font-size: 0.6rem;
-  }
-  .categorias-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* ==============================================
-   BENEFICIOS TABS - DISEÑO MODERNO
+   BANNER DEL PLANETA - PANTALLA COMPLETA
    ============================================== */
 
-.foro-beneficios-tabs {
-  padding: 80px 20px;
-  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
-}
-
-.beneficios-titulo {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #FFB703;
-  margin-bottom: 50px;
+.foro-categorias {
   position: relative;
-  letter-spacing: 1px;
-  background: linear-gradient(135deg, #FFB703 0%, #1A1A1A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.beneficios-titulo::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #FFB703, #FFD966);
-  border-radius: 3px;
-}
-
-.beneficios-tabs {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.tabs-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.tab-btn {
-  padding: 12px 28px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(255, 183, 3, 0.4);
-  border-radius: 60px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-family: 'Poppins', 'Inter', sans-serif;
-  letter-spacing: 0.5px;
-  color: #E0E0E0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-  position: relative;
-  overflow: hidden;
-}
-
-.tab-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 183, 3, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.tab-btn:hover::before {
-  left: 100%;
-}
-
-.tab-btn:hover {
-  background: rgba(255, 183, 3, 0.15);
-  border-color: #FFB703;
-  color: #FFB703;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 183, 3, 0.2);
-}
-
-.tab-btn.active {
-  background: linear-gradient(135deg, #FFB703, #FFD966);
-  border-color: transparent;
-  color: #1A1A1A;
-  font-weight: 800;
-  box-shadow: 0 4px 15px rgba(255, 183, 3, 0.4);
-}
-
-/* ==============================================
-   TABS CON IMAGEN DE FONDO COMPLETO
-   ============================================== */
-
-.tabs-content {
-  background: rgba(20, 20, 30, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 30px;
-  padding: 0;
-  border: 1px solid rgba(255, 183, 3, 0.2);
-  transition: all 0.3s ease;
-  min-height: 450px;
+  height: 100vh;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
   overflow: hidden;
+  margin-top: 0;
+  padding: 0;
 }
 
-.tab-content {
-  display: none;
-  width: 100%;
-  height: 100%;
-  min-height: 450px;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.tab-content.active {
-  display: block;
-  animation: fadeInScale 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.tab-overlay {
+/* Canvas ocupa toda la pantalla */
+#planetaContainer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  color: white;
-  text-align: center;
-}
-
-.tab-overlay .tab-icono {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  animation: floatIcon 3s ease-in-out infinite;
-}
-
-.tab-overlay h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #FFB703;
-  margin-bottom: 15px;
-}
-
-.tab-overlay p {
-  font-size: 1rem;
-  color: #F0F0F0;
-  line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .tab-content, .tabs-content {
-    min-height: 380px;
-  }
-  .tab-overlay h3 {
-    font-size: 1.5rem;
-  }
-  .tab-overlay p {
-    font-size: 0.85rem;
-  }
-  .tab-overlay .tab-icono {
-    font-size: 3rem;
-  }
-}
-
-
-
-.tab-imagen {
-  width: 100%;
-  max-width: 260px;
-  height: 160px;
-  margin: 0 auto 20px;
-  border-radius: 20px;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
-.tab-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+#planetaContainer canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
 }
 
-.tab-content:hover .tab-imagen img {
-  transform: scale(1.05);
+/* Texto superpuesto al banner */
+.banner-contenido {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  margin: 20px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.tab-icono {
-  font-size: 3.5rem;
-  margin-bottom: 15px;
-  display: inline-block;
-  animation: floatIcon 3s ease-in-out infinite;
-}
-
-
-
-.tab-content h3 {
-  font-size: 1.6rem;
-  font-weight: 700;
+.banner-contenido h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
   background: linear-gradient(135deg, #FFB703, #FFD966);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
 }
 
-
-.tab-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1A1A1A;
-  margin-bottom: 16px;
-  font-family: 'Poppins', sans-serif;
+.banner-contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #E0E0E0;
 }
 
-.tab-content p {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #5B6B8C;
-  line-height: 1.7;
-  font-style: italic;
-  font-family: 'Georgia', 'Times New Roman', serif;
-}
-
-.tab-content p {
-  font-size: 1rem;
-  color: #CCCCCC;
-  line-height: 1.7;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.tab-content h3 {
-  position: relative;
+.banner-btn {
   display: inline-block;
-  padding-bottom: 12px;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-
-@media (max-width: 768px) {
-  .beneficios-titulo {
-    font-size: 1.6rem;
-  }
-  .tab-btn {
-    padding: 8px 18px;
-    font-size: 0.75rem;
-  }
-  .tabs-content {
-    padding: 25px;
-    min-height: 380px;
-  }
-  .tab-imagen {
-    max-width: 200px;
-    height: 130px;
-  }
-  .tab-content h3 {
-    font-size: 1.3rem;
-  }
-  .tab-content p {
-    font-size: 0.85rem;
-  }
-  .tab-icono {
-    font-size: 2.5rem;
-  }
+.banner-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 183, 3, 0.4);
 }
 
-
-
-
-
-
-
-.tab-content h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 2px;
-  background: linear-gradient(90deg, #FFB703, #1A1A1A);
-  border-radius: 2px;
+/* Ocultar temas orbitantes - ya no se usan */
+.temas-orbitantes {
+  display: none;
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes softPulse {
-  0%, 100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
-  }
-  50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(255,200,150,0.5));
-  }
-}
-
-/* Testimonios - Carrusel 3D */
+/* Testimonios */
 .foro-testimonios-3d {
   padding: 80px 20px;
   background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
@@ -614,22 +295,19 @@
   text-align: center;
   box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .testimonio-3d-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 45px -12px rgba(0,0,0,0.25);
 }
 
 .testimonio-3d-foto {
   width: 80px;
   height: 80px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #FFB703;
-  box-shadow: 0 8px 20px rgba(59,130,246,0.2);
 }
 
 .testimonio-3d-foto img {
@@ -642,7 +320,6 @@
   font-size: 1.1rem;
   color: #F59E0B;
   margin-bottom: 16px;
-  letter-spacing: 4px;
 }
 
 .testimonio-3d-texto {
@@ -665,56 +342,104 @@
   color: #94A3B8;
 }
 
-/* Paginación Swiper */
-swiper-container::part(bullet) {
-  background: #CBD5E1;
-  opacity: 1;
-  width: 10px;
-  height: 10px;
+/* Beneficios Tabs */
+.foro-beneficios-tabs {
+  padding: 80px 20px;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
 }
 
-swiper-container::part(bullet-active) {
-  background: #FFB703;
-  width: 24px;
-  border-radius: 10px;
+.beneficios-titulo {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #FFB703 0%, #1A1A1A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Categorías */
-.foro-categorias {
-  padding: 60px 20px;
-  background: #F8FAFC;
-}
-
-.categorias-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-}
-
-.categoria-item {
-  background: white;
-  border-radius: 50px;
-  padding: 12px 20px;
+.tabs-buttons {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 183, 3, 0.4);
+  border-radius: 60px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #E0E0E0;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #E2E8F0;
-  font-weight: 500;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 183, 3, 0.15);
+  border-color: #FFB703;
+  color: #FFB703;
+  transform: translateY(-3px);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  border-color: transparent;
   color: #1A1A1A;
 }
 
-.categoria-item:hover {
-  background: #FFB703;
-  color: white;
-  transform: translateY(-3px);
-  border-color: #FFB703;
+.tabs-content {
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  min-height: 450px;
+  overflow: hidden;
 }
 
-.categoria-item span:first-child {
-  font-size: 1.2rem;
+.tab-content {
+  display: none;
+  width: 100%;
+  min-height: 450px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeInScale 0.5s ease;
+}
+
+.tab-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.tab-overlay h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFB703;
+  margin-bottom: 15px;
+}
+
+.tab-overlay p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
 }
 
 /* Reglas */
@@ -743,7 +468,6 @@ swiper-container::part(bullet-active) {
 .reglas-content p {
   font-size: 0.9rem;
   margin-bottom: 24px;
-  opacity: 0.9;
 }
 
 .foro-btn-secundario {
@@ -796,25 +520,6 @@ swiper-container::part(bullet-active) {
   background: white;
 }
 
-.temas-loading {
-  text-align: center;
-  padding: 40px;
-}
-
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid #E2E8F0;
-  border-top-color: #FFB703;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto 16px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 .temas-lista {
   display: flex;
   flex-direction: column;
@@ -838,11 +543,6 @@ swiper-container::part(bullet-active) {
   background: white;
   border-color: #FFB703;
   transform: translateX(5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.tema-info {
-  flex: 1;
 }
 
 .tema-titulo {
@@ -876,12 +576,6 @@ swiper-container::part(bullet-active) {
   margin-top: 24px;
 }
 
-.temas-vacio {
-  text-align: center;
-  padding: 40px;
-  color: #1A1A1A;
-}
-
 /* Animaciones */
 @keyframes fadeInUp {
   from {
@@ -894,108 +588,109 @@ swiper-container::part(bullet-active) {
   }
 }
 
-/* Responsivo adicional */
-@media (max-width: 768px) {
-  .testimonios-3d-swiper swiper-slide {
-    width: 280px;
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(15px);
   }
-  .testimonio-3d-card {
-    padding: 24px 20px;
-  }
-  .testimonio-3d-foto {
-    width: 60px;
-    height: 60px;
-  }
-  .testimonio-3d-texto {
-    font-size: 0.8rem;
-  }
-  .tab-imagen {
-    max-width: 200px;
-  }
-  .tabs-content {
-    padding: 32px 24px;
-  }
-  .tab-content h3 {
-    font-size: 1.2rem;
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
-@media (max-width: 900px) {
-  .beneficios-glass {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .beneficios-imagenes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .beneficios-glass {
-    grid-template-columns: 1fr;
-  }
-  .beneficios-imagenes {
-    grid-template-columns: 1fr;
-  }
-  .categorias-grid {
-    grid-template-columns: 1fr;
-  }
-  .stats-grid {
-    gap: 15px;
-  }
-  .stat-item {
-    min-width: 80px;
-  }
-  .stat-num {
-    font-size: 1.2rem;
-  }
-  .stat-label {
-    font-size: 0.6rem;
-  }
-}
-/* ==============================================
-   FONDO UNIFICADO PARA TODA LA PÁGINA
-   ============================================== */
-
-/* Contenedor principal del componente expresate */
 :host {
   display: block;
   background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
   min-height: 100vh;
 }
 
-/* Elimina los fondos individuales de todas las secciones */
-.foro-hero,
-.foro-estadisticas,
-.foro-beneficios-tabs,
-.foro-testimonios-3d,
-.foro-categorias,
-.foro-reglas,
-.foro-cta,
-.foro-ultimos-temas {
-  background: transparent !important;
-}
-
-/* ==============================================
-   TABS CON IMAGEN DE FONDO
-   ============================================== */
-
-.tab-imagen-fondo {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  border-radius: 24px;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-
+/* Responsive */
 @media (max-width: 768px) {
-  .tab-imagen-fondo {
-    min-height: 350px;
+  .banner-contenido h2 {
+    font-size: 2rem;
   }
+  
+  .banner-contenido p {
+    font-size: 1rem;
+  }
+  
+  .tab-overlay h3 {
+    font-size: 1.5rem;
+  }
+  
+  .stats-grid {
+    gap: 12px;
+  }
+  
+  .stat-item {
+    min-width: 120px;
+    padding: 15px 10px;
+  }
+}
+/* Logo en el banner */
+.banner-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: logoFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
+.banner-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 25px rgba(255, 183, 3, 0.5));
+}
+
+/* Ajusta el contenido del banner */
+.banner-contenido {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  margin: 20px;
+  animation: fadeInUp 0.8s ease-out;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+}
+
+.banner-contenido h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.banner-contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #E0E0E0;
+  line-height: 1.6;
+}
+
+.banner-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.banner-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 183, 3, 0.4);
 }
