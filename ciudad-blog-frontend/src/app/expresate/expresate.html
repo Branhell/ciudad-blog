@@ -1,22 +1,57 @@
 <!-- Sección Hero -->
 <section class="foro-categorias">
   <div id="planetaContainer"></div>
-  <div class="banner-contenido">
-    <img src="assets/NeuroZenith.png" class="banner-logo" alt="Logo Foro EcoBits" (click)="irAlForo()">
-    <h2>Comunidad NeuroZenith</h2>
-    <p>Un espacio seguro para compartir, aprender y sanar juntos</p>
+  <div class="banner-sin-cuadro">
+    <img src="assets/NeuroZenith.png" class="banner-logo" (click)="irAlForo()">
+     <div class="particles-bg"></div>
+	   <h1 class="titulo-particles">Comunidad <span>NeuroZenith</span></h1>
+  <p class="subtitulo-particles">Un espacio seguro para compartir, aprender y sanar juntos</p>
     <button class="banner-btn" (click)="irAlForo()">Unirme a la conversación</button>
   </div>
 </section>
 
-<!-- Estadísticas de la comunidad -->
-<section class="foro-estadisticas">
-  <div class="foro-container">
-    <div class="stats-grid">
-      <div class="stat-item"><span class="stat-num">2,400+</span><span class="stat-label">Miembros activos</span></div>
-      <div class="stat-item"><span class="stat-num">180+</span><span class="stat-label">Conversaciones diarias</span></div>
-      <div class="stat-item"><span class="stat-num">98%</span><span class="stat-label">Satisfacción</span></div>
-      <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-label">Apoyo comunitario</span></div>
+<section class="cta-split">
+  <div class="split-left">
+    <div class="split-badge">✨ NeuroZenith ✨</div>
+    <h2>Tu comunidad de<br><span class="split-grad">bienestar digital</span></h2>
+    <p>No estás solo. Miles de personas ya están transformando su relación<br>
+    con la tecnología en un espacio seguro, con apoyo profesional y<br>
+    una comunidad que te entiende.</p>
+    
+    <div class="split-buttons">
+      <button class="split-btn-primary" (click)="irAlForo()">Unirme ahora →</button>
+      <button class="split-btn-secondary" (click)="irAlForo()">Conocer el foro</button>
+    </div>
+    
+    <div class="split-garantia">
+      <span>✓</span> Acceso gratuito
+      <span>✓</span> Sin compromiso
+      <span>✓</span> Comunidad activa
+    </div>
+  </div>
+  
+  <div class="split-right">
+    <div class="split-stats">
+      <div class="split-stat">
+        <div class="stat-num">2,400+</div>
+        <div class="stat-desc">Miembros activos</div>
+      </div>
+      <div class="split-stat">
+        <div class="stat-num">180+</div>
+        <div class="stat-desc">Conversaciones/día</div>
+      </div>
+      <div class="split-stat">
+        <div class="stat-num">98%</div>
+        <div class="stat-desc">Satisfacción</div>
+      </div>
+      <div class="split-stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-desc">Apoyo comunitario</div>
+      </div>
+    </div>
+    <div class="split-testimonio">
+      <p>"Encontré un espacio donde puedo hablar sin miedo"</p>
+      <small>— María G., miembro desde 2024</small>
     </div>
   </div>
 </section>
@@ -108,42 +143,16 @@
   </div>
 </section>
 
-<!-- Reglas del foro -->
-<section class="foro-reglas">
-  <div class="foro-container">
-    <div class="reglas-content">
-      <div class="reglas-icono">📜</div>
-      <h3>Compromiso de la Comunidad</h3>
-      <p>Respeto, empatía y confidencialidad son los pilares de EcoBits. Todo miembro debe leer y aceptar nuestras <strong>reglas de convivencia</strong> antes de participar.</p>
-      <button class="foro-btn-secundario" (click)="irAlForo()">Conocer reglas →</button>
+<section class="foro-reglas-v2">
+  <div class="reglas-oval">
+    <div class="reglas-oval-icono">
+      <span>📜</span>
+      <span class="icono-bg"></span>
     </div>
-  </div>
-</section>
-
-<!-- CTA Final -->
-<section class="foro-cta">
-  <div class="foro-cta-content">
-    <h2>¡Únete hoy!</h2>
-    <p>No estás solo. Miles de personas ya están transformando su bienestar con nosotros.</p>
-    <button class="foro-btn-primario" (click)="irAlForo()">Comenzar ahora →</button>
-  </div>
-</section>
-
-<!-- Últimos temas del foro -->
-<section class="foro-ultimos-temas">
-  <div class="foro-container">
-    <h2 class="foro-titulo">Conversaciones recientes</h2>
-    <div *ngIf="loading" class="temas-loading"><div class="loading-spinner"></div>Cargando temas...</div>
-    <div *ngIf="!loading && ultimosTemas.length === 0" class="temas-vacio">No hay temas disponibles por el momento.</div>
-    <div *ngIf="!loading && ultimosTemas.length > 0" class="temas-lista">
-      <div class="tema-item" *ngFor="let tema of ultimosTemas" (click)="irAlTema(tema.id)">
-        <div class="tema-info">
-          <span class="tema-titulo">{{ tema.title }}</span>
-          <div class="tema-meta"><span>💬 {{ tema.posts_count || 0 }} respuestas</span><span>👁️ {{ tema.views || 0 }} vistas</span></div>
-        </div>
-        <div class="tema-flecha">→</div>
-      </div>
+    <div class="reglas-oval-texto">
+      <h3>Compromiso <span class="grad">EcoBits</span></h3>
+      <p>Respeto, empatía y confidencialidad son los pilares de nuestra comunidad.</p>
+      <button class="reglas-oval-btn" (click)="irAlForo()">Conocer reglas →</button>
     </div>
-    <div class="temas-ver-todos"><button class="foro-btn-secundario" (click)="irAlForo()">Ver todos los temas →</button></div>
   </div>
 </section>

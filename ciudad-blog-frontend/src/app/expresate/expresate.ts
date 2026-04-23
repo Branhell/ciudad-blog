@@ -51,6 +51,15 @@ export class ExpresateComponent implements OnInit, AfterViewInit, OnDestroy {
     this.initTabs();
     this.iniciarCarruselAutomatico();
     this.iniciarRedConexiones();
+    
+    // Efecto de partículas para el subtítulo (opcional)
+    const subtitle = document.querySelector('.particles-subtitle');
+    if (subtitle) {
+      const text = subtitle.textContent || '';
+      subtitle.innerHTML = text.split('').map((char: string, i: number) => 
+        `<span style="--i: ${i}">${char === ' ' ? '&nbsp;' : char}</span>`
+      ).join('');
+    }
   }
 
   iniciarRedConexiones() {
@@ -271,6 +280,7 @@ export class ExpresateComponent implements OnInit, AfterViewInit, OnDestroy {
       this.setActiveTab(tabs[index]);
     }, 5000);
   }
+
 
   setActiveTab(tab: string) {
     this.activeTab = tab;

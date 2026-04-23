@@ -3,30 +3,22 @@ import { HomeComponent } from './home/home';
 import { DashboardComponent } from './dashboard/dashboard';
 import { LoginComponent } from './login/login';
 import { RegistroComponent } from './registro/registro';
-import { authGuard, rolGuard } from './auth.guard'; // 👈 importa el guard
+import { authGuard, rolGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   
-  // 👈 protege la ruta con el guard
-  
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'dashboard/paciente', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PACIENTE'] } },
   { path: 'dashboard/profesional', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PROFESIONAL'] } },
   { path: 'dashboard/admin', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['ADMIN'] } },
 
-  // CRUD (solo accesibles desde dashboard)
   { path: 'foro', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
-
-  // Rutas de menú
   { path: 'servicios', loadComponent: () => import('./servicios/servicios').then(m => m.Servicios) },
-  { path: 'productos', loadComponent: () => import('./productos/productos').then(m => m.Productos) },
-  { path: 'noticias', loadComponent: () => import('./noticias/noticias').then(m => m.NoticiasComponent) },
   { path: 'eventos', loadComponent: () => import('./eventos/eventos').then(m => m.EventosComponent) },
   { path: 'empresas', loadComponent: () => import('./empresas/empresas').then(m => m.EmpresasComponent) },
-  { path: 'quantum-magazine', loadComponent: () => import('./quantum-magazine/quantum-magazine').then(m => m.QuantumMagazine) },
   { path: 'contacto', loadComponent: () => import('./contacto/contacto').then(m => m.Contacto) },
   { path: 'quienes-somos', loadComponent: () => import('./quienes-somos/quienes-somos').then(m => m.QuienesSomos) },
   { path: 'trabaja-con-nosotros', loadComponent: () => import('./trabaja-con-nosotros/trabaja-con-nosotros').then(m => m.TrabajaConNosotros) },
