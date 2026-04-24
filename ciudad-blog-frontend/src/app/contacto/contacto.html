@@ -1,12 +1,9 @@
 <div class="contacto-container">
-  <!-- Fondo con olas animadas -->
-  <div class="waves-bg"></div>
-
   <!-- Hero -->
   <div class="hero-contacto">
     <div class="hero-icon">💌✨</div>
-    <h1>Conectemos</h1>
-    <p>Tu voz es importante para nosotros. Cuéntanos lo que necesitas.</p>
+    <h1>Conecta con <span class="gradient">OpenPsy</span></h1>
+    <p>¿Tienes dudas? ¿Quieres ser parte de nuestro equipo? Estamos aquí para ti.</p>
   </div>
 
   <!-- Grid principal -->
@@ -28,7 +25,7 @@
           <option value="">Selecciona un asunto</option>
           <option>Soporte técnico</option>
           <option>Alianza empresarial</option>
-          <option>Ser profesional aliado</option>
+          <option>Quiero ser profesional aliado</option>
           <option>Prensa y medios</option>
           <option>Otro</option>
         </select>
@@ -37,8 +34,7 @@
         <textarea [(ngModel)]="formData.mensaje" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
       </div>
       <button class="btn-enviar" (click)="enviarMensaje()">Enviar mensaje →</button>
-      
-      <!-- Mensajes de estado -->
+
       <div class="mensaje-exito" *ngIf="enviado">
         ✨ ¡Mensaje enviado! Te responderemos pronto. ✨
       </div>
@@ -49,14 +45,14 @@
 
     <!-- Información de contacto -->
     <div class="info-card">
-      <h2>📍 Otros canales</h2>
-      
+      <h2>📍 Canales de atención</h2>
+
       <div class="info-item">
         <div class="info-icon">📧</div>
         <div>
           <h3>Email</h3>
-          <p>hola@ecobits.com</p>
-          <p>soporte@ecobits.com</p>
+          <p>hola@openpsy.com</p>
+          <p>soporte@openpsy.com</p>
         </div>
       </div>
 
@@ -78,41 +74,24 @@
         </div>
       </div>
 
-      <div class="info-item">
-        <div class="info-icon">📍</div>
-        <div>
-          <h3>Oficina principal</h3>
-          <p>Bogotá, Colombia</p>
-          <p>Calle 123 # 45-67</p>
+      <!-- Sección Trabaja con Nosotros integrada -->
+      <div class="trabaja-section">
+        <div class="trabaja-divider"></div>
+        <div class="trabaja-header">
+          <span class="trabaja-icono">🚀</span>
+          <h3>¿Quieres ser parte del equipo?</h3>
         </div>
-      </div>
-
-      <!-- Redes sociales -->
-      <div class="redes-section">
-        <h3>Síguenos</h3>
-        <div class="redes-icons">
-          <a href="#" class="red-social">📘</a>
-          <a href="#" class="red-social">🐦</a>
-          <a href="#" class="red-social">📸</a>
-          <a href="#" class="red-social">💼</a>
+        <p>Únete como profesional aliado y ayuda a transformar el bienestar digital</p>
+        <a routerLink="/registro" class="btn-trabaja">Regístrate como profesional →</a>
+        <div class="trabaja-nota">
+          <span>✨</span> Psicólogos, terapeutas, coaches y tecnólogos bienvenidos
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mapa simbólico -->
-  <div class="mapa-section">
-    <div class="mapa-card">
-      <div class="mapa-icono">🌎❤️</div>
-      <p>Estamos donde nos necesites. EcoBits tiene presencia digital en todo el mundo.</p>
-      <div class="mapa-simbolico">
-        <span>🌍</span> <span>🌎</span> <span>🌏</span>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="footer-contacto">
-    <p>💚 EcoBits - Tu bienestar, nuestra prioridad 💚</p>
+    <p>💚 OpenPsy - Tu bienestar, nuestra prioridad 💚</p>
   </div>
 </div>

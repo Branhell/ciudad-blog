@@ -1,104 +1,223 @@
-<div class="hero-cinematic">
-  <div class="hero-bg-animation"></div>
-  <div class="hero-content">
-    <span class="hero-badge">🚀 El futuro comienza hoy</span>
-    <h1>Transformando la salud mental<br>en las organizaciones</h1>
-    <p>EcoBits está construyendo el ecosistema líder en bienestar laboral y tecnología emocional</p>
+<!-- Banner principal - Empresas con Parallax -->
+<section class="hero-empresas">
+  <div class="parallax-container">
+    <div class="parallax-layer layer-1"></div>
+    <div class="parallax-layer layer-2"></div>
+    <div class="parallax-layer layer-3"></div>
+    <div class="parallax-layer layer-4"></div>
+    <div class="parallax-overlay"></div>
+  </div>
+  
+  <div class="hero-contenido">
+    <div class="hero-badge">✨ Open Psychology - Soluciones Empresariales ✨</div>
+    <h1>Bienestar digital para tu <span class="gradient">equipo</span></h1>
+    <p>Transforma la salud mental de tus colaboradores con nuestra plataforma integral.<br>Más productividad, menos estrés, mejor clima laboral.</p>
+    
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-number">+50</div>
-        <div class="stat-label">Empresas interesadas</div>
+        <span class="num">+94%</span>
+        <span class="label">recomiendan nuestros servicios</span>
       </div>
       <div class="stat">
-        <div class="stat-number">+10k</div>
-        <div class="stat-label">Colaboradores impactados</div>
+        <span class="num">24/7</span>
+        <span class="label">apoyo continuo</span>
       </div>
       <div class="stat">
-        <div class="stat-number">2025</div>
-        <div class="stat-label">Lanzamiento oficial</div>
+        <span class="num">-40%</span>
+        <span class="label">reducción de burnout</span>
+      </div>
+    </div>
+    
+    <div class="hero-buttons">
+      <button class="btn-primario" (click)="irALogin()">Comenzar ahora →</button>
+      <button class="btn-secundario" (click)="irAContactoEmpresa()">Solicitar información</button>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios para empresas -->
+<section class="servicios-empresas">
+  <div class="container">
+    <h2 class="section-title">Soluciones <span class="gradient">integrales</span> para tu empresa</h2>
+    <p class="section-subtitle">Diseñadas para cuidar el bienestar de tu equipo</p>
+
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="card-icono">📊</div>
+        <h3>Evaluación de clima laboral</h3>
+        <p>Análisis anónimo del estado emocional de tus colaboradores con métricas accionables.</p>
+        <span class="card-tag">Dashboard en tiempo real</span>
+      </div>
+
+      <div class="servicio-card">
+        <div class="card-icono">🎓</div>
+        <h3>Certificaciones para RH</h3>
+        <p>Capacitación certificada para líderes y equipos de recursos humanos en bienestar digital.</p>
+        <span class="card-tag">Certificación oficial</span>
+      </div>
+
+      <div class="servicio-card">
+        <div class="card-icono">🎥</div>
+        <h3>Webinars exclusivos</h3>
+        <p>Sesiones en vivo con psicólogos expertos en salud laboral y tecnología.</p>
+        <span class="card-tag">Grabaciones incluidas</span>
+      </div>
+
+      <div class="servicio-card">
+        <div class="card-icono">📈</div>
+        <h3>Informes de salud organizacional</h3>
+        <p>Reportes trimestrales con métricas anónimas y recomendaciones estratégicas.</p>
+        <span class="card-tag">Métricas personalizadas</span>
+      </div>
+
+      <div class="servicio-card">
+        <div class="card-icono">🆘</div>
+        <h3>Línea de apoyo 24/7</h3>
+        <p>Atención psicológica inmediata para tus empleados, disponible todos los días.</p>
+        <span class="card-tag">Respuesta en minutos</span>
+      </div>
+
+      <div class="servicio-card">
+        <div class="card-icono">📱</div>
+        <h3>Programa de adicción digital</h3>
+        <p>Plan estructurado para reducir el uso problemático de tecnología en el trabajo.</p>
+        <span class="card-tag">8 semanas de duración</span>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="vision-section">
-  <div class="vision-grid">
-    <div class="vision-card">
-      <div class="vision-icon">🎯</div>
-      <h3>Nuestra Misión</h3>
-      <p>Revolucionar la salud mental empresarial a través de tecnología innovadora y acompañamiento humano de calidad.</p>
-    </div>
-    <div class="vision-card">
-      <div class="vision-icon">🌟</div>
-      <h3>Nuestra Visión</h3>
-      <p>Ser el aliado estratégico número uno para empresas que buscan equipos más saludables, felices y productivos.</p>
-    </div>
-    <div class="vision-card">
-      <div class="vision-icon">💎</div>
-      <h3>Nuestros Valores</h3>
-      <p>Innovación, empatía, excelencia, confianza y compromiso con el bienestar integral.</p>
+<!-- Paquetes y precios -->
+<section class="paquetes-empresas">
+  <div class="container">
+    <h2 class="section-title">Planes <span class="gradient">diseñados</span> para tu empresa</h2>
+    <p class="section-subtitle">Elige el plan que mejor se adapte a tus necesidades</p>
+
+    <div class="paquetes-grid">
+      <div class="paquete-card">
+        <div class="paquete-header">
+          <span class="paquete-icono">🌱</span>
+          <h3>Plan Básico</h3>
+        </div>
+        <div class="paquete-precio">
+          <span class="precio">Solicitar</span>
+          <span class="periodo">cotización</span>
+        </div>
+        <ul class="paquete-caracteristicas">
+          <li>✓ Evaluación de clima laboral</li>
+          <li>✓ 2 webinars al mes</li>
+          <li>✓ Informe trimestral</li>
+          <li>✓ Acceso a recursos digitales</li>
+        </ul>
+        <button class="btn-cotizar" (click)="irAContactoEmpresa()">Solicitar cotización →</button>
+      </div>
+
+      <div class="paquete-card destacado">
+        <div class="paquete-badge">Más popular</div>
+        <div class="paquete-header">
+          <span class="paquete-icono">🚀</span>
+          <h3>Plan Corporativo</h3>
+        </div>
+        <div class="paquete-precio">
+          <span class="precio">Solicitar</span>
+          <span class="periodo">cotización</span>
+        </div>
+        <ul class="paquete-caracteristicas">
+          <li>✓ Todo el Plan Básico</li>
+          <li>✓ Línea de apoyo 24/7</li>
+          <li>✓ Certificaciones para RH</li>
+          <li>✓ Dashboard ejecutivo</li>
+          <li>✓ Asesoría personalizada</li>
+        </ul>
+        <button class="btn-cotizar" (click)="irAContactoEmpresa()">Solicitar cotización →</button>
+      </div>
+
+      <div class="paquete-card">
+        <div class="paquete-header">
+          <span class="paquete-icono">⭐</span>
+          <h3>Plan Personalizado</h3>
+        </div>
+        <div class="paquete-precio">
+          <span class="precio">Solicitar</span>
+          <span class="periodo">cotización</span>
+        </div>
+        <ul class="paquete-caracteristicas">
+          <li>✓ Todos los servicios incluidos</li>
+          <li>✓ Programa a tu medida</li>
+          <li>✓ Implementación completa</li>
+          <li>✓ Soporte prioritario</li>
+          <li>✓ Consultoría dedicada</li>
+        </ul>
+        <button class="btn-cotizar" (click)="irAContactoEmpresa()">Solicitar cotización →</button>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="pilares-section">
-  <div class="pilares-header">
-    <h2>🏛️ Pilares de nuestro ecosistema</h2>
-    <p>Construyendo el futuro, hoy</p>
-  </div>
-  <div class="pilares-grid">
-    <div class="pilar">
-      <div class="pilar-icon">📚</div>
-      <h4>Capacitación</h4>
-      <p>Cursos, talleres y certificaciones para equipos</p>
-    </div>
-    <div class="pilar">
-      <div class="pilar-icon">💚</div>
-      <h4>Acompañamiento</h4>
-      <p>Terapia y coaching psicológico profesional</p>
-    </div>
-    <div class="pilar">
-      <div class="pilar-icon">🤖</div>
-      <h4>Tecnología</h4>
-      <p>Plataforma digital con IA y análisis de datos</p>
-    </div>
-    <div class="pilar">
-      <div class="pilar-icon">🤝</div>
-      <h4>Comunidad</h4>
-      <p>Networking y eventos exclusivos para partners</p>
-    </div>
-  </div>
-</div>
-
-<div class="oportunidades-section">
-  <div class="oportunidades-container">
-    <div class="oportunidad-card">
-      <h3>🚀 ¿Eres empresa?</h3>
-      <p>Sé parte de los primeros aliados estratégicos de EcoBits. Beneficios exclusivos para pioneros:</p>
-      <ul class="lista-beneficios">
-        <li>Descuentos del 40% en planes anuales</li>
-        <li>Asesoría personalizada gratuita</li>
-        <li>Participación en programa piloto</li>
-        <li>Visibilidad en nuestros canales</li>
-      </ul>
-      <a routerLink="/registro" class="btn-oportunidad">Quiero ser aliado →</a>
-    </div>
-    <div class="oportunidad-card">
-      <h3>🧠 ¿Eres profesional?</h3>
-      <p>Forma parte de nuestra red de expertos y lleva tu carrera al siguiente nivel:</p>
-      <ul class="lista-beneficios">
-        <li>Acceso a plataforma tecnológica</li>
-        <li>Capacitación continua gratuita</li>
-        <li>Visibilidad ante empresas</li>
-        <li>Networking con líderes del sector</li>
-      </ul>
-      <a routerLink="/registro" class="btn-oportunidad">Quiero unirme →</a>
+<!-- Filosofía OpenPsy para empresas -->
+<section class="filosofia-empresas">
+  <div class="container">
+    <div class="filosofia-card">
+      <div class="filosofia-icono">💼</div>
+      <h2>Empresas que <span class="gradient">cuidan a su equipo</span></h2>
+      <p>En OpenPsy, creemos que el bienestar digital de los colaboradores es el motor del éxito empresarial. Nuestros servicios están respaldados por <strong>psicólogos, neurocientíficos y tecnólogos</strong> con amplia experiencia en entornos laborales.</p>
+      
+      <div class="filosofia-pilares">
+        <div class="pilar">
+          <span>📋</span>
+          <h4>Datos anónimos</h4>
+          <p>Métricas agregadas para proteger la privacidad</p>
+        </div>
+        <div class="pilar">
+          <span>🔒</span>
+          <h4>Seguridad total</h4>
+          <p>Estándares empresariales de protección</p>
+        </div>
+        <div class="pilar">
+          <span>🌍</span>
+          <h4>Equipos remotos</h4>
+          <p>Disponible donde sea que trabajes</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="cta-final">
-  <h2>¿Listo para transformar tu organización?</h2>
-  <p>El futuro de la salud mental empresarial comienza con una conversación</p>
-  <a routerLink="/contacto" class="btn-cta-glow">Agendar asesoría gratuita →</a>
-</div>
+<!-- Estadísticas de confianza -->
+<section class="confianza-empresas">
+  <div class="container">
+    <div class="confianza-grid">
+      <div class="confianza-item">
+        <span class="numero">+2,400</span>
+        <span class="texto">personas atendidas</span>
+      </div>
+      <div class="confianza-item">
+        <span class="numero">94%</span>
+        <span class="texto">recomienda nuestros servicios</span>
+      </div>
+      <div class="confianza-item">
+        <span class="numero">24/7</span>
+        <span class="texto">apoyo continuo</span>
+      </div>
+      <div class="confianza-item">
+        <span class="numero">+50</span>
+        <span class="texto">profesionales aliados</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-empresas">
+  <div class="container">
+    <div class="cta-card">
+      <h2>¿Listo para transformar el bienestar de tu equipo?</h2>
+      <p>Únete a las empresas que ya están mejorando la salud digital de sus colaboradores</p>
+      <div class="cta-buttons">
+        <button class="btn-primario" (click)="irALogin()">Crear cuenta empresa →</button>
+        <button class="btn-secundario" (click)="irAContactoEmpresa()">Hablar con asesor</button>
+      </div>
+      <div class="cta-nota">Sin compromiso | Planes flexibles | Adaptado a tu empresa</div>
+    </div>
+  </div>
+</section>

@@ -1,451 +1,856 @@
-/* Carrusel */
-.carrusel-container {
-  position: relative;
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-  margin-top: 70px;
-  margin-bottom: 40px;
+/* ==============================================
+   SERVICIOS - EcoBits
+   Basado en Bitácora Maestra
+   ============================================== */
+
+/* Contenedor principal */
+:host {
+  display: block;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
+  min-height: 100vh;
 }
 
-.carrusel-slides {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease;
-}
-
-.carrusel-slide {
-  min-width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.carrusel-imagen {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carrusel-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-  padding: 50px 50px 40px;
-  color: white;
-}
-
-.carrusel-categoria {
-  display: inline-block;
-  background: #FFB703;
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.carrusel-titulo {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.carrusel-descripcion {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-bottom: 20px;
-  max-width: 500px;
-}
-
-.carrusel-btn {
-  display: inline-block;
-  padding: 8px 24px;
-  background: white;
-  color: #FFB703;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.8rem;
-}
-
-.carrusel-btn-prev, .carrusel-btn-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.carrusel-btn-prev { left: 20px; }
-.carrusel-btn-next { right: 20px; }
-
-.carrusel-indicadores {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.indicador {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-}
-
-.indicador.active {
-  background: #FFB703;
-  width: 24px;
-  border-radius: 10px;
-}
-
-/* Acordeón Horizontal */
-.acordeon-horizontal {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin: 40px auto 80px auto;
-  flex-wrap: wrap;
+.container {
   max-width: 1200px;
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-.acordeon-item-horizontal {
-  position: relative;
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+  color: white;
 }
 
-.acordeon-btn-horizontal {
+.section-title .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #E0E0E0;
+  margin-bottom: 48px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ==============================================
+   BANNER PRINCIPAL - FONDO COMPLETO
+   ============================================== */
+
+.servicios-banner {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  background: transparent;
-  border: 1.5px solid #FFB703;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.banner-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(26,26,26,0.85));
+  z-index: 1;
+}
+
+.banner-contenido {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 800px;
+  padding: 40px;
+}
+
+.banner-badge {
+  display: inline-block;
+  background: rgba(255, 183, 3, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 20px;
   border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
   color: #FFB703;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+}
+
+.banner-contenido h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.banner-contenido h1 .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Texto "Servicios de" en color plata */
+.banner-contenido h1 .text-plata {
+  background: linear-gradient(135deg, #E8E8E8, #C0C0C0, #A8A8A8, #C0C0C0, #E8E8E8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: plataShine 3s ease infinite;
+}
+
+@keyframes plataShine {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+
+.banner-contenido p {
+  font-size: 1.1rem;
+  color: #E0E0E0;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.banner-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.banner-stats .stat {
+  text-align: center;
+}
+
+.banner-stats .stat .num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.banner-stats .stat .label {
+  font-size: 0.7rem;
+  color: #B0B0B0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ==============================================
+   ACORDEÓN MEJORADO
+   ============================================== */
+
+.categorias-servicios {
+  padding: 80px 0;
+}
+
+.acordeon-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.acordeon-card {
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 183, 3, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.acordeon-card:hover {
+  border-color: rgba(255, 183, 3, 0.5);
+}
+
+.acordeon-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.acordeon-header:hover {
+  background: rgba(255, 183, 3, 0.1);
+}
+
+.acordeon-icono {
+  font-size: 2rem;
+}
+
+.acordeon-header h3 {
+  flex: 1;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+}
+
+.acordeon-arrow {
+  font-size: 0.8rem;
+  color: #FFB703;
+}
+
+.acordeon-body {
+  padding: 0 24px 24px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.items-grid .item {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #E0E0E0;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.acordeon-btn-horizontal:hover {
-  background: #FFB703;
-  color: white;
-  transform: translateY(-2px);
-}
-
-.acordeon-icon {
-  font-size: 0.7rem;
-}
-
-.acordeon-contenido-horizontal {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  min-width: 280px;
-  margin-top: 8px;
-}
-
-.acordeon-contenido-horizontal.abierto {
-  max-height: 400px;
-  overflow-y: auto;
-  padding: 16px 20px;
-}
-
-.acordeon-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.acordeon-grid span {
-  padding: 6px 0;
-  font-size: 0.8rem;
-  color: #1A1A1A;
-  cursor: pointer;
-  transition: color 0.2s;
-  border-bottom: 1px dashed #1A1A1A;
-}
-
-.acordeon-grid span:hover {
+.items-grid .item:hover {
+  background: rgba(255, 183, 3, 0.2);
   color: #FFB703;
+  transform: translateX(5px);
 }
 
-.mas-link {
-  color: #FFB703 !important;
-  font-weight: 600;
-  grid-column: span 2;
+/* ==============================================
+   FILOSOFÍA ECOBITS
+   ============================================== */
+
+.filosofia-ecobits {
+  padding: 60px 0;
+}
+
+.filosofia-card {
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 48px;
+  padding: 50px;
   text-align: center;
-  border-bottom: none !important;
+  border: 1px solid rgba(255, 183, 3, 0.2);
 }
 
-.mas-link:hover {
-  color: #FFB703 !important;
-}
-
-/* Contenedor para contenido adicional */
-.contenido-adicional {
-  max-width: 1200px;
-  margin: 0 auto 60px auto;
-  padding: 0 20px;
-  min-height: 200px;
-}
-
-/* Asegurar scroll en toda la página */
-:host {
-  display: block;
-  min-height: 100vh;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .carrusel-container {
-    height: 350px;
-  }
-
-  .carrusel-overlay {
-    padding: 30px;
-  }
-
-  .carrusel-titulo {
-    font-size: 1.3rem;
-  }
-
-  .acordeon-horizontal {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 60px;
-  }
-
-  .acordeon-btn-horizontal {
-    width: 200px;
-    justify-content: center;
-  }
-
-  .acordeon-contenido-horizontal.abierto {
-    position: relative;
-    width: 100%;
-  }
-  
-  .contenido-adicional {
-    margin-bottom: 40px;
-  }
-}
-/* Sección: Sobre los Servicios de EcoBits */
-.sobre-servicios {
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  padding: 60px 24px;
-  margin: 40px auto;
-  border-radius: 32px;
-  max-width: 1200px;
-}
-
-.sobre-servicios-contenido {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.sobre-titulo {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #1a2a3a;
-  text-align: center;
+.filosofia-icono {
+  font-size: 4rem;
   margin-bottom: 24px;
-  letter-spacing: -0.3px;
 }
 
-.sobre-descripcion {
+.filosofia-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.filosofia-card p {
   font-size: 1rem;
+  color: #E0E0E0;
   line-height: 1.7;
-  color: #1A1A1A;
-  text-align: center;
-  margin-bottom: 48px;
+  max-width: 700px;
+  margin: 0 auto 40px;
 }
 
-.caracteristicas-grid {
+.filosofia-pilares {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
-  margin-bottom: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
 }
 
-.caracteristica {
+.pilar {
   text-align: center;
-  padding: 24px;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  padding: 20px;
 }
 
-.caracteristica:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 180, 216, 0.08);
-}
-
-.caracteristica-icono {
+.pilar span {
   font-size: 2.5rem;
-  margin-bottom: 16px;
-}
-
-.caracteristica h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1a2a3a;
+  display: block;
   margin-bottom: 12px;
 }
 
-.caracteristica p {
-  font-size: 0.85rem;
-  color: #6c757d;
-  line-height: 1.5;
-}
-
-.cita-destacada {
-  background: #f0fdf4;
-  padding: 32px;
-  border-radius: 28px;
-  text-align: center;
-  margin-bottom: 48px;
-  border-left: 4px solid #FFB703;
-}
-
-.cita-destacada p {
+.pilar h4 {
   font-size: 1.1rem;
+  font-weight: 600;
+  color: #FFB703;
+  margin-bottom: 8px;
+}
+
+.pilar p {
+  font-size: 0.8rem;
+  color: #B0B0B0;
+  margin: 0;
+}
+
+/* ==============================================
+   CITA DESTACADA
+   ============================================== */
+
+.cita-destacada-servicios {
+  padding: 40px 0;
+}
+
+.cita-card {
+  background: linear-gradient(135deg, rgba(255, 183, 3, 0.1), rgba(255, 183, 3, 0.05));
+  border-radius: 32px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+}
+
+.cita-card p {
+  font-size: 1.2rem;
   font-style: italic;
-  color: #2d3748;
+  color: #E0E0E0;
   line-height: 1.6;
   margin-bottom: 16px;
 }
 
-.cita-destacada span {
+.cita-card span {
   font-size: 0.8rem;
   color: #FFB703;
   font-weight: 500;
 }
 
-.enfoque-cultural {
-  margin-bottom: 48px;
+/* ==============================================
+   PORTFOLIO DE SERVICIOS
+   ============================================== */
+
+.portfolio-servicios {
+  padding: 80px 0;
 }
 
-.enfoque-cultural h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1a2a3a;
-  margin-bottom: 20px;
-  text-align: center;
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
-.enfoque-cultural p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #1A1A1A;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.llamada-final {
-  text-align: center;
-  padding: 32px;
-  background: linear-gradient(135deg, #e6f7ff, #e8f5e9);
-  border-radius: 28px;
-}
-
-.llamada-final p {
-  font-size: 1rem;
-  color: #2d3748;
-}
-
-.llamada-final strong {
-  color: #FFB703;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .sobre-servicios {
-    padding: 40px 20px;
-  }
-  
-  .sobre-titulo {
-    font-size: 1.4rem;
-  }
-  
-  .caracteristicas-grid {
-    gap: 20px;
-  }
-  
-  .cita-destacada p {
-    font-size: 0.95rem;
-  }
-}
-/* Tarjetas con imagen de fondo difuminada */
-.caracteristica-imagen {
-  position: relative;
-  background-size: cover;
-  background-position: center;
+.servicio-card {
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   overflow: hidden;
-  min-height: 280px;
   transition: all 0.3s ease;
-  filter: brightness(0.95);
+  border: 1px solid rgba(255, 183, 3, 0.2);
 }
 
-.caracteristica-imagen:hover {
-  transform: translateY(-6px);
-  filter: brightness(1);
+.servicio-card:hover {
+  transform: translateY(-8px);
+  border-color: #FFB703;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.caracteristica-overlay {
+.servicio-imagen {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
   position: relative;
-  background: rgba(255, 255, 255, 0.1); /* Más transparente para ver la imagen */
-  backdrop-filter: blur(2px); /* Menos desenfoque */
-  padding: 28px 20px;
-  height: 100%;
-  text-align: center;
-  transition: all 0.3s ease;
+}
+
+.servicio-categoria {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
   color: white;
 }
 
-.caracteristica-imagen:hover .caracteristica-overlay {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(4px);
+.servicio-info {
+  padding: 24px;
 }
 
-.caracteristica-icono {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-}
-
-.caracteristica-overlay h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1a2a3a;
+.servicio-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
   margin-bottom: 12px;
 }
 
-.caracteristica-overlay p {
+.servicio-info p {
   font-size: 0.85rem;
-  color: #1A1A1A;
+  color: #B0B0B0;
   line-height: 1.5;
+  margin-bottom: 16px;
 }
 
+.servicio-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 
+.precio {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFB703;
+}
+
+.duracion {
+  font-size: 0.8rem;
+  color: #B0B0B0;
+}
+
+.btn-servicio {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #FFB703;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFB703;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-servicio:hover {
+  background: #FFB703;
+  color: #1A1A1A;
+}
+
+/* ==============================================
+   CTA FINAL
+   ============================================== */
+
+.cta-servicios {
+  padding: 80px 0;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, rgba(255, 183, 3, 0.15), rgba(255, 183, 3, 0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 48px;
+  padding: 60px;
+  text-align: center;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+}
+
+.cta-card h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.cta-card p {
+  font-size: 1rem;
+  color: #E0E0E0;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.btn-primario {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #FFB703, #1A1A1A);
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primario:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 183, 3, 0.3);
+}
+
+.btn-secundario {
+  padding: 14px 32px;
+  background: transparent;
+  border: 2px solid #FFB703;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #FFB703;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+  background: rgba(255, 183, 3, 0.1);
+  transform: translateY(-3px);
+}
+
+.cta-garantia {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.cta-garantia span {
+  font-size: 0.8rem;
+  color: #B0B0B0;
+}
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+
+@media (max-width: 768px) {
+  .banner-contenido h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner-stats {
+    gap: 24px;
+  }
+
+  .filosofia-card {
+    padding: 30px 20px;
+  }
+
+  .filosofia-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .filosofia-pilares {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cta-card {
+    padding: 40px 25px;
+  }
+
+  .cta-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .filosofia-pilares {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primario, .btn-secundario {
+    width: 100%;
+  }
+}
+
+/* ==============================================
+   ANIMACIONES FADE IN UP (como Eventos y Empresas)
+   ============================================== */
+
+.banner-badge {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.banner-contenido h1 {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.banner-contenido p {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+
+.banner-stats {
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.6s;
+}
+
+.stat {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.stat:nth-child(1) { animation-delay: 0.8s; }
+.stat:nth-child(2) { animation-delay: 1s; }
+.stat:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================================
+   ACORDEÓN MEJORADO - CON MÁS VIDA Y COLOR
+   ============================================== */
+
+.categorias-servicios {
+  padding: 60px 0;
+}
+
+.acordeon-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Tarjeta del acordeón */
+.acordeon-card {
+  background: rgba(20, 20, 30, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 183, 3, 0.2);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.acordeon-card:hover {
+  border-color: rgba(255, 183, 3, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.acordeon-card.active {
+  border-color: #FFB703;
+  box-shadow: 0 10px 30px rgba(255, 183, 3, 0.15);
+}
+
+/* Header del acordeón */
+.acordeon-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.acordeon-header:hover {
+  background: linear-gradient(90deg, rgba(255, 183, 3, 0.08), transparent);
+}
+
+.acordeon-icono {
+  font-size: 2.2rem;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.acordeon-card:hover .acordeon-icono {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.acordeon-header h3 {
+  flex: 1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.acordeon-arrow {
+  font-size: 0.9rem;
+  color: #FFB703;
+  transition: all 0.3s ease;
+  background: rgba(255, 183, 3, 0.15);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.acordeon-card.active .acordeon-arrow {
+  background: #FFB703;
+  color: #1A1A1A;
+  transform: rotate(180deg);
+}
+
+/* Body del acordeón - contenido desplegado */
+.acordeon-body {
+  animation: slideDown 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid de items */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 0 28px 28px 28px;
+}
+
+/* Cada item individual */
+.items-grid .item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 183, 3, 0.03));
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: #E0E0E0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 183, 3, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de brillo al hover */
+.items-grid .item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 183, 3, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.items-grid .item:hover::before {
+  left: 100%;
+}
+
+.items-grid .item:hover {
+  background: linear-gradient(135deg, rgba(255, 183, 3, 0.15), rgba(255, 183, 3, 0.05));
+  color: #FFD966;
+  transform: translateX(5px);
+  border-color: rgba(255, 183, 3, 0.4);
+}
+
+/* Agregar un pequeño ícono antes de cada item */
+.items-grid .item::after {
+  content: '✨';
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-left: auto;
+}
+
+.items-grid .item:hover::after {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+/* Colores especiales para categorías (opcional) */
+.acordeon-card[data-tipo="terapias"] .acordeon-icono {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.acordeon-card[data-tipo="servicios"] .acordeon-icono {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.acordeon-card[data-tipo="especialidades"] .acordeon-icono {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* Scroll personalizado para el contenido si es muy largo */
+.acordeon-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.acordeon-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.acordeon-body::-webkit-scrollbar-thumb {
+  background: #FFB703;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .acordeon-header {
+    padding: 16px 20px;
+  }
+  
+  .acordeon-icono {
+    font-size: 1.8rem;
+  }
+  
+  .acordeon-header h3 {
+    font-size: 1rem;
+  }
+  
+  .items-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px 20px 20px;
+    gap: 8px;
+  }
+  
+  .items-grid .item {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}

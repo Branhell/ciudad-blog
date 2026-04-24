@@ -1,20 +1,12 @@
-<div class="oracle-container">
-  <!-- Partículas flotantes -->
-  <div class="particles"></div>
-  
-  <!-- Hero místico -->
-  <div class="hero-oracle">
-    <div class="oracle-glow"></div>
-    <h1 class="oracle-title">🔮 EL ORÁCULO DE ECOBITS 🔮</h1>
-    <p>Todas las respuestas que buscas, en un solo lugar</p>
-    <div class="hero-badges">
-      <span>🌍 Para todos</span>
-      <span>🧠 Sin límites</span>
-      <span>✨ Sabiduría digital</span>
-    </div>
+<div class="faq-container">
+  <!-- Hero -->
+  <div class="hero-faq">
+    <div class="hero-icon">❓✨</div>
+    <h1>Preguntas <span class="gradient">Frecuentes</span></h1>
+    <p>Respuestas a las dudas más comunes sobre OpenPsy</p>
   </div>
 
-  <!-- Grid de preguntas mágicas -->
+  <!-- Grid de preguntas -->
   <div class="faq-grid">
     <div class="faq-card" *ngFor="let p of preguntas" [class.open]="p.abierta">
       <div class="faq-question" (click)="togglePregunta(p.id)">
@@ -32,9 +24,9 @@
   </div>
 
   <!-- CTA final -->
-  <div class="cta-oracle">
+  <div class="cta-faq">
     <h2>¿No encuentras lo que buscas?</h2>
-    <p>Pregúntale directamente al universo (o a nuestro soporte)</p>
-    <a routerLink="/contacto" class="btn-oracle">Contactar al oráculo →</a>
+    <p>Estamos aquí para ayudarte</p>
+    <a routerLink="/contacto" class="btn-faq">Contactar soporte →</a>
   </div>
 </div>

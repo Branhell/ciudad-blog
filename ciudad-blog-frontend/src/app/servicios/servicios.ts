@@ -1,11 +1,10 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-servicios',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './servicios.html',
   styleUrls: ['./servicios.css']
 })
@@ -16,7 +15,7 @@ export class Servicios implements OnInit {
 
   slideActual: number = 0;
   intervalo: any;
-  acordeonAbierto: string | null = null;
+  acordeonActivo: string | null = null;
 
   constructor(private el: ElementRef) {}
 
@@ -29,7 +28,7 @@ export class Servicios implements OnInit {
   onClickOutside(event: MouseEvent) {
     const clickedInside = this.el.nativeElement.querySelector('.acordeon-horizontal')?.contains(event.target);
     if (!clickedInside) {
-      this.acordeonAbierto = null;
+      this.acordeonActivo = null;
     }
   }
 
@@ -109,6 +108,8 @@ export class Servicios implements OnInit {
     this.slideActual = index;
   }
 
+  acordeonAbierto: string | null = null;
+ 
   toggleAcordeon(nombre: string) {
     if (this.acordeonAbierto === nombre) {
       this.acordeonAbierto = null;
@@ -118,12 +119,12 @@ export class Servicios implements OnInit {
   }
 
   abrirAcordeon(nombre: string) {
-    this.acordeonAbierto = nombre;
+    this.acordeonActivo = nombre;
   }
 
   cerrarAcordeon(nombre: string) {
-    if (this.acordeonAbierto === nombre) {
-      this.acordeonAbierto = null;
+    if (this.acordeonActivo === nombre) {
+      this.acordeonActivo = null;
     }
   }
 
@@ -136,5 +137,9 @@ export class Servicios implements OnInit {
       'Evaluación': '📊'
     };
     return iconos[categoria] || '✨';
+  }
+
+  irAlForo() {
+    window.location.href = 'http://localhost:4200/foro';
   }
 }

@@ -1,46 +1,62 @@
-<!-- Hero Parallax -->
-<div class="hero-parallax">
+<!-- Banner Parallax - Estilo OpenPsy -->
+<section class="hero-eventos">
+  <div class="parallax-container">
+    <div class="parallax-layer layer-1"></div>
+    <div class="parallax-layer layer-2"></div>
+    <div class="parallax-layer layer-3"></div>
+    <div class="parallax-overlay"></div>
+  </div>
+  
   <div class="hero-content">
-    <h1>✨ Eventos EcoBits ✨</h1>
-    <p>Donde la tecnología y el bienestar se encuentran</p>
-    <div>
-      <span class="hero-badge">🎤 Conferencias</span>
-      <span class="hero-badge">🤝 Networking</span>
-      <span class="hero-badge">🧠 Workshops</span>
+    <div class="hero-badge">✨ Open Psychology - Eventos ✨</div>
+    <h1>Conecta, <span class="gradient">aprende y crece</span></h1>
+    <p>Descubre los próximos eventos diseñados para tu bienestar digital y profesional</p>
+    <div class="hero-stats">
+      <span>Conferencias</span>
+      <span>Networking</span>
+      <span>Workshops</span>
+      <span>Webinars</span>
     </div>
   </div>
-</div>
+</section>
 
 <!-- Pestañas de categorías -->
 <div class="tabs-section">
   <div class="tabs-container">
-    <button class="tab-btn" [class.active]="categoriaActiva === 'todos'" (click)="filtrarEventos('todos')">📅 Todos</button>
-    <button class="tab-btn" [class.active]="categoriaActiva === 'salud'" (click)="filtrarEventos('salud')">🧠 Salud Mental</button>
-    <button class="tab-btn" [class.active]="categoriaActiva === 'tecnologia'" (click)="filtrarEventos('tecnologia')">💻 Tecnología</button>
-    <button class="tab-btn" [class.active]="categoriaActiva === 'negocios'" (click)="filtrarEventos('negocios')">🤝 Negocios</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'todos'" (click)="filtrarEventos('todos')">Todos</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'salud'" (click)="filtrarEventos('salud')">Salud Mental</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'tecnologia'" (click)="filtrarEventos('tecnologia')">Tecnología</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'negocios'" (click)="filtrarEventos('negocios')">Negocios</button>
+    <button class="tab-btn" [class.active]="categoriaActiva === 'bienestar'" (click)="filtrarEventos('bienestar')">✨ Bienestar</button>
   </div>
 </div>
 
-<!-- Línea de tiempo -->
+<!-- Línea de tiempo - Próximos Eventos -->
 <div class="timeline-section">
   <div class="timeline-header">
-    <h2>📅 Próximos Eventos</h2>
+    <h2>Próximos Eventos</h2>
     <p>Descubre las actividades que preparamos para ti</p>
+<div class="disclaimer-evento">
+  ⚡ Eventos creados por <strong>profesionales de Open Psychology</strong>. ¿Eres profesional? <strong>Crea tu evento desde tu dashboard</strong>.
+</div>
   </div>
 
   <div class="timeline">
     <div class="timeline-item" *ngFor="let evento of eventosTimeline">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <div>
+        <div class="timeline-meta">
           <span class="timeline-date">📅 {{ evento.fecha }}</span>
-          <span class="timeline-category" [style.background]="evento.categoria === 'salud' ? '#10b981' : evento.categoria === 'tecnologia' ? '#3b82f6' : '#8b5cf6'">
-            {{ evento.icono }} {{ evento.categoria === 'salud' ? 'Salud' : evento.categoria === 'tecnologia' ? 'Tecnología' : 'Negocios' }}
+          <span class="timeline-category" [style.background]="evento.color">
+            {{ evento.icono }} {{ evento.categoriaNombre }}
           </span>
         </div>
         <h3 class="timeline-title">{{ evento.titulo }}</h3>
         <p class="timeline-desc">{{ evento.descripcion }}</p>
-        <a routerLink="/registro" class="btn-registro" style="display: inline-block; margin-top: 15px; background: #3b82f6; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none;">📝 Registrarse →</a>
+        <div class="timeline-footer">
+          <span class="timeline-lugar">📍 {{ evento.lugar }}</span>
+          <button class="btn-registro" (click)="irARegistro()">📝 Registrarse →</button>
+        </div>
       </div>
     </div>
   </div>
@@ -49,8 +65,9 @@
 <!-- Newsletter -->
 <div class="newsletter-section">
   <div class="newsletter-container">
-    <h3>📧 No te pierdas ningún evento</h3>
-    <p>Suscríbete a nuestro newsletter y recibe información exclusiva sobre próximos eventos</p>
+    <div class="newsletter-icono">📧</div>
+    <h3>No te pierdas ningún evento</h3>
+    <p>Suscríbete a nuestro newsletter y recibe información exclusiva sobre próximos eventos de Open Psychology</p>
     <div class="newsletter-form">
       <input type="email" class="newsletter-input" [(ngModel)]="emailSuscripcion" placeholder="Tu correo electrónico">
       <button class="newsletter-btn" (click)="suscribirNewsletter()">Suscribirme →</button>
@@ -58,3 +75,12 @@
     <div class="mensaje-suscripcion" *ngIf="mensajeSuscripcion">{{ mensajeSuscripcion }}</div>
   </div>
 </div>
+
+<!-- CTA Final -->
+<section class="cta-eventos">
+  <div class="cta-container">
+    <h2>¿Quieres <span class="gradient">organizar tu evento</span> en Opsy?</h2>
+    <p>Si eres profesional o administrador, puedes crear y gestionar tus propios eventos</p>
+    <button class="btn-cta" (click)="irALogin()">Crear mi evento →</button>
+  </div>
+</section>
