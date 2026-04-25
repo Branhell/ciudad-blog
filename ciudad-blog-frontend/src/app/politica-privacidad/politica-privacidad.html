@@ -1,34 +1,42 @@
-<div class="shield-container">
-  <!-- Fondo de confianza -->
-  <div class="trust-bg"></div>
-
+<div class="privacidad-container">
   <!-- Hero -->
-  <div class="hero-shield">
-    <div class="shield-icon">🛡️</div>
-    <h1>Tu privacidad es sagrada</h1>
-    <p>En EcoBits tratamos tus datos con el respeto que mereces.</p>
+  <div class="hero-privacidad">
+    <div class="hero-badge">
+      <i class="fas fa-shield-alt"></i> Open Psychology
+    </div>
+    <h1>Política de <span class="gradient">Privacidad</span></h1>
+    <p>Tu confianza es nuestra prioridad. Conoce cómo protegemos tus datos.</p>
     <div class="trust-badges">
-      <span>✅ Cifrado SSL</span>
-      <span>🔐 JWT + HTTPS</span>
-      <span>🌍 Cumplimiento global</span>
+      <span><i class="fas fa-lock"></i> Cifrado SSL</span>
+      <span><i class="fas fa-key"></i> JWT + HTTPS</span>
+      <span><i class="fas fa-globe"></i> Cumplimiento global</span>
     </div>
   </div>
 
   <!-- Grid de secciones -->
-  <div class="grid-privacidad">
-    <div class="card-privacidad" *ngFor="let sec of secciones">
-      <div class="card-header">
-        <span class="card-icon">{{ sec.titulo.split(' ')[0] }}</span>
-        <h2>{{ sec.titulo }}</h2>
+  <div class="privacidad-grid">
+    <div class="privacidad-card" *ngFor="let sec of secciones; let i = index">
+      <div class="card-icon">
+        <i [class]="getIcono(i)"></i>
       </div>
+      <h2>{{ sec.titulo }}</h2>
       <p>{{ sec.texto }}</p>
     </div>
   </div>
 
-  <!-- CTA confianza -->
-  <div class="trust-footer">
-    <p>📧 ¿Dudas? Escríbenos a <strong>privacidad@ecobits.com</strong></p>
-    <p>📅 Última actualización: 1 de abril de 2026</p>
-    <a routerLink="/" class="btn-home">Volver al inicio →</a>
+  <!-- Fecha y contacto -->
+  <div class="privacidad-footer">
+    <div class="footer-content">
+      <div class="footer-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <p>¿Dudas sobre tu privacidad? Escríbenos a <strong>privacidad@openpsy.com</strong></p>
+      <p class="fecha-actualizacion">
+        <i class="fas fa-calendar-alt"></i> Última actualización: 25 de abril de 2026
+      </p>
+      <button class="btn-home" (click)="irAlInicio()">
+        <i class="fas fa-home"></i> Volver al inicio →
+      </button>
+    </div>
   </div>
 </div>

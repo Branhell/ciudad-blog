@@ -22,67 +22,67 @@ export class EventosComponent {
       descripcion: 'Charlas, talleres y actividades para promover el bienestar emocional. Contaremos con expertos nacionales e internacionales.',
       categoria: 'salud',
       categoriaNombre: 'Salud Mental',
-      icono: '??',
-      lugar: 'Online + Presencial (Bogota)',
+      icono: '🧠',
+      lugar: 'Online + Presencial (Bogotá)',
       color: '#10b981'
     },
     {
-      titulo: 'Tecnologia y Psicologia',
+      titulo: 'Tecnología y Psicología',
       fecha: '5 Julio 2024',
-      descripcion: 'Conferencia sobre innovacion tecnologica aplicada a la salud mental. Realidad virtual, apps y mas.',
+      descripcion: 'Conferencia sobre innovación tecnológica aplicada a la salud mental. Realidad virtual, apps y más.',
       categoria: 'tecnologia',
-      categoriaNombre: 'Tecnologia',
-      icono: '??',
-      lugar: 'Online via Zoom',
+      categoriaNombre: 'Tecnología',
+      icono: '💻',
+      lugar: 'Online vía Zoom',
       color: '#3b82f6'
     },
     {
       titulo: 'Mindfulness Digital',
       fecha: '22 Julio 2024',
-      descripcion: 'Aprende tecnicas de atencion plena en la era digital. Workshop practico con ejercicios guiados.',
+      descripcion: 'Aprende técnicas de atención plena en la era digital. Workshop práctico con ejercicios guiados.',
       categoria: 'bienestar',
       categoriaNombre: 'Bienestar',
-      icono: '??',
-      lugar: 'Centro OpenPsy - Medellin',
+      icono: '🧘',
+      lugar: 'Centro OpenPsy - Medellín',
       color: '#8b5cf6'
     },
     {
       titulo: 'Networking Profesional',
       fecha: '10 Agosto 2024',
-      descripcion: 'Conecta con psicologos, tecnologos y empresas del sector. Oportunidades de colaboracion.',
+      descripcion: 'Conecta con psicólogos, tecnólogos y empresas del sector. Oportunidades de colaboración.',
       categoria: 'negocios',
       categoriaNombre: 'Negocios',
-      icono: '??',
-      lugar: 'Hotel Dann Carlton - Bogota',
+      icono: '🤝',
+      lugar: 'Hotel Dann Carlton - Bogotá',
       color: '#f59e0b'
     },
     {
       titulo: 'Inteligencia Artificial en Terapia',
       fecha: '25 Agosto 2024',
-      descripcion: 'Descubre como la IA esta transformando la atencion psicologica. Casos practicos y demostraciones.',
+      descripcion: 'Descubre cómo la IA está transformando la atención psicológica. Casos prácticos y demostraciones.',
       categoria: 'tecnologia',
-      categoriaNombre: 'Tecnologia',
-      icono: '??',
+      categoriaNombre: 'Tecnología',
+      icono: '🤖',
       lugar: 'Online',
       color: '#3b82f6'
     },
     {
-      titulo: 'Burnout Laboral: Prevencion',
+      titulo: 'Burnout Laboral: Prevención',
       fecha: '5 Septiembre 2024',
-      descripcion: 'Taller practico para empresas sobre como prevenir el agotamiento laboral en equipos digitales.',
+      descripcion: 'Taller práctico para empresas sobre cómo prevenir el agotamiento laboral en equipos digitales.',
       categoria: 'bienestar',
       categoriaNombre: 'Bienestar',
-      icono: '?',
+      icono: '⚡',
       lugar: 'Online + Presencial',
       color: '#8b5cf6'
     },
     {
-      titulo: 'Workshop: Regulacion Emocional',
+      titulo: 'Workshop: Regulación Emocional',
       fecha: '18 Septiembre 2024',
-      descripcion: 'Aprende herramientas practicas para manejar la ansiedad y el estres en el entorno digital.',
+      descripcion: 'Aprende herramientas prácticas para manejar la ansiedad y el estrés en el entorno digital.',
       categoria: 'salud',
       categoriaNombre: 'Salud Mental',
-      icono: '??',
+      icono: '💚',
       lugar: 'Online',
       color: '#10b981'
     }
@@ -101,11 +101,11 @@ export class EventosComponent {
 
   suscribirNewsletter() {
     if (this.emailSuscripcion && this.emailSuscripcion.includes('@')) {
-      this.mensajeSuscripcion = '? !Gracias por suscribirte! Recibiras nuestros proximos eventos de OpenPsy.';
+      this.mensajeSuscripcion = '✅ ¡Gracias por suscribirte! Recibirás nuestros próximos eventos de OpenPsy.';
       this.emailSuscripcion = '';
       setTimeout(() => this.mensajeSuscripcion = '', 3000);
     } else {
-      this.mensajeSuscripcion = '? Ingresa un email valido';
+      this.mensajeSuscripcion = '❌ Ingresa un email válido';
       setTimeout(() => this.mensajeSuscripcion = '', 3000);
     }
   }
@@ -116,5 +116,16 @@ export class EventosComponent {
 
   irALogin() {
     window.location.href = 'http://localhost:4200/login';
+  }
+
+  // Método para obtener ícono según categoría
+  getIconoCategoria(categoria: string): string {
+    switch(categoria) {
+      case 'salud': return 'fas fa-brain';
+      case 'tecnologia': return 'fas fa-microchip';
+      case 'negocios': return 'fas fa-chart-line';
+      case 'bienestar': return 'fas fa-spa';
+      default: return 'fas fa-calendar-alt';
+    }
   }
 }

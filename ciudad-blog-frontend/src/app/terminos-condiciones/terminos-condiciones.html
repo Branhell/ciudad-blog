@@ -1,64 +1,54 @@
-<div class="pacto-container">
-  <!-- Fondo pergamino animado -->
-  <div class="pergamino-bg"></div>
-  
-  <!-- Sello flotante -->
-  <div class="floating-seal">⚖️</div>
-
+<div class="terminos-container">
   <!-- Hero -->
-  <div class="hero-pacto">
-    <div class="pacto-icon">📜✨</div>
-    <h1 class="pacto-title">EL PACTO DIGITAL</h1>
-    <p>Términos y condiciones escritos con transparencia, no con letra pequeña.</p>
-    <div class="pacto-badges">
-      <span>🤝 Confianza mutua</span>
-      <span>⚖️ Justicia digital</span>
-      <span>🔮 Transparencia</span>
+  <div class="hero-terminos">
+    <div class="hero-badge">
+      <i class="fas fa-gavel"></i> Open Psychology
+    </div>
+    <h1>Términos y <span class="gradient">Condiciones</span></h1>
+    <p>Lee con atención nuestro pacto digital. Transparencia y confianza para ti.</p>
+    <div class="trust-badges">
+      <span><i class="fas fa-handshake"></i> Confianza mutua</span>
+      <span><i class="fas fa-balance-scale"></i> Justicia digital</span>
+      <span><i class="fas fa-eye"></i> Transparencia</span>
     </div>
   </div>
 
   <!-- Acordeón de términos -->
-  <div class="acordeon-pacto">
+  <div class="acordeon-terminos">
     <div class="termino-card" *ngFor="let t of terminos" [class.open]="t.abierto">
       <div class="termino-header" (click)="toggleTermino(t.id)">
-        <span class="termino-icon">{{ t.abierto ? '🔓' : '🔒' }}</span>
+        <div class="termino-icon">
+          <i class="fas" [class.fa-chevron-circle-right]="!t.abierto" [class.fa-chevron-circle-down]="t.abierto"></i>
+        </div>
         <h3>{{ t.titulo }}</h3>
-        <span class="termino-arrow">{{ t.abierto ? '▲' : '▼' }}</span>
+        <div class="termino-arrow">
+          <i class="fas" [class.fa-chevron-down]="!t.abierto" [class.fa-chevron-up]="t.abierto"></i>
+        </div>
       </div>
       <div class="termino-body" *ngIf="t.abierto">
         <div class="termino-texto">
-          <span class="quote-icon">📖</span>
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
           <p>{{ t.texto }}</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Firma digital interactiva -->
-  <div class="firma-section" *ngIf="!aceptado">
-    <div class="firma-card">
-      <div class="firma-icon">🖊️✨</div>
-      <h2>Sella el pacto</h2>
-      <p>Al escribir tu nombre y correo, aceptas estos términos.</p>
-      <input type="text" [(ngModel)]="firmaNombre" placeholder="Tu nombre completo" class="firma-input">
-      <input type="email" [(ngModel)]="firmaEmail" placeholder="Tu correo electrónico" class="firma-input">
-      <button class="btn-firmar" (click)="aceptarPacto()">Firmar digitalmente →</button>
-    </div>
-  </div>
-
-  <!-- Mensaje de aceptación -->
-  <div class="aceptado-section" *ngIf="aceptado">
-    <div class="aceptado-card">
-      <div class="aceptado-icon">✅✨</div>
-      <h2>¡Pacto sellado!</h2>
-      <p>Gracias por confiar en EcoBits. Ahora eres parte de nuestra comunidad digital.</p>
-      <a routerLink="/" class="btn-home">Ir al inicio →</a>
-    </div>
-  </div>
-
   <!-- Footer -->
-  <div class="pacto-footer">
-    <p>📧 ¿Dudas? Escríbenos a <strong>legal@ecobits.com</strong></p>
-    <p>📅 Última actualización: 1 de abril de 2026</p>
+  <div class="terminos-footer">
+    <div class="footer-content">
+      <div class="footer-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <p>¿Dudas sobre estos términos? Escríbenos a <strong>legal@openpsy.com</strong></p>
+      <p class="fecha-actualizacion">
+        <i class="fas fa-calendar-alt"></i> Última actualización: 25 de abril de 2026
+      </p>
+      <button class="btn-home" (click)="irAlInicio()">
+        <i class="fas fa-home"></i> Volver al inicio →
+      </button>
+    </div>
   </div>
 </div>

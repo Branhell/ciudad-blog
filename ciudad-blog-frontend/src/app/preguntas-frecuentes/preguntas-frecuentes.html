@@ -1,22 +1,30 @@
 <div class="faq-container">
   <!-- Hero -->
   <div class="hero-faq">
-    <div class="hero-icon">❓✨</div>
+    <div class="hero-badge">
+      <i class="fas fa-question-circle"></i> Open Psychology
+    </div>
     <h1>Preguntas <span class="gradient">Frecuentes</span></h1>
-    <p>Respuestas a las dudas más comunes sobre OpenPsy</p>
+    <p>Respuestas claras y profesionales sobre nuestra plataforma</p>
   </div>
 
   <!-- Grid de preguntas -->
   <div class="faq-grid">
     <div class="faq-card" *ngFor="let p of preguntas" [class.open]="p.abierta">
       <div class="faq-question" (click)="togglePregunta(p.id)">
-        <div class="question-icon">{{ p.abierta ? '🔓' : '🔒' }}</div>
+        <div class="question-icon">
+          <i class="fas" [class.fa-chevron-circle-down]="!p.abierta" [class.fa-chevron-circle-up]="p.abierta"></i>
+        </div>
         <h3>{{ p.pregunta }}</h3>
-        <div class="question-arrow">{{ p.abierta ? '▲' : '▼' }}</div>
+        <div class="question-arrow">
+          <i class="fas" [class.fa-chevron-down]="!p.abierta" [class.fa-chevron-up]="p.abierta"></i>
+        </div>
       </div>
       <div class="faq-answer" *ngIf="p.abierta">
         <div class="answer-content">
-          <div class="answer-icon">✨</div>
+          <div class="answer-icon">
+            <i class="fas fa-comment-dots"></i>
+          </div>
           <p>{{ p.respuesta }}</p>
         </div>
       </div>
@@ -26,7 +34,9 @@
   <!-- CTA final -->
   <div class="cta-faq">
     <h2>¿No encuentras lo que buscas?</h2>
-    <p>Estamos aquí para ayudarte</p>
-    <a routerLink="/contacto" class="btn-faq">Contactar soporte →</a>
+    <p>Nuestro equipo de soporte está disponible para ayudarte</p>
+    <button class="btn-faq" (click)="irAContacto()">
+      <i class="fas fa-headset"></i> Contactar soporte →
+    </button>
   </div>
 </div>

@@ -14,21 +14,67 @@
   padding: 60px 20px;
 }
 
-/* Hero */
+/* ==============================================
+   HERO
+   ============================================== */
+
 .hero-contacto {
   text-align: center;
   margin-bottom: 50px;
+  position: relative;
 }
 
-.hero-icon {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-  animation: floatIcon 3s ease-in-out infinite;
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #E8E8E8, #808080, #505050);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.hero-badge:hover {
+  transform: scale(1.05);
+  letter-spacing: 2px;
+}
+
+.hero-badge::before {
+  content: '✨';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.hero-badge:hover::before {
+  opacity: 1;
+  left: -25px;
+}
+
+.hero-badge i {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #E8E8E8, #808080, #505050);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 .hero-contacto h1 {
@@ -46,10 +92,14 @@
 
 .hero-contacto p {
   font-size: 1.1rem;
-  color: #B0B0B0;
+  color: #E0E0E0;
+  font-weight: 500;
 }
 
-/* Grid principal */
+/* ==============================================
+   GRID PRINCIPAL
+   ============================================== */
+
 .contacto-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -72,6 +122,10 @@
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+/* ==============================================
+   FORMULARIO
+   ============================================== */
 
 .form-group {
   margin-bottom: 20px;
@@ -136,7 +190,10 @@
   color: #ef4444;
 }
 
-/* Información de contacto */
+/* ==============================================
+   INFORMACIÓN DE CONTACTO
+   ============================================== */
+
 .info-item {
   display: flex;
   gap: 15px;
@@ -161,7 +218,10 @@
   margin: 2px 0;
 }
 
-/* Sección Trabaja con Nosotros integrada */
+/* ==============================================
+   TRABAJA CON NOSOTROS
+   ============================================== */
+
 .trabaja-section {
   margin-top: 20px;
   padding-top: 20px;
@@ -224,15 +284,23 @@
   gap: 8px;
 }
 
-/* Footer */
+/* ==============================================
+   FOOTER
+   ============================================== */
+
 .footer-contacto {
   text-align: center;
   padding: 40px 20px 20px;
-  color: #888;
-  font-size: 0.8rem;
+  color: #E0E0E0;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-/* Responsive */
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+
 @media (max-width: 768px) {
   .contacto-grid {
     grid-template-columns: 1fr;
@@ -246,4 +314,43 @@
   .formulario-card, .info-card {
     padding: 25px;
   }
+}
+/* Estilos para íconos en títulos */
+.formulario-card h2 i,
+.info-card h2 i {
+  margin-right: 10px;
+  color: #FFB703;
+}
+
+/* Estilo para íconos en botones */
+.btn-enviar i {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.btn-enviar:hover i {
+  transform: translateX(5px);
+}
+
+/* Estilo para íconos en mensajes */
+.mensaje-exito i,
+.mensaje-error i {
+  margin-right: 8px;
+}
+
+/* Estilo para íconos de información */
+.info-icon i {
+  font-size: 1.8rem;
+  color: #FFB703;
+}
+
+/* Estilo para ícono de WhatsApp */
+.fa-whatsapp {
+  color: #25D366;
+}
+
+/* Estilo para ícono de corazón en footer */
+.footer-contacto i {
+  margin-right: 5px;
+  color: #FFB703;
 }

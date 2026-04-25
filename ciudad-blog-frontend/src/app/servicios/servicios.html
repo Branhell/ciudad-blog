@@ -2,8 +2,10 @@
 <section class="servicios-banner">
   <div class="banner-bg"></div>
   <div class="banner-contenido">
-    <div class="banner-badge">✨ Open Psychology - Servicios ✨</div>
-	<h1><span class="text-plata">Servicios de </span> <span class="gradient">Bienestar Digital</span></h1>
+    <div class="banner-badge">
+      <i class="fas fa-concierge-bell"></i> Open Psychology - Servicios
+    </div>
+    <h1><span class="text-plata">Servicios de </span> <span class="gradient">Bienestar Digital</span></h1>
     <p>Un puente entre la sabiduría ancestral y la ciencia moderna para tu salud mental</p>
     <div class="banner-stats">
       <div class="stat">
@@ -22,7 +24,6 @@
   </div>
 </section>
 
-<!-- Categorías de servicios (Acordeón mejorado) -->
 <!-- Categorías de servicios (Acordeón) -->
 <section class="categorias-servicios">
   <div class="container">
@@ -33,7 +34,7 @@
       <!-- Terapias -->
       <div class="acordeon-card" data-tipo="terapias" [class.active]="acordeonAbierto === 'terapias'">
         <div class="acordeon-header" (click)="toggleAcordeon('terapias')">
-          <div class="acordeon-icono"></div>
+          <div class="acordeon-icono"><i class="fas fa-brain"></i></div>
           <h3>Terapias</h3>
           <span class="acordeon-arrow">{{ acordeonAbierto === 'terapias' ? '▲' : '▼' }}</span>
         </div>
@@ -56,7 +57,7 @@
       <!-- Servicios Especializados -->
       <div class="acordeon-card" data-tipo="servicios" [class.active]="acordeonAbierto === 'servicios'">
         <div class="acordeon-header" (click)="toggleAcordeon('servicios')">
-          <div class="acordeon-icono"></div>
+          <div class="acordeon-icono"><i class="fas fa-cogs"></i></div>
           <h3>Servicios Especializados</h3>
           <span class="acordeon-arrow">{{ acordeonAbierto === 'servicios' ? '▲' : '▼' }}</span>
         </div>
@@ -79,7 +80,7 @@
       <!-- Especialidades -->
       <div class="acordeon-card" data-tipo="especialidades" [class.active]="acordeonAbierto === 'especialidades'">
         <div class="acordeon-header" (click)="toggleAcordeon('especialidades')">
-          <div class="acordeon-icono"></div>
+          <div class="acordeon-icono"><i class="fas fa-bullseye"></i></div>
           <h3>Especialidades</h3>
           <span class="acordeon-arrow">{{ acordeonAbierto === 'especialidades' ? '▲' : '▼' }}</span>
         </div>
@@ -104,31 +105,31 @@
   </div>
 </section>
 
-<!-- Filosofía EcoBits -->
+<!-- Filosofía OpenPsy -->
 <section class="filosofia-ecobits">
   <div class="container">
     <div class="filosofia-card">
-      <div class="filosofia-icono">🌿</div>
+      <div class="filosofia-icono"><i class="fas fa-leaf"></i></div>
       <h2>Un puente entre la sabiduría ancestral y la ciencia moderna</h2>
-      <p>En EcoBits, entendemos la salud mental como un ecosistema completo. No se trata solo de la mente, sino de la conexión profunda entre tu <strong>cuerpo, tu energía, tu historia cultural y tu entorno digital</strong>.</p>
+      <p>En OpenPsy, entendemos la salud mental como un ecosistema completo. No se trata solo de la mente, sino de la conexión profunda entre tu <strong>cuerpo, tu energía, tu historia cultural y tu entorno digital</strong>.</p>
       <div class="filosofia-pilares">
         <div class="pilar">
-          <span>🧬</span>
+          <span><i class="fas fa-dna"></i></span>
           <h4>Bases Científicas</h4>
           <p>Terapias respaldadas por neurociencia y psicología cognitivo-conductual</p>
         </div>
         <div class="pilar">
-          <span>🌿</span>
+          <span><i class="fas fa-seedling"></i></span>
           <h4>Sabiduría Ancestral</h4>
           <p>Prácticas tradicionales de sanación, meditación y rituales</p>
         </div>
         <div class="pilar">
-          <span>⚡</span>
+          <span><i class="fas fa-bolt"></i></span>
           <h4>Energía y Frecuencias</h4>
           <p>Bioenergía, vibraciones y frecuencias sonoras para armonizar el sistema nervioso</p>
         </div>
         <div class="pilar">
-          <span>🎵</span>
+          <span><i class="fas fa-music"></i></span>
           <h4>Sonidos Ancestrales</h4>
           <p>Cuencos tibetanos, tambores chamánicos y frecuencias binaurales</p>
         </div>
@@ -141,8 +142,8 @@
 <section class="cita-destacada-servicios">
   <div class="container">
     <div class="cita-card">
-      <p>“No separamos la tecnología de la naturaleza, ni la psicología del espíritu. En EcoBits, cada servicio es un viaje de autoconocimiento que honra todas las partes de quien eres.”</p>
-      <span>— Filosofía Open Psychology</span>
+      <p>“No separamos la tecnología de la naturaleza, ni la psicología del espíritu. En OpenPsy, cada servicio es un viaje de autoconocimiento que honra todas las partes de quien eres.”</p>
+      <span>— Filosofía OpenPsy</span>
     </div>
   </div>
 </section>
@@ -163,7 +164,7 @@
           <p>{{ servicio.descripcion }}</p>
           <div class="servicio-meta">
             <span class="precio">{{ servicio.precio }}</span>
-            <span class="duracion">⏱️ {{ servicio.duracion }}</span>
+            <span class="duracion"><i class="fas fa-clock"></i> {{ servicio.duracion }}</span>
           </div>
           <button class="btn-servicio" (click)="irAlForo()">Conocer más →</button>
         </div>
@@ -177,15 +178,15 @@
   <div class="container">
     <div class="cta-card">
       <h2>¿Listo para comenzar tu viaje?</h2>
-      <p>Únete a <strong>+2,400 personas</strong> que ya están transformando su bienestar digital con EcoBits</p>
+      <p>Únete a <strong>+2,400 personas</strong> que ya están transformando su bienestar digital con OpenPsy</p>
       <div class="cta-buttons">
         <button class="btn-primario" (click)="irAlForo()">Agendar primera consulta →</button>
         <button class="btn-secundario" (click)="irAlForo()">Conocer más servicios</button>
       </div>
       <div class="cta-garantia">
-        <span>Entorno seguro</span>
-        <span>Apoyo profesional</span>
-        <span>Sin compromiso</span>
+        <span><i class="fas fa-shield-alt"></i> Entorno seguro</span>
+        <span><i class="fas fa-brain"></i> Apoyo profesional</span>
+        <span><i class="fas fa-handshake"></i> Sin compromiso</span>
       </div>
     </div>
   </div>

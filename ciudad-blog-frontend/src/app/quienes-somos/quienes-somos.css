@@ -1,186 +1,388 @@
-.quienes-container {
+/* ==============================================
+   QUIÉNES SOMOS - OpenPsy
+   Diseño profesional con formas orgánicas
+   ============================================== */
+
+:host {
+  display: block;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
   min-height: 100vh;
-  background: linear-gradient(135deg, #1A1A1A, #1A1A1A);
+}
+
+.quienes-container {
   margin-top: 70px;
   padding: 60px 20px;
 }
 
+/* Hero con diseño orgánico */
 .hero-section {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 183, 3, 0.15), transparent);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+}
+
+.hero-badge {
+  display: inline-block;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #E8E8E8, #808080, #505050);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+}
+
+.hero-badge:hover {
+  transform: scale(1.05);
+  letter-spacing: 2px;
+}
+
+.hero-badge::before {
+  content: '✨';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-badge:hover::before {
+  opacity: 1;
+  left: -25px;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 .hero-section h1 {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #FFB703, #1A1A1A);
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-section h1 .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
 }
 
 .hero-section p {
   font-size: 1.2rem;
-  color: #FFB703;
+  color: #E0E0E0;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+/* Misión y Visión - diseño orgánico */
 .mv-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto 80px;
 }
 
 .card-mv {
-  background: rgba(255,255,255,0.05);
-  border-radius: 24px;
-  padding: 40px;
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  padding: 45px 35px;
   text-align: center;
-  border: 1px solid rgba(59,130,246,0.3);
+  border: 1px solid rgba(255, 183, 3, 0.25);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-mv::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 183, 3, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-mv:hover::before {
+  opacity: 1;
+}
+
+.card-mv:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 183, 3, 0.6);
+  border-radius: 40px;
 }
 
 .card-mv .icon {
   font-size: 3rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .card-mv h2 {
   font-size: 1.8rem;
-  color: white;
+  font-weight: 700;
+  color: #FFB703;
   margin-bottom: 15px;
 }
 
 .card-mv p {
-  color: #FFB703;
-  line-height: 1.6;
+  color: #D0D0D0;
+  line-height: 1.7;
 }
 
+/* Valores - diseño hexagonal o circular */
 .valores-section {
   text-align: center;
   margin-bottom: 80px;
 }
 
 .valores-section h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
   color: white;
-  margin-bottom: 40px;
+}
+
+.valores-section h2 .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .valores-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .valor-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 30px;
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 70px 30px 70px 30px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 183, 3, 0.2);
+  position: relative;
+}
+
+.valor-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  border-color: #FFB703;
+  border-radius: 30px 70px 30px 70px;
 }
 
 .valor-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #FFB703;
 }
 
 .valor-card h3 {
-  color: #FFB703;
-  margin-bottom: 10px;
+  color: #FFD966;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .valor-card p {
-  color: #FFB703;
+  color: #B0B0B0;
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
+/* Equipo - diseño más orgánico */
 .equipo-section {
   text-align: center;
   margin-bottom: 80px;
 }
 
 .equipo-section h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
   color: white;
-  margin-bottom: 40px;
+}
+
+.equipo-section h2 .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .equipo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .equipo-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 30px;
-  transition: transform 0.3s;
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 40px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 183, 3, 0.2);
 }
 
 .equipo-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255,255,255,0.1);
+  transform: translateY(-10px);
+  border-color: #FFB703;
+  box-shadow: 0 20px 40px rgba(255, 183, 3, 0.15);
+  border-radius: 60px 20px 60px 20px;
 }
 
 .equipo-icon {
   font-size: 3rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .equipo-card h3 {
   color: white;
   margin-bottom: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .equipo-card .rol {
   color: #FFB703;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
+  font-size: 0.75rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .equipo-card .descripcion {
-  color: #FFB703;
-  font-size: 0.9rem;
+  color: #B0B0B0;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
+/* CTA - diseño elegante */
 .cta-section {
   text-align: center;
-  background: linear-gradient(135deg, #FFB703, #1A1A1A);
-  border-radius: 30px;
-  padding: 50px;
+  background: linear-gradient(135deg, rgba(20, 20, 30, 0.7), rgba(20, 20, 30, 0.5));
+  backdrop-filter: blur(12px);
+  border-radius: 80px;
+  padding: 60px;
   max-width: 800px;
   margin: 0 auto;
+  border: 1px solid rgba(255, 183, 3, 0.3);
 }
 
 .cta-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
   color: white;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.cta-section h2 .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .cta-section p {
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 25px;
+  color: #C0C0C0;
+  margin-bottom: 30px;
+  font-size: 1rem;
 }
 
 .btn-cta {
   display: inline-block;
-  background: white;
-  color: #FFB703;
-  padding: 12px 30px;
-  border-radius: 30px;
+  background: linear-gradient(135deg, #FFB703, #E69500);
+  color: #1A1A1A;
+  padding: 14px 42px;
+  border-radius: 60px;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-cta:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 183, 3, 0.35);
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .valores-grid,
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .hero-section h1 { font-size: 2rem; }
-  .mv-section { grid-template-columns: 1fr; }
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+  }
+  
+  .mv-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .valores-grid,
+  .equipo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-mv {
+    border-radius: 40px;
+    padding: 35px 25px;
+  }
+  
+  .cta-section {
+    border-radius: 50px;
+    padding: 40px 25px;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
 }

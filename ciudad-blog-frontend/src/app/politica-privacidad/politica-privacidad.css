@@ -1,48 +1,109 @@
-.shield-container {
+/* ==============================================
+   POLÍTICA DE PRIVACIDAD - OpenPsy
+   Diseño profesional consistente
+   ============================================== */
+
+:host {
+  display: block;
+  background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
   min-height: 100vh;
-  background: linear-gradient(135deg, #1A1A1A, #1A1A1A);
+}
+
+.privacidad-container {
   margin-top: 70px;
   padding: 60px 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==============================================
+   HERO
+   ============================================== */
+
+.hero-privacidad {
+  text-align: center;
+  margin-bottom: 60px;
   position: relative;
 }
 
-.trust-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle at 10% 20%, rgba(0,100,255,0.03) 0%, transparent 50%);
-  pointer-events: none;
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #E8E8E8, #808080, #505050);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.5px;
 }
 
-.hero-shield {
-  text-align: center;
-  margin-bottom: 60px;
+.hero-badge:hover {
+  transform: scale(1.05);
+  letter-spacing: 2px;
 }
 
-.shield-icon {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  display: inline-block;
-  animation: floatShield 3s ease-in-out infinite;
+.hero-badge::before {
+  content: '✨';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
-@keyframes floatShield {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.hero-badge:hover::before {
+  opacity: 1;
+  left: -25px;
 }
 
-.hero-shield h1 {
-  font-size: 2.5rem;
-  color: #FFB703;
+.hero-badge i {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #E8E8E8, #808080, #505050);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-privacidad h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
   margin-bottom: 15px;
+  color: white;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-shield p {
-  font-size: 1.2rem;
-  color: #1A1A1A;
+.hero-privacidad h1 .gradient {
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-privacidad p {
+  font-size: 1.1rem;
+  color: #E0E0E0;
   margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
 }
 
 .trust-badges {
@@ -50,99 +111,226 @@
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .trust-badges span {
-  background: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(10px);
   padding: 8px 20px;
-  border-radius: 40px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: #FFD966;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  transition: all 0.3s ease;
+}
+
+.trust-badges span:hover {
+  transform: translateY(-2px);
+  border-color: #FFB703;
+  background: rgba(255, 183, 3, 0.1);
+}
+
+.trust-badges span i {
   font-size: 0.85rem;
   color: #FFB703;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  border: 1px solid #1A1A1A;
 }
 
-.grid-privacidad {
+/* ==============================================
+   GRID DE SECCIONES
+   ============================================== */
+
+.privacidad-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto 60px;
+  margin-bottom: 60px;
 }
 
-.card-privacidad {
-  background: white;
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #1A1A1A;
+.privacidad-card {
+  background: rgba(20, 20, 30, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 32px;
+  transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 1px solid rgba(255, 183, 3, 0.15);
 }
 
-.card-privacidad:hover {
+.privacidad-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  border-color: rgba(255, 183, 3, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .card-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 183, 3, 0.1);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.card-icon i {
   font-size: 1.8rem;
+  color: #FFD966;
 }
 
-.card-privacidad h2 {
-  font-size: 1.3rem;
-  color: #FFB703;
-  margin: 0;
+.privacidad-card:hover .card-icon {
+  background: rgba(255, 183, 3, 0.2);
+  transform: scale(1.05);
 }
 
-.card-privacidad p {
-  color: #1A1A1A;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.trust-footer {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 30px;
-  background: white;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.trust-footer p {
-  color: #1A1A1A;
+.privacidad-card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFD966;
   margin-bottom: 15px;
+  line-height: 1.4;
 }
 
-.trust-footer strong {
+.privacidad-card p {
+  color: #D0D0D0;
+  line-height: 1.65;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ==============================================
+   FOOTER
+   ============================================== */
+
+.privacidad-footer {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  background: linear-gradient(135deg, rgba(20, 20, 30, 0.7), rgba(20, 20, 30, 0.5));
+  backdrop-filter: blur(12px);
+  border-radius: 32px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 183, 3, 0.25);
+  transition: all 0.3s ease;
+}
+
+.footer-content:hover {
+  border-color: rgba(255, 183, 3, 0.45);
+  transform: translateY(-2px);
+}
+
+.footer-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 183, 3, 0.1);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.footer-icon i {
+  font-size: 2rem;
+  color: #FFB703;
+}
+
+.footer-content p {
+  color: #C0C0C0;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.footer-content strong {
+  color: #FFD966;
+}
+
+.fecha-actualizacion {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.fecha-actualizacion i {
+  margin-right: 6px;
   color: #FFB703;
 }
 
 .btn-home {
-  display: inline-block;
-  margin-top: 20px;
-  background: #FFB703;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FFB703, #E69500);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-home i {
+  font-size: 0.9rem;
 }
 
 .btn-home:hover {
-  background: #FFB703;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 183, 3, 0.35);
+  gap: 12px;
 }
 
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+
 @media (max-width: 768px) {
-  .hero-shield h1 { font-size: 1.8rem; }
-  .grid-privacidad { grid-template-columns: 1fr; }
-  .card-privacidad { padding: 20px; }
+  .privacidad-container {
+    padding: 40px 16px;
+  }
+  
+  .hero-privacidad h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-privacidad p {
+    font-size: 0.95rem;
+  }
+  
+  .trust-badges {
+    gap: 12px;
+  }
+  
+  .trust-badges span {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+  }
+  
+  .privacidad-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .privacidad-card {
+    padding: 24px;
+  }
+  
+  .footer-content {
+    padding: 30px 20px;
+  }
+  
+  .btn-home {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
 }

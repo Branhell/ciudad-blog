@@ -1,19 +1,22 @@
 <div class="quienes-container">
   <!-- Hero -->
   <div class="hero-section">
-    <h1>✨ Quiénes Somos ✨</h1>
+    <div class="hero-badge">
+      <i class="fas fa-brain" style="margin-right: 8px;"></i> Open Psychology
+    </div>
+    <h1>Quiénes <span class="gradient">Somos</span></h1>
     <p>Construyendo el futuro del bienestar digital</p>
   </div>
 
   <!-- Misión y Visión -->
   <div class="mv-section">
     <div class="card-mv">
-      <div class="icon">🎯</div>
+      <div class="icon"><i class="fas fa-bullseye"></i></div>
       <h2>Misión</h2>
       <p>Investigar cómo las tecnologías avanzadas afectan la mente humana, desarrollando estrategias que promuevan el bienestar psicológico y la adaptación tecnológica.</p>
     </div>
     <div class="card-mv">
-      <div class="icon">🌟</div>
+      <div class="icon"><i class="fas fa-chart-line"></i></div>
       <h2>Visión</h2>
       <p>Ser la plataforma líder en bienestar digital y psicología tecnológica en Latinoamérica para 2028.</p>
     </div>
@@ -21,33 +24,66 @@
 
   <!-- Valores -->
   <div class="valores-section">
-    <h2>Nuestros Valores</h2>
+    <h2>Nuestros <span class="gradient">Valores</span></h2>
     <div class="valores-grid">
-      <div class="valor-card" *ngFor="let v of valores">
-        <div class="valor-icon">{{ v.icono }}</div>
-        <h3>{{ v.titulo }}</h3>
-        <p>{{ v.descripcion }}</p>
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Innovación</h3>
+        <p>Exploramos nuevas fronteras entre tecnología y mente</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3>Empatía</h3>
+        <p>Ponemos a las personas en el centro</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-medal"></i></div>
+        <h3>Excelencia</h3>
+        <p>Buscamos lo mejor para nuestra comunidad</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Confianza</h3>
+        <p>Datos seguros, relaciones transparentes</p>
       </div>
     </div>
   </div>
 
   <!-- Equipo -->
   <div class="equipo-section">
-    <h2>Equipo Fundador</h2>
+    <h2>Equipo <span class="gradient">Fundador</span></h2>
     <div class="equipo-grid">
-      <div class="equipo-card" *ngFor="let m of equipo">
-        <div class="equipo-icon">{{ m.icono }}</div>
-        <h3>{{ m.nombre }}</h3>
-        <p class="rol">{{ m.rol }}</p>
-        <p class="descripcion">{{ m.descripcion }}</p>
+      <div class="equipo-card">
+        <div class="equipo-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Bryan Roboan</h3>
+        <p class="rol">Fundador & CEO</p>
+        <p class="descripcion">Visionario de la psicología tecnológica</p>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-icon"><i class="fas fa-brain"></i></div>
+        <h3>Dra. María González</h3>
+        <p class="rol">Directora de Psicología</p>
+        <p class="descripcion">Experta en neuropsicología clínica</p>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Carlos Méndez</h3>
+        <p class="rol">CTO</p>
+        <p class="descripcion">Arquitecto de soluciones IA y RV</p>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-icon"><i class="fas fa-spa"></i></div>
+        <h3>Laura Fernández</h3>
+        <p class="rol">Bienestar Digital</p>
+        <p class="descripcion">Especialista en mindfulness tecnológico</p>
       </div>
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta-section">
-    <h2>¿Quieres ser parte de EcoBits?</h2>
+    <h2>¿Quieres ser parte de <span class="gradient">OpenPsy</span>?</h2>
     <p>Únete como profesional, aliado estratégico o inversionista</p>
-    <a routerLink="/contacto" class="btn-cta">Contáctanos →</a>
+    <button class="btn-cta" (click)="irAContacto()">Contáctanos →</button>
   </div>
 </div>

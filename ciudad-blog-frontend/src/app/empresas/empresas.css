@@ -192,17 +192,69 @@
   padding: 40px;
 }
 
+/* Hero badge con efecto amarillo + plata */
 .hero-badge {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  color: #FFB703;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 30px;
-  border: 1px solid rgba(255, 183, 3, 0.3);
-  animation: fadeInUp 0.6s ease-out;
+  background: linear-gradient(135deg, #E8E8E8, #FFB703, #FFD966, #808080, #505050);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineAdvanced 4s linear infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  letter-spacing: 0.5px;
+  border: none;
+  backdrop-filter: none;
+}
+
+.hero-badge:hover {
+  transform: scale(1.05);
+  letter-spacing: 2px;
+}
+
+.hero-badge::before {
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  background: transparent;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #FFD966;
+}
+
+.hero-badge:hover::before {
+  opacity: 1;
+  left: -25px;
+}
+
+.hero-badge i {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #E8E8E8, #FFB703, #FFD966, #808080, #505050);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineAdvanced 4s linear infinite;
+}
+
+@keyframes shineAdvanced {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .hero-contenido h1 {
@@ -755,5 +807,22 @@
   
   .filosofia-pilares {
     flex-direction: column;
+  }
+}
+/* Texto "Bienestar digital para tu" en color plata (como en Servicios) */
+.hero-contenido h1 .text-plata {
+  background: linear-gradient(135deg, #E8E8E8, #C0C0C0, #A8A8A8, #C0C0C0, #E8E8E8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: plataShine 3s ease infinite;
+}
+
+@keyframes plataShine {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
   }
 }

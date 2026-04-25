@@ -1,14 +1,201 @@
 /* ==============================================
-   SERVICIOS - EcoBits
+   SERVICIOS - OpenPsy
    Basado en Bitácora Maestra
    ============================================== */
 
-/* Contenedor principal */
 :host {
   display: block;
   background: linear-gradient(145deg, #F8FAFC 0%, #1A1A1A 100%);
   min-height: 100vh;
 }
+/* ==============================================
+   MISMO HERO QUE EVENTOS
+   ============================================== */
+
+.servicios-banner {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.parallax-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+.layer-1 {
+  background-image: url('https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
+  animation: parallaxSlow 20s ease-in-out infinite alternate;
+}
+
+.layer-2 {
+  background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  animation: parallaxMedium 18s ease-in-out infinite alternate;
+}
+
+.layer-3 {
+  background-image: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  animation: parallaxFast 15s ease-in-out infinite alternate;
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(26,26,26,0.85));
+  z-index: 1;
+}
+
+@keyframes parallaxSlow {
+  0% { transform: scale(1.05) translateX(0) translateY(0); }
+  100% { transform: scale(1.15) translateX(-2%) translateY(-2%); }
+}
+
+@keyframes parallaxMedium {
+  0% { transform: scale(1) translateX(0) translateY(0); opacity: 0.4; }
+  100% { transform: scale(1.08) translateX(2%) translateY(2%); opacity: 0.6; }
+}
+
+@keyframes parallaxFast {
+  0% { transform: scale(1) translateX(0) translateY(0); opacity: 0.2; }
+  100% { transform: scale(1.05) translateX(-1.5%) translateY(1.5%); opacity: 0.4; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #E8E8E8, #FFB703, #FFD966, #808080, #505050);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineAdvanced 4s linear infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  letter-spacing: 0.5px;
+  border: none;
+  backdrop-filter: none;
+}
+
+.hero-badge:hover {
+  transform: scale(1.05);
+  letter-spacing: 2px;
+}
+
+.hero-badge::before {
+  content: '✨';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  background: transparent;
+  -webkit-text-fill-color: #FFD966;
+}
+
+.hero-badge:hover::before {
+  opacity: 1;
+  left: -25px;
+}
+
+.hero-badge i {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #E8E8E8, #FFB703, #FFD966, #808080, #505050);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineAdvanced 4s linear infinite;
+}
+
+@keyframes shineAdvanced {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-stats .stat {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 12px 24px;
+  border-radius: 60px;
+  border: 1px solid rgba(255, 183, 3, 0.2);
+}
+
+.hero-stats .stat .num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFB703, #FFD966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-stats .stat .label {
+  font-size: 0.65rem;
+  color: #E0E0E0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 
 .container {
   max-width: 1200px;
@@ -36,11 +223,10 @@
   color: #E0E0E0;
   margin-bottom: 48px;
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* ==============================================
-   BANNER PRINCIPAL - FONDO COMPLETO
+   BANNER PRINCIPAL
    ============================================== */
 
 .servicios-banner {
@@ -85,16 +271,63 @@
   padding: 40px;
 }
 
+/* BADGE CON EFECTO SHINE */
 .banner-badge {
-  display: inline-block;
-  background: rgba(255, 183, 3, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  color: #FFB703;
-  margin-bottom: 24px;
-  border: 1px solid rgba(255, 183, 3, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #E8E8E8, #FFB703, #FFD966, #808080, #505050);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineAdvanced 4s linear infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  letter-spacing: 0.5px;
+  border: none;
+  backdrop-filter: none;
+}
+
+.banner-badge:hover {
+  transform: scale(1.05);
+  letter-spacing: 2px;
+}
+
+.banner-badge::before {
+  content: '✨';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  background: transparent;
+  -webkit-text-fill-color: #FFD966;
+}
+
+.banner-badge:hover::before {
+  opacity: 1;
+  left: -25px;
+}
+
+.banner-badge i {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #E8E8E8, #FFB703, #FFD966, #808080, #505050);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineAdvanced 4s linear infinite;
+}
+
+@keyframes shineAdvanced {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 200% center; }
 }
 
 .banner-contenido h1 {
@@ -109,7 +342,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Texto "Servicios de" en color plata */
 .banner-contenido h1 .text-plata {
   background: linear-gradient(135deg, #E8E8E8, #C0C0C0, #A8A8A8, #C0C0C0, #E8E8E8);
   background-size: 200% auto;
@@ -119,14 +351,9 @@
 }
 
 @keyframes plataShine {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
 }
-
 
 .banner-contenido p {
   font-size: 1.1rem;
@@ -163,7 +390,7 @@
 }
 
 /* ==============================================
-   ACORDEÓN MEJORADO
+   ACORDEÓN
    ============================================== */
 
 .categorias-servicios {
@@ -247,7 +474,7 @@
 }
 
 /* ==============================================
-   FILOSOFÍA ECOBITS
+   FILOSOFÍA
    ============================================== */
 
 .filosofia-ecobits {
@@ -428,6 +655,11 @@
   color: #B0B0B0;
 }
 
+.duracion i {
+  margin-right: 5px;
+  color: #FFB703;
+}
+
 .btn-servicio {
   width: 100%;
   padding: 12px;
@@ -531,69 +763,20 @@
 }
 
 /* ==============================================
-   RESPONSIVE
+   ANIMACIONES FADE IN UP
    ============================================== */
-
-@media (max-width: 768px) {
-  .banner-contenido h1 {
-    font-size: 2.2rem;
-  }
-
-  .banner-stats {
-    gap: 24px;
-  }
-
-  .filosofia-card {
-    padding: 30px 20px;
-  }
-
-  .filosofia-card h2 {
-    font-size: 1.5rem;
-  }
-
-  .filosofia-pilares {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .cta-card {
-    padding: 40px 25px;
-  }
-
-  .cta-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .servicios-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .items-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .filosofia-pilares {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-  }
-
-  .btn-primario, .btn-secundario {
-    width: 100%;
-  }
-}
-
 /* ==============================================
-   ANIMACIONES FADE IN UP (como Eventos y Empresas)
+   ANIMACIONES
    ============================================== */
 
 .banner-badge {
-  animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards, shineAdvanced 4s linear infinite;
+  animation-delay: 0s;
+}
+
+.banner-badge i {
+  animation: shineAdvanced 4s linear infinite;
 }
 
 .banner-contenido h1 {
@@ -635,222 +818,80 @@
 }
 
 /* ==============================================
-   ACORDEÓN MEJORADO - CON MÁS VIDA Y COLOR
+   RESPONSIVE
    ============================================== */
 
-.categorias-servicios {
-  padding: 60px 0;
-}
-
-.acordeon-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* Tarjeta del acordeón */
-.acordeon-card {
-  background: rgba(20, 20, 30, 0.7);
-  backdrop-filter: blur(12px);
-  border-radius: 28px;
-  border: 1px solid rgba(255, 183, 3, 0.2);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.acordeon-card:hover {
-  border-color: rgba(255, 183, 3, 0.6);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
-}
-
-.acordeon-card.active {
-  border-color: #FFB703;
-  box-shadow: 0 10px 30px rgba(255, 183, 3, 0.15);
-}
-
-/* Header del acordeón */
-.acordeon-header {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 22px 28px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.acordeon-header:hover {
-  background: linear-gradient(90deg, rgba(255, 183, 3, 0.08), transparent);
-}
-
-.acordeon-icono {
-  font-size: 2.2rem;
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
-}
-
-.acordeon-card:hover .acordeon-icono {
-  transform: scale(1.05) rotate(3deg);
-}
-
-.acordeon-header h3 {
-  flex: 1;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: white;
-  margin: 0;
-  letter-spacing: -0.3px;
-}
-
-.acordeon-arrow {
-  font-size: 0.9rem;
-  color: #FFB703;
-  transition: all 0.3s ease;
-  background: rgba(255, 183, 3, 0.15);
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.acordeon-card.active .acordeon-arrow {
-  background: #FFB703;
-  color: #1A1A1A;
-  transform: rotate(180deg);
-}
-
-/* Body del acordeón - contenido desplegado */
-.acordeon-body {
-  animation: slideDown 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Grid de items */
-.items-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-  padding: 0 28px 28px 28px;
-}
-
-/* Cada item individual */
-.items-grid .item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 183, 3, 0.03));
-  border-radius: 16px;
-  font-size: 0.85rem;
-  color: #E0E0E0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 183, 3, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Efecto de brillo al hover */
-.items-grid .item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 183, 3, 0.15), transparent);
-  transition: left 0.5s ease;
-}
-
-.items-grid .item:hover::before {
-  left: 100%;
-}
-
-.items-grid .item:hover {
-  background: linear-gradient(135deg, rgba(255, 183, 3, 0.15), rgba(255, 183, 3, 0.05));
-  color: #FFD966;
-  transform: translateX(5px);
-  border-color: rgba(255, 183, 3, 0.4);
-}
-
-/* Agregar un pequeño ícono antes de cada item */
-.items-grid .item::after {
-  content: '✨';
-  font-size: 0.7rem;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-left: auto;
-}
-
-.items-grid .item:hover::after {
-  opacity: 1;
-  transform: translateX(5px);
-}
-
-/* Colores especiales para categorías (opcional) */
-.acordeon-card[data-tipo="terapias"] .acordeon-icono {
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-}
-
-.acordeon-card[data-tipo="servicios"] .acordeon-icono {
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-}
-
-.acordeon-card[data-tipo="especialidades"] .acordeon-icono {
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
-}
-
-/* Scroll personalizado para el contenido si es muy largo */
-.acordeon-body::-webkit-scrollbar {
-  width: 4px;
-}
-
-.acordeon-body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-}
-
-.acordeon-body::-webkit-scrollbar-thumb {
-  background: #FFB703;
-  border-radius: 4px;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
+  .banner-contenido h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner-stats {
+    gap: 24px;
+  }
+
+  .filosofia-card {
+    padding: 30px 20px;
+  }
+
+  .filosofia-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .filosofia-pilares {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cta-card {
+    padding: 40px 25px;
+  }
+
+  .cta-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acordeon-grid {
+    gap: 16px;
+  }
+
   .acordeon-header {
     padding: 16px 20px;
   }
-  
+
   .acordeon-icono {
     font-size: 1.8rem;
   }
-  
+
   .acordeon-header h3 {
     font-size: 1rem;
   }
-  
+
   .items-grid {
     grid-template-columns: 1fr;
     padding: 0 20px 20px 20px;
-    gap: 8px;
   }
-  
+
   .items-grid .item {
     padding: 8px 14px;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filosofia-pilares {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primario, .btn-secundario {
+    width: 100%;
   }
 }
