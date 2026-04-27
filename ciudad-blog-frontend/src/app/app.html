@@ -13,14 +13,13 @@
     <a routerLink="/servicios" routerLinkActive="active" (click)="cerrarMenu()">Servicios</a>
     <a routerLink="/eventos" routerLinkActive="active" (click)="cerrarMenu()">Eventos</a>
     <a routerLink="/empresas" routerLinkActive="active" (click)="cerrarMenu()">Empresas</a>
+	
+    <button (click)="testNotification()" class="login-button-nav">🔔 Probar Notificación</button>
 
-<button (click)="testNotification()" class="login-button-nav">🔔 Probar Notificación</button>
-
-    <!-- LOGIN dentro del menú en móvil -->
+    <!-- LOGIN dentro del menú en móvil (esto se ve cuando el menú hamburguesa está abierto) -->
     <div class="nav-right-mobile">
       <ng-container *ngIf="!isLoggedIn">
-        <a routerLink="/login" class="login-button-nav" (click)="cerrarMenu()">👤 Iniciar sesión</a>
-        <a routerLink="/registro" class="login-button-nav" (click)="cerrarMenu()">👤 Registro</a>
+        <a routerLink="/acceder" class="btn-acceder-unico" (click)="cerrarMenu()">👤 Entrar a OpenPsy →</a>
       </ng-container>
       <ng-container *ngIf="isLoggedIn">
         <span class="user-email">{{ userEmail }}</span>
@@ -29,11 +28,10 @@
     </div>
   </div>
 
-  <!-- LOGIN en escritorio -->
+  <!-- LOGIN en escritorio (esto se ve siempre en la parte derecha) -->
   <div class="nav-right">
     <ng-container *ngIf="!isLoggedIn">
-      <a routerLink="/login" class="login-button-nav">👤 Iniciar sesión</a>
-      <a routerLink="/registro" class="login-button-nav">👤 Registro</a>
+      <a routerLink="/acceder" class="btn-acceder-unico">👤 Entrar a OpenPsy →</a>
     </ng-container>
     <ng-container *ngIf="isLoggedIn">
       <span class="user-email">{{ userEmail }}</span>

@@ -1,15 +1,16 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home';
 import { DashboardComponent } from './dashboard/dashboard';
-import { LoginComponent } from './login/login';
-import { RegistroComponent } from './registro/registro';
 import { authGuard, rolGuard } from './auth.guard';
+// import { LoginComponent } from './login/login';
+// import { RegistroComponent } from './registro/registro';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
   
+// { path: 'login', component: LoginComponent },
+// { path: 'registro', component: RegistroComponent },
+  { path: 'acceder', loadComponent: () => import('./acceder/acceder').then(m => m.AccederComponent) },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'dashboard/paciente', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PACIENTE'] } },
   { path: 'dashboard/profesional', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PROFESIONAL'] } },

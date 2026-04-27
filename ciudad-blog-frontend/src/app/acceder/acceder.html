@@ -1,0 +1,150 @@
+<div class="acceder-container">
+  <div class="particles-bg"></div>
+
+  <div class="acceder-grid">
+    <div class="formulario-col">
+      <a routerLink="/" class="back-home">
+        <i class="fas fa-arrow-left"></i> Volver al inicio
+      </a>
+
+      <div class="tabs-acceder">
+        <button class="tab-btn" [class.active]="modoActivo === 'login'" (click)="cambiarModo('login')">
+          <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+        </button>
+        <button class="tab-btn" [class.active]="modoActivo === 'registro'" (click)="cambiarModo('registro')">
+          <i class="fas fa-user-plus"></i> Crear cuenta
+        </button>
+      </div>
+
+      <!-- FORMULARIO DE LOGIN -->
+      <form *ngIf="modoActivo === 'login'" #loginForm="ngForm" (ngSubmit)="onLogin()" class="form-acceder" novalidate>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" [(ngModel)]="loginData.email" name="email" placeholder="Correo electrónico" required email #emailLogin="ngModel">
+          <div class="input-feedback">
+            <i class="fas" [class.fa-check-circle]="emailLogin.valid && emailLogin.touched" [class.fa-times-circle]="emailLogin.invalid && emailLogin.touched"></i>
+          </div>
+        </div>
+        <div class="input-error" *ngIf="emailLogin.invalid && emailLogin.touched">
+          <span *ngIf="emailLogin.errors?.['required']">El correo es obligatorio</span>
+          <span *ngIf="emailLogin.errors?.['email']">Ingresa un correo válido</span>
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="loginData.password" name="password" placeholder="Contraseña" required #passLogin="ngModel">
+          <span class="toggle-password" (click)="mostrarPassword = !mostrarPassword">
+            <i class="fas" [class.fa-eye]="!mostrarPassword" [class.fa-eye-slash]="mostrarPassword"></i>
+          </span>
+        </div>
+        <div class="input-error" *ngIf="passLogin.invalid && passLogin.touched">
+          La contraseña es obligatoria
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" [(ngModel)]="recordar" name="recordar">
+            <span>Recuérdame</span>
+          </label>
+          <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- BOTÓN LOGIN CON CAMBIO A VERDE -->
+        <button type="submit" class="btn-acceder-submit" 
+                [ngClass]="{'btn-success-state': loginButtonText === 'Ingreso exitoso'}"
+                style="width: 340px; min-width: 340px; max-width: 340px; height: 54px; display: flex; align-items: center; justify-content: center; margin: 16px auto 0 auto; background: linear-gradient(135deg, #FFB703, #E69500); border: none; border-radius: 50px; color: #1A1A1A; font-weight: 700; font-size: 1rem; cursor: pointer;">
+          <ng-container *ngIf="!loginLoading && loginButtonText === 'Iniciar sesión'">Iniciar sesión</ng-container>
+          <ng-container *ngIf="loginLoading"><i class="fas fa-spinner fa-spin"></i> Autenticando...</ng-container>
+          <ng-container *ngIf="!loginLoading && loginButtonText === 'Ingreso exitoso'"><i class="fas fa-check-circle"></i> Ingreso exitoso</ng-container>
+          <ng-container *ngIf="!loginLoading && loginButtonText === 'Welcome to OpenPsy'"><i class="fas fa-heart"></i> Welcome to OpenPsy</ng-container>
+        </button>
+
+        <div class="btn-error" *ngIf="loginError">
+          <i class="fas fa-exclamation-triangle"></i> {{ mensajeError }}
+        </div>
+
+        <div class="divider" *ngIf="mostrarSocialButtons">
+          <span>O</span>
+        </div>
+
+        <div class="social-buttons" *ngIf="mostrarSocialButtons">
+          <button type="button" class="social-btn google" (click)="socialLogin('google')"><i class="fab fa-google"></i> Continuar con Google</button>
+          <button type="button" class="social-btn facebook" (click)="socialLogin('facebook')"><i class="fab fa-facebook-f"></i> Continuar con Facebook</button>
+          <button type="button" class="social-btn linkedin" (click)="socialLogin('linkedin')"><i class="fab fa-linkedin-in"></i> Continuar con LinkedIn</button>
+          <button type="button" class="social-btn github" (click)="socialLogin('github')"><i class="fab fa-github"></i> Continuar con GitHub</button>
+          <button type="button" class="social-btn apple" (click)="socialLogin('apple')"><i class="fab fa-apple"></i> Continuar con Apple</button>
+        </div>
+      </form>
+
+      <!-- FORMULARIO DE REGISTRO -->
+      <form *ngIf="modoActivo === 'registro'" #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-acceder" novalidate>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" [(ngModel)]="registerData.nombre" name="nombre" placeholder="Nombre completo" required #nombreReg="ngModel">
+          <div class="input-feedback">
+            <i class="fas" [class.fa-check-circle]="nombreReg.valid && nombreReg.touched" [class.fa-times-circle]="nombreReg.invalid && nombreReg.touched"></i>
+          </div>
+        </div>
+        <div class="input-error" *ngIf="nombreReg.invalid && nombreReg.touched">El nombre es obligatorio</div>
+
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" [(ngModel)]="registerData.email" name="email" placeholder="Correo electrónico" required email #emailReg="ngModel">
+          <div class="input-feedback">
+            <i class="fas" [class.fa-check-circle]="emailReg.valid && emailReg.touched" [class.fa-times-circle]="emailReg.invalid && emailReg.touched"></i>
+          </div>
+        </div>
+        <div class="input-error" *ngIf="emailReg.invalid && emailReg.touched">
+          <span *ngIf="emailReg.errors?.['required']">El correo es obligatorio</span>
+          <span *ngIf="emailReg.errors?.['email']">Ingresa un correo válido</span>
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input [type]="mostrarPasswordReg ? 'text' : 'password'" [(ngModel)]="registerData.password" name="password" placeholder="Contraseña (mínimo 8 caracteres)" required minlength="8" #passReg="ngModel">
+          <span class="toggle-password" (click)="mostrarPasswordReg = !mostrarPasswordReg">
+            <i class="fas" [class.fa-eye]="!mostrarPasswordReg" [class.fa-eye-slash]="mostrarPasswordReg"></i>
+          </span>
+        </div>
+        <div class="input-error" *ngIf="passReg.invalid && passReg.touched">
+          <span *ngIf="passReg.errors?.['required']">La contraseña es obligatoria</span>
+          <span *ngIf="passReg.errors?.['minlength']">Mínimo 8 caracteres</span>
+        </div>
+
+        <!-- BOTÓN REGISTRO CON CAMBIO A VERDE -->
+        <button type="submit" class="btn-acceder-submit" 
+                [ngClass]="{'btn-success-state': registerButtonText === 'Registro exitoso'}"
+                [disabled]="registerForm.invalid || registerLoading" 
+                style="width: 340px; min-width: 340px; max-width: 340px; height: 54px; display: flex; align-items: center; justify-content: center; margin: 16px auto 0 auto; background: linear-gradient(135deg, #FFB703, #E69500); border: none; border-radius: 50px; color: #1A1A1A; font-weight: 700; font-size: 1rem; cursor: pointer;">
+          <ng-container *ngIf="!registerLoading && registerButtonText === 'Crear cuenta'">Crear cuenta</ng-container>
+          <ng-container *ngIf="registerLoading"><i class="fas fa-spinner fa-spin"></i> Registrando...</ng-container>
+          <ng-container *ngIf="!registerLoading && registerButtonText === 'Registro exitoso'"><i class="fas fa-check-circle"></i> Registro exitoso</ng-container>
+          <ng-container *ngIf="!registerLoading && registerButtonText === 'Welcome to OpenPsy'"><i class="fas fa-heart"></i> Welcome to OpenPsy</ng-container>
+        </button>
+
+        <!-- MENSAJE DE ERROR - DENTRO DEL FORMULARIO -->
+        <div class="btn-error" *ngIf="registerError">
+          <i class="fas fa-exclamation-triangle"></i> {{ registerMensajeError }}
+        </div>
+      </form>
+    </div>
+
+    <!-- Columna derecha: Testimonios -->
+    <div class="testimonios-col">
+      <div class="testimonio-card" *ngFor="let t of testimonios; let i = index" [class.active]="indiceTestimonio === i">
+        <div class="testimonio-imagen"><img [src]="t.imagen" [alt]="t.nombre"></div>
+        <p class="testimonio-texto">"{{ t.texto }}"</p>
+        <h4 class="testimonio-nombre">{{ t.nombre }}</h4>
+        <p class="testimonio-rol">{{ t.rol }}</p>
+      </div>
+
+      <div class="testimonio-controls">
+        <button class="control-btn" (click)="testimonioAnterior()"><i class="fas fa-chevron-left"></i></button>
+        <div class="indicadores">
+          <span *ngFor="let t of testimonios; let i = index" class="indicador" [class.active]="indiceTestimonio === i" (click)="irTestimonio(i)"></span>
+        </div>
+        <button class="control-btn" (click)="testimonioSiguiente()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

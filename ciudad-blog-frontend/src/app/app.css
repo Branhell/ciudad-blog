@@ -496,3 +496,24 @@ footer p {
     margin: 0 auto 16px;
   }
 }
+/* Botón unificado "Entrar a OpenPsy" */
+.btn-acceder-unico {
+  display: inline-block;
+  padding: 7px 20px;
+  background: linear-gradient(135deg, #FFB703, #E69500);
+  color: #1A1A1A;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+.btn-acceder-unico:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 183, 3, 0.4);
+}
