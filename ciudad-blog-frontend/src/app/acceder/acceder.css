@@ -14,21 +14,17 @@
   overflow: hidden;
 }
 
-.particles-bg {
-  position: absolute;
+/* ==============================================
+   PARTICLES.JS - FONDO ANIMADO
+   ============================================== */
+
+#particles-js {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(2px 2px at 20px 30px, rgba(255,183,3,0.2), transparent);
-  background-size: 40px 40px;
-  pointer-events: none;
-  animation: particlesFloat 30s linear infinite;
-}
-
-@keyframes particlesFloat {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100px); }
+  z-index: 0;
 }
 
 .acceder-grid {
@@ -42,6 +38,8 @@
   overflow: hidden;
   border: 1px solid rgba(255, 183, 3, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 10;
 }
 
 .formulario-col {
@@ -119,7 +117,7 @@
 }
 
 .input-group i:first-child {
-  padding: 0 12px;
+  padding: 14px 0 14px 8px;
   color: #FFD966;
 }
 
@@ -127,7 +125,7 @@
   flex: 1;
   background: transparent;
   border: none;
-  padding: 14px 0;
+  padding: 14px 0 14px 8px;
   color: white;
   outline: none;
 }
@@ -417,4 +415,242 @@
 .btn-success-state {
   background: #10b981 !important;
   transition: all 0.3s ease;
+}
+/* ==============================================
+   MODAL RECUPERAR CONTRASEÑA
+   ============================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-contenido {
+  background: linear-gradient(145deg, #1A1A1A, #2A2A3A);
+  border-radius: 32px;
+  max-width: 450px;
+  width: 90%;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 183, 3, 0.2);
+}
+
+.modal-header h3 {
+  color: #FFD966;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal-header h3 i {
+  margin-right: 10px;
+  color: #FFB703;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #888;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body p {
+  color: #C0C0C0;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.modal-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 183, 3, 0.2);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-input i {
+  color: #FFD966;
+  font-size: 1.1rem;
+}
+
+.modal-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.modal-input input::placeholder {
+  color: #666;
+}
+
+.modal-mensaje {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.modal-mensaje.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.modal-mensaje:not(.success) {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255, 183, 3, 0.2);
+}
+
+.btn-modal-cancelar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #B0B0B0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-cancelar:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.btn-modal-enviar {
+  background: linear-gradient(135deg, #FFB703, #E69500);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  color: #1A1A1A;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-modal-enviar:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.3);
+}
+
+.btn-modal-enviar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-acceder-unico {
+  display: inline-block;
+  padding: 7px 20px;
+  background: linear-gradient(135deg, #FFB703, #E69500);
+  color: #1A1A1A;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+/* ==============================================
+   AUTOFILL QUE OCUPA TODO EL CUADRO (ÍCONO + INPUT)
+   ============================================== */
+
+/* Eliminar el borde azul del focus */
+.input-group input:focus,
+.input-group input:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Transición larga */
+.input-group input {
+  transition: background-color 99999s ease-in-out 0s;
+}
+
+/* Autofill: aplica el estilo a todo el contenedor */
+.input-group:has(input:-webkit-autofill) {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.20) inset;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  border-radius: 16px;
+}
+
+/* Mantener el texto blanco en el input autocompletado */
+.input-group input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  background-color: transparent !important;
+  caret-color: white;
+}
+
+/* Firefox (no soporta :has, se aplica al input directamente) */
+.input-group input:-moz-autofill {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: white !important;
 }

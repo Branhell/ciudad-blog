@@ -31,7 +31,7 @@
                 "aos/dist/aos.css"
               ],
               "scripts": [
-                "aos/dist/aos.js"
+                "aos/dist/aos.js",
               ],
 			  "allowedCommonJsDependencies": [
 				"aos"

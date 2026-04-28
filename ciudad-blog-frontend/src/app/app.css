@@ -497,14 +497,16 @@ footer p {
   }
 }
 /* Botón unificado "Entrar a OpenPsy" */
+
+/* Botón unificado "Entrar a OpenPsy" - Mismo estilo que login-button-nav */
 .btn-acceder-unico {
   display: inline-block;
   padding: 7px 20px;
-  background: linear-gradient(135deg, #FFB703, #E69500);
-  color: #1A1A1A;
+  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
+  color: white;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 13px;
   border: none;
   cursor: pointer;
@@ -515,5 +517,6 @@ footer p {
 
 .btn-acceder-unico:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 183, 3, 0.4);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  opacity: 0.92;
 }
