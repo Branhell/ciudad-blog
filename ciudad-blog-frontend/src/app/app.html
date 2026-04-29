@@ -1,4 +1,4 @@
-<nav class="main-nav">
+<nav class="main-nav" *ngIf="mostrarLayout">
 
   <!-- LOGO -->
   <img src="assets/EcoBits_Logo.png" class="logo-nav" alt="EcoBits">
@@ -46,7 +46,7 @@
 </main>
 
 <!-- FOOTER MEJORADO -->
-<footer>
+<footer *ngIf="mostrarLayout">
   <div class="footer-columns">
     <!-- Columna 1: Logo y lema -->
     <div class="footer-col">

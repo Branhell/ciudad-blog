@@ -1,159 +1,72 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../services/usuario.service';
 import { AuthService } from '../services/auth.service';
-import { NgxParticlesModule } from '@tsparticles/angular';
-import { loadSlim } from "@tsparticles/slim";
-import { Engine } from '@tsparticles/engine';
+
+// 👇 necesario para particles.js
+declare var particlesJS: any;
+
 
 @Component({
   selector: 'app-acceder',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, NgxParticlesModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './acceder.html',
   styleUrls: ['./acceder.css']
 })
-export class AccederComponent implements OnInit, OnDestroy {
+export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
+
   modoActivo: string = 'login';
 
-   // Opciones para tsParticles
-    particlesOptions: any = {
-        fpsLimit: 60,
-        interactivity: {
-            events: {
-                onClick: {
-                    enable: true,
-                    mode: "push",
-                },
-                onHover: {
-                    enable: true,
-                    mode: "repulse",
-                },
-            },
-            modes: {
-                push: {
-                    quantity: 4,
-                },
-                repulse: {
-                    distance: 100,
-                    duration: 0.4,
-                },
-            },
-        },
-		
-		
-		
-		
-		
-		
-		
-		
-		
-        particles: {
-            color: {
-                value: ["#FFB703", "#E8E8E8", "#C0C0C0", "#A0A0A0"], // Array de colores para partículas
-            },
-            links: {
-                color: {                           // Configuración avanzada para links
-                    value: ["#FFD966", "#E8E8E8", "#A0A0A0"] // Colores que cambiarán dinámicamente
-                },
-                distance: 150,
-                enable: true,
-                opacity: 0.4,
-                width: 1,
-                blink: true,       // Hace que los colores "parpadeen" y cambien
-                consent: false,    // Si es false, el color puede variar entre partículas
-            },
-            move: {
-                enable: true,
-                speed: 3,
-                direction: "none",
-                random: true,
-                straight: false,
-                outModes: "out",
-            },
-            number: {
-                density: {
-                    enable: true,
-                },
-                value: 150,
-            },
-            opacity: {
-                value: 0.6,
-                random: true,
-            },
-            shape: {
-                type: "circle",
-            },
-            size:
-            {
-                value: { min: 1, max: 3 }, // Tamaño más pequeño y variable
-                random: true,
-                animation: {
-                    enable: true,
-                    speed: 2,
-                    minimumValue: 0.5,
-                }
-            },
-        },
-        detectRetina: true,
-    };
-
-    async particlesInit(engine: Engine): Promise<void> {
-        console.log("Inicializando tsParticles", engine);
-        // Carga la configuración slim (más ligera) 
-        await loadSlim(engine);
-    }
-
-
-  // Login
+  // LOGIN
   loginButtonText: string = 'Iniciar sesión';
   loginError: boolean = false;
   mensajeError: string = '';
   loginLoading: boolean = false;
   loginData = { email: '', password: '' };
-  mostrarPassword = false;
-  recordar = false;
+  mostrarPassword: boolean = false;
+  recordar: boolean = false;
   mostrarSocialButtons: boolean = true;
 
-  // Registro
+  // REGISTRO
   registerButtonText: string = 'Crear cuenta';
   registerData = { nombre: '', email: '', password: '' };
-  mostrarPasswordReg = false;
-  registerLoading = false;
+  mostrarPasswordReg: boolean = false;
+  registerLoading: boolean = false;
   registerError: boolean = false;
   registerMensajeError: string = '';
 
-  // Modal recuperar contraseña
+  // MODAL
   mostrarModalRecuperar: boolean = false;
   recuperarEmail: string = '';
   modalMensaje: string = '';
   modalSuccess: boolean = false;
 
-  // Testimonios
+  // TESTIMONIOS
   testimonios = [
     {
       imagen: 'https://randomuser.me/api/portraits/women/68.jpg',
       nombre: 'María González',
       rol: 'Paciente',
-      texto: 'OpenPsy me ha ayudado a entender mi relación con la tecnología. El apoyo de los profesionales es increíble.'
+      texto: 'OpenPsy me ha ayudado a entender mi relación con la tecnología.'
     },
     {
       imagen: 'https://randomuser.me/api/portraits/men/32.jpg',
       nombre: 'Carlos Rodríguez',
       rol: 'Psicólogo',
-      texto: 'Como profesional, encuentro en OpenPsy una plataforma segura para conectar con mis pacientes.'
+      texto: 'Plataforma segura para conectar con pacientes.'
     },
     {
       imagen: 'https://randomuser.me/api/portraits/women/45.jpg',
       nombre: 'Ana Lucía',
       rol: 'Paciente',
-      texto: 'La comunidad me ha hecho sentir acompañada. Los recursos y talleres son excelentes.'
+      texto: 'La comunidad me ha hecho sentir acompañada.'
     }
   ];
-  indiceTestimonio = 0;
+
+  indiceTestimonio: number = 0;
   intervaloTestimonio: any;
 
   constructor(
@@ -162,179 +75,233 @@ export class AccederComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) {}
 
-  ngOnInit() {
+  // ========================
+  // CICLO DE VIDA
+  // ========================
+
+  ngOnInit(): void {
     this.iniciarAutoplay();
   }
 
-  ngOnDestroy() {
+  ngAfterViewInit(): void {
+    this.iniciarParticles();
+  }
+
+  ngOnDestroy(): void {
     if (this.intervaloTestimonio) {
       clearInterval(this.intervaloTestimonio);
     }
   }
 
-  cambiarModo(modo: string) {
-    this.modoActivo = modo;
-    this.loginButtonText = 'Iniciar sesión';
-    this.loginError = false;
-    this.loginLoading = false;
-    this.mostrarSocialButtons = true;
-    this.registerButtonText = 'Crear cuenta';
-    this.registerLoading = false;
-    this.registerError = false;
-    this.registerMensajeError = '';
+  // ========================
+  // PARTICLES
+  // ========================
+
+  iniciarParticles(): void {
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: ["#FFB703", "#FFD966", "#E8E8E8", "#C0C0C0", "#A0A0A0", "#808080"]
+          },
+          shape: {
+            type: "circle"
+          },
+          opacity: {
+            value: 0.7,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 2,
+              size_min: 0.5,
+              sync: false
+            }
+          },
+          line_linked: {
+  enable: true,
+  distance: 150,
+  color: "#FFB703",
+  opacity: 0.6,
+  width: 1.2
+          },
+          move: {
+            enable: true,
+            speed: 4,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: true,
+              rotateX: 600,
+              rotateY: 1200
+            }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse"
+            },
+            onclick: {
+              enable: true,
+              mode: "push"
+            },
+            resize: true
+          },
+          modes: {
+            repulse: {
+              distance: 100,
+              duration: 0.4
+            },
+            push: {
+              particles_nb: 4
+            }
+          }
+        },
+        retina_detect: true
+      });
+    }
   }
 
+  // ========================
   // LOGIN
-  onLogin() {
+  // ========================
+
+  onLogin(): void {
     if (!this.loginData.email || !this.loginData.password) {
       this.loginError = true;
       this.mensajeError = 'Completa todos los campos';
-      setTimeout(() => { this.loginError = false; }, 3000);
+      setTimeout(() => this.loginError = false, 3000);
       return;
     }
 
-    this.loginError = false;
     this.loginLoading = true;
     this.mostrarSocialButtons = false;
     this.loginButtonText = 'Autenticando...';
 
     this.usuarioService.login(this.loginData.email, this.loginData.password).subscribe({
-      next: (res) => {
+      next: () => {
         this.loginLoading = false;
         this.loginButtonText = 'Ingreso exitoso';
-        
+
         setTimeout(() => {
-          this.loginButtonText = 'Welcome to OpenPsy';
-          setTimeout(() => {
-            this.router.navigate(['/dashboard']);
-          }, 1000);
+          this.router.navigate(['/dashboard']);
         }, 1500);
       },
-      error: (err) => {
+      error: (err: any) => {
         this.loginLoading = false;
         this.loginError = true;
         this.mensajeError = err.error?.mensaje || 'Correo o contraseña incorrectos';
         this.loginButtonText = 'Iniciar sesión';
         this.mostrarSocialButtons = true;
-        setTimeout(() => { this.loginError = false; }, 3000);
+
+        setTimeout(() => this.loginError = false, 3000);
       }
     });
   }
 
+  // ========================
   // REGISTRO
-  onRegister() {
+  // ========================
+
+  onRegister(): void {
     if (!this.registerData.nombre || !this.registerData.email || !this.registerData.password) {
       this.registerError = true;
       this.registerMensajeError = 'Completa todos los campos';
-      setTimeout(() => { this.registerError = false; }, 3000);
-      return;
-    }
-
-    if (!this.registerData.email.includes('@')) {
-      this.registerError = true;
-      this.registerMensajeError = 'Email no válido';
-      setTimeout(() => { this.registerError = false; }, 3000);
-      return;
-    }
-
-    if (this.registerData.password.length < 8) {
-      this.registerError = true;
-      this.registerMensajeError = 'La contraseña debe tener al menos 8 caracteres';
-      setTimeout(() => { this.registerError = false; }, 3000);
       return;
     }
 
     this.registerLoading = true;
     this.registerButtonText = 'Registrando...';
 
-    const body = {
-      nombre: this.registerData.nombre,
-      email: this.registerData.email,
-      password: this.registerData.password
-    };
+    const body = { ...this.registerData };
 
     this.usuarioService['http'].post('http://localhost:8080/api/usuarios', body).subscribe({
       next: () => {
         this.registerLoading = false;
         this.registerButtonText = 'Registro exitoso';
-        
+
         setTimeout(() => {
-          this.registerButtonText = 'Welcome to OpenPsy';
-          setTimeout(() => {
-            this.router.navigate(['/login']);
-          }, 1000);
+          this.router.navigate(['/login']);
         }, 1500);
       },
-      error: (err) => {
+      error: (err: any) => {
         this.registerLoading = false;
         this.registerError = true;
         this.registerMensajeError = err.error?.mensaje || 'Error al registrar';
         this.registerButtonText = 'Crear cuenta';
-        setTimeout(() => { this.registerError = false; }, 3000);
       }
     });
   }
 
-  // Modal recuperar contraseña
-  abrirModalRecuperar() {
+  // ========================
+  // MODAL
+  // ========================
+
+  abrirModalRecuperar(): void {
     this.mostrarModalRecuperar = true;
-    this.recuperarEmail = '';
-    this.modalMensaje = '';
-    this.modalSuccess = false;
   }
 
-  cerrarModal() {
+  cerrarModal(): void {
     this.mostrarModalRecuperar = false;
-    this.recuperarEmail = '';
-    this.modalMensaje = '';
   }
 
-  enviarRecuperacion() {
-    if (!this.recuperarEmail) {
-      this.modalMensaje = 'Ingresa tu correo electrónico';
-      this.modalSuccess = false;
-      return;
-    }
+  enviarRecuperacion(): void {
+    this.modalMensaje = 'Enviado (demo)';
+    this.modalSuccess = true;
 
-    if (!this.recuperarEmail.includes('@')) {
-      this.modalMensaje = 'Ingresa un correo válido';
-      this.modalSuccess = false;
-      return;
-    }
-
-    this.modalMensaje = 'Enviando...';
-    
-    setTimeout(() => {
-      this.modalMensaje = 'Se ha enviado un enlace a tu correo para restablecer tu contraseña.';
-      this.modalSuccess = true;
-      
-      setTimeout(() => {
-        this.cerrarModal();
-      }, 3000);
-    }, 1500);
+    setTimeout(() => this.cerrarModal(), 2000);
   }
 
-  socialLogin(provider: string) {
-    alert(`Autenticación con ${provider} (pendiente de implementar)`);
+  socialLogin(provider: string): void {
+    alert(`Login con ${provider} pendiente`);
   }
 
-  iniciarAutoplay() {
+  // ========================
+  // TESTIMONIOS
+  // ========================
+
+  iniciarAutoplay(): void {
     this.intervaloTestimonio = setInterval(() => {
       this.testimonioSiguiente();
     }, 5000);
   }
 
-  testimonioSiguiente() {
+  testimonioSiguiente(): void {
     this.indiceTestimonio = (this.indiceTestimonio + 1) % this.testimonios.length;
   }
 
-  testimonioAnterior() {
-    this.indiceTestimonio = (this.indiceTestimonio - 1 + this.testimonios.length) % this.testimonios.length;
+  testimonioAnterior(): void {
+    this.indiceTestimonio =
+      (this.indiceTestimonio - 1 + this.testimonios.length) % this.testimonios.length;
   }
 
-  irTestimonio(index: number) {
+  irTestimonio(index: number): void {
     this.indiceTestimonio = index;
   }
-ngAfterViewInit() {
-}
+
+  cambiarModo(modo: string): void {
+    this.modoActivo = modo;
+  }
 }

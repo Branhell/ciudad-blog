@@ -161,7 +161,6 @@ app-root {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 70px;
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -461,9 +460,6 @@ footer p {
     border-top: 2px solid #E2E8F0;
   }
 
-  .contenido {
-    padding-top: 70px;
-  }
 
   .social-bar {
     display: none;
