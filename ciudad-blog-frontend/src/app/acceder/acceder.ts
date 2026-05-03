@@ -5,9 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../services/usuario.service';
 import { AuthService } from '../services/auth.service';
 
-// 👇 necesario para particles.js
 declare var particlesJS: any;
-
 
 @Component({
   selector: 'app-acceder',
@@ -20,7 +18,6 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
 
   modoActivo: string = 'login';
 
-  // LOGIN
   loginButtonText: string = 'Iniciar sesión';
   loginError: boolean = false;
   mensajeError: string = '';
@@ -30,7 +27,6 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
   recordar: boolean = false;
   mostrarSocialButtons: boolean = true;
 
-  // REGISTRO
   registerButtonText: string = 'Crear cuenta';
   registerData = { nombre: '', email: '', password: '' };
   mostrarPasswordReg: boolean = false;
@@ -38,13 +34,11 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
   registerError: boolean = false;
   registerMensajeError: string = '';
 
-  // MODAL
   mostrarModalRecuperar: boolean = false;
   recuperarEmail: string = '';
   modalMensaje: string = '';
   modalSuccess: boolean = false;
 
-  // TESTIMONIOS
   testimonios = [
     {
       imagen: 'https://randomuser.me/api/portraits/women/68.jpg',
@@ -75,10 +69,6 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
     private authService: AuthService
   ) {}
 
-  // ========================
-  // CICLO DE VIDA
-  // ========================
-
   ngOnInit(): void {
     this.iniciarAutoplay();
   }
@@ -93,149 +83,72 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  // ========================
-  // PARTICLES
-  // ========================
-
   iniciarParticles(): void {
     if (typeof particlesJS !== 'undefined') {
       particlesJS('particles-js', {
         particles: {
-          number: {
-            value: 80,
-            density: {
-              enable: true,
-              value_area: 800
-            }
-          },
-          color: {
-            value: ["#FFB703", "#FFD966", "#E8E8E8", "#C0C0C0", "#A0A0A0", "#808080"]
-          },
-          shape: {
-            type: "circle"
-          },
-          opacity: {
-            value: 0.7,
-            random: true,
-            anim: {
-              enable: true,
-              speed: 1,
-              opacity_min: 0.1,
-              sync: false
-            }
-          },
-          size: {
-            value: 3,
-            random: true,
-            anim: {
-              enable: true,
-              speed: 2,
-              size_min: 0.5,
-              sync: false
-            }
-          },
-          line_linked: {
-  enable: true,
-  distance: 150,
-  color: "#FFB703",
-  opacity: 0.6,
-  width: 1.2
-          },
-          move: {
-            enable: true,
-            speed: 4,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-            attract: {
-              enable: true,
-              rotateX: 600,
-              rotateY: 1200
-            }
-          }
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: ["#FFB703", "#FFD966", "#E8E8E8", "#C0C0C0", "#A0A0A0", "#808080"] },
+          shape: { type: "circle" },
+          opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+          size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.5, sync: false } },
+          line_linked: { enable: true, distance: 150, color: "#FFB703", opacity: 0.6, width: 1.2 },
+          move: { enable: true, speed: 4, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: true, rotateX: 600, rotateY: 1200 } }
         },
         interactivity: {
           detect_on: "canvas",
-          events: {
-            onhover: {
-              enable: true,
-              mode: "repulse"
-            },
-            onclick: {
-              enable: true,
-              mode: "push"
-            },
-            resize: true
-          },
-          modes: {
-            repulse: {
-              distance: 100,
-              duration: 0.4
-            },
-            push: {
-              particles_nb: 4
-            }
-          }
+          events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+          modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
         },
         retina_detect: true
       });
     }
   }
 
-  // ========================
-  // LOGIN
-  // ========================
-
-onLogin(): void {
-  if (!this.loginData.email || !this.loginData.password) {
-    this.loginError = true;
-    this.mensajeError = 'Completa todos los campos';
-    setTimeout(() => this.loginError = false, 3000);
-    return;
-  }
-
-  this.loginLoading = true;
-  this.mostrarSocialButtons = false;
-  this.loginButtonText = 'Autenticando...';
-
-  this.usuarioService.login(this.loginData.email, this.loginData.password).subscribe({
-next: (res: any) => {
-  this.loginLoading = false;
-  this.loginButtonText = 'Ingreso exitoso';
-
-  // Guardar nombre del usuario
-  const nombreUsuario = res.nombre || this.loginData.email.split('@')[0];
-  localStorage.setItem('usuarioNombre', nombreUsuario);
-
-  // Guardar ID del usuario (necesario para subir avatar)
-  if (res.id) {
-    localStorage.setItem('usuarioId', res.id.toString());
-  }
-
-  // Guardar sesión en AuthService
-  this.authService.login(this.loginData.email, res.token, res.rol, res.avatarUrl);
-
-  setTimeout(() => {
-    this.router.navigate(['/dashboard']);
-  }, 1500);
-},
-    error: (err: any) => {
-      this.loginLoading = false;
+  onLogin(): void {
+    if (!this.loginData.email || !this.loginData.password) {
       this.loginError = true;
-      this.mensajeError = err.error?.mensaje || 'Correo o contraseña incorrectos';
-      this.loginButtonText = 'Iniciar sesión';
-      this.mostrarSocialButtons = true;
-
+      this.mensajeError = 'Completa todos los campos';
       setTimeout(() => this.loginError = false, 3000);
+      return;
     }
-  });
-}
 
-  // ========================
-  // REGISTRO
-  // ========================
+    this.loginLoading = true;
+    this.mostrarSocialButtons = false;
+    this.loginButtonText = 'Autenticando...';
+
+    this.usuarioService.login(this.loginData.email, this.loginData.password).subscribe({
+      next: (res: any) => {
+        this.loginLoading = false;
+        this.loginButtonText = 'Ingreso exitoso';
+
+        const nombreUsuario = res.nombre || this.loginData.email.split('@')[0];
+        localStorage.setItem('usuarioNombre', nombreUsuario);
+
+        if (res.id) {
+          localStorage.setItem('usuarioId', res.id.toString());
+        }
+
+        // ✅ Mantener el avatar existente si no viene del backend
+        const avatarExistente = localStorage.getItem('usuarioAvatar');
+        const avatarFinal = res.avatarUrl || avatarExistente;
+
+        this.authService.login(this.loginData.email, res.token, res.rol, avatarFinal);
+
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 1500);
+      },
+      error: (err: any) => {
+        this.loginLoading = false;
+        this.loginError = true;
+        this.mensajeError = err.error?.mensaje || 'Correo o contraseña incorrectos';
+        this.loginButtonText = 'Iniciar sesión';
+        this.mostrarSocialButtons = true;
+        setTimeout(() => this.loginError = false, 3000);
+      }
+    });
+  }
 
   onRegister(): void {
     if (!this.registerData.nombre || !this.registerData.email || !this.registerData.password) {
@@ -253,7 +166,6 @@ next: (res: any) => {
       next: () => {
         this.registerLoading = false;
         this.registerButtonText = 'Registro exitoso';
-
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 1500);
@@ -267,10 +179,6 @@ next: (res: any) => {
     });
   }
 
-  // ========================
-  // MODAL
-  // ========================
-
   abrirModalRecuperar(): void {
     this.mostrarModalRecuperar = true;
   }
@@ -282,17 +190,12 @@ next: (res: any) => {
   enviarRecuperacion(): void {
     this.modalMensaje = 'Enviado (demo)';
     this.modalSuccess = true;
-
     setTimeout(() => this.cerrarModal(), 2000);
   }
 
   socialLogin(provider: string): void {
     alert(`Login con ${provider} pendiente`);
   }
-
-  // ========================
-  // TESTIMONIOS
-  // ========================
 
   iniciarAutoplay(): void {
     this.intervaloTestimonio = setInterval(() => {
@@ -305,8 +208,7 @@ next: (res: any) => {
   }
 
   testimonioAnterior(): void {
-    this.indiceTestimonio =
-      (this.indiceTestimonio - 1 + this.testimonios.length) % this.testimonios.length;
+    this.indiceTestimonio = (this.indiceTestimonio - 1 + this.testimonios.length) % this.testimonios.length;
   }
 
   irTestimonio(index: number): void {

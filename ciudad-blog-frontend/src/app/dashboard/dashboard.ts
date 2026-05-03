@@ -46,12 +46,14 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.avatarUrl = localStorage.getItem('usuarioAvatar');
     this.rol = localStorage.getItem('usuarioRol');
     this.email = localStorage.getItem('usuarioEmail');
     this.nombre = localStorage.getItem('usuarioNombre');
     
-    // Pequeño retraso para asegurar que el DOM esté listo
+    if (this.email) {
+      this.avatarUrl = localStorage.getItem(`avatar_${this.email}`);
+    }
+    
     setTimeout(() => {
       this.cargarFondoGuardado();
     }, 100);
@@ -60,15 +62,10 @@ export class DashboardComponent implements OnInit {
   }
 
   cargarFondoGuardado() {
-    const fondoGuardado = localStorage.getItem(`fondo_${this.rol}`);
-    const posGuardada = localStorage.getItem(`fondo_pos_${this.rol}`);
+    const email = localStorage.getItem('usuarioEmail');
+    if (!email) return;
     
-    if (posGuardada) {
-      const [x, y] = posGuardada.split(',');
-      this.posicionX = parseInt(x);
-      this.posicionY = parseInt(y);
-    }
-    
+    const fondoGuardado = localStorage.getItem(`fondo_${email}`);
     if (fondoGuardado) {
       const selector = this.getSelectorPorRol();
       const header = document.querySelector(selector) as HTMLElement;
@@ -116,23 +113,24 @@ export class DashboardComponent implements OnInit {
 
   onImagenSeleccionada(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        const imagenUrl = e.target.result;
-        const selector = this.getSelectorPorRol();
-        const header = document.querySelector(selector) as HTMLElement;
-        if (header) {
-          header.style.backgroundImage = `url('${imagenUrl}')`;
-          header.style.backgroundSize = 'cover';
-          header.style.backgroundPosition = `${this.posicionX}% ${this.posicionY}%`;
-          header.style.backgroundBlendMode = 'overlay';
-          localStorage.setItem(`fondo_${this.rol}`, imagenUrl);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
+    const email = localStorage.getItem('usuarioEmail');
+    if (!input.files || !input.files[0] || !email) return;
+    
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const imagenUrl = e.target.result;
+      const selector = this.getSelectorPorRol();
+      const header = document.querySelector(selector) as HTMLElement;
+      if (header) {
+        header.style.backgroundImage = `url('${imagenUrl}')`;
+        header.style.backgroundSize = 'cover';
+        header.style.backgroundPosition = `${this.posicionX}% ${this.posicionY}%`;
+        header.style.backgroundBlendMode = 'overlay';
+        localStorage.setItem(`fondo_${email}`, imagenUrl);
+      }
+    };
+    reader.readAsDataURL(file);
   }
 
   toggleModoArrastre() {
@@ -162,9 +160,9 @@ export class DashboardComponent implements OnInit {
     this.posicionY = nuevaY;
     const selector = this.getSelectorPorRol();
     const header = document.querySelector(selector) as HTMLElement;
-    if (header) {
+    if (header && this.email) {
       header.style.backgroundPosition = `${this.posicionX}% ${this.posicionY}%`;
-      localStorage.setItem(`fondo_pos_${this.rol}`, `${this.posicionX},${this.posicionY}`);
+      localStorage.setItem(`fondo_pos_${this.email}`, `${this.posicionX},${this.posicionY}`);
     }
   }
 
@@ -191,9 +189,9 @@ export class DashboardComponent implements OnInit {
     }
     const selector = this.getSelectorPorRol();
     const header = document.querySelector(selector) as HTMLElement;
-    if (header) {
+    if (header && this.email) {
       header.style.backgroundPosition = `${this.posicionX}% ${this.posicionY}%`;
-      localStorage.setItem(`fondo_pos_${this.rol}`, `${this.posicionX},${this.posicionY}`);
+      localStorage.setItem(`fondo_pos_${this.email}`, `${this.posicionX},${this.posicionY}`);
     }
   }
 
@@ -204,17 +202,18 @@ export class DashboardComponent implements OnInit {
 
   onAvatarSeleccionado(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        const imagenUrl = e.target.result;
-        localStorage.setItem('usuarioAvatar', imagenUrl);
-        this.avatarUrl = imagenUrl;
-        this.authService.actualizarAvatar(imagenUrl);
-        window.location.reload();
-      };
-      reader.readAsDataURL(file);
-    }
+    const email = localStorage.getItem('usuarioEmail');
+    if (!input.files || !input.files[0] || !email) return;
+    
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const imagenUrl = e.target.result;
+      localStorage.setItem(`avatar_${email}`, imagenUrl);
+      this.avatarUrl = imagenUrl;
+      this.authService.actualizarAvatar(imagenUrl);
+      window.location.reload();
+    };
+    reader.readAsDataURL(file);
   }
 }

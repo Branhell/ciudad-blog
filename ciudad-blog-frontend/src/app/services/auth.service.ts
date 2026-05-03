@@ -19,13 +19,19 @@ export class AuthService {
     localStorage.setItem('jwtToken', token);
     localStorage.setItem('usuarioEmail', email);
     localStorage.setItem('usuarioRol', rol);
-    if (avatarUrl) {
-      localStorage.setItem('usuarioAvatar', avatarUrl);
-      this.userAvatar.next(avatarUrl);
+    
+    // Mantener el avatar existente si no viene uno nuevo
+    const avatarExistente = localStorage.getItem('usuarioAvatar');
+    const avatarFinal = avatarUrl || avatarExistente;
+    
+    if (avatarFinal) {
+      localStorage.setItem('usuarioAvatar', avatarFinal);
+      this.userAvatar.next(avatarFinal);
     } else {
       localStorage.removeItem('usuarioAvatar');
       this.userAvatar.next(null);
     }
+    
     this.loggedIn.next(true);
     this.userEmail.next(email);
     this.userRol.next(rol);

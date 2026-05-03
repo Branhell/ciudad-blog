@@ -30,7 +30,10 @@ export class SidebarComponent implements OnInit {
     this.rol = localStorage.getItem('usuarioRol');
     this.nombre = localStorage.getItem('usuarioNombre');
     this.email = localStorage.getItem('usuarioEmail');
-    this.avatarUrl = localStorage.getItem('usuarioAvatar');
+    
+    if (this.email) {
+      this.avatarUrl = localStorage.getItem(`avatar_${this.email}`);
+    }
   }
 
   cerrarSesion() {
@@ -45,17 +48,18 @@ export class SidebarComponent implements OnInit {
 
   onAvatarSeleccionado(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        const imagenUrl = e.target.result;
-        localStorage.setItem('usuarioAvatar', imagenUrl);
-        this.avatarUrl = imagenUrl;
-        this.authService.actualizarAvatar(imagenUrl);
-        window.location.reload();
-      };
-      reader.readAsDataURL(file);
-    }
+    const email = localStorage.getItem('usuarioEmail');
+    if (!input.files || !input.files[0] || !email) return;
+    
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const imagenUrl = e.target.result;
+      localStorage.setItem(`avatar_${email}`, imagenUrl);
+      this.avatarUrl = imagenUrl;
+      this.authService.actualizarAvatar(imagenUrl);
+      window.location.reload();
+    };
+    reader.readAsDataURL(file);
   }
 }
