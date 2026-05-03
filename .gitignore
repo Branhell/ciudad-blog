@@ -21,3 +21,4 @@ Thumbs.db
 docker/.env
 
 .env
+ciudad-blog-backend/src/main/resources/firebase-key.json
