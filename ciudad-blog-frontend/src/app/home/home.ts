@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { PostService } from '../services/post.service';
 import { Post } from '../models/post.model';
 import gsap from 'gsap';
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 @Component({
   selector: 'app-home',
@@ -79,6 +82,13 @@ imagenesOrb3: string[] = [
       opacity: 0,
       ease: 'back.out(1)'
     });
+	
+	AOS.init({
+    duration: 800,     // duración de la animación
+    once: true,        // anima solo una vez
+    offset: 100,       // distancia para activar
+    easing: 'ease-out'
+  });
 
     gsap.from('.hero-titulo', {
       duration: 0.8,
@@ -116,7 +126,7 @@ this.iniciarCarrusel('carrusel1', this.imagenesOrb1.length, 'abajo');
 this.iniciarCarrusel('carrusel2', this.imagenesOrb2.length, 'arriba');
 this.iniciarCarrusel('carrusel3', this.imagenesOrb3.length, 'abajo');
 
-  }
+}
 
 iniciarCarrusel(id: string, totalImagenes: number, direccion: string = 'abajo') {
   let index = 0;

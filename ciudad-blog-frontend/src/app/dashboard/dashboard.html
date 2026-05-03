@@ -1,200 +1,245 @@
 <div class="dashboard-container">
+  <app-sidebar></app-sidebar>
 
-  <!-- ================================
-       DASHBOARD PACIENTE
-       ================================ -->
-  <div *ngIf="rol === 'PACIENTE'" class="dashboard-content">
+  <div class="dashboard-content-wrapper">
+  
+    <!-- PACIENTE -->
+    <div *ngIf="rol === 'PACIENTE'" class="dashboard-content">
+      <div class="dashboard-header paciente"
+           (mousedown)="modoArrastreActivo && iniciarArrastre($event)"
+           (mousemove)="modoArrastreActivo && duranteArrastre($event)"
+           (mouseup)="modoArrastreActivo && finalizarArrastre()">
+        
+        <div class="header-inner">
+          <div class="header-left">
+            <div class="header-avatar">
+              <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar" class="avatar-img-dashboard">
+              <span *ngIf="!avatarUrl">{{ email ? email[0].toUpperCase() : 'P' }}</span>
+            </div>
+            <div class="header-info">
+              <span class="rol-badge paciente-badge">Paciente</span>
+              <h1>🌿 Mi Panel de Bienestar</h1>
+              <p>Bienvenido a tu espacio personal en EcoBits</p>
+              <span class="header-nombre">{{ nombre || email }}</span>
+              <span class="header-email">{{ email }}</span>
+            </div>
+          </div>
 
-    <div class="dashboard-header paciente">
-      <div class="header-inner">
-        <div class="header-avatar">{{ email ? email[0].toUpperCase() : 'P' }}</div>
-        <div class="header-info">
-          <span class="rol-badge paciente-badge">Paciente</span>
-          <h1>🧠 Mi Panel de Bienestar</h1>
-          <p>Bienvenido a tu espacio personal en EcoBits</p>
-          <span class="header-email">{{ email }}</span>
+          <div class="header-actions">
+            <input type="file" id="uploadFondo" accept="image/*" style="display: none;" (change)="onImagenSeleccionada($event)">
+            <button (click)="abrirSelectorImagen()" class="btn-accion-fondo" title="Subir imagen de fondo">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </button>
+            <button (click)="toggleModoArrastre()" class="btn-accion-fondo" [class.active]="modoArrastreActivo" title="Activar modo arrastre">
+              <i class="fas fa-arrows-alt"></i>
+            </button>
+          </div>
+        </div>
+        
+        <p class="drag-hint" *ngIf="modoArrastreActivo">💡 Arrastra la imagen directamente sobre el fondo</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card card-verde">
+          <i class="fas fa-chart-line card-icon"></i>
+          <h3>Mi Bienestar</h3>
+          <app-chart type="line" [labels]="chartLabels" [data]="chartData" label="Evolucion de bienestar" color="#7ed321"></app-chart>
+          <p>Revisa tu evolucion y metricas personales</p>
+        </div>
+        <div class="card card-cian">
+          <i class="fas fa-comments card-icon"></i>
+          <h3>Foro General</h3>
+          <p>Participa en la comunidad EcoBits</p>
+          <a routerLink="/dashboard/expresate" class="card-btn">Ir al foro</a>
+        </div>
+        <div class="card card-verde">
+          <i class="fas fa-tools card-icon"></i>
+          <h3>Mis Servicios</h3>
+          <p>Servicios contratados y disponibles</p>
+          <a routerLink="/dashboard/servicios" class="card-btn">Ver servicios</a>
+        </div>
+        <div class="card card-cian">
+          <i class="fas fa-shopping-cart card-icon"></i>
+          <h3>Productos</h3>
+          <p>Productos disponibles para ti</p>
+          <a routerLink="/productos" class="card-btn">Ver productos</a>
+        </div>
+        <div class="card card-verde">
+          <i class="fas fa-newspaper card-icon"></i>
+          <h3>Noticias</h3>
+          <p>Ultimas novedades de EcoBits</p>
+          <a routerLink="/dashboard/noticias" class="card-btn">Ver noticias</a>
+        </div>
+        <div class="card card-cian">
+          <i class="fas fa-calendar-alt card-icon"></i>
+          <h3>Eventos</h3>
+          <p>Webinars y actividades proximas</p>
+          <a routerLink="/dashboard/eventos" class="card-btn">Ver eventos</a>
         </div>
       </div>
     </div>
 
-    <div class="cards-grid">
-      <div class="card card-verde">
-        <span class="card-icon">📊</span>
-        <h3>Mi Bienestar</h3>
-        <app-chart 
-          type="line" 
-          [labels]="chartLabels" 
-          [data]="chartData" 
-          label="Evolución de bienestar"
-          color="#7ed321">
-        </app-chart>
-        <p>Revisa tu evolución y métricas personales</p>
+    <!-- PROFESIONAL -->
+    <div *ngIf="rol === 'PROFESIONAL'" class="dashboard-content">
+      <div class="dashboard-header profesional"
+           (mousedown)="modoArrastreActivo && iniciarArrastre($event)"
+           (mousemove)="modoArrastreActivo && duranteArrastre($event)"
+           (mouseup)="modoArrastreActivo && finalizarArrastre()">
+        
+        <div class="header-inner">
+          <div class="header-left">
+            <div class="header-avatar">
+              <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar" class="avatar-img-dashboard">
+              <span *ngIf="!avatarUrl">{{ email ? email[0].toUpperCase() : 'P' }}</span>
+            </div>
+            <div class="header-info">
+              <span class="rol-badge profesional-badge">Profesional</span>
+              <h1>🩺 Panel Profesional</h1>
+              <p>Gestiona tus clientes y servicios</p>
+              <span class="header-nombre">{{ nombre || email }}</span>
+              <span class="header-email">{{ email }}</span>
+            </div>
+          </div>
+          
+          <div class="header-actions">
+            <input type="file" id="uploadFondo" accept="image/*" style="display: none;" (change)="onImagenSeleccionada($event)">
+            <button (click)="abrirSelectorImagen()" class="btn-accion-fondo" title="Subir imagen de fondo">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </button>
+            <button (click)="toggleModoArrastre()" class="btn-accion-fondo" [class.active]="modoArrastreActivo" title="Activar modo arrastre">
+              <i class="fas fa-arrows-alt"></i>
+            </button>
+          </div>
+        </div>
+        
+        <p class="drag-hint" *ngIf="modoArrastreActivo">💡 Arrastra la imagen directamente sobre el fondo</p>
       </div>
-      <div class="card card-cian">
-        <span class="card-icon">💬</span>
-        <h3>Foro General</h3>
-        <p>Participa en la comunidad EcoBits</p>
-        <a routerLink="/expresate" class="card-btn">Ir al foro</a>
-      </div>
-      <div class="card card-verde">
-        <span class="card-icon">🛠️</span>
-        <h3>Mis Servicios</h3>
-        <p>Servicios contratados y disponibles</p>
-        <a routerLink="/servicios" class="card-btn">Ver servicios</a>
-      </div>
-      <div class="card card-cian">
-        <span class="card-icon">🛒</span>
-        <h3>Productos</h3>
-        <p>Productos disponibles para ti</p>
-        <a routerLink="/productos" class="card-btn">Ver productos</a>
-      </div>
-      <div class="card card-verde">
-        <span class="card-icon">📰</span>
-        <h3>Noticias</h3>
-        <p>Últimas novedades de EcoBits</p>
-        <a routerLink="/noticias" class="card-btn">Ver noticias</a>
-      </div>
-      <div class="card card-cian">
-        <span class="card-icon">🎯</span>
-        <h3>Eventos</h3>
-        <p>Webinars y actividades próximas</p>
-        <a routerLink="/eventos" class="card-btn">Ver eventos</a>
-      </div>
-    </div>
-  </div>
 
-  <!-- ================================
-       DASHBOARD PROFESIONAL
-       ================================ -->
-  <div *ngIf="rol === 'PROFESIONAL'" class="dashboard-content">
-
-    <div class="dashboard-header profesional">
-      <div class="header-inner">
-        <div class="header-avatar">{{ email ? email[0].toUpperCase() : 'P' }}</div>
-        <div class="header-info">
-          <span class="rol-badge profesional-badge">Profesional</span>
-          <h1>🩺 Panel Profesional</h1>
-          <p>Gestiona tus clientes y servicios</p>
-          <span class="header-email">{{ email }}</span>
+      <div class="cards-grid">
+        <div class="card card-cian">
+          <i class="fas fa-users card-icon"></i>
+          <h3>Mis Clientes</h3>
+          <p>Lista de pacientes asignados</p>
+          <a routerLink="/dashboard/pacientes" class="card-btn">Ver mis pacientes</a>
+        </div>
+        <div class="card card-verde">
+          <i class="fas fa-tools card-icon"></i>
+          <h3>Mis Servicios</h3>
+          <p>Gestiona los servicios que ofreces</p>
+          <a routerLink="/dashboard/servicios" class="card-btn">Ver servicios</a>
+        </div>
+        <div class="card card-cian">
+          <i class="fas fa-lock card-icon"></i>
+          <h3>Foro Profesional</h3>
+          <p>Espacio privado para profesionales</p>
+        </div>
+        <div class="card card-verde">
+          <i class="fas fa-chart-line card-icon"></i>
+          <h3>Estadisticas</h3>
+          <app-chart type="line" [labels]="chartLabels" [data]="chartData" label="Actividad mensual" color="#00d4ff"></app-chart>
+          <p>Metricas y evolucion de tus clientes</p>
+        </div>
+        <div class="card card-cian">
+          <i class="fas fa-edit card-icon"></i>
+          <h3>Publicaciones</h3>
+          <p>Gestiona tus articulos y posts</p>
+          <a routerLink="/dashboard/noticias" class="card-btn">Ver publicaciones</a>
         </div>
       </div>
     </div>
 
-    <div class="cards-grid">
-      <div class="card card-cian">
-        <span class="card-icon">👥</span>
-        <h3>Mis Clientes</h3>
-        <p>Lista de pacientes asignados</p>
+    <!-- ADMIN -->
+    <div *ngIf="rol === 'ADMIN'" class="dashboard-content">
+      <div class="dashboard-header admin"
+           (mousedown)="modoArrastreActivo && iniciarArrastre($event)"
+           (mousemove)="modoArrastreActivo && duranteArrastre($event)"
+           (mouseup)="modoArrastreActivo && finalizarArrastre()">
+        
+        <div class="header-inner">
+          <div class="header-left">
+            <div class="header-avatar">
+              <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar" class="avatar-img-dashboard">
+              <span *ngIf="!avatarUrl">{{ email ? email[0].toUpperCase() : 'A' }}</span>
+            </div>
+            <div class="header-info">
+              <span class="rol-badge admin-badge">Administrador</span>
+              <h1>⚙️ Panel Administrador</h1>
+              <p>Control total de la plataforma EcoBits</p>
+              <span class="header-nombre">{{ nombre || email }}</span>
+              <span class="header-email">{{ email }}</span>
+            </div>
+          </div>
+          
+          <div class="header-actions">
+            <input type="file" id="uploadFondo" accept="image/*" style="display: none;" (change)="onImagenSeleccionada($event)">
+            <button (click)="abrirSelectorImagen()" class="btn-accion-fondo" title="Subir imagen de fondo">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </button>
+            <button (click)="toggleModoArrastre()" class="btn-accion-fondo" [class.active]="modoArrastreActivo" title="Activar modo arrastre">
+              <i class="fas fa-arrows-alt"></i>
+            </button>
+          </div>
+        </div>
+        
+        <p class="drag-hint" *ngIf="modoArrastreActivo">💡 Arrastra la imagen directamente sobre el fondo</p>
       </div>
-      <div class="card card-verde">
-        <span class="card-icon">🛠️</span>
-        <h3>Mis Servicios</h3>
-        <p>Gestiona los servicios que ofreces</p>
-        <a routerLink="/servicios" class="card-btn">Ver servicios</a>
-      </div>
-      <div class="card card-cian">
-        <span class="card-icon">🔒</span>
-        <h3>Foro Profesional</h3>
-        <p>Espacio privado para profesionales</p>
-      </div>
-      <div class="card card-verde">
-        <span class="card-icon">📈</span>
-        <h3>Estadísticas</h3>
-        <app-chart 
-          type="line" 
-          [labels]="chartLabels" 
-          [data]="chartData" 
-          label="Actividad mensual"
-          color="#00d4ff">
-        </app-chart>
-        <p>Métricas y evolución de tus clientes</p>
-      </div>
-      <div class="card card-cian">
-        <span class="card-icon">📝</span>
-        <h3>Publicaciones</h3>
-        <p>Gestiona tus artículos y posts</p>
-        <a routerLink="/noticias" class="card-btn">Ver publicaciones</a>
-      </div>
-    </div>
-  </div>
 
-  <!-- ================================
-       DASHBOARD ADMIN
-       ================================ -->
-  <div *ngIf="rol === 'ADMIN'" class="dashboard-content">
-
-    <div class="dashboard-header admin">
-      <div class="header-inner">
-        <div class="header-avatar">{{ email ? email[0].toUpperCase() : 'A' }}</div>
-        <div class="header-info">
-          <span class="rol-badge admin-badge">Administrador</span>
-          <h1>⚙️ Panel Administrador</h1>
-          <p>Control total de la plataforma EcoBits</p>
-          <span class="header-email">{{ email }}</span>
+      <div class="cards-grid">
+        <div class="card card-admin">
+          <i class="fas fa-user-shield card-icon"></i>
+          <h3>Usuarios</h3>
+          <p>Gestiona todos los usuarios</p>
+          <a routerLink="/dashboard/admin/usuarios" class="card-btn card-btn-admin">Gestionar usuarios</a>
+        </div>
+        <div class="card card-admin">
+          <i class="fas fa-chart-line card-icon"></i>
+          <h3>Estadisticas</h3>
+          <div *ngIf="noHayDatos()" class="skeleton-chart">
+            <div class="skeleton-bar" *ngFor="let i of [0,1,2,3,4,5]"></div>
+            <p class="skeleton-text">Cargando estadisticas...</p>
+          </div>
+          <app-chart *ngIf="hayDatos()" type="bar" [labels]="chartLabels" [data]="chartData" label="Usuarios activos" color="#00ff88"></app-chart>
+          <p>Metricas globales de la plataforma</p>
+        </div>
+        <div class="card card-admin">
+          <i class="fas fa-cogs card-icon"></i>
+          <h3>Servicios</h3>
+          <p>Administra los servicios activos</p>
+          <a routerLink="/dashboard/servicios" class="card-btn card-btn-admin">Ver servicios</a>
+        </div>
+        <div class="card card-admin">
+          <i class="fas fa-bullseye card-icon"></i>
+          <h3>Eventos</h3>
+          <p>Gestiona eventos y webinars</p>
+          <a routerLink="/dashboard/eventos" class="card-btn card-btn-admin">Ver eventos</a>
+        </div>
+        <div class="card card-admin">
+          <i class="fas fa-newspaper card-icon"></i>
+          <h3>Noticias</h3>
+          <p>Administra el contenido del portal</p>
+          <a routerLink="/dashboard/noticias" class="card-btn card-btn-admin">Ver noticias</a>
+        </div>
+        <div class="card card-admin">
+          <i class="fas fa-comments card-icon"></i>
+          <h3>Foro</h3>
+          <p>Modera el foro de la comunidad</p>
+          <a routerLink="/dashboard/expresate" class="card-btn card-btn-admin">Ir al foro</a>
         </div>
       </div>
     </div>
 
-    <div class="cards-grid">
-      <div class="card card-admin">
-        <span class="card-icon">👤</span>
-        <h3>Usuarios</h3>
-        <p>Gestiona todos los usuarios</p>
-      </div>
-      <div class="card card-admin">
-        <span class="card-icon">📊</span>
-        <h3>Estadísticas</h3>
-        <app-chart 
-          type="bar" 
-          [labels]="chartLabels" 
-          [data]="chartData" 
-          label="Usuarios activos"
-          color="#00ff88">
-        </app-chart>
-        <p>Métricas globales de la plataforma</p>
-      </div>
-      <div class="card card-admin">
-        <span class="card-icon">🛠️</span>
-        <h3>Servicios</h3>
-        <p>Administra los servicios activos</p>
-        <a routerLink="/servicios" class="card-btn card-btn-admin">Ver servicios</a>
-      </div>
-      <div class="card card-admin">
-        <span class="card-icon">🎯</span>
-        <h3>Eventos</h3>
-        <p>Gestiona eventos y webinars</p>
-        <a routerLink="/eventos" class="card-btn card-btn-admin">Ver eventos</a>
-      </div>
-      <div class="card card-admin">
-        <span class="card-icon">📰</span>
-        <h3>Noticias</h3>
-        <p>Administra el contenido del portal</p>
-        <a routerLink="/noticias" class="card-btn card-btn-admin">Ver noticias</a>
-      </div>
-      <div class="card card-admin">
-        <span class="card-icon">💬</span>
-        <h3>Foro</h3>
-        <p>Modera el foro de la comunidad</p>
-        <a routerLink="/expresate" class="card-btn card-btn-admin">Ir al foro</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================================
-       SIN ROL
-       ================================ -->
-  <div *ngIf="!rol" class="dashboard-content">
-    <div class="dashboard-header sin-rol">
-      <div class="header-inner">
-        <div class="header-info" style="text-align:center; width:100%">
-          <h1>Dashboard</h1>
-          <p>No se pudo determinar tu rol. Por favor inicia sesión nuevamente.</p>
-          <a routerLink="/login" class="card-btn" style="margin-top:16px; display:inline-block">
-            Iniciar sesión
-          </a>
+    <!-- SIN ROL -->
+    <div *ngIf="!rol" class="dashboard-content">
+      <div class="dashboard-header sin-rol">
+        <div class="header-inner">
+          <div class="header-info" style="text-align:center; width:100%">
+            <h1>Dashboard</h1>
+            <p>No se pudo determinar tu rol. Por favor inicia sesion nuevamente.</p>
+            <a routerLink="/login" class="card-btn" style="margin-top:16px; display:inline-block">Iniciar sesion</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>

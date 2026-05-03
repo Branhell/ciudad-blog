@@ -16,20 +16,30 @@ export class AppComponent implements OnInit, AfterViewInit {
   isLoggedIn: boolean = false;
   userEmail: string | null = null;
   menuAbierto: boolean = false;
-
-  // 🔥 NUEVO: controla si se muestra navbar/footer
   mostrarLayout: boolean = true;
+  mostrarOpcionesPrivadas: boolean = false;
+  avatarUrl: string | null = null;
 
   constructor(
     private authService: AuthService,
     private notificationService: NotificationService,
-    private router: Router // 🔥 NUEVO
+    private router: Router
   ) {
-    // 🔥 NUEVO: detectar la ruta actual
+    // Detectar la ruta actual para ocultar navbar/footer y mostrar opciones privadas
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        this.mostrarLayout = !event.url.includes('acceder');
+      .subscribe((event: NavigationEnd) => {
+        const url = event.url;
+        const rutasDashboard = ['/dashboard', '/pacientes', '/admin/usuarios'];
+        const esDashboard = rutasDashboard.some(ruta => url.includes(ruta));
+        
+        // Ocultar navbar/footer en dashboard
+        this.mostrarLayout = !esDashboard;
+        
+        // Mostrar correo y cerrar sesión SOLO en rutas del dashboard
+        this.mostrarOpcionesPrivadas = url.includes('/dashboard') ||
+                                       url.includes('/pacientes') ||
+                                       url.includes('/admin/usuarios');
       });
   }
 
@@ -39,6 +49,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
     this.authService.userEmail$.subscribe(email => {
       this.userEmail = email;
+    });
+    this.authService.userAvatar$.subscribe(avatar => {
+      this.avatarUrl = avatar;
     });
   }
 
@@ -56,13 +69,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     window.location.href = '/';
   }
 
-  // Método para probar notificaciones
   testNotification() {
     this.notificationService.testNotification();
   }
 
   ngAfterViewInit() {
-    // Inicializar AOS para animaciones al scroll
     if (typeof window !== 'undefined') {
       import('aos').then(AOS => {
         AOS.default.init({
@@ -73,8 +84,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
       });
     }
-
-    // Inicializar notificaciones (solo permiso)
     this.notificationService.requestPermission();
   }
 }

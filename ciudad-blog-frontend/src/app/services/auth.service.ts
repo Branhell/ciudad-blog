@@ -8,15 +8,24 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('jwtToken'));
   private userEmail = new BehaviorSubject<string | null>(localStorage.getItem('usuarioEmail'));
   private userRol = new BehaviorSubject<string | null>(localStorage.getItem('usuarioRol'));
+  private userAvatar = new BehaviorSubject<string | null>(localStorage.getItem('usuarioAvatar'));
 
   isLoggedIn$ = this.loggedIn.asObservable();
   userEmail$ = this.userEmail.asObservable();
   userRol$ = this.userRol.asObservable();
+  userAvatar$ = this.userAvatar.asObservable();
 
-  login(email: string, token: string, rol: string) {
+  login(email: string, token: string, rol: string, avatarUrl?: string) {
     localStorage.setItem('jwtToken', token);
     localStorage.setItem('usuarioEmail', email);
     localStorage.setItem('usuarioRol', rol);
+    if (avatarUrl) {
+      localStorage.setItem('usuarioAvatar', avatarUrl);
+      this.userAvatar.next(avatarUrl);
+    } else {
+      localStorage.removeItem('usuarioAvatar');
+      this.userAvatar.next(null);
+    }
     this.loggedIn.next(true);
     this.userEmail.next(email);
     this.userRol.next(rol);
@@ -26,12 +35,19 @@ export class AuthService {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('usuarioEmail');
     localStorage.removeItem('usuarioRol');
+    localStorage.removeItem('usuarioAvatar');
     this.loggedIn.next(false);
     this.userEmail.next(null);
     this.userRol.next(null);
+    this.userAvatar.next(null);
   }
 
   getRol(): string | null {
     return localStorage.getItem('usuarioRol');
+  }
+
+  actualizarAvatar(avatarUrl: string) {
+    localStorage.setItem('usuarioAvatar', avatarUrl);
+    this.userAvatar.next(avatarUrl);
   }
 }

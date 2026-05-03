@@ -26,6 +26,9 @@ public class Usuario {
 	
 	@Column(name = "rol", length = 50)
 	private String rol;
+	
+	@Column(name = "avatar_url", length = 500)
+	private String avatarUrl;
 
     public Usuario() {}
 
@@ -78,4 +81,12 @@ public class Usuario {
 	public void setRol(String rol) {
     this.rol = rol;
 	}
+	
+	public String getAvatarUrl() {
+    return avatarUrl;
+	}
+
+	public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+}
 }

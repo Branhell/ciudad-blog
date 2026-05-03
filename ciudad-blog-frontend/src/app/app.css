@@ -516,3 +516,30 @@ footer p {
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
   opacity: 0.92;
 }
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+.dashboard-content {
+  flex: 1;
+  margin-left: 50px;
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+.sidebar:hover ~ .dashboard-content {
+  margin-left: 260px;
+}
+
+.user-avatar-navbar {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.avatar-img-navbar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}

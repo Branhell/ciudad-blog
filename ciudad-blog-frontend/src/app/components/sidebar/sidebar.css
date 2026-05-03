@@ -1,0 +1,274 @@
+.sidebar {
+  width: 50px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #0F172A;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  overflow-x: hidden;
+}
+
+.sidebar:hover {
+  width: 260px;
+}
+
+.sidebar::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+/* Perfil de usuario */
+.sidebar-user {
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #1E293B;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  background: #FFB703;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0F172A;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.avatar-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.user-avatar:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.avatar-overlay i {
+  font-size: 10px;
+  color: white;
+}
+
+.user-info {
+  margin-top: 8px;
+}
+
+.user-name, .user-email {
+  display: none;
+}
+
+/* Cuando el sidebar está expandido, muestra el nombre y email */
+.sidebar:hover .user-name,
+.sidebar:hover .user-email {
+  display: block;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.user-email {
+  font-size: 0.65rem;
+  color: #94A3B8;
+}
+
+/* Menú de navegación */
+.sidebar-nav {
+  flex: 1;
+  padding: 0 12px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  color: #94A3B8;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.sidebar-nav a i {
+  width: 24px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-left: -8px;
+}
+
+/* Texto oculto por defecto */
+.sidebar-nav a span {
+  display: none;
+}
+
+/* Cuando el sidebar está expandido, muestra el texto */
+.sidebar:hover .sidebar-nav a span {
+  display: inline;
+}
+
+.sidebar-nav a:hover {
+  background: #1E293B;
+  color: white;
+}
+
+.sidebar-nav a.active {
+  background: transparent;
+  color: #FFB703;
+}
+
+/* Separador */
+.sidebar-divider {
+  height: 1px;
+  background: #1E293B;
+  margin: 16px 12px;
+}
+
+/* Enlace sitio público */
+.sitio-publico {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  color: #94A3B8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sitio-publico i {
+  width: 24px;
+  text-align: center;
+}
+
+.sitio-publico span {
+  display: none;
+}
+
+.sitio-publico:hover {
+  color: #FFB703;
+}
+
+.sidebar:hover .sitio-publico span {
+  display: inline;
+}
+
+/* Footer con botón cerrar sesión */
+.sidebar-footer {
+  padding: 16px 12px;
+  border-top: 1px solid #1E293B;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.logout-btn i {
+  width: 24px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-left: -8px;
+}
+
+.logout-btn span {
+  display: none;
+}
+
+.logout-btn:hover {
+  background: #1E293B;
+  color: #F87171;
+}
+
+.sidebar:hover .logout-btn span {
+  display: inline;
+}
+
+/* Ajuste del contenido del dashboard */
+.dashboard-container {
+  display: flex;
+}
+
+.dashboard-content-wrapper {
+  flex: 1;
+  margin-left: 50px;
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+
+.sidebar:hover ~ .dashboard-content-wrapper {
+  margin-left: 260px;
+}
+
+/* Contenedor principal del dashboard */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Envoltorio del contenido que se debe correr */
+.dashboard-content-wrapper {
+  flex: 1;
+  margin-left: 50px;
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+  width: calc(100% - 50px);
+}
+
+/* Cuando el sidebar está expandido, corre el contenido */
+.sidebar:hover ~ .dashboard-content-wrapper {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+}
+
+/* Avatar imagen */
+.avatar-img-sidebar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-avatar span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0F172A;
+}

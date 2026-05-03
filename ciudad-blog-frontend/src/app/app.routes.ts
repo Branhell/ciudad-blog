@@ -2,20 +2,14 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home';
 import { DashboardComponent } from './dashboard/dashboard';
 import { authGuard, rolGuard } from './auth.guard';
-// import { LoginComponent } from './login/login';
-// import { RegistroComponent } from './registro/registro';
+import { PacientesComponent } from './pacientes/pacientes';
+import { AdminUsuariosComponent } from './admin-usuarios/admin-usuarios';
+import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  
-// { path: 'login', component: LoginComponent },
-// { path: 'registro', component: RegistroComponent },
-  { path: 'acceder', loadComponent: () => import('./acceder/acceder').then(m => m.AccederComponent) },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
-  { path: 'dashboard/paciente', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PACIENTE'] } },
-  { path: 'dashboard/profesional', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PROFESIONAL'] } },
-  { path: 'dashboard/admin', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['ADMIN'] } },
 
+  { path: 'acceder', loadComponent: () => import('./acceder/acceder').then(m => m.AccederComponent) },
   { path: 'foro', loadComponent: () => import('./expresate/expresate').then(m => m.ExpresateComponent) },
   { path: 'servicios', loadComponent: () => import('./servicios/servicios').then(m => m.Servicios) },
   { path: 'eventos', loadComponent: () => import('./eventos/eventos').then(m => m.EventosComponent) },
@@ -26,4 +20,18 @@ export const routes: Routes = [
   { path: 'politica-privacidad', loadComponent: () => import('./politica-privacidad/politica-privacidad').then(m => m.PoliticaPrivacidad) },
   { path: 'terminos-condiciones', loadComponent: () => import('./terminos-condiciones/terminos-condiciones').then(m => m.TerminosCondiciones) },
   { path: 'ayuda-urgente', loadComponent: () => import('./ayuda-urgente/ayuda-urgente').then(m => m.AyudaUrgente) },
+
+  {
+    path: 'dashboard',
+    component: DashboardLayoutComponent,
+    canActivate: [authGuard],
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'paciente', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PACIENTE'] } },
+      { path: 'profesional', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['PROFESIONAL'] } },
+      { path: 'admin', component: DashboardComponent, canActivate: [rolGuard], data: { roles: ['ADMIN'] } },
+      { path: 'pacientes', component: PacientesComponent },
+      { path: 'admin/usuarios', component: AdminUsuariosComponent }
+    ]
+  }
 ];

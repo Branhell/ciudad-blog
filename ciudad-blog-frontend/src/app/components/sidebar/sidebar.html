@@ -1,0 +1,47 @@
+<aside class="sidebar" [ngClass]="{'collapsed': isCollapsed}" (mouseenter)="isCollapsed=false" (mouseleave)="isCollapsed=true">
+  <div class="sidebar-user">
+    <div class="user-avatar" (click)="abrirSelectorAvatar()" style="cursor: pointer;">
+      <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar" class="avatar-img-sidebar">
+      <span *ngIf="!avatarUrl">{{ nombre ? nombre[0].toUpperCase() : email?.[0]?.toUpperCase() || 'U' }}</span>
+      <div class="avatar-overlay">
+        <i class="fas fa-camera"></i>
+      </div>
+    </div>
+    <div class="user-info">
+      <span class="user-name">{{ nombre || (email ? email.split('@')[0] : 'Usuario') }}</span>
+      <span class="user-email">{{ email }}</span>
+    </div>
+  </div>
+  <input type="file" id="uploadAvatar" accept="image/*" style="display: none;" (change)="onAvatarSeleccionado($event)">
+  <!-- Resto del menú -->
+  <nav class="sidebar-nav">
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <i class="fas fa-tachometer-alt"></i> Dashboard
+    </a>
+    <!-- Opciones según rol -->
+    <ng-container *ngIf="rol === 'PACIENTE'">
+      <a routerLink="/expresate" routerLinkActive="active"><i class="fas fa-comments"></i> Foro General</a>
+      <a routerLink="/servicios" routerLinkActive="active"><i class="fas fa-tools"></i> Mis Servicios</a>
+      <a routerLink="/productos" routerLinkActive="active"><i class="fas fa-shopping-cart"></i> Productos</a>
+      <a routerLink="/noticias" routerLinkActive="active"><i class="fas fa-newspaper"></i> Noticias</a>
+      <a routerLink="/eventos" routerLinkActive="active"><i class="fas fa-calendar-alt"></i> Eventos</a>
+    </ng-container>
+    <ng-container *ngIf="rol === 'PROFESIONAL'">
+      <a routerLink="/pacientes" routerLinkActive="active"><i class="fas fa-users"></i> Mis Pacientes</a>
+      <a routerLink="/servicios" routerLinkActive="active"><i class="fas fa-tools"></i> Mis Servicios</a>
+      <a routerLink="/noticias" routerLinkActive="active"><i class="fas fa-newspaper"></i> Publicaciones</a>
+    </ng-container>
+    <ng-container *ngIf="rol === 'ADMIN'">
+      <a routerLink="/admin/usuarios" routerLinkActive="active"><i class="fas fa-user-shield"></i> Usuarios</a>
+      <a routerLink="/servicios" routerLinkActive="active"><i class="fas fa-cogs"></i> Servicios</a>
+      <a routerLink="/eventos" routerLinkActive="active"><i class="fas fa-bullseye"></i> Eventos</a>
+      <a routerLink="/noticias" routerLinkActive="active"><i class="fas fa-newspaper"></i> Noticias</a>
+      <a routerLink="/expresate" routerLinkActive="active"><i class="fas fa-comments"></i> Foro</a>
+    </ng-container>
+    <div class="sidebar-divider"></div>
+    <a href="/" target="_blank" class="sitio-publico"><i class="fas fa-globe"></i> Ir al sitio público</a>
+  </nav>
+  <div class="sidebar-footer">
+    <button (click)="cerrarSesion()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+  </div>
+</aside>

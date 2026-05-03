@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
 
           // 🔑 Usamos AuthService para actualizar estado global y navbar
           this.authService.login(this.username, res.token, res.rol);
+		  
+		  // Guardar nombre del usuario (si viene del backend, o usar el email como fallback)
+		  const nombreUsuario = res.nombre || this.username.split('@')[0];
+		  localStorage.setItem('usuarioNombre', nombreUsuario);
 
           // Redirigimos al dashboard
           this.router.navigate(['/dashboard']);

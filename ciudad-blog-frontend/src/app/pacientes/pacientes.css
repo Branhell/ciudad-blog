@@ -1,0 +1,160 @@
+.pacientes-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.pacientes-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pacientes-header h1 {
+  font-size: 2rem;
+  color: var(--eco-text-primary);
+  margin-bottom: 8px;
+}
+
+.pacientes-header h1 i {
+  color: var(--eco-primary);
+  margin-right: 12px;
+}
+
+.pacientes-header p {
+  color: var(--eco-text-secondary);
+}
+
+.pacientes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paciente-card {
+  background: var(--eco-bg-white);
+  border-radius: var(--eco-radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--eco-shadow-sm);
+  transition: var(--eco-transition);
+  border-left: 4px solid var(--eco-primary);
+}
+
+.paciente-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--eco-shadow-md);
+}
+
+.paciente-avatar {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.paciente-info {
+  flex: 1;
+}
+
+.paciente-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  color: var(--eco-text-primary);
+}
+
+.paciente-info p {
+  margin: 4px 0;
+  font-size: 0.85rem;
+  color: var(--eco-text-secondary);
+}
+
+.paciente-info p i {
+  width: 20px;
+  color: var(--eco-primary);
+}
+
+.paciente-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-ver, .btn-agendar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--eco-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--eco-transition-fast);
+  font-family: inherit;
+}
+
+.btn-ver {
+  background: #E2E8F0;
+  color: var(--eco-text-primary);
+}
+
+.btn-ver:hover {
+  background: #CBD5E1;
+  transform: translateY(-2px);
+}
+
+.btn-agendar {
+  background: linear-gradient(135deg, var(--eco-primary), var(--eco-secondary));
+  color: white;
+}
+
+.btn-agendar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--eco-shadow-glow);
+}
+
+.pacientes-back {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--eco-bg-soft);
+  color: var(--eco-text-primary);
+  text-decoration: none;
+  border-radius: var(--eco-radius-full);
+  font-size: 0.9rem;
+  transition: var(--eco-transition);
+}
+
+.btn-volver:hover {
+  background: var(--eco-primary);
+  color: white;
+  transform: translateX(-4px);
+}
+
+@media (max-width: 768px) {
+  .paciente-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .paciente-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-ver, .btn-agendar {
+    width: 100%;
+  }
+}

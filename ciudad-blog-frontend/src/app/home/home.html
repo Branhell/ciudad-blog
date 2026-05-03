@@ -3,24 +3,18 @@
      ============================================= -->
 <header class="hero">
   <div class="hero-inner">
-
-	<!-- LOGO GRANDE ANIMADO -->
     <img src="assets/EcoBits_Logo.png" class="hero-logo" alt="EcoBits">
-
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      Plataforma de bienestar integral
+      <span class="hero-titulo-acento">Psicología + Tecnología <br></span>
     </div>
-
-    <h1 class="hero-titulo"> 
-     <span class="hero-titulo-acento">Un solo eco le daría un giro a mi <br><span style="display: block; text-align: center;">historia.</span></span>
+    <h1 class="hero-titulo">
+      <span class="hero-titulo-acento">Encuentra apoyo profesional, recursos de bienestar <br><span style="display: block; text-align: center;">digital y una comunidad que te entiende.</span></span>
     </h1>
-
     <div class="hero-acciones">
       <a routerLink="/registro" class="hero-btn-primario">Comenzar ahora</a>
       <a routerLink="/quienes-somos" class="hero-btn-secundario">Conoce Opsy</a>
     </div>
-
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-num">2,400+</span>
@@ -37,70 +31,43 @@
         <span class="hero-stat-label">Satisfacción</span>
       </div>
     </div>
-
   </div>
-
-<div class="hero-orb hero-orb-1">
-  <div class="orb-carrusel" id="carrusel1">
-    <img *ngFor="let img of imagenesOrb1" [src]="img" class="orb-img">
-  </div>
-</div>
-
-<div class="hero-orb hero-orb-2">
-  <div class="orb-carrusel" id="carrusel2">
-    <img *ngFor="let img of imagenesOrb2" [src]="img" class="orb-img">
-  </div>
-</div>
-
-<div class="hero-orb hero-orb-3">
-  <div class="orb-carrusel" id="carrusel3">
-    <img *ngFor="let img of imagenesOrb3" [src]="img" class="orb-img">
-  </div>
-</div>
 </header>
 
-
-<!-- Sección: Más tiempo de calidad para ti -->
 <section class="calidad-seccion">
   <div class="calidad-container">
     <h2 class="calidad-titulo">Más tiempo de calidad para ti</h2>
     <div class="calidad-grid">
-      
- <div class="calidad-item" style="--i: 1">
-  <div class="calidad-icono">
-    <img src="https://picsum.photos/id/64/200/200" alt="Acompañamiento">
-  </div>
-  <p>Acompañamiento</p>
-</div>
-
-<div class="calidad-item" style="--i: 2">
-  <div class="calidad-icono">
-    <img src="https://picsum.photos/id/125/200/200" alt="Happy Yoga">
-  </div>
-  <p>Happy Yoga</p>
-</div>
-
-<div class="calidad-item" style="--i: 3">
-  <div class="calidad-icono">
-    <img src="https://picsum.photos/id/13/200/200" alt="Bienestar">
-  </div>
-  <p>Bienestar</p>
-</div>
-
-<div class="calidad-item" style="--i: 4">
-  <div class="calidad-icono">
-    <img src="https://picsum.photos/id/96/200/200" alt="Conexiones">
-  </div>
-  <p>Conexiones</p>
-</div>
-
-<div class="calidad-item" style="--i: 5">
-  <div class="calidad-icono">
-    <img src="https://picsum.photos/id/20/200/200" alt="Preparación">
-  </div>
-  <p>Preparación</p>
-</div>
-
+      <div class="calidad-item">
+        <div class="calidad-icono">
+          <img src="assets/acompanamiento.jpg" alt="Acompañamiento">
+        </div>
+        <p>Acompañamiento</p>
+      </div>
+      <div class="calidad-item">
+        <div class="calidad-icono">
+          <img src="assets/happy-yoga.jpg" alt="Happy Yoga">
+        </div>
+        <p>Happy Yoga</p>
+      </div>
+      <div class="calidad-item">
+        <div class="calidad-icono">
+          <img src="assets/bienestar.jpg" alt="Bienestar">
+        </div>
+        <p>Bienestar</p>
+      </div>
+      <div class="calidad-item">
+        <div class="calidad-icono">
+          <img src="assets/conexiones.jpg" alt="Conexiones">
+        </div>
+        <p>Conexiones</p>
+      </div>
+      <div class="calidad-item">
+        <div class="calidad-icono">
+          <img src="assets/preparacion.jpg" alt="Preparación">
+        </div>
+        <p>Preparación</p>
+      </div>
     </div>
   </div>
 </section>
@@ -110,165 +77,47 @@
   <div class="tecnicas-container">
     <h2 class="tecnicas-titulo">Técnicas psicológicas para el bienestar emocional</h2>
     <p class="tecnicas-subtitulo">Métodos validados científicamente para tu bienestar mental</p>
-	
-<div class="tecnicas-grid">
-      
-  <!-- Tarjeta 1: Reestructuración Cognitiva -->
-  <div class="tecnica-card" style="--i: 1; background-image: url('https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg'); background-size: cover; background-position: center;">
-    <div class="tecnica-card-overlay">
-      <div class="tecnica-card-contenido">
-        <h3 class="tecnica-nombre">Reestructuración Cognitiva</h3>
+    <div class="tecnicas-grid">
+      <div class="tecnica-card">
+        <div class="tecnica-card-overlay">
+          <div class="tecnica-card-contenido">
+            <h3 class="tecnica-nombre">Reestructuración Cognitiva</h3>
+          </div>
+        </div>
       </div>
-      <div class="tecnica-hover-info">
-        <p><strong>📝 Cómo practicarlo:</strong> 1. Identifica un pensamiento negativo. 2. Cuestiona su evidencia. 3. Reemplázalo por uno más realista. Practica 5 minutos al día.</p>
+      <div class="tecnica-card">
+        <div class="tecnica-card-overlay">
+          <div class="tecnica-card-contenido">
+            <h3 class="tecnica-nombre">Respiración Consciente</h3>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 2: Respiración Consciente -->
-  <div class="tecnica-card" style="--i: 2; background-image: url('https://images.pexels.com/photos/6893585/pexels-photo-6893585.jpeg'); background-size: cover; background-position: center;">
-    <div class="tecnica-card-overlay">
-      <div class="tecnica-card-contenido">
-        <h3 class="tecnica-nombre">Respiración Consciente</h3>
+      <div class="tecnica-card">
+        <div class="tecnica-card-overlay">
+          <div class="tecnica-card-contenido">
+            <h3 class="tecnica-nombre">Escucha Activa</h3>
+          </div>
+        </div>
       </div>
-      <div class="tecnica-hover-info">
-        <p><strong>🧘 Cómo practicarlo:</strong> Inhala por 4 segundos, mantén 4 segundos, exhala por 4 segundos. Repite 10 veces. Enfócate solo en tu respiración.</p>
+      <div class="tecnica-card">
+        <div class="tecnica-card-overlay">
+          <div class="tecnica-card-contenido">
+            <h3 class="tecnica-nombre">Exposición Gradual</h3>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 3: Escucha Activa -->
-  <div class="tecnica-card" style="--i: 3; background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg'); background-size: cover; background-position: center;">
-    <div class="tecnica-card-overlay">
-      <div class="tecnica-card-contenido">
-        <h3 class="tecnica-nombre">Escucha Activa</h3>
-      </div>
-      <div class="tecnica-hover-info">
-        <p><strong>👂 Cómo practicarlo:</strong> Escucha sin interrumpir, haz preguntas abiertas, parafrasea lo que entendiste y valida los sentimientos del otro.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 4: Exposición Gradual -->
-  <div class="tecnica-card" style="--i: 4; background-image: url('https://images.pexels.com/photos/4145194/pexels-photo-4145194.jpeg'); background-size: cover; background-position: center;">
-    <div class="tecnica-card-overlay">
-      <div class="tecnica-card-contenido">
-        <h3 class="tecnica-nombre">Exposición Gradual</h3>
-      </div>
-      <div class="tecnica-hover-info">
-        <p><strong>🎯 Cómo practicarlo:</strong> Enfrenta tus miedos de forma progresiva, empezando por la situación que menos ansiedad te genera. Avanza paso a paso.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 5: Diario de Sentido -->
-  <div class="tecnica-card" style="--i: 5; background-image: url('https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg'); background-size: cover; background-position: center;">
-    <div class="tecnica-card-overlay">
-      <div class="tecnica-card-contenido">
-        <h3 class="tecnica-nombre">Diario de Sentido</h3>
-      </div>
-      <div class="tecnica-hover-info">
-        <p><strong>📓 Cómo practicarlo:</strong> Escribe cada día tres cosas que le dan sentido a tu vida y por qué son importantes para ti. Reflexiona sobre tu propósito.</p>
-      </div>
-    </div>
-  </div>
-
-</div>
-  </div>
-</section>
-
-
-<!-- Sección: Tratamientos Psicológicos - Diseño Mosaico Premium -->
-<section class="tratamientos-seccion">
-  <div class="tratamientos-container">
-    <h2 class="tratamientos-titulo">Tratamientos Psicológicos</h2>
-    <p class="tratamientos-subtitulo">Terapias psicológicas más solicitadas por los usuarios.</p>
-
-    <!-- Tarjeta destacada (Psicología Online) - Grande -->
-    <div class="mosaico-destacado" (click)="irServicios()">
-      <div class="mosaico-destacado-overlay">
-        <div class="mosaico-destacado-contenido">
-          <span class="mosaico-badge">Online</span>
-          <h3>Psicología Online</h3>
-          <p>Disponemos de los mejores psicólogos online</p>
-          <div class="mosaico-btn">Encuentra tu psicólogo online →</div>
+      <div class="tecnica-card">
+        <div class="tecnica-card-overlay">
+          <div class="tecnica-card-contenido">
+            <h3 class="tecnica-nombre">Diario de Sentido</h3>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Mosaico de tratamientos -->
-<div class="mosaico-grid">
-
-  <!-- Tarjeta 1 - Autoestima -->
-  <div class="mosaico-card mosaico-card-1" style="background-image: url('https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg');" (click)="irServicios()">
-    <div class="mosaico-card-overlay">
-      <div class="mosaico-card-contenido">
-        <span class="mosaico-card-icono"></span>
-        <h4>Autoestima</h4>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 2 - Depresión -->
-  <div class="mosaico-card mosaico-card-2" style="background-image: url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg');" (click)="irServicios()">
-    <div class="mosaico-card-overlay">
-      <div class="mosaico-card-contenido">
-        <span class="mosaico-card-icono"></span>
-        <h4>Depresión</h4>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 3 - Terapias familiares -->
-  <div class="mosaico-card mosaico-card-3" style="background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg');" (click)="irServicios()">
-    <div class="mosaico-card-overlay">
-      <div class="mosaico-card-contenido">
-        <span class="mosaico-card-icono"></span>
-        <h4>Terapias familiares</h4>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 4 - Bullying -->
-  <div class="mosaico-card mosaico-card-4" style="background-image: url('https://images.pexels.com/photos/4145194/pexels-photo-4145194.jpeg');" (click)="irServicios()">
-    <div class="mosaico-card-overlay">
-      <div class="mosaico-card-contenido">
-        <span class="mosaico-card-icono">️</span>
-        <h4>Bullying</h4>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 5 - TDAH -->
-  <div class="mosaico-card mosaico-card-5" style="background-image: url('https://images.pexels.com/photos/3769714/pexels-photo-3769714.jpeg');" (click)="irServicios()">
-    <div class="mosaico-card-overlay">
-      <div class="mosaico-card-contenido">
-        <span class="mosaico-card-icono"></span>
-        <h4>TDAH</h4>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 6 - Ansiedad -->
-  <div class="mosaico-card mosaico-card-6" style="background-image: url('https://images.pexels.com/photos/6893585/pexels-photo-6893585.jpeg');" (click)="irServicios()">
-    <div class="mosaico-card-overlay">
-      <div class="mosaico-card-contenido">
-        <span class="mosaico-card-icono"></span>
-        <h4>Ansiedad</h4>
-      </div>
-    </div>
-  </div>
-
-</div>
-    <div class="tratamientos-ver-todo">
-      <button class="btn-ver-todo" (click)="irServicios()">Explorar todos los tratamientos →</button>
-    </div>
   </div>
 </section>
 
-<!-- =============================================
-     POSTS - VERSIÓN SIMPLE QUE SÍ FUNCIONA
-     ============================================= -->
+<!-- Sección: Posts -->
 <section style="max-width:1100px; margin:64px auto; padding:0 20px;">
   <div style="display:flex; align-items:center; gap:16px; margin-bottom:36px;">
     <h2 style="font-size:1.6rem; color:#2c3e50; margin:0;">Publicaciones recientes</h2>
@@ -285,20 +134,14 @@
   </div>
 
   <div *ngIf="!loading && !error" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:24px;">
-    <div *ngFor="let post of posts; let i = index" style="background:white; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-top:3px solid #00d4ff;">
+    <div *ngFor="let post of posts" style="background:white; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-top:3px solid #00d4ff;">
       <span style="display:inline-block; background:#dcfce7; color:#7ed321; font-size:0.7rem; font-weight:700; padding:4px 10px; border-radius:20px; margin-bottom:12px;">{{ post.categoria }}</span>
       <h3 style="font-size:1.1rem; font-weight:700; color:#2c3e50; margin:0 0 10px;">{{ post.titulo }}</h3>
       <p style="font-size:0.9rem; color:#555; line-height:1.5; margin:0 0 16px;">{{ post.contenido | slice:0:120 }}...</p>
       <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:#888; border-top:1px solid #eee; padding-top:12px;">
-        <span style="font-weight:600; color:#555;">{{ post.anonimo ? 'Anónimo' : post.autor.nombre }}</span>
+        <span style="font-weight:600; color:#555;">{{ post.anonimo ? 'Anónimo' : post.autor?.nombre }}</span>
         <span style="color:#7ed321; font-weight:600;">❤️ {{ post.likes }}</span>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-</style>

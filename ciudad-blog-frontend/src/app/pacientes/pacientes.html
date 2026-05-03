@@ -1,0 +1,29 @@
+<div class="pacientes-container">
+  <div class="pacientes-header">
+    <h1><i class="fas fa-users"></i> Mis Pacientes</h1>
+    <p>Lista de pacientes asignados a tu consulta</p>
+  </div>
+
+  <div class="pacientes-grid">
+    <div class="paciente-card" *ngFor="let paciente of pacientes">
+      <div class="paciente-avatar">
+        {{ paciente.nombre.charAt(0) }}{{ paciente.nombre.split(' ')[1]?.charAt(0) || '' }}
+      </div>
+      <div class="paciente-info">
+        <h3>{{ paciente.nombre }}</h3>
+        <p><i class="fas fa-envelope"></i> {{ paciente.email }}</p>
+        <p><i class="fas fa-calendar-check"></i> Última cita: {{ paciente.ultimaCita }}</p>
+      </div>
+      <div class="paciente-actions">
+        <button class="btn-ver"><i class="fas fa-eye"></i> Ver historial</button>
+        <button class="btn-agendar"><i class="fas fa-calendar-plus"></i> Agendar cita</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pacientes-back">
+    <a routerLink="/dashboard" class="btn-volver">
+      <i class="fas fa-arrow-left"></i> Volver al Dashboard
+    </a>
+  </div>
+</div>

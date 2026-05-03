@@ -188,38 +188,50 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
   // LOGIN
   // ========================
 
-  onLogin(): void {
-    if (!this.loginData.email || !this.loginData.password) {
-      this.loginError = true;
-      this.mensajeError = 'Completa todos los campos';
-      setTimeout(() => this.loginError = false, 3000);
-      return;
-    }
-
-    this.loginLoading = true;
-    this.mostrarSocialButtons = false;
-    this.loginButtonText = 'Autenticando...';
-
-    this.usuarioService.login(this.loginData.email, this.loginData.password).subscribe({
-      next: () => {
-        this.loginLoading = false;
-        this.loginButtonText = 'Ingreso exitoso';
-
-        setTimeout(() => {
-          this.router.navigate(['/dashboard']);
-        }, 1500);
-      },
-      error: (err: any) => {
-        this.loginLoading = false;
-        this.loginError = true;
-        this.mensajeError = err.error?.mensaje || 'Correo o contraseña incorrectos';
-        this.loginButtonText = 'Iniciar sesión';
-        this.mostrarSocialButtons = true;
-
-        setTimeout(() => this.loginError = false, 3000);
-      }
-    });
+onLogin(): void {
+  if (!this.loginData.email || !this.loginData.password) {
+    this.loginError = true;
+    this.mensajeError = 'Completa todos los campos';
+    setTimeout(() => this.loginError = false, 3000);
+    return;
   }
+
+  this.loginLoading = true;
+  this.mostrarSocialButtons = false;
+  this.loginButtonText = 'Autenticando...';
+
+  this.usuarioService.login(this.loginData.email, this.loginData.password).subscribe({
+next: (res: any) => {
+  this.loginLoading = false;
+  this.loginButtonText = 'Ingreso exitoso';
+
+  // Guardar nombre del usuario
+  const nombreUsuario = res.nombre || this.loginData.email.split('@')[0];
+  localStorage.setItem('usuarioNombre', nombreUsuario);
+
+  // Guardar ID del usuario (necesario para subir avatar)
+  if (res.id) {
+    localStorage.setItem('usuarioId', res.id.toString());
+  }
+
+  // Guardar sesión en AuthService
+  this.authService.login(this.loginData.email, res.token, res.rol, res.avatarUrl);
+
+  setTimeout(() => {
+    this.router.navigate(['/dashboard']);
+  }, 1500);
+},
+    error: (err: any) => {
+      this.loginLoading = false;
+      this.loginError = true;
+      this.mensajeError = err.error?.mensaje || 'Correo o contraseña incorrectos';
+      this.loginButtonText = 'Iniciar sesión';
+      this.mostrarSocialButtons = true;
+
+      setTimeout(() => this.loginError = false, 3000);
+    }
+  });
+}
 
   // ========================
   // REGISTRO

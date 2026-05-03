@@ -13,31 +13,34 @@
     <a routerLink="/servicios" routerLinkActive="active" (click)="cerrarMenu()">Servicios</a>
     <a routerLink="/eventos" routerLinkActive="active" (click)="cerrarMenu()">Eventos</a>
     <a routerLink="/empresas" routerLinkActive="active" (click)="cerrarMenu()">Empresas</a>
-	
+    
     <button (click)="testNotification()" class="login-button-nav">🔔 Probar Notificación</button>
 
-    <!-- LOGIN dentro del menú en móvil (esto se ve cuando el menú hamburguesa está abierto) -->
+    <!-- LOGIN dentro del menú en móvil -->
     <div class="nav-right-mobile">
       <ng-container *ngIf="!isLoggedIn">
         <a routerLink="/acceder" class="btn-acceder-unico" (click)="cerrarMenu()">👤 Entrar a OpenPsy →</a>
       </ng-container>
-      <ng-container *ngIf="isLoggedIn">
+      <ng-container *ngIf="isLoggedIn && mostrarOpcionesPrivadas">
         <span class="user-email">{{ userEmail }}</span>
         <button (click)="logout()" class="login-button-nav">Cerrar sesión</button>
       </ng-container>
     </div>
   </div>
 
-  <!-- LOGIN en escritorio (esto se ve siempre en la parte derecha) -->
-  <div class="nav-right">
-    <ng-container *ngIf="!isLoggedIn">
-      <a routerLink="/acceder" class="btn-acceder-unico">👤 Entrar a OpenPsy →</a>
-    </ng-container>
-    <ng-container *ngIf="isLoggedIn">
-      <span class="user-email">{{ userEmail }}</span>
-      <button (click)="logout()" class="login-button-nav">Cerrar sesión</button>
-    </ng-container>
-  </div>
+  <!-- LOGIN en escritorio -->
+<div class="nav-right">
+  <ng-container *ngIf="!isLoggedIn">
+    <a routerLink="/acceder" class="btn-acceder-unico">👤 Entrar a OpenPsy →</a>
+  </ng-container>
+  <ng-container *ngIf="isLoggedIn && mostrarOpcionesPrivadas">
+    <div class="user-avatar-navbar">
+      <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar" class="avatar-img-navbar">
+      <span *ngIf="!avatarUrl" class="user-email">{{ userEmail }}</span>
+    </div>
+    <button (click)="logout()" class="login-button-nav">Cerrar sesión</button>
+  </ng-container>
+</div>
 
 </nav>
 
@@ -48,13 +51,11 @@
 <!-- FOOTER MEJORADO -->
 <footer *ngIf="mostrarLayout">
   <div class="footer-columns">
-    <!-- Columna 1: Logo y lema -->
     <div class="footer-col">
       <img src="assets/EcoBits_Logo.png" alt="EcoBits Logo" class="footer-logo">
       <p>Un solo eco le daría un giro a mi historia.</p>
     </div>
 
-    <!-- Columna 2: Enlaces legales -->
     <div class="footer-col">
       <h4>Opsy</h4>
       <div class="footer-links">
@@ -69,7 +70,6 @@
       </div>
     </div>
 
-    <!-- Columna 3: Redes Sociales -->
     <div class="footer-col">
       <h4>Conéctate con Nosotros</h4>
       <div class="footer-social">
@@ -82,18 +82,8 @@
     </div>
   </div>
 
-  <!-- Copyright -->
   <p class="footer-copyright">&copy; 2026 Opsy. Todos los derechos reservados.</p>
 </footer>
-
-<!-- BARRA SOCIAL FLOTANTE (opcional, puedes eliminarla si quieres) -->
-<aside class="social-bar">
-  <a href="https://www.facebook.com" class="social-icon facebook" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.instagram.com" class="social-icon instagram" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-  <a href="https://twitter.com" class="social-icon twitter" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://www.linkedin.com" class="social-icon linkedin" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  <a href="https://wa.me/573001112233" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-</aside>
 
 <div class="download-app">
   <a href="#" target="_blank">📱 Descarga la APP</a>
