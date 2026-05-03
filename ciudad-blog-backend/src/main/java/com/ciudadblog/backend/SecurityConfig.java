@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/usuarios").permitAll()
                 .requestMatchers("/api/posts").permitAll()
                 .requestMatchers("/api/posts/**").permitAll()
+				.requestMatchers("/api/auth/firebase").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

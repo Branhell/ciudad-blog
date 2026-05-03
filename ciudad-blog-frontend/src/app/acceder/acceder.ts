@@ -4,6 +4,7 @@ import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../services/usuario.service';
 import { AuthService } from '../services/auth.service';
+import { FirebaseAuthService } from '../services/firebase-auth';
 
 declare var particlesJS: any;
 
@@ -66,7 +67,8 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private router: Router,
     private usuarioService: UsuarioService,
-    private authService: AuthService
+    private authService: AuthService,
+	public firebaseAuth: FirebaseAuthService
   ) {}
 
   ngOnInit(): void {

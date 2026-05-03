@@ -1,6 +1,5 @@
 <div class="acceder-container">
-	<!-- Fondo de partículas animadas (particles.js) -->
-<div id="particles-js" class="particles-js-container"></div>
+  <div id="particles-js" class="particles-js-container"></div>
   <div class="acceder-grid">
     <div class="formulario-col">
       <a routerLink="/" class="back-home">
@@ -16,9 +15,7 @@
         </button>
       </div>
 
-      <!-- ============================================== -->
-      <!-- FORMULARIO DE LOGIN (con sus propios botones sociales) -->
-      <!-- ============================================== -->
+      <!-- FORMULARIO DE LOGIN -->
       <form *ngIf="modoActivo === 'login'" #loginForm="ngForm" (ngSubmit)="onLogin()" class="form-acceder" novalidate>
         <div class="input-group">
           <i class="fas fa-envelope"></i>
@@ -64,32 +61,23 @@
           <i class="fas fa-exclamation-triangle"></i> {{ mensajeError }}
         </div>
 
-        <!-- SEPARADOR Y BOTONES SOCIALES PARA LOGIN -->
         <div class="divider">
           <span>O</span>
         </div>
         <div class="social-buttons">
-          <button type="button" class="social-btn google" (click)="socialLogin('google')">
+          <button type="button" class="social-btn google" (click)="firebaseAuth.loginWithGoogle()">
             <i class="fab fa-google"></i> Iniciar sesión con Google
           </button>
-          <button type="button" class="social-btn facebook" (click)="socialLogin('facebook')">
+          <button type="button" class="social-btn facebook" (click)="firebaseAuth.loginWithFacebook()">
             <i class="fab fa-facebook-f"></i> Iniciar sesión con Facebook
           </button>
-          <button type="button" class="social-btn linkedin" (click)="socialLogin('linkedin')">
-            <i class="fab fa-linkedin-in"></i> Iniciar sesión con LinkedIn
-          </button>
-          <button type="button" class="social-btn github" (click)="socialLogin('github')">
+          <button type="button" class="social-btn github" (click)="firebaseAuth.loginWithGithub()">
             <i class="fab fa-github"></i> Iniciar sesión con GitHub
-          </button>
-          <button type="button" class="social-btn apple" (click)="socialLogin('apple')">
-            <i class="fab fa-apple"></i> Iniciar sesión con Apple
           </button>
         </div>
       </form>
 
-      <!-- ============================================== -->
-      <!-- FORMULARIO DE REGISTRO (con sus propios botones sociales) -->
-      <!-- ============================================== -->
+      <!-- FORMULARIO DE REGISTRO -->
       <form *ngIf="modoActivo === 'registro'" #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-acceder" novalidate>
         <div class="input-group">
           <i class="fas fa-user"></i>
@@ -138,29 +126,21 @@
           <i class="fas fa-exclamation-triangle"></i> {{ registerMensajeError }}
         </div>
 
-        <!-- SEPARADOR Y BOTONES SOCIALES PARA REGISTRO -->
         <div class="divider">
           <span>O</span>
         </div>
         <div class="social-buttons">
-          <button type="button" class="social-btn google" (click)="socialLogin('google')">
+          <button type="button" class="social-btn google" (click)="firebaseAuth.loginWithGoogle()">
             <i class="fab fa-google"></i> Registrarse con Google
           </button>
-          <button type="button" class="social-btn facebook" (click)="socialLogin('facebook')">
+          <button type="button" class="social-btn facebook" (click)="firebaseAuth.loginWithFacebook()">
             <i class="fab fa-facebook-f"></i> Registrarse con Facebook
           </button>
-          <button type="button" class="social-btn linkedin" (click)="socialLogin('linkedin')">
-            <i class="fab fa-linkedin-in"></i> Registrarse con LinkedIn
-          </button>
-          <button type="button" class="social-btn github" (click)="socialLogin('github')">
+          <button type="button" class="social-btn github" (click)="firebaseAuth.loginWithGithub()">
             <i class="fab fa-github"></i> Registrarse con GitHub
-          </button>
-          <button type="button" class="social-btn apple" (click)="socialLogin('apple')">
-            <i class="fab fa-apple"></i> Registrarse con Apple
           </button>
         </div>
       </form>
-
     </div>
 
     <!-- Columna derecha: Testimonios -->

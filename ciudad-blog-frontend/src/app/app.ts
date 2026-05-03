@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         const esDashboard = rutasDashboard.some(ruta => url.includes(ruta));
         
         // Ocultar navbar/footer en dashboard
-        this.mostrarLayout = !esDashboard;
+        this.mostrarLayout = !esDashboard && !url.includes('/acceder');
         
         // Mostrar correo y cerrar sesión SOLO en rutas del dashboard
         this.mostrarOpcionesPrivadas = url.includes('/dashboard') ||

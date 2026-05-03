@@ -30,7 +30,7 @@
     "@types/three": "^0.184.0",
     "aos": "^2.3.4",
     "chart.js": "^4.5.1",
-    "firebase": "^12.12.0",
+    "firebase": "^12.12.1",
     "gsap": "^3.14.2",
     "lucide-angular": "^1.0.0",
     "particles.js": "^2.0.0",
