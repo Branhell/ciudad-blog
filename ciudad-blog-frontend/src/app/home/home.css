@@ -429,6 +429,18 @@
   animation: none;
 }
 
+ .logo-ajustado {
+  width: 140px;   /* Ajusta este valor (más pequeño = menos px) */
+  height: auto;   /* Mantiene la proporción */
+}
+
+@media (max-width: 768px) {
+  .logo-ajustado {
+    width: 80px;
+  }
+}
+
+
 @keyframes ecoPulse {
   0% {
     filter: grayscale(1) brightness(1.2) contrast(1.1);
