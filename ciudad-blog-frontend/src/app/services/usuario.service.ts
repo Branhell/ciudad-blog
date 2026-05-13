@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrlUsuarios = 'http://localhost:8080/api/usuarios';
+  private apiUrlUsuarios = 'https://ciudad-blog-production.up.railway.app/api/usuarios';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

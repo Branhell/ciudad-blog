@@ -41,7 +41,7 @@ export class RegistroComponent {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { nombre: this.nombre, email: this.email, password: this.password };
 
-    this.http.post('http://localhost:8080/api/usuarios', body, { headers }).subscribe({
+    this.http.post('https://ciudad-blog-production.up.railway.app/api/usuarios', body, { headers }).subscribe({
       next: () => {
         this.loading = false;
         this.mensaje = '✅ Registro exitoso. Redirigiendo al login...';

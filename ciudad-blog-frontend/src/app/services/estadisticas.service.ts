@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EstadisticasService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://ciudad-blog-production.up.railway.app/api';
 
   constructor(private http: HttpClient) {}
 

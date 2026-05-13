@@ -55,7 +55,7 @@ export class FirebaseAuthService {
   }
 
   private enviarTokenAlBackend(token: string, email: string | null, nombre: string | null) {
-    this.http.post('http://localhost:8080/api/auth/firebase', { token, email, nombre }).subscribe({
+    this.http.post('https://ciudad-blog-production.up.railway.app/api/auth/firebase', { token, email, nombre }).subscribe({
       next: (res: any) => {
         localStorage.setItem('jwtToken', res.token);
         localStorage.setItem('usuarioEmail', email || '');

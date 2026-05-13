@@ -7,7 +7,7 @@ import { Post } from '../models/post.model';
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:8080/api/posts';
+  private apiUrl = 'https://ciudad-blog-production.up.railway.app/api/posts';
 
   constructor(private http: HttpClient) {}
 

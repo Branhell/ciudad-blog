@@ -164,7 +164,7 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const body = { ...this.registerData };
 
-    this.usuarioService['http'].post('http://localhost:8080/api/usuarios', body).subscribe({
+    this.usuarioService['http'].post('https://ciudad-blog-production.up.railway.app/api/usuarios', body).subscribe({
       next: () => {
         this.registerLoading = false;
         this.registerButtonText = 'Registro exitoso';
