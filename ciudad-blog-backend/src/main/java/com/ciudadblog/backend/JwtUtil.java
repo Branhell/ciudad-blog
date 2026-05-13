@@ -5,14 +5,16 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.security.Key;
 import java.util.Date;
 
 @Component
 public class JwtUtil {
-
-    private final String SECRET_KEY = "MiClaveSuperSecreta123!MiClaveSuperSecreta123!"; // 256-bit para HS256
+	
+	@Value("${jwt.secret}")
+	private String SECRET_KEY;
     private final long EXPIRATION_TIME = 3600000; // 1 hora
 
     private Key getSigningKey() {

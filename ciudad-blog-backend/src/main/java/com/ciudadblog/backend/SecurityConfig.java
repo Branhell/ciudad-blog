@@ -12,6 +12,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.List;
+import org.springframework.http.HttpMethod;
 
 @Configuration
 @EnableWebSecurity
@@ -28,12 +29,15 @@ public class SecurityConfig {
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/usuarios/login").permitAll()
-                .requestMatchers("/api/usuarios").permitAll()
-                .requestMatchers("/api/posts").permitAll()
-                .requestMatchers("/api/posts/**").permitAll()
-				.requestMatchers("/api/auth/firebase").permitAll()
-                .anyRequest().authenticated()
+			.requestMatchers("/api/usuarios/login").permitAll()
+			.requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
+			.requestMatchers("/api/auth/firebase").permitAll()
+			.requestMatchers(HttpMethod.GET, "/api/posts").permitAll()
+			.requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
+			.requestMatchers(HttpMethod.POST, "/api/posts").authenticated()
+			.requestMatchers(HttpMethod.PUT, "/api/posts/**").authenticated()
+			.requestMatchers(HttpMethod.DELETE, "/api/posts/**").authenticated()
+			.anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
