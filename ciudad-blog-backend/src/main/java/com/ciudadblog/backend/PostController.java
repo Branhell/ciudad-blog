@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200") // 👈 habilita CORS para este controlador
+
 @RestController
 
 @RequestMapping("/api/posts")
