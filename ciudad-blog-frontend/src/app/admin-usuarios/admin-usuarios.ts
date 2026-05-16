@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const API = 'https://ciudad-blog-production.up.railway.app/api/usuarios';
 
 @Component({
   selector: 'app-admin-usuarios',
@@ -10,16 +13,63 @@ import { RouterLink } from '@angular/router';
   styleUrl: './admin-usuarios.css'
 })
 export class AdminUsuariosComponent implements OnInit {
-  usuarios = [
-    { id: 1, nombre: 'Juan Pérez', email: 'test@gmail.com', rol: 'PACIENTE', fechaRegistro: '2025-03-01' },
-    { id: 2, nombre: 'Laura Martínez', email: 'laura.martinez@ecobits.com', rol: 'ADMIN', fechaRegistro: '2025-02-15' },
-    { id: 3, nombre: 'Carlos Herrera', email: 'carlos.herrera@ecobits.com', rol: 'PROFESIONAL', fechaRegistro: '2025-02-20' },
-    { id: 4, nombre: 'Ana Sofía Ríos', email: 'ana.rios@ecobits.com', rol: 'PACIENTE', fechaRegistro: '2025-03-10' },
-    { id: 5, nombre: 'Sebastián Torres', email: 'sebastian.torres@ecobits.com', rol: 'PACIENTE', fechaRegistro: '2025-03-15' },
-    { id: 6, nombre: 'Valentina Cruz', email: 'valentina.cruz@ecobits.com', rol: 'PACIENTE', fechaRegistro: '2025-03-20' }
-  ];
+  usuarios: any[] = [];
+  solicitudes: any[] = [];
+  vistaActiva: string = 'usuarios';
+  cargando: boolean = false;
+  mensaje: string = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.cargarUsuarios();
+    this.cargarSolicitudes();
+  }
+
+  getHeaders() {
+    const token = localStorage.getItem('jwtToken');
+    return new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+  }
+
+  cargarUsuarios(): void {
+    this.cargando = true;
+    this.http.get<any[]>(API, { headers: this.getHeaders() }).subscribe({
+      next: (data) => { this.usuarios = data; this.cargando = false; },
+      error: () => { this.cargando = false; }
+    });
+  }
+
+  cargarSolicitudes(): void {
+    this.http.get<any[]>(`${API}/solicitudes-pendientes`, { headers: this.getHeaders() }).subscribe({
+      next: (data) => { this.solicitudes = data; },
+      error: () => {}
+    });
+  }
+
+  aprobar(id: number): void {
+    this.http.put(`${API}/aprobar-profesional/${id}`, {}, { headers: this.getHeaders() }).subscribe({
+      next: () => {
+        this.mensaje = '✅ Usuario aprobado como profesional';
+        this.cargarUsuarios();
+        this.cargarSolicitudes();
+        setTimeout(() => this.mensaje = '', 3000);
+      },
+      error: () => { this.mensaje = '❌ Error al aprobar'; }
+    });
+  }
+
+  rechazar(id: number): void {
+    this.http.put(`${API}/rechazar-solicitud/${id}`, {}, { headers: this.getHeaders() }).subscribe({
+      next: () => {
+        this.mensaje = 'Solicitud rechazada';
+        this.cargarSolicitudes();
+        setTimeout(() => this.mensaje = '', 3000);
+      },
+      error: () => { this.mensaje = '❌ Error al rechazar'; }
+    });
+  }
+
+  cambiarVista(vista: string): void {
+    this.vistaActiva = vista;
+  }
 }
