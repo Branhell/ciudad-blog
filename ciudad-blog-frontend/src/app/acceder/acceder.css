@@ -659,3 +659,114 @@
 #particles-js canvas {
   filter: blur(0.3px) brightness(1.2);
 }
+
+/* ===== SELECCIÓN DE ROL ===== */
+.seleccion-rol-container {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.rol-titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FFB703;
+  margin-bottom: 8px;
+}
+
+.rol-subtitulo {
+  color: #aaa;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.rol-opciones {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rol-btn {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,183,3,0.3);
+  border-radius: 16px;
+  padding: 30px 24px;
+  width: 180px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-align: center;
+}
+
+.rol-btn:hover {
+  border-color: #FFB703;
+  background: rgba(255,183,3,0.1);
+  transform: translateY(-4px);
+}
+
+.rol-btn i {
+  font-size: 2.5rem;
+  color: #FFB703;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.rol-btn h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.rol-btn p {
+  font-size: 0.8rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.rol-btn.profesional:hover {
+  border-color: #4ECDC4;
+}
+
+.rol-btn.profesional i {
+  color: #4ECDC4;
+}
+
+.solicitud-enviada {
+  padding: 30px;
+}
+
+.solicitud-enviada i {
+  font-size: 4rem;
+  color: #4ECDC4;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.solicitud-enviada h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.solicitud-enviada p {
+  color: #aaa;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.btn-ir-login {
+  background: linear-gradient(135deg, #FFB703, #E69500);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 32px;
+  color: #1A1A1A;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-ir-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,183,3,0.4);
+}

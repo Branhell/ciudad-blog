@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../services/usuario.service';
 import { AuthService } from '../services/auth.service';
 import { FirebaseAuthService } from '../services/firebase-auth';
+import { HttpClient } from '@angular/common/http';
 
 declare var particlesJS: any;
 
@@ -18,6 +19,9 @@ declare var particlesJS: any;
 export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
 
   modoActivo: string = 'login';
+  mostrarSeleccionRol: boolean = false;
+  usuarioRegistradoId: number | null = null;
+  solicitudEnviada: boolean = false;
 
   loginButtonText: string = 'Iniciar sesión';
   loginError: boolean = false;
@@ -41,24 +45,9 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
   modalSuccess: boolean = false;
 
   testimonios = [
-    {
-      imagen: 'https://randomuser.me/api/portraits/women/68.jpg',
-      nombre: 'María González',
-      rol: 'Paciente',
-      texto: 'OpenPsy me ha ayudado a entender mi relación con la tecnología.'
-    },
-    {
-      imagen: 'https://randomuser.me/api/portraits/men/32.jpg',
-      nombre: 'Carlos Rodríguez',
-      rol: 'Psicólogo',
-      texto: 'Plataforma segura para conectar con pacientes.'
-    },
-    {
-      imagen: 'https://randomuser.me/api/portraits/women/45.jpg',
-      nombre: 'Ana Lucía',
-      rol: 'Paciente',
-      texto: 'La comunidad me ha hecho sentir acompañada.'
-    }
+    { imagen: 'https://randomuser.me/api/portraits/women/68.jpg', nombre: 'María González', rol: 'Paciente', texto: 'OpenPsy me ha ayudado a entender mi relación con la tecnología.' },
+    { imagen: 'https://randomuser.me/api/portraits/men/32.jpg', nombre: 'Carlos Rodríguez', rol: 'Psicólogo', texto: 'Plataforma segura para conectar con pacientes.' },
+    { imagen: 'https://randomuser.me/api/portraits/women/45.jpg', nombre: 'Ana Lucía', rol: 'Paciente', texto: 'La comunidad me ha hecho sentir acompañada.' }
   ];
 
   indiceTestimonio: number = 0;
@@ -68,22 +57,13 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private usuarioService: UsuarioService,
     private authService: AuthService,
-	public firebaseAuth: FirebaseAuthService
+    public firebaseAuth: FirebaseAuthService,
+    private http: HttpClient
   ) {}
 
-  ngOnInit(): void {
-    this.iniciarAutoplay();
-  }
-
-  ngAfterViewInit(): void {
-    this.iniciarParticles();
-  }
-
-  ngOnDestroy(): void {
-    if (this.intervaloTestimonio) {
-      clearInterval(this.intervaloTestimonio);
-    }
-  }
+  ngOnInit(): void { this.iniciarAutoplay(); }
+  ngAfterViewInit(): void { this.iniciarParticles(); }
+  ngOnDestroy(): void { if (this.intervaloTestimonio) clearInterval(this.intervaloTestimonio); }
 
   iniciarParticles(): void {
     if (typeof particlesJS !== 'undefined') {
@@ -114,32 +94,20 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
       setTimeout(() => this.loginError = false, 3000);
       return;
     }
-
     this.loginLoading = true;
     this.mostrarSocialButtons = false;
     this.loginButtonText = 'Autenticando...';
-
     this.usuarioService.login(this.loginData.email, this.loginData.password).subscribe({
       next: (res: any) => {
         this.loginLoading = false;
         this.loginButtonText = 'Ingreso exitoso';
-
         const nombreUsuario = res.nombre || this.loginData.email.split('@')[0];
         localStorage.setItem('usuarioNombre', nombreUsuario);
-
-        if (res.id) {
-          localStorage.setItem('usuarioId', res.id.toString());
-        }
-
-        // ✅ Mantener el avatar existente si no viene del backend
+        if (res.id) localStorage.setItem('usuarioId', res.id.toString());
         const avatarExistente = localStorage.getItem('usuarioAvatar');
         const avatarFinal = res.avatarUrl || avatarExistente;
-
         this.authService.login(this.loginData.email, res.token, res.rol, avatarFinal);
-
-        setTimeout(() => {
-          this.router.navigate(['/dashboard']);
-        }, 1500);
+        setTimeout(() => { this.router.navigate(['/dashboard']); }, 1500);
       },
       error: (err: any) => {
         this.loginLoading = false;
@@ -158,19 +126,19 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
       this.registerMensajeError = 'Completa todos los campos';
       return;
     }
-
     this.registerLoading = true;
     this.registerButtonText = 'Registrando...';
-
     const body = { ...this.registerData };
-
-    this.usuarioService['http'].post('https://ciudad-blog-production.up.railway.app/api/usuarios', body).subscribe({
-      next: () => {
+    this.http.post<any>('https://ciudad-blog-production.up.railway.app/api/usuarios', body).subscribe({
+      next: (res: any) => {
         this.registerLoading = false;
         this.registerButtonText = 'Registro exitoso';
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 1500);
+        // Obtener el ID del usuario registrado
+        this.http.get<any[]>('https://ciudad-blog-production.up.railway.app/api/usuarios').subscribe(usuarios => {
+          const usuario = usuarios.find(u => u.email === this.registerData.email);
+          if (usuario) this.usuarioRegistradoId = usuario.id;
+          setTimeout(() => { this.mostrarSeleccionRol = true; }, 1000);
+        });
       },
       error: (err: any) => {
         this.registerLoading = false;
@@ -181,43 +149,29 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  abrirModalRecuperar(): void {
-    this.mostrarModalRecuperar = true;
+  seleccionarRol(rol: string): void {
+    if (rol === 'PACIENTE') {
+      this.router.navigate(['/acceder']);
+      this.mostrarSeleccionRol = false;
+      this.modoActivo = 'login';
+    } else if (rol === 'PROFESIONAL' && this.usuarioRegistradoId) {
+      this.http.post(
+        `https://ciudad-blog-production.up.railway.app/api/usuarios/solicitar-profesional?usuarioId=${this.usuarioRegistradoId}`,
+        {}
+      ).subscribe({
+        next: () => { this.solicitudEnviada = true; },
+        error: () => { this.solicitudEnviada = true; }
+      });
+    }
   }
 
-  cerrarModal(): void {
-    this.mostrarModalRecuperar = false;
-  }
-
-  enviarRecuperacion(): void {
-    this.modalMensaje = 'Enviado (demo)';
-    this.modalSuccess = true;
-    setTimeout(() => this.cerrarModal(), 2000);
-  }
-
-  socialLogin(provider: string): void {
-    alert(`Login con ${provider} pendiente`);
-  }
-
-  iniciarAutoplay(): void {
-    this.intervaloTestimonio = setInterval(() => {
-      this.testimonioSiguiente();
-    }, 5000);
-  }
-
-  testimonioSiguiente(): void {
-    this.indiceTestimonio = (this.indiceTestimonio + 1) % this.testimonios.length;
-  }
-
-  testimonioAnterior(): void {
-    this.indiceTestimonio = (this.indiceTestimonio - 1 + this.testimonios.length) % this.testimonios.length;
-  }
-
-  irTestimonio(index: number): void {
-    this.indiceTestimonio = index;
-  }
-
-  cambiarModo(modo: string): void {
-    this.modoActivo = modo;
-  }
+  abrirModalRecuperar(): void { this.mostrarModalRecuperar = true; }
+  cerrarModal(): void { this.mostrarModalRecuperar = false; }
+  enviarRecuperacion(): void { this.modalMensaje = 'Enviado (demo)'; this.modalSuccess = true; setTimeout(() => this.cerrarModal(), 2000); }
+  socialLogin(provider: string): void { alert(`Login con ${provider} pendiente`); }
+  iniciarAutoplay(): void { this.intervaloTestimonio = setInterval(() => { this.testimonioSiguiente(); }, 5000); }
+  testimonioSiguiente(): void { this.indiceTestimonio = (this.indiceTestimonio + 1) % this.testimonios.length; }
+  testimonioAnterior(): void { this.indiceTestimonio = (this.indiceTestimonio - 1 + this.testimonios.length) % this.testimonios.length; }
+  irTestimonio(index: number): void { this.indiceTestimonio = index; }
+  cambiarModo(modo: string): void { this.modoActivo = modo; }
 }

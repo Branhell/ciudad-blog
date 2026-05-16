@@ -77,6 +77,32 @@
         </div>
       </form>
 
+      <!-- SELECCIÓN DE ROL -->
+      <div *ngIf="mostrarSeleccionRol" class="seleccion-rol-container">
+        <div *ngIf="!solicitudEnviada">
+          <h2 class="rol-titulo">¿Cómo quieres usar OPSY?</h2>
+          <p class="rol-subtitulo">Elige tu perfil para personalizar tu experiencia</p>
+          <div class="rol-opciones">
+            <button class="rol-btn paciente" (click)="seleccionarRol('PACIENTE')">
+              <i class="fas fa-heart"></i>
+              <h3>Soy Paciente</h3>
+              <p>Busco apoyo psicológico y bienestar digital</p>
+            </button>
+            <button class="rol-btn profesional" (click)="seleccionarRol('PROFESIONAL')">
+              <i class="fas fa-user-md"></i>
+              <h3>Soy Profesional</h3>
+              <p>Soy psicólogo o profesional de la salud mental</p>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="solicitudEnviada" class="solicitud-enviada">
+          <i class="fas fa-check-circle"></i>
+          <h3>¡Solicitud enviada!</h3>
+          <p>Tu solicitud como profesional está en revisión. Un administrador la aprobará pronto.</p>
+          <button class="btn-ir-login" (click)="modoActivo = 'login'; mostrarSeleccionRol = false">Ir al login</button>
+        </div>
+      </div>
+
       <!-- FORMULARIO DE REGISTRO -->
       <form *ngIf="modoActivo === 'registro'" #registerForm="ngForm" (ngSubmit)="onRegister()" class="form-acceder" novalidate>
         <div class="input-group">
