@@ -133,12 +133,8 @@ export class AccederComponent implements OnInit, OnDestroy, AfterViewInit {
       next: (res: any) => {
         this.registerLoading = false;
         this.registerButtonText = 'Registro exitoso';
-        // Obtener el ID del usuario registrado
-        this.http.get<any[]>('https://ciudad-blog-production.up.railway.app/api/usuarios').subscribe(usuarios => {
-          const usuario = usuarios.find(u => u.email === this.registerData.email);
-          if (usuario) this.usuarioRegistradoId = usuario.id;
-          setTimeout(() => { this.mostrarSeleccionRol = true; }, 1000);
-        });
+        if (res.id) this.usuarioRegistradoId = res.id;
+        setTimeout(() => { this.mostrarSeleccionRol = true; }, 1000);
       },
       error: (err: any) => {
         this.registerLoading = false;

@@ -46,7 +46,8 @@ public class UsuarioController {
             nuevoUsuario.setRol("PACIENTE");
         }
 
-        usuarioRepository.save(nuevoUsuario);
+        Usuario usuarioGuardado = usuarioRepository.save(nuevoUsuario);
+        response.put("id", String.valueOf(usuarioGuardado.getId()));
         response.put("mensaje", "Usuario registrado correctamente");
         return ResponseEntity.ok(response);
     }
