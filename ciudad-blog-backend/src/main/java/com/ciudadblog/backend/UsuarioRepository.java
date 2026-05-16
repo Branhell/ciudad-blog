@@ -20,4 +20,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     // Buscar usuarios registrados antes de cierta fecha
     List<Usuario> findByFechaRegistroBefore(LocalDateTime fecha);
+	List<Usuario> findBySolicitudProfesionalTrue();
 }

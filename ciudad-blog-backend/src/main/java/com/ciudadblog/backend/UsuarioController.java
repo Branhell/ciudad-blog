@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -96,4 +97,66 @@ public class UsuarioController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
 		}
 	}
+    // Usuario solicita ser profesional
+    @PostMapping("/solicitar-profesional")
+    public ResponseEntity<?> solicitarProfesional(@RequestParam Long usuarioId) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
+        
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        Usuario usuario = usuarioOpt.get();
+        
+        if (usuario.getSolicitudProfesional() != null && usuario.getSolicitudProfesional()) {
+            return ResponseEntity.badRequest().body("Ya tienes una solicitud pendiente");
+        }
+        
+        usuario.setSolicitudProfesional(true);
+        usuario.setSolicitudFecha(LocalDateTime.now());
+        usuarioRepository.save(usuario);
+        
+        return ResponseEntity.ok("Solicitud enviada. Espera la aprobación de un administrador.");
+    }
+
+    // ADMIN: Ver solicitudes pendientes
+    @GetMapping("/solicitudes-pendientes")
+    public ResponseEntity<List<Usuario>> getSolicitudesPendientes() {
+        List<Usuario> solicitantes = usuarioRepository.findBySolicitudProfesionalTrue();
+        return ResponseEntity.ok(solicitantes);
+    }
+
+    // ADMIN: Aprobar solicitud
+    @PutMapping("/aprobar-profesional/{usuarioId}")
+    public ResponseEntity<?> aprobarProfesional(@PathVariable Long usuarioId) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
+        
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        Usuario usuario = usuarioOpt.get();
+        usuario.setRol("PROFESIONAL");
+        usuario.setSolicitudProfesional(false);
+        usuarioRepository.save(usuario);
+        
+        return ResponseEntity.ok("Usuario aprobado como profesional");
+    }
+
+    // ADMIN: Rechazar solicitud
+    @PutMapping("/rechazar-solicitud/{usuarioId}")
+    public ResponseEntity<?> rechazarSolicitud(@PathVariable Long usuarioId) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
+        
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        Usuario usuario = usuarioOpt.get();
+        usuario.setSolicitudProfesional(false);
+        usuario.setSolicitudFecha(null);
+        usuarioRepository.save(usuario);
+        
+        return ResponseEntity.ok("Solicitud rechazada");
+    }
 }
