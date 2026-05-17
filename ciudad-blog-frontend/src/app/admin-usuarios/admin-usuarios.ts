@@ -35,7 +35,7 @@ export class AdminUsuariosComponent implements OnInit {
     this.cargando = true;
     this.http.get<any[]>(API, { headers: this.getHeaders() }).subscribe({
       next: (data) => { this.usuarios = data; this.cargando = false; },
-      error: () => { this.cargando = false; }
+      error: () => { this.cargando = false; this.mensaje = ''; }
     });
   }
 
@@ -54,7 +54,7 @@ export class AdminUsuariosComponent implements OnInit {
         this.cargarSolicitudes();
         setTimeout(() => this.mensaje = '', 3000);
       },
-      error: () => { this.mensaje = '❌ Error al aprobar'; }
+      error: () => { this.cargarSolicitudes(); this.cargarUsuarios(); }
     });
   }
 
