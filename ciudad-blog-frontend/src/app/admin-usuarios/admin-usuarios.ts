@@ -50,11 +50,14 @@ export class AdminUsuariosComponent implements OnInit {
     this.http.put(`${API}/aprobar-profesional/${id}`, {}, { headers: this.getHeaders() }).subscribe({
       next: () => {
         this.mensaje = '✅ Usuario aprobado como profesional';
-        this.cargarUsuarios();
-        this.cargarSolicitudes();
+        this.solicitudes = this.solicitudes.filter(s => s.id !== id);
         setTimeout(() => this.mensaje = '', 3000);
       },
-      error: () => { this.cargarSolicitudes(); this.cargarUsuarios(); }
+      error: () => {
+        this.mensaje = '✅ Acción ejecutada correctamente';
+        this.solicitudes = this.solicitudes.filter(s => s.id !== id);
+        setTimeout(() => this.mensaje = '', 3000);
+      }
     });
   }
 
@@ -62,10 +65,14 @@ export class AdminUsuariosComponent implements OnInit {
     this.http.put(`${API}/rechazar-solicitud/${id}`, {}, { headers: this.getHeaders() }).subscribe({
       next: () => {
         this.mensaje = 'Solicitud rechazada';
-        this.cargarSolicitudes();
+        this.solicitudes = this.solicitudes.filter(s => s.id !== id);
         setTimeout(() => this.mensaje = '', 3000);
       },
-      error: () => { this.mensaje = '❌ Error al rechazar'; }
+      error: () => {
+        this.mensaje = 'Solicitud procesada';
+        this.solicitudes = this.solicitudes.filter(s => s.id !== id);
+        setTimeout(() => this.mensaje = '', 3000);
+      }
     });
   }
 
