@@ -32,6 +32,7 @@ public class SecurityConfig {
 			.requestMatchers("/api/usuarios/login").permitAll()
 			.requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
 			.requestMatchers("/api/auth/firebase").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/usuarios/solicitar-profesional").permitAll()
 			.requestMatchers(HttpMethod.GET, "/api/posts").permitAll()
 			.requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
 			.requestMatchers(HttpMethod.POST, "/api/posts").authenticated()
